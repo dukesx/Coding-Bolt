@@ -30,6 +30,14 @@ const Abc = (props) => {
                     </button>
                 </div>
             ))}
+
+            <div style={{
+                position: "relative",
+                paddingTop: "125%"
+            }}><iframe src="https://iframe.mediadelivery.net/embed/1448/e1e9fbb7-0f29-4197-bbf5-8bc92bde438c?autoplay=true" loading="lazy" style={{
+                border: "none", position: "absolute", top: 0, height: "600px", width: "600px"
+            }} allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe></div>
+
         </>
     );
 };

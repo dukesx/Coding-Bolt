@@ -28,6 +28,7 @@
     "@egjs/react-flicking": "^3.6.0",
     "@hcaptcha/react-hcaptcha": "^0.3.5",
     "@next/bundle-analyzer": "^10.0.8",
+    "@prisma/client": "^2.19.0",
     "@tailwindcss/typography": "^0.4.0",
     "@tinymce/tinymce-react": "^3.10.4",
     "antd": "^4.14.0",
@@ -95,5 +96,8 @@
   "bugs": {
     "url": "https://github.com/dukesx/Wow-Writes/issues"
   },
-  "homepage": "https://github.com/dukesx/Wow-Writes#readme"
+  "homepage": "https://github.com/dukesx/Wow-Writes#readme",
+  "devDependencies": {
+    "prisma": "^2.19.0"
+  }
 }
