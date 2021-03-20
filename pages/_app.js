@@ -13,6 +13,7 @@ import "lib/plugins/unsplash/style.css";
 import "styles/custom.scss";
 // import withDarkMode, { useDarkMode } from "next-dark-mode";
 import useDarkMode from 'use-dark-mode';
+import initAuth from "lib/initAuth";
 
 const themes = {
   dark: `/dark-theme.css`,
@@ -20,6 +21,8 @@ const themes = {
 };
 
 const store = createStore(Global);
+
+initAuth();
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
 
@@ -44,9 +47,9 @@ function MyApp({ Component, pageProps }) {
       >
         <StoreProvider store={store}>
           <ApolloProvider client={apolloClient}>
-            <Provider session={pageProps.session}>
-              <Component {...pageProps} />
-            </Provider>
+            {/* <Provider session={pageProps.session}> */}
+            <Component {...pageProps} />
+            {/* </Provider> */}
           </ApolloProvider>
         </StoreProvider>
       </ThemeSwitcherProvider>
