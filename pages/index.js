@@ -1,77 +1,89 @@
-import { useSession, getSession, providers, signIn } from 'next-auth/client';
-import { useQuery, gql } from "@apollo/client";
-import { initializeApollo, addApolloState, token, startServer } from '../lib/apolloClient'
 import {
-  useAuthUser,
-  withAuthUser,
-  withAuthUserTokenSSR,
+    useAuthUser,
+    withAuthUser,
+    withAuthUserTokenSSR
 } from 'next-firebase-auth';
-const getUsersQuery = gql`
-query MyQuery {
-    sample {
-    id
-  }
-}
-`;
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import SigninWithGoogle from 'components/loginHandlers/google';
+import firebase from 'firebase';
+import { useEffect, useState } from 'react';
+import { Modal } from 'antd';
 
+let firebaseui;
+const config = {
+    apiKey: 'AIzaSyAeue-AsYu76MMQlTOM-KlbYBlusW9c1FM',
+    authDomain: 'myproject-1234.firebaseapp.com'
+    // ...
+};
+
+// Configure FirebaseUI.
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
 
 const Abc = (props) => {
     const AuthUser = useAuthUser();
-    // As this page uses Server Side Rendering, the `session` will be already
-    // populated on render without needing to go through a loading stage.
-    // This is possible because of the shared context configured in `_app.js` that
-    // is used by `useSession()`.
-    const [session, loading] = useSession();
-    // const { data: userData, error } = useQuery(getUsersQuery);
+    const [modal, setModal] = useState(false);
+    useEffect(() => {
+        if (firebase.apps.length) {
+            var firebaseui = require('firebaseui');
 
+            var ui =
+                firebaseui.auth.AuthUI.getInstance() ||
+                new firebaseui.auth.AuthUI(firebase.auth());
+            // The start method will wait until the DOM is loaded.
+            const uiConfig = {
+                // Popup signin flow rather than redirect flow.
+                signInFlow: 'popup',
+                // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+                // We will display Google and Facebook as auth providers.
+                signInOptions: [
+                    {
+                        provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 
+                        // Google provider must be enabled in Firebase Console to support one-tap
+                        // sign-up.
+                        // Required to enable ID token credentials for this provider.
+                        // This can be obtained from the Credentials page of the Google APIs
+                        // console. Use the same OAuth client ID used for the Google provider
+                        // configured with GCIP or Firebase Auth.
+                        clientId:
+                            '963385239831-0fkb07g5dpsb5n6kmfbv77o5e9120mk2.apps.googleusercontent.com'
+                    }
+                ],
+                callbacks: {
+                    // Avoid redirects after sign-in.
+                    signInSuccessWithAuthResult: () => {
+                        setModal(false);
+                        return false;
+                    }
+                },
+                credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
+            };
 
+            if (!AuthUser.id) {
+                ui.start('#firebase-ui', uiConfig);
+
+            }
+            ui.disableAutoSignIn();
+        }
+    });
     return (
         <>
-            {/* {Object.values(props.pro).map((provider) => (
-                <div key={provider.name}>
-                    <button onClick={() => signIn(provider.id)}>
-                        Sign in with {provider.name}
-                    </button>
-                </div>
-            ))}
+            <p>Your email is {AuthUser.email ? AuthUser.email : 'unknown'}.</p>
+            <p>
+                <button onClick={AuthUser.signOut}>SignOut</button>
+            </p>
+            {/* <StyledFirebaseAuth Callback={ui => Object.assign(uiConfig, {
+                credentialHelper: ui.auth.CredentialHelper.GOOGLE_YOLO
+            })} uiConfig={uiConfig} firebaseAuth={firebase.auth()} /> */}
 
-            <div style={{
-                position: "relative",
-                paddingTop: "125%"
-            }}><iframe src="https://iframe.mediadelivery.net/embed/1448/e1e9fbb7-0f29-4197-bbf5-8bc92bde438c?autoplay=true" loading="lazy" style={{
-                border: "none", position: "absolute", top: 0, height: "600px", width: "600px"
-            }} allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe></div> */}
-<p>Your email is {AuthUser.email ? AuthUser.email : "unknown"}.</p>
+            <div id="firebase-ui" style={{ visibility: "hidden" }} />
         </>
     );
 };
 
-export default withAuthUser()(Abc)
+export default withAuthUser()(Abc);
 
-
-// export async function getServerSideProps(ctx) {
-//     const session1 = await getSession(ctx);
-//     startServer(session1);
-//     // const apolloClient = initializeApollo();
-
-//     // await apolloClient.query({
-//     //     query: getUsersQuery
-//     // })
-
-//     // return addApolloState(apolloClient, {
-//     //     props: {
-//     //         session: session1,
-//     //         pro: await providers()
-//     //     }
-//     // });
-//     return {
-//         props: {
-//             session: await getSession(ctx),
-//             pro: await providers()
-//         }
-//     }
-// }
-
-export const getServerSideProps = withAuthUserTokenSSR()()
-
+export const getServerSideProps = withAuthUserTokenSSR()();

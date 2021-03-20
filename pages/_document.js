@@ -46,6 +46,8 @@ class MyDocument extends Document {
 
           <Main />
           <NextScript />
+          <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+
         </body>
       </Html>
     );

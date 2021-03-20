@@ -6,7 +6,6 @@ import { useApollo } from "../lib/apolloClient";
 import { createStore, StoreProvider } from "easy-peasy";
 import { Global } from "../store/global";
 import "remixicon/fonts/remixicon.css";
-import { Provider } from "next-auth/client";
 import { ThemeSwitcherProvider } from "react-css-theme-switcher";
 import "lib/plugins/embeds/style.css";
 import "lib/plugins/unsplash/style.css";
@@ -47,9 +46,7 @@ function MyApp({ Component, pageProps }) {
       >
         <StoreProvider store={store}>
           <ApolloProvider client={apolloClient}>
-            {/* <Provider session={pageProps.session}> */}
             <Component {...pageProps} />
-            {/* </Provider> */}
           </ApolloProvider>
         </StoreProvider>
       </ThemeSwitcherProvider>
