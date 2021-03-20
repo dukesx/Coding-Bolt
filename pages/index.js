@@ -35,9 +35,43 @@ const Abc = (props) => {
           },
         ],
         callbacks: {
-          signInSuccessWithAuthResult: () => {
-            setModal(false);
-            return false;
+          signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+            console.log(authResult.user.uid);
+            fetch('/api/flutter-auth/find', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json',
+                accept: 'application/json',
+              },
+              body: JSON.stringify({
+                rand_id: authResult.user.uid,
+              }),
+            }).then((res) =>
+              res.json().then((reso) => {
+                if (reso.success) {
+                } else {
+                  fetch('/api/flutter-auth/create', {
+                    method: 'POST',
+                    headers: {
+                      'content-type': 'application/json',
+                      accept: 'application/json',
+                    },
+                    body: JSON.stringify({
+                      auth: 'Google',
+                      username: authResult.user.email.split('@')[0],
+                      email: authResult.user.email,
+                      rand_id: authResult.user.uid,
+                      name: authResult.user.displayName,
+                    }),
+                  }).then((res) =>
+                    res.json().then((reso) => {
+                      setModal(false);
+                      return false;
+                    })
+                  );
+                }
+              })
+            );
           },
         },
         credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
