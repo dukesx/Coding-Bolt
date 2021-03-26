@@ -89,7 +89,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dukesx/Wow-Writes.git"
+    "url": "git+https://github.com/dukesx/Coding-Bolt.git"
   },
   "keywords": [
     "cms",
@@ -99,9 +99,9 @@
   "author": "Afridi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dukesx/Wow-Writes/issues"
+    "url": "https://github.com/dukesx/Coding-Bolt/issues"
   },
-  "homepage": "https://github.com/dukesx/Wow-Writes#readme",
+  "homepage": "https://github.com/dukesx/Coding-Bolt#readme",
   "devDependencies": {
     "prisma": "^2.19.0"
   }
