@@ -5,6 +5,7 @@ import {
 } from 'next-firebase-auth';
 import firebase from 'firebase';
 import { useEffect, useState } from 'react';
+import Wrapper from 'components/global/wrapper';
 
 const config = {
   apiKey: 'AIzaSyAeue-AsYu76MMQlTOM-KlbYBlusW9c1FM',
@@ -91,14 +92,14 @@ const Abc = (props) => {
     }
   });
   return (
-    <>
+    <Wrapper>
       <p>Your email is {AuthUser.email ? AuthUser.email : 'unknown'}.</p>
       <p>
         <button onClick={AuthUser.signOut}>SignOut</button>
       </p>
       <p className="w-3/6 p-5 m-10 overflow-x-scroll h-60">{token}</p>
       <div id="firebase-ui" style={{ visibility: 'hidden' }} />
-    </>
+    </Wrapper>
   );
 };
 
