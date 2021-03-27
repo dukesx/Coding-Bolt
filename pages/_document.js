@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -38,16 +38,20 @@ class MyDocument extends Document {
               height="0"
               width="0"
               style={{
-                visibility: "none",
-                display: "hidden",
+                visibility: 'none',
+                display: 'hidden',
               }}
             ></iframe>
           </noscript>
 
           <Main />
+          <div id="firebase-ui" style={{ visibility: 'hidden' }} />
           <NextScript />
-          <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
-
+          <link
+            type="text/css"
+            rel="stylesheet"
+            href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"
+          />
         </body>
       </Html>
     );

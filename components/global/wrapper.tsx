@@ -1,16 +1,71 @@
 import React, { ReactChild, ReactChildren } from 'react';
-import { Layout, Menu, Breadcrumb, Typography } from 'antd';
+import { Layout, Menu, Breadcrumb, Typography, Button } from 'antd';
 import { useThemeSwitcher } from 'react-css-theme-switcher';
 import useDarkMode from 'use-dark-mode';
+import { useAuthUser, withAuthUser } from 'next-firebase-auth';
+import firebase from 'firebase/app';
+import { EffectCallback, useEffect, useState } from 'react';
 
 const { Header, Footer, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Title, Text } = Typography;
-export default function Wrapper(props: any) {
+const config = {
+  apiKey: 'AIzaSyAeue-AsYu76MMQlTOM-KlbYBlusW9c1FM',
+  authDomain: 'myproject-1234.firebaseapp.com',
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
+const Wrapper = (props: any) => {
+  const AuthUser = useAuthUser();
   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
   const { toggle } = useDarkMode(false, {
     classNameDark: 'dark',
     classNameLight: 'light',
+  });
+  const [token, setToken] = useState(props.token ? props.token : null);
+
+  useEffect(() => {
+    if (firebase.apps.length) {
+      var firebaseui = require('firebaseui');
+      var ui =
+        firebaseui.auth.AuthUI.getInstance() ||
+        new firebaseui.auth.AuthUI(firebase.auth());
+      const uiConfig = {
+        signInFlow: 'popup',
+        signInOptions: [
+          {
+            provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            clientId:
+              '963385239831-0fkb07g5dpsb5n6kmfbv77o5e9120mk2.apps.googleusercontent.com',
+          },
+        ],
+        callbacks: {
+          signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+            setToken(authResult.credential.idToken);
+          },
+        },
+        credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
+      };
+
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          (async () => {
+            const tokener = await user.getIdToken();
+            setToken(tokener);
+          })();
+        } else {
+          setToken(null);
+        }
+      });
+
+      if (!token) {
+        ui.start('#firebase-ui', uiConfig);
+      }
+
+      ui.disableAutoSignIn();
+    }
   });
   return (
     <Layout>
@@ -99,7 +154,9 @@ export default function Wrapper(props: any) {
               minHeight: 200,
             }}
           >
+            <p className="w-3/6 p-5 m-10 overflow-x-scroll h-60">{token}</p>
             {props.children}
+            <Button onClick={() => firebase.auth().signOut()}>Sign Out</Button>
           </Content>
         </Layout>
       </Content>
@@ -108,4 +165,6 @@ export default function Wrapper(props: any) {
       </Footer>
     </Layout>
   );
-}
+};
+
+export default withAuthUser()(Wrapper);
