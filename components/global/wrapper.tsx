@@ -1,10 +1,11 @@
-import React, { ReactChild, ReactChildren } from 'react';
-import { Layout, Menu, Breadcrumb, Typography, Button } from 'antd';
+import React, { FunctionComponent } from 'react';
+import { Layout, Menu, Typography, Button, Modal } from 'antd';
 import { useThemeSwitcher } from 'react-css-theme-switcher';
 import useDarkMode from 'use-dark-mode';
-import { useAuthUser, withAuthUser } from 'next-firebase-auth';
 import firebase from 'firebase/app';
-import { EffectCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { WrapperProps } from 'lib/models/typescript/definitions';
+import Nav from './nav';
 
 const { Header, Footer, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -17,14 +18,18 @@ const config = {
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
-const Wrapper = (props: any) => {
-  const AuthUser = useAuthUser();
-  const { switcher, themes, currentTheme, status } = useThemeSwitcher();
+
+const Wrapper: FunctionComponent<WrapperProps> = ({
+  tokener,
+  children,
+  route,
+}) => {
+  const { themes, currentTheme } = useThemeSwitcher();
   const { toggle } = useDarkMode(false, {
     classNameDark: 'dark',
     classNameLight: 'light',
   });
-  const [token, setToken] = useState(props.token ? props.token : null);
+  const [token, setToken] = useState(tokener ? tokener : null);
 
   useEffect(() => {
     if (firebase.apps.length) {
@@ -69,29 +74,7 @@ const Wrapper = (props: any) => {
   });
   return (
     <Layout>
-      <Header className="fixed top-0 z-20 flex w-full p-5 bg-white shadow-md header dark:bg-dark">
-        <img
-          src={
-            currentTheme == themes.light
-              ? '/bolt-logo.svg'
-              : '/bolt-logo-dark.svg'
-          }
-        />
-        <div
-          className="flex items-center p-3.5 ml-auto mr-10 align-middle border border-gray-300 cursor-pointer rounded-xl"
-          onClick={() => toggle()}
-        >
-          <div className="font-segoe">Goto</div>
-          <div className="mt-1.5 mx-2">
-            {currentTheme == themes.light ? (
-              <i className="ri-moon-fill ri-lg" />
-            ) : (
-              <i className="ri-sun-fill ri-lg" />
-            )}
-          </div>
-          <div className="font-segoe">Mode</div>
-        </div>
-      </Header>
+      <Nav firebase={firebase} currentTheme={currentTheme} themes={themes} toggle={toggle} />
       <Content>
         <Layout>
           <Sider
@@ -100,7 +83,7 @@ const Wrapper = (props: any) => {
           >
             <Menu
               mode="inline"
-              defaultSelectedKeys={[props.route ? props.route : 'dashboard']}
+              defaultSelectedKeys={[route ? route : 'dashboard']}
               defaultOpenKeys={['types']}
               theme={currentTheme == themes.light ? 'light' : 'dark'}
               className="h-full"
@@ -155,7 +138,7 @@ const Wrapper = (props: any) => {
             }}
           >
             <p className="w-3/6 p-5 m-10 overflow-x-scroll h-60">{token}</p>
-            {props.children}
+            {children}
             <Button onClick={() => firebase.auth().signOut()}>Sign Out</Button>
           </Content>
         </Layout>
@@ -167,4 +150,4 @@ const Wrapper = (props: any) => {
   );
 };
 
-export default withAuthUser()(Wrapper);
+export default Wrapper;

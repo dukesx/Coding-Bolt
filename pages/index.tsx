@@ -1,20 +1,27 @@
 import Wrapper from 'components/global/wrapper';
-import { withAuthUserTokenSSR } from 'next-firebase-auth';
+import {
+  withAuthUserTokenSSR,
+  useAuthUser,
+  withAuthUser,
+} from 'next-firebase-auth';
+import { FunctionComponent } from 'react';
 
-const Abc = (props: any) => {
+interface TokenProps {
+  token?: String;
+}
+const Abc: FunctionComponent<TokenProps> = ({ token }) => {
   return (
-    <Wrapper token={props.token}>
+    <Wrapper tokener={token}>
       <p>Hello World</p>
     </Wrapper>
   );
 };
 
-export default Abc;
+export default withAuthUser()(Abc);
 
 export const getServerSideProps = withAuthUserTokenSSR()(
   async ({ AuthUser: AuthUser }) => {
     const token = await AuthUser.getIdToken();
-    console.log(token);
     return {
       props: {
         token: token,

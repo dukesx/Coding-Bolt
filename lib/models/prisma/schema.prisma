@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://afridi:Afzaal12@107.152.37.151:5432/codingBolt"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Articles {
+id            String    @id @db.Uuid @default(dbgenerated("gen_random_uuid()"))
+title         String    @unique
+content       Json 
+excerpt       String
+permalink     String
+rand_id       String    @unique
+authors       ArticlesandUsers[]
+categories    CategoriesandArticles[]
+tags          ArticlesandTags[]
+comments      CommentstoAuthorstoArticles[] 
+}
+
+model Users {
+  id            String    @id @db.Uuid @default(dbgenerated("gen_random_uuid()"))
+  username      String    @unique
+  name          String
+  email         String 
+  cover         String
+  rand_id       String    @unique
+  articles      ArticlesandUsers[]
+  comments       CommentstoAuthorstoArticles[]
+}
+
+model ArticlesandUsers  {
+user          Users       @relation(fields: [user_id], references:[id])
+user_id       String      @db.Uuid
+article       Articles    @relation(fields: [article_id],references: [id])
+article_id    String      @db.Uuid
+
+@@id([user_id,article_id])
+}
+
+model Categories {
+  id          String   @id    @db.Uuid @default(dbgenerated("gen_random_uuid()"))
+  title       String   @unique
+  cover       String 
+  icon        String
+  articles    CategoriesandArticles[]
+}
+
+
+model CategoriesandArticles {
+articles        Articles      @relation(fields: [articles_id], references: [id])
+articles_id     String        @db.Uuid
+category        Categories    @relation(fields: [category_id],references: [id])
+category_id     String        @db.Uuid
+
+@@id([articles_id,category_id])
+}
+
+model Tags {
+  id      String        @id  @db.Uuid  @default(dbgenerated("gen_random_uuid()"))
+  title   String   
+  color   String
+  articles ArticlesandTags[]
+}
+
+model ArticlesandTags {
+  article     Articles  @relation(fields: [article_id], references: [id])
+  tags        Tags      @relation(fields: [tag_id], references: [id])
+  article_id  String    @db.Uuid
+  tag_id      String    @db.Uuid
+
+  @@id([article_id,tag_id])
+}
+
+model Comments {
+  id          String    @id  @db.Uuid   @default(dbgenerated("gen_random_uuid()"))
+  content     String
+  author      CommentstoAuthorstoArticles[]
+}
+
+model CommentstoAuthorstoArticles {
+user_id       String @db.Uuid
+comment_id    String @db.Uuid
+comment       Comments @relation(fields: [comment_id],references: [id])
+author        Users @relation(fields: [user_id],references: [id])
+article_id    String @db.Uuid
+article       Articles @relation(fields: [article_id], references: [id])
+
+@@id([user_id,article_id,comment_id])
+}
+
+
+
+

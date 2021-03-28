@@ -1,6 +1,6 @@
 import { WebSocketLink } from "@apollo/client/link/ws";
 
-const apolloWs = new WebSocketLink({
+const apolloWs:WebSocketLink = new WebSocketLink({
   uri: `wss://hasura.physiothrive.com/`,
   options: {
     reconnect: true,

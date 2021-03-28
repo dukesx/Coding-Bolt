@@ -28,17 +28,13 @@ class MyDocument extends Document {
           <script async src="/analytics.js"></script>
         </Head>
         <body>
-          <amp-analytics
-            config="https://www.googletagmanager.com/amp.json?id=GTM-M2T7MSS&gtm.url=SOURCE_URL"
-            data-credentials="include"
-          ></amp-analytics>
           <noscript>
             <iframe
               src="https://www.googletagmanager.com/ns.html?id=GTM-P5245SN"
               height="0"
               width="0"
               style={{
-                visibility: 'none',
+                visibility: 'hidden',
                 display: 'hidden',
               }}
             ></iframe>

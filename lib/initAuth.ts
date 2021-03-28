@@ -1,6 +1,7 @@
 import { init } from 'next-firebase-auth';
 import Obj from "../wowwrites-auth-firebase-adminsdk-geofr-75a09bf8b8.json";
 var key = process.env.FIREBASE_PRIVATE_KEY;
+
 const initAuth = () => {
     init({
         authPageURL: '/auth',
