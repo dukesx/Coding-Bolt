@@ -1,18 +1,18 @@
-import "styles/index.scss";
-import React, { useState } from "react";
-import Head from "next/head";
-import { ApolloProvider } from "@apollo/client";
-import { useApollo } from "../lib/apolloClient";
-import { createStore, StoreProvider } from "easy-peasy";
-import { Global } from "../store/global";
-import "remixicon/fonts/remixicon.css";
-import { ThemeSwitcherProvider } from "react-css-theme-switcher";
-import "lib/plugins/embeds/style.css";
-import "lib/plugins/unsplash/style.css";
-import "styles/custom.scss";
+import 'public/assets/styles/index.scss';
+import React, { useState } from 'react';
+import Head from 'next/head';
+import { ApolloProvider } from '@apollo/client';
+import { useApollo } from '../lib/apolloClient';
+import { createStore, StoreProvider } from 'easy-peasy';
+import { Global } from '../store/global';
+import 'remixicon/fonts/remixicon.css';
+import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
+import 'lib/plugins/embeds/style.css';
+import 'lib/plugins/unsplash/style.css';
+import 'public/assets/styles/custom.scss';
 // import withDarkMode, { useDarkMode } from "next-dark-mode";
 import useDarkMode from 'use-dark-mode';
-import initAuth from "lib/initAuth";
+import initAuth from 'lib/initAuth';
 
 const themes = {
   dark: `/dark-theme.css`,
@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
 
       <ThemeSwitcherProvider
         themeMap={themes}
-        defaultTheme={darkMode.value ? "dark" : "light"}
+        defaultTheme={darkMode.value ? 'dark' : 'light'}
       >
         <StoreProvider store={store}>
           <ApolloProvider client={apolloClient}>
@@ -50,7 +50,6 @@ function MyApp({ Component, pageProps }) {
           </ApolloProvider>
         </StoreProvider>
       </ThemeSwitcherProvider>
-
     </>
   );
 }
