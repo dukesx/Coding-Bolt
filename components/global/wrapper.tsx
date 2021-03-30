@@ -23,6 +23,7 @@ const Wrapper: FunctionComponent<WrapperProps> = ({
   tokener,
   children,
   route,
+  admin,
 }) => {
   const { themes, currentTheme } = useThemeSwitcher();
   const { toggle } = useDarkMode(false, {
@@ -74,63 +75,77 @@ const Wrapper: FunctionComponent<WrapperProps> = ({
   });
   return (
     <Layout>
-      <Nav firebase={firebase} currentTheme={currentTheme} themes={themes} toggle={toggle} />
+      <Nav
+        firebase={firebase}
+        currentTheme={currentTheme}
+        themes={themes}
+        toggle={toggle}
+      />
       <Content>
         <Layout>
-          <Sider
-            className="fixed z-10 h-screen overflow-auto top-16"
-            width={200}
-          >
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={[route ? route : 'dashboard']}
-              defaultOpenKeys={['types']}
-              theme={currentTheme == themes.light ? 'light' : 'dark'}
-              className="h-full"
+          {admin ? (
+            <Sider
+              className="fixed z-10 h-screen overflow-auto top-16"
+              width={200}
+              breakpoint="md"
+              collapsedWidth="0"
             >
-              <Menu.Item
-                key="dashboard"
-                icon={<i className="text-xl ri-dashboard-line align-sub" />}
-              >
-                Dashboard
-              </Menu.Item>
-              <SubMenu
-                key="types"
-                icon={
-                  <i className="mr-4 text-xl ri-database-2-line align-sub" />
-                }
-                title="Types"
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={[route ? route : 'dashboard']}
+                defaultOpenKeys={['types']}
+                theme={currentTheme == themes.light ? 'light' : 'dark'}
+                className="h-full"
               >
                 <Menu.Item
-                  key="user-type"
-                  icon={<i className="text-xl ri-user-smile-line align-sub" />}
+                  key="dashboard"
+                  icon={<i className="text-xl ri-dashboard-line align-sub" />}
                 >
-                  Users
+                  Dashboard
                 </Menu.Item>
-                <Menu.Item
-                  key="all-types"
-                  icon={<i className="text-xl ri-node-tree align-sub" />}
+                <SubMenu
+                  key="types"
+                  icon={
+                    <i className="mr-4 text-xl ri-database-2-line align-sub" />
+                  }
+                  title="Types"
                 >
-                  All
-                </Menu.Item>
-              </SubMenu>
+                  <Menu.Item
+                    key="user-type"
+                    icon={
+                      <i className="text-xl ri-user-smile-line align-sub" />
+                    }
+                  >
+                    Users
+                  </Menu.Item>
+                  <Menu.Item
+                    key="all-types"
+                    icon={<i className="text-xl ri-node-tree align-sub" />}
+                  >
+                    All
+                  </Menu.Item>
+                </SubMenu>
 
-              <SubMenu
-                key="settings"
-                icon={
-                  <i className="mr-4 text-xl ri-settings-6-line align-sub" />
-                }
-                title="Settings"
-              >
-                <Menu.Item
-                  key="general-settings"
-                  icon={<i className="text-xl ri-information-line align-sub" />}
+                <SubMenu
+                  key="settings"
+                  icon={
+                    <i className="mr-4 text-xl ri-settings-6-line align-sub" />
+                  }
+                  title="Settings"
                 >
-                  General
-                </Menu.Item>
-              </SubMenu>
-            </Menu>
-          </Sider>
+                  <Menu.Item
+                    key="general-settings"
+                    icon={
+                      <i className="text-xl ri-information-line align-sub" />
+                    }
+                  >
+                    General
+                  </Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Sider>
+          ) : null}
+
           <Content
             className="mt-20 ml-64"
             style={{

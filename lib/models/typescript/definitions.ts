@@ -6,4 +6,5 @@ export interface WrapperProps {
   currentTheme?: any;
   themes?: any;
   toggle?: any;
+  admin?: Boolean;
 }

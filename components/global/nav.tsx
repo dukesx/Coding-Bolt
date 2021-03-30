@@ -13,30 +13,33 @@ const Nav: FunctionComponent<WrapperProps> = ({
   const [modal, setModal] = useState(false);
 
   return (
-    <Header className="fixed top-0 z-20 flex w-full p-5 bg-white shadow-md header dark:bg-dark">
+    <Header className="fixed top-0 z-20 flex w-full p-3.5 bg-white dark:shadow-blue shadow-md header dark:bg-dark">
+      <div className="items-center hidden xs:flex xxs:flex">
+        <i className="mt-0.5 mr-4 text-xl xxsLmr-2 ri-menu-fill" />
+      </div>
       <img
-        className="h-7"
+        className="ml-5 h-9 xs:ml-0 xxs:ml-0"
         src={
           currentTheme == themes.light
-            ? '/bolt-logo.svg'
-            : '/bolt-logo-dark.svg'
+            ? '/bolt-letter.svg'
+            : '/bolt-letter-dark.svg'
         }
       />
       <div
-        className="flex items-center p-3.5 ml-auto mr-10 align-middle border border-gray-300 cursor-pointer rounded-xl"
+        className="flex items-center p-3.5 xs:p-0 xxs:p-0 xs:border-none xxs:border-none ml-auto mr-10 xs:mr-4 xxs:mr-4 align-middle border border-gray-300 cursor-pointer rounded-xl"
         onClick={() => toggle()}
       >
-        <div className="font-segoe">Goto</div>
-        <div className="mt-1.5 mx-2">
+        <div className="font-segoe xs:hidden xxs:hidden">Goto</div>
+        <div className="mt-1.5 mx-2 xxs:mr-0.5 xxs:ml-2">
           {currentTheme == themes.light ? (
-            <i className="ri-moon-fill ri-lg" />
+            <i className="text-2xl align-sub ri-moon-fill" />
           ) : (
-            <i className="ri-sun-fill ri-lg" />
+            <i className="text-2xl ri-sun-fill align-sub " />
           )}
         </div>
-        <div className="font-segoe">Mode</div>
+        <div className="font-segoe xs:hidden xxs:hidden">Mode</div>
       </div>
-      <Button type="primary" onClick={() => setModal(true)}>
+      <Button className="mt-0.5" type="primary" onClick={() => setModal(true)}>
         Get Started
       </Button>
       <Modal visible={modal} onCancel={() => setModal(false)} footer={false}>
