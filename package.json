@@ -56,7 +56,7 @@
     "less": "^3.13.0",
     "less-plugin-npm-import": "^2.1.0",
     "nanoid": "^3.1.21",
-    "next": "^10.1.0",
+    "next": "^10.2.0",
     "next-dark-mode": "^3.0.0",
     "next-firebase-auth": "^0.13.0-alpha.0",
     "next-pwa": "^5.0.6",

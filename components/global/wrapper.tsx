@@ -4,15 +4,15 @@ import { useThemeSwitcher } from 'react-css-theme-switcher';
 import useDarkMode from 'use-dark-mode';
 import firebase from 'firebase/app';
 import { useEffect, useState } from 'react';
-import type { WrapperProps } from 'lib/models/typescript/definitions';
+import type { WrapperProps } from 'lib/models/app/definitions/props';
 import Nav from './nav';
 
 const { Header, Footer, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Title, Text } = Typography;
 const config = {
-  apiKey: 'AIzaSyAeue-AsYu76MMQlTOM-KlbYBlusW9c1FM',
-  authDomain: 'myproject-1234.firebaseapp.com',
+  apiKey: 'AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg',
+  authDomain: 'coding-bolt.firebaseapp.com',
 };
 
 if (!firebase.apps.length) {
@@ -44,7 +44,7 @@ const Wrapper: FunctionComponent<WrapperProps> = ({
           {
             provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
             clientId:
-              '963385239831-0fkb07g5dpsb5n6kmfbv77o5e9120mk2.apps.googleusercontent.com',
+              '1036440562165-j7g06r27357plblbsbdosmf6k5gh6drv.apps.googleusercontent.com',
           },
         ],
         callbacks: {
@@ -69,7 +69,6 @@ const Wrapper: FunctionComponent<WrapperProps> = ({
       if (!token) {
         ui.start('#firebase-ui', uiConfig);
       }
-
       ui.disableAutoSignIn();
     }
   });

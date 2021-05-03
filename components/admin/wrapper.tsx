@@ -1,8 +1,11 @@
 import { FunctionComponent } from 'react';
 import Wrapper from '../global/wrapper';
-const AdminWrapper: FunctionComponent = (): JSX.Element => {
+import { WrapperProps } from 'lib/models/app/definitions/props';
+const AdminWrapper: FunctionComponent<WrapperProps> = ({
+  route,
+}): JSX.Element => {
   return (
-    <Wrapper admin>
+    <Wrapper route={route} admin>
       <p>hello</p>
     </Wrapper>
   );

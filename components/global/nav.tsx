@@ -1,5 +1,5 @@
-import type { WrapperProps } from 'lib/models/typescript/definitions';
-import { Button, Modal, Layout } from 'antd';
+import type { WrapperProps } from 'lib/models/app/definitions/props';
+import { Button, Modal, Layout, Switch } from 'antd';
 import { FunctionComponent, useState } from 'react';
 
 const { Header } = Layout;
@@ -21,15 +21,15 @@ const Nav: FunctionComponent<WrapperProps> = ({
         className="ml-5 h-9 xs:ml-0 xxs:ml-0"
         src={
           currentTheme == themes.light
-            ? '/bolt-letter.svg'
-            : '/bolt-letter-dark.svg'
+            ? '/assets/images/logo/bolt-letter.svg'
+            : '/assets/images/logo/bolt-letter-dark.svg'
         }
       />
       <div
-        className="flex items-center p-3.5 xs:p-0 xxs:p-0 xs:border-none xxs:border-none ml-auto mr-10 xs:mr-4 xxs:mr-4 align-middle border border-gray-300 cursor-pointer rounded-xl"
+        className="flex items-center ml-auto mr-5 align-middle cursor-pointer xs:mr-3 xxs:mr-3"
         onClick={() => toggle()}
       >
-        <div className="font-segoe xs:hidden xxs:hidden">Goto</div>
+        {/* <div className="font-segoe xs:hidden xxs:hidden">Goto</div> */}
         <div className="mt-1.5 mx-2 xxs:mr-0.5 xxs:ml-2">
           {currentTheme == themes.light ? (
             <i className="text-2xl align-sub ri-moon-fill" />
@@ -37,7 +37,7 @@ const Nav: FunctionComponent<WrapperProps> = ({
             <i className="text-2xl ri-sun-fill align-sub " />
           )}
         </div>
-        <div className="font-segoe xs:hidden xxs:hidden">Mode</div>
+        {/* <div className="font-segoe xs:hidden xxs:hidden">Mode</div> */}
       </div>
       <Button className="mt-0.5" type="primary" onClick={() => setModal(true)}>
         Get Started
