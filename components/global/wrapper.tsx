@@ -33,7 +33,7 @@ const Wrapper: FunctionComponent<WrapperProps> = ({
   const [token, setToken] = useState(tokener ? tokener : null);
 
   useEffect(() => {
-    if (firebase.apps.length) {
+    if (!firebase.apps.length) {
       var firebaseui = require('firebaseui');
       var ui =
         firebaseui.auth.AuthUI.getInstance() ||

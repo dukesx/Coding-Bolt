@@ -6,8 +6,8 @@ export default async function gen(req, res) {
   try {
     const newUser = await prisma.users.create({
       data: {
-        auth: body.auth,
         name: body.name,
+        cover: body.cover,
         username: body.username,
         email: body.email,
         rand_id: body.rand_id,

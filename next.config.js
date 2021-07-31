@@ -3,13 +3,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 // module.exports = withBundleAnalyzer();
-module.exports = {
-  i18n: {
-    locales: ['en-US', 'ur-PK'],
-    defaultLocale: 'en-US',
-  },
-  future: {
-    webpack5: true,
-    strictPostcssConfiguration: true,
-  },
+module.exports = module.exports = (phase, defaultConfig) => {
+  return withBundleAnalyzer({
+    ...defaultConfig,
+    i18n: {
+      locales: ['en-US', 'ur-PK'],
+      defaultLocale: 'en-US',
+    },
+    future: {
+      strictPostcssConfiguration: true,
+    },
+  });
 };

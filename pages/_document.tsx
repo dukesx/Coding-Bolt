@@ -10,11 +10,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css"
-          />
           <script
             async
             custom-element="amp-analytics"
