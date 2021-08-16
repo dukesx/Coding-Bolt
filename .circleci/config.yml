@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
 jobs:
   build:
     working_directory: ~/repo
@@ -21,5 +23,9 @@ jobs:
       - run:
           name: Run Jest and Collect Coverage Reports
           command: npm run test
+      - coveralls/upload
       - store_artifacts:
           path: coverage
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=${process.env.COVERALLS_REPO_TOKEN}
