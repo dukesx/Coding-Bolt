@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Frame from "lib/plugins/embeds";
-import Unsplash from "lib/plugins/unsplash";
+import Frame from "lib/editor/plugins/embeds";
+import Unsplash from "lib/editor/plugins/unsplash";
 
 const Editor = (props: any) => {
   const [val, setVal] = useState(null);
