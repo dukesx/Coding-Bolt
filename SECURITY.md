@@ -7,4 +7,4 @@ Issues will be accepted from Version 1 onwards as well.
 
 ## Reporting a Vulnerability
 
-You can report Vulnerability by opening an issue and an associated PR. after Checks and Code Review, the code can be merged.
+You can report Vulnerability by opening an issue with "vulnerability" label, and an associated PR. after Checks and Code Review, the code can be merged.
