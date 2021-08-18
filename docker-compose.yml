@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+   app:
+     image: codingbolt/app
+     volumes:
+       - app_data:/var/lib/cb
+     restart: always
+     ports:
+       - "8000:3000"
+     restart: always
+    #  environment:
+    #    WORDPRESS_DB_HOST: db:3306
+    #    WORDPRESS_DB_USER: wordpress
+    #    WORDPRESS_DB_PASSWORD: wordpress
+volumes:
+    app_data:
