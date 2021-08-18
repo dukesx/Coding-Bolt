@@ -15,13 +15,9 @@ export var themeLoader = function (param: any): void {
   }
   var headID = document.getElementsByTagName("head")[0];
   var link = document.createElement("link");
-  link.rel = "preload";
-  link.as = "style";
+  link.rel = "stylesheet";
   link.type = "text/css";
   link.href = "/assets/themes/" + param + "-theme.css";
-  link.onload = () => {
-    return (link.rel = "stylesheet");
-  };
 
   headID.appendChild(link);
 };
