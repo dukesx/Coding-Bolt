@@ -23,7 +23,6 @@ jobs:
       - run:
           name: Run Jest and Collect Coverage Reports
           command: npm run test
-      - coveralls/upload
       - run:
             name: Setup Code Climate test-reporter
             command: |
@@ -41,6 +40,12 @@ jobs:
             when: always
       - store_artifacts:
           path: coverage
-notify:
-  webhooks:
-    - url: https://coveralls.io/webhook?repo_token=${process.env.COVERALLS_REPO_TOKEN}
+    
+  deploy:
+    machine:
+       enabled: true
+     steps:
+       - run:
+           name: Deploy Over SSH
+           command: |
+             ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
