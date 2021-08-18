@@ -1,16 +1,17 @@
 // @ts-ignore
 class ErrorBoundary extends React.Component {
-  constructor(props) {
+  constructor(props: unknown ) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: unknown ): {hasError: boolean;
+}  {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: unknown , errorInfo: unknown ): void  {
     //
   }
 

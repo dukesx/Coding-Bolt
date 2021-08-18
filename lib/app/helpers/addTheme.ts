@@ -1,4 +1,4 @@
-export var themeLoader = function (param) {
+export var themeLoader = function (param: unknown ): void  {
   if (param == "dark") {
     document.head.querySelectorAll("link").forEach((link) => {
       console.log(link);
