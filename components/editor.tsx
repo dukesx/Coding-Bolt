@@ -111,7 +111,7 @@ const Editor = (props: unknown) => {
         /** Do anything you need after editor initialization */
       })
       .catch((reason: unknown) => {
-        console.log(`Editor.js initialization failed because of ${reason}`);
+        
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
