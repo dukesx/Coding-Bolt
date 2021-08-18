@@ -14,3 +14,6 @@ enabled = true
 [[analyzers]]
 name = "docker"
 enabled = true
+
+  [analyzers.meta]
+  dockerfile_paths = ["/Dockerfile"]
