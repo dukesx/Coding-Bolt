@@ -5,7 +5,6 @@ import Head from "next/head";
 
 const Index: React.FC = () => {
   const dark = useDarkMode();
-  //   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
 
   return (
     <>

@@ -3,7 +3,6 @@ import { Button } from "antd";
 
 const Wrapper = (props: any) => {
   const dark = useDarkMode(false);
-
   return (
     <>
       {props.children}

@@ -2,9 +2,9 @@ export var themeLoader = function (param: any): void {
   var domArray = document.head.querySelectorAll("link");
   if (param == "dark") {
     domArray.forEach((link) => {
-      if (link.href.includes("light")) {
-        link.parentNode.removeChild(link);
-      }
+      // if (link.href.includes("light")) {
+      //   link.parentNode.removeChild(link);
+      // }
     });
   } else {
     domArray.forEach((link) => {
