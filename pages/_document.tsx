@@ -11,11 +11,12 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
+          {/* <link
             rel="preload"
             href="/assets/themes/light-theme.css"
-            as="style"
-          />
+            type="text/css"
+            onload="this.rel='stylesheet'"
+          /> */}
         </Head>
         <body>
           <Main />
