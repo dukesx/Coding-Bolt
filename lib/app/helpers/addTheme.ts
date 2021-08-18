@@ -1,14 +1,12 @@
 export var themeLoader = function (param: unknown): void {
   if (param == "dark") {
     document.head.querySelectorAll("link").forEach((link) => {
-      console.log(link);
       if (link.href.includes("light")) {
         link.parentNode.removeChild(link);
       }
     });
   } else {
     document.head.querySelectorAll("link").forEach((link) => {
-      console.log(link);
       if (link.href.includes("dark")) {
         link.parentNode.removeChild(link);
       }
