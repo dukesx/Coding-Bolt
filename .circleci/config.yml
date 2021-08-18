@@ -24,28 +24,19 @@ jobs:
           name: Run Jest and Collect Coverage Reports
           command: npm run test
       - run:
-            name: Setup Code Climate test-reporter
-            command: |
-                    # download test reporter as a static binary
-                    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-                    chmod +x ./cc-test-reporter
-                    ./cc-test-reporter before-build
-            when: always
+          name: Setup Code Climate test-reporter
+          command: |
+            # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+          when: always
       - run:
-            name: Send coverage report to Code Climate
-            command:
-                    # nyc report requires that nyc has already been run,
-                    # which creates the .nyc_output folder containing necessary data
-                    ./cc-test-reporter after-build -t lcov
-            when: always
+          name: Send coverage report to Code Climate
+          command:
+            # nyc report requires that nyc has already been run,
+            # which creates the .nyc_output folder containing necessary data
+            ./cc-test-reporter after-build -t lcov
+          when: always
       - store_artifacts:
           path: coverage
-    
-  deploy:
-    machine:
-       enabled: true
-     steps:
-       - run:
-           name: Deploy Over SSH
-           command: |
-             ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
