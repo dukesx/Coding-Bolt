@@ -2,7 +2,7 @@ version: '3'
 
 services:
    app:
-     image: codingbolt/app
+     image: codingbolt/app:latest
      volumes:
        - app_data:/var/lib/cb
      restart: always

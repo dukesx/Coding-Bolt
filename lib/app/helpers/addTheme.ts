@@ -1,12 +1,13 @@
 export var themeLoader = function (param: any): void {
+  var domArray = document.head.querySelectorAll("link");
   if (param == "dark") {
-    document.head.querySelectorAll("link").forEach((link) => {
+    domArray.forEach((link) => {
       if (link.href.includes("light")) {
         link.parentNode.removeChild(link);
       }
     });
   } else {
-    document.head.querySelectorAll("link").forEach((link) => {
+    domArray.forEach((link) => {
       if (link.href.includes("dark")) {
         link.parentNode.removeChild(link);
       }
@@ -14,10 +15,9 @@ export var themeLoader = function (param: any): void {
   }
   var headID = document.getElementsByTagName("head")[0];
   var link = document.createElement("link");
-  link.type = "text/css";
-  link.rel = "stylesheet";
+  link.rel = "preload";
+  link.as = "style";
+  link.href = "/assets/themes/" + param + "-theme.css";
 
   headID.appendChild(link);
-
-  link.href = "/assets/themes/" + param + "-theme.css";
 };
