@@ -1,7 +1,7 @@
 import useDarkMode from "use-dark-mode";
 import { Button } from "antd";
 
-const Wrapper = (props: unknown) => {
+const Wrapper = (props: any) => {
   const dark = useDarkMode(false);
 
   return (

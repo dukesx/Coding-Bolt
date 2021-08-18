@@ -1,4 +1,4 @@
-export var themeLoader = function (param: unknown): void {
+export var themeLoader = function (param: any): void {
   if (param == "dark") {
     document.head.querySelectorAll("link").forEach((link) => {
       if (link.href.includes("light")) {
