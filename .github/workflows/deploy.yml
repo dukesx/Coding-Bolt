@@ -2,17 +2,15 @@ name: Deploy
 
 on:
   workflow_run:
-    workflows: ["Build and Push to Docker"]
-    branches: [main]
+    workflows:
+      - Build and Push to Docker
     types:
       - completed
 
 jobs:
-  # This workflow contains a single job called "build"
   deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: kevin-leptons/ssh_action@v1
