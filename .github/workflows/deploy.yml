@@ -1,4 +1,4 @@
-name: App Deployment
+name: Deploy
 
 on:
   workflow_run:
