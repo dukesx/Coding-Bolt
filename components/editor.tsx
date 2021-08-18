@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Frame from "lib/editor/plugins/embeds";
 import Unsplash from "lib/editor/plugins/unsplash";
 
-const Editor = (props: unknown) => {
+const Editor = (props: any) => {
   const [val, setVal] = useState(null);
   var editor = null;
   useEffect(() => {
@@ -26,13 +26,13 @@ const Editor = (props: unknown) => {
       placeholder: props.placeholder
         ? props.placeholder
         : "Hello There ! Care to Start Writing ? 😁😅",
-      onChange: (val: unknown) => {
+      onChange: (val: any) => {
         editor
           .save()
-          .then((outputData: unknown) => {
+          .then((outputData: any) => {
             onChange(outputData);
           })
-          .catch((error: unknown) => {
+          .catch((error: any) => {
             // console.log("Saving failed: ", error);
           });
       },
@@ -110,13 +110,11 @@ const Editor = (props: unknown) => {
         // console.log("Editor.js is ready to work!");
         /** Do anything you need after editor initialization */
       })
-      .catch((reason: unknown) => {
-        
-      });
+      .catch((reason: any) => {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onChange = (val: unknown) => {
+  const onChange = (val: any) => {
     props.setData(val);
   };
 
