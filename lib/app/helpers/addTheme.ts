@@ -17,7 +17,11 @@ export var themeLoader = function (param: any): void {
   var link = document.createElement("link");
   link.rel = "preload";
   link.as = "style";
+  link.type = "text/css";
   link.href = "/assets/themes/" + param + "-theme.css";
+  link.onload = () => {
+    return (link.rel = "stylesheet");
+  };
 
   headID.appendChild(link);
 };
