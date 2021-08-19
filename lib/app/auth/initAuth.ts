@@ -23,7 +23,7 @@ const initAuth = () => {
       projectId: "coding-bolt",
     },
     cookies: {
-      name: process.env.FIREBASE_COOKIE_NAME, // required
+      name: "fbase_auth", // required
       // Keys are required unless you set `signed` to `false`.
       // The keys cannot be accessible on the client side.
       keys: [
