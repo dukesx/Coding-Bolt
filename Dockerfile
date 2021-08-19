@@ -12,7 +12,7 @@ FROM node:14-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN --mount=type=secret,firebase_private_key=firebase_private_key \ yarn build
+RUN --mount=type=secret,firebase_private_key=firebase_private_key \ cat /run/secrets/firebase_private_key \ yarn build
 
 # Production image, copy all the files and run next
 FROM node:14-alpine AS runner
