@@ -18,6 +18,12 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
+          <div
+            style={{
+              display: "none",
+            }}
+            id="firebaseui-auth"
+          />
           <Main />
           <NextScript />
         </body>

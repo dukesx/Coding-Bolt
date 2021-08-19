@@ -11,6 +11,11 @@
 yarn-error.log
 .eslintcache
 
+
+# Remove Environment Variables
+.env
+.env.local
+
 # Files in here are copied by the build
 public/themes
 
