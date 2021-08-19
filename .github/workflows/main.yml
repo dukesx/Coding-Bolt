@@ -18,13 +18,13 @@ jobs:
       COOKIE_SECRET_PREVIOUS: ${{ secrets.COOKIE_SECRET_PREVIOUS }}
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
+      - name: Use Stable Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "14.x"
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
-      - name: Build Next JS
+      - name: Build App
         run: npm run build
       # - name: Set up Docker Buildx
       #   uses: docker/setup-buildx-action@v1
@@ -34,9 +34,9 @@ jobs:
       #   username: ${{ secrets.DOCKERHUB_USERNAME }}
       #   password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: mr-smithers-excellent/docker-build-push@v3
-        name: Build & push Docker image
+        name: Construct Image & Push to Docker Registry
         with:
-          image: codingbolt/app
+          image: codingbolt/app:latest
           tags: latest
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
