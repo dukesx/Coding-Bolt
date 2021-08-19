@@ -37,7 +37,7 @@ jobs:
         name: Construct Image & Push to Docker Registry
         with:
           image: codingbolt/app
-          tags: latest,1.0
+          tags: v1, latest
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
