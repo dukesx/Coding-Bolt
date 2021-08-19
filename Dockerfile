@@ -11,7 +11,7 @@ FROM node:14-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN --mount=type=secret,id=FIREBASE_PRIVATE_KEY,COOKIE_SECRET_CURRENT,COOKIE_SECRET_PREVIOUS yarn build
+RUN --mount=type=secret,id=FIREBASE_PRIVATE_KEY,id=COOKIE_SECRET_CURRENT,id=COOKIE_SECRET_PREVIOUS yarn build
 
 # Production image, copy all the files and run next
 FROM node:14-alpine AS runner
