@@ -36,8 +36,8 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v3
         name: Construct Image & Push to Docker Registry
         with:
-          image: codingbolt/app:latest
-          tags: latest
+          image: codingbolt/app
+          tags: latest,1.0
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
