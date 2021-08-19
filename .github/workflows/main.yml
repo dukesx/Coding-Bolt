@@ -24,7 +24,7 @@ jobs:
           push: true
           tags: codingbolt/app:latest
           secrets: |
-            "firebase_private_key= ${{ secrets.FIREBASE_PRIVATE_KEY }}"
+            "firebase_private_key=${{ secrets.FIREBASE_PRIVATE_KEY }}"
             "COOKIE_SECRET_CURRENT= ${{ secrets.COOKIE_SECRET_CURRENT }}"
             "COOKIE_SECRET_PREVIOUS= ${{ secrets.COOKIE_SECRET_PREVIOUS }}"
       - name: Image digest
