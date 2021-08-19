@@ -12,7 +12,7 @@ yarn-error.log
 .eslintcache
 
 
-#
+# Remove Environment Variables
 .env
 .env.local
 

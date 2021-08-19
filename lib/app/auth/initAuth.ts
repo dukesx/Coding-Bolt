@@ -2,15 +2,15 @@ import { init } from "next-firebase-auth";
 
 const initAuth = () => {
   init({
-    authPageURL: "/login",
+    authPageURL: "/",
     appPageURL: "/",
-    loginAPIEndpoint: "/api/login", // required
-    logoutAPIEndpoint: "/api/logout", // required
+    loginAPIEndpoint: "/", // required
+    logoutAPIEndpoint: "/", // required
     firebaseAuthEmulatorHost: null,
     firebaseAdminInitConfig: {
       credential: {
-        projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-        clientEmail: process.env.NEXT_PUBLIC_CLIENT_EMAIL,
+        projectId: "coding-bolt",
+        clientEmail: "uthreviews@gmail.com",
         privateKey: process.env.FIREBASE_PRIVATE_KEY,
       },
       databaseURL: process.env.DATABASE_URL,
@@ -18,8 +18,9 @@ const initAuth = () => {
     firebaseClientInitConfig: {
       apiKey: "AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg",
       authDomain: "coding-bolt.firebaseapp.com",
-      databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
-      projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+      databaseURL:
+        "https://coding-bolt-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "coding-bolt",
     },
     cookies: {
       name: process.env.FIREBASE_COOKIE_NAME, // required
