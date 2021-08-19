@@ -3,7 +3,12 @@ name: Build
 on:
   pull_request:
     types: [closed]
-
+    
+env:
+  FIREBASE_PRIVATE_KEY: ${{secrets.FIREBASE_PRIVATE_KEY}}
+  COOKIE_SECRET_CURRENT: ${{secrets.COOKIE_SECRET_CURRENT}}
+  COOKIE_SECRET_PREVIOUS: ${{secrets.COOKIE_SECRET_PREVIOUS}}
+  
 jobs:
   Push_Image:
     # this job will only run if the PR has been merged
