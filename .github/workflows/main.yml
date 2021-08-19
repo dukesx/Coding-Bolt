@@ -23,9 +23,9 @@ jobs:
         with:
           push: true
           tags: codingbolt/app:latest
-          build-args: |
-            FIREBASE_PRIVATE_KEY: ${{secrets.FIREBASE_PRIVATE_KEY}}
-            COOKIE_SECRET_CURRENT: ${{secrets.COOKIE_SECRET_CURRENT}}
-            COOKIE_SECRET_PREVIOUS: ${{secrets.COOKIE_SECRET_PREVIOUS}}
+          secrets: |
+            "FIREBASE_PRIVATE_KEY: ${{secrets.FIREBASE_PRIVATE_KEY}}"
+            "COOKIE_SECRET_CURRENT: ${{secrets.COOKIE_SECRET_CURRENT}}"
+            "COOKIE_SECRET_PREVIOUS: ${{secrets.COOKIE_SECRET_PREVIOUS}}"            
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
