@@ -33,7 +33,7 @@ jobs:
       # with:
       #   username: ${{ secrets.DOCKERHUB_USERNAME }}
       #   password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: mr-smithers-excellent/docker-build-push@v3
+      - uses: mr-smithers-excellent/docker-build-push@v5
         name: Construct Image & Push to Docker Registry
         with:
           image: codingbolt/app
