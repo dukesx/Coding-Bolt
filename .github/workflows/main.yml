@@ -4,20 +4,25 @@ on:
   pull_request:
     types: [closed]
 
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
 jobs:
   Push_Image:
     # this job will only run if the PR has been merged
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+      COOKIE_SECRET_CURRENT: ${{ secrets.COOKIE_SECRET_CURRENT }}
+      COOKIE_SECRET_PREVIOUS: ${{ secrets.COOKIE_SECRET_PREVIOUS }}
     steps:
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1
+      - name: Build Next JS
+        uses: actions/setup-node@v2
         with:
-          envkey_FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-          envkey_COOKIE_SECRET_CURRENT: ${{ secrets.COOKIE_SECRET_CURRENT }}
-          envkey_COOKIE_SECRET_PREVIOUS: ${{ secrets.COOKIE_SECRET_PREVIOUS }}
-          directory: secrets
-          file_name: .env
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm run build
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
