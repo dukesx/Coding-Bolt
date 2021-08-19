@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1.2
-
 FROM node:14-alpine AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
@@ -12,7 +11,7 @@ FROM node:14-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN --mount=type=secret,firebase_key=firebase_private_key cat /run/secrets/firebase_private_key yarn build
+RUN --mount=type=secret,id=FIREBASE_PRIVATE_KEY,COOKIE_SECRET_CURRENT,COOKIE_SECRET_PREVIOUS yarn build
 
 # Production image, copy all the files and run next
 FROM node:14-alpine AS runner
