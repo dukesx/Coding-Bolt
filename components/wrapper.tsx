@@ -2,7 +2,6 @@ import useDarkMode from "use-dark-mode";
 import { Button } from "antd";
 import firebase from "firebase/app";
 import { useEffect, useState } from "react";
-import "firebaseui/dist/firebaseui.css";
 //
 
 if (firebase.apps.length < 1) {

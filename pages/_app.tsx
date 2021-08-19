@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import useDarkMode from "use-dark-mode";
 import { themeLoader } from "lib/app/helpers/addTheme";
 import initAuth from "lib/app/auth/initAuth";
+// import "firebaseui/dist/firebaseui.css";
 
 initAuth();
 //
