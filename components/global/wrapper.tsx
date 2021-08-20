@@ -1,7 +1,8 @@
 import useDarkMode from "use-dark-mode";
-import { Button } from "antd";
+import { Button, Layout } from "antd";
 import firebase from "firebase/app";
 import { useEffect, useState } from "react";
+import Nav from "./nav";
 //
 
 if (firebase.apps.length < 1) {
@@ -11,8 +12,12 @@ if (firebase.apps.length < 1) {
   });
 }
 
+const { Content } = Layout;
+
 const Wrapper = (props: any) => {
-  const dark = useDarkMode(false);
+  const dark = useDarkMode(false, {
+    classNameDark: "dark",
+  });
   const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
   var user = firebase.auth().currentUser;
 
@@ -56,29 +61,33 @@ const Wrapper = (props: any) => {
     }
   }, [user]);
   return (
-    <>
-      {props.children}
-      <Button
-        className="dark:bg-gray-200"
-        type="primary"
-        onClick={() => {
-          dark.toggle();
-        }}
-      >
-        hello world
-      </Button>
+    <Layout className="bg-gray-50 dark:bg-transparent">
+      <Nav />
+      <Layout className="mt-5 bg-gray-50 dark:bg-transparent">
+        <Content>
+          {props.children}
+          <Button
+            type="primary"
+            onClick={() => {
+              dark.toggle();
+            }}
+          >
+            hello world
+          </Button>
 
-      <div>
-        <h1>My App</h1>
-        <p>
-          Welcome{" "}
-          {firebase.auth().currentUser &&
-            firebase.auth().currentUser.displayName}
-          ! You are now signed-in!
-        </p>
-        <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
-      </div>
-    </>
+          <div>
+            <h1>My App</h1>
+            <p>
+              Welcome{" "}
+              {firebase.auth().currentUser &&
+                firebase.auth().currentUser.displayName}
+              ! You are now signed-in!
+            </p>
+            <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
   );
 };
 

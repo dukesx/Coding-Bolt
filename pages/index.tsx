@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import useDarkMode from "use-dark-mode";
-import Wrapper from "components/wrapper";
+import Wrapper from "components/global/wrapper";
 import Head from "next/head";
 import {
   useAuthUser,
