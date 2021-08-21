@@ -2,6 +2,22 @@
   vertical-align: sub;
 }
 
+.ant-input:hover {
+  border-right-width: 0px !important;
+}
+
+.dark {
+  .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-right-width: 0px !important;
+  }
+}
+
+.light-mode {
+  .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-right-width: 0px !important;
+  }
+}
+
 @font-face {
   font-family: "Avenir Next Cyr";
   src: url("/assets/fonts/avenir-next/AvenirNextCyr-Bold.eot");

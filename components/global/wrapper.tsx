@@ -15,9 +15,6 @@ if (firebase.apps.length < 1) {
 const { Content } = Layout;
 
 const Wrapper = (props: any) => {
-  const dark = useDarkMode(false, {
-    classNameDark: "dark",
-  });
   const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
   var user = firebase.auth().currentUser;
 
@@ -66,14 +63,6 @@ const Wrapper = (props: any) => {
       <Layout className="mt-5 bg-gray-50 dark:bg-transparent">
         <Content>
           {props.children}
-          <Button
-            type="primary"
-            onClick={() => {
-              dark.toggle();
-            }}
-          >
-            hello world
-          </Button>
 
           <div>
             <h1>My App</h1>

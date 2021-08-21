@@ -71,6 +71,7 @@ module.exports = {
       inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
       none: "none",
       blue: "3px 4px 8px 1px rgb(59 130 246 / 29%), 0 2px 4px -1px rgb(59 130 246 / 91%)",
+      red: "3px 4px 8px 1px #ff7875, 0 2px 4px -1px #ff4d4f",
     },
     tooltipArrows: (theme) => ({
       "danger-arrow": {

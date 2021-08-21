@@ -6,7 +6,6 @@ import initAuth from "lib/app/auth/initAuth";
 // import "firebaseui/dist/firebaseui.css";
 import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
-import "public/assets/styles/index.scss";
 
 initAuth();
 //

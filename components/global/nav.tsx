@@ -1,6 +1,26 @@
-import { Popover, Row, Col, Layout, AutoComplete, Input, Button } from "antd";
-import { MagnifyingGlass, BellSimple, ChatsCircle } from "phosphor-react";
+import {
+  Popover,
+  Row,
+  Col,
+  Layout,
+  AutoComplete,
+  Input,
+  Button,
+  Space,
+} from "antd";
+import {
+  MagnifyingGlass,
+  BellSimple,
+  ChatsCircle,
+  Bookmarks,
+  Sun,
+  Moon,
+  TrendUp,
+  X,
+  List,
+} from "phosphor-react";
 import { useState } from "react";
+import useDarkMode from "use-dark-mode";
 
 const { Header } = Layout;
 
@@ -9,8 +29,12 @@ const mockVal = (str: string, repeat: number = 1) => ({
 });
 
 const Nav: React.FC = () => {
+  const dark = useDarkMode(false, {
+    classNameDark: "dark",
+  });
   const [value, setValue] = useState("");
   const [options, setOptions] = useState<{ value: string }[]>([]);
+  const [burger, setBurger] = useState(false);
   const onSearch = (searchText: string) => {
     setOptions(
       !searchText
@@ -26,11 +50,28 @@ const Nav: React.FC = () => {
   };
   return (
     <Header className="bg-white drop-shadow-md dark:bg-transparent px-4 dark:shadow-blue py-0">
-      <Row wrap={false} justify="space-between">
-        <Col className="font-medium font-display text-black dark:text-white text-xl uppercase flex flex-col justify-center items-center">
+      <Row wrap={false} justify="space-between" align="middle">
+        <Col className="xxs:text-base flex font-medium font-display text-black dark:text-white text-xl uppercase justify-center items-center">
+          <div className="mr-2 mt-[2px] hidden xs:block sm:block xxs:block">
+            {burger ? (
+              <X
+                className="hover:bg-gray-100 cursor-pointer xxs:h-[20px] xxs:w-[20px] dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                size={24}
+                weight="regular"
+                onClick={() => setBurger(false)}
+              />
+            ) : (
+              <List
+                className="hover:bg-gray-100 cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px]   dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                size={24}
+                weight="regular"
+                onClick={() => setBurger(true)}
+              />
+            )}
+          </div>
           Coding Bolt
         </Col>
-        <Col xs={0} sm={0} md={4} lg={4} xl={4} xxl={12}>
+        <Col xs={0} sm={0} md={10} lg={12} xl={14} xxl={14}>
           <AutoComplete
             options={options}
             style={{ width: 200 }}
@@ -39,28 +80,72 @@ const Nav: React.FC = () => {
             className="w-full"
           >
             <Input
-              placeholder="Search"
+              placeholder="Let's find you something amazing 👀😇"
               allowClear
+              className="h-[35px]"
               suffix={<MagnifyingGlass className="ml-2" size={18} />}
+              bordered={false}
             />
           </AutoComplete>
         </Col>
-        <Col className="flex justify-evenly items-center" xxl={2} xs={6}>
-          <BellSimple
-            className="hover:bg-gray-50 cursor-pointer dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+        <Col
+          md={6}
+          sm={6}
+          lg={4}
+          xl={3}
+          xxl={3}
+          className="xxs:hidden flex items-center justify-evenly xs:hidden"
+        >
+          <TrendUp
+            className="cursor-pointer bg-red-500 p-2 rounded-full hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+            size={33}
+            weight="bold"
+            color="white"
+          />
+
+          <ChatsCircle
+            className="hover:bg-gray-100 cursor-pointer  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
             size={24}
             weight="regular"
           />
-          <ChatsCircle
-            className="hover:bg-gray-50 cursor-pointer dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+          <Bookmarks
+            className="hover:bg-gray-100 cursor-pointer  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+            size={24}
+            weight="regular"
+          />
+          <BellSimple
+            className="hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
             size={24}
             weight="regular"
           />
         </Col>
-        <Col>
-          <Button className="transition-all ease-in-out shadow-blue dark:hover:text-white dark:hover:font-semibold dark:bg-blue-600 dark:shadow-none hover:bg-blue-600 hover:text-white">
-            Get Started
-          </Button>
+        <Col xs={9} sm={6} md={3} lg={2} xl={2}>
+          <Space className="flex items-center justify-evenly max-w-[200px]">
+            {dark.value ? (
+              <Sun
+                className="hover:bg-gray-100 cursor-pointer bg-yellow-400 p-2 rounded-full dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                size={33}
+                weight="fill"
+                color="white"
+                onClick={() => dark.toggle()}
+              />
+            ) : (
+              <Moon
+                className="hover:bg-gray-800 cursor-pointer bg-gray-600 rounded-full p-2  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                size={33}
+                weight="fill"
+                color="white"
+                onClick={() => dark.toggle()}
+              />
+            )}
+
+            <Button
+              type="primary"
+              className="hover:font-medium xxs:text-xs transition-none mx-4"
+            >
+              Get Started
+            </Button>
+          </Space>
         </Col>
       </Row>
     </Header>
