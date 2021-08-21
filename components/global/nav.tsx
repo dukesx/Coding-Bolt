@@ -52,17 +52,17 @@ const Nav: React.FC = () => {
     <Header className="bg-white drop-shadow-md dark:bg-transparent px-4 dark:shadow-blue py-0">
       <Row wrap={false} justify="space-between" align="middle">
         <Col className="xxs:text-base flex font-medium font-display text-black dark:text-white text-xl uppercase justify-center items-center">
-          <div className="mr-2 mt-[2px]">
+          <div className="mr-2 mt-[2px] hidden xs:block sm:block xxs:block">
             {burger ? (
               <X
-                className="hover:bg-gray-100 cursor-pointer  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                className="hover:bg-gray-100 cursor-pointer xxs:h-[20px] xxs:w-[20px] dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
                 size={24}
                 weight="regular"
                 onClick={() => setBurger(false)}
               />
             ) : (
               <List
-                className="hover:bg-gray-100 cursor-pointer  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                className="hover:bg-gray-100 cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px]   dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
                 size={24}
                 weight="regular"
                 onClick={() => setBurger(true)}
@@ -94,11 +94,13 @@ const Nav: React.FC = () => {
           xxl={3}
           className="xxs:hidden flex items-center justify-evenly xs:hidden"
         >
-          <BellSimple
-            className="hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
-            size={24}
-            weight="regular"
+          <TrendUp
+            className="cursor-pointer bg-red-500 p-2 rounded-full hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+            size={33}
+            weight="bold"
+            color="white"
           />
+
           <ChatsCircle
             className="hover:bg-gray-100 cursor-pointer  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
             size={24}
@@ -109,14 +111,13 @@ const Nav: React.FC = () => {
             size={24}
             weight="regular"
           />
-
-          <TrendUp
-            className="hover:bg-gray-100 cursor-pointer  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+          <BellSimple
+            className="hover:bg-gray-100 cursor-pointer dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
             size={24}
             weight="regular"
           />
         </Col>
-        <Col sm={6} md={3} lg={2} xl={2}>
+        <Col xs={9} sm={6} md={3} lg={2} xl={2}>
           <Space className="flex items-center justify-evenly max-w-[200px]">
             {dark.value ? (
               <Sun
