@@ -84,6 +84,7 @@ const Nav: React.FC = () => {
               allowClear
               className="h-[35px]"
               suffix={<MagnifyingGlass className="ml-2" size={18} />}
+              bordered={false}
             />
           </AutoComplete>
         </Col>
