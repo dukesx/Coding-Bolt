@@ -2,16 +2,20 @@
   vertical-align: sub;
 }
 
-// .ant-input:hover {
-//   border-right-width: 0px !important;
-// }
-
-// .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
-//   border-right-width: 0px !important;
-// }
-
-.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+.ant-input:hover {
   border-right-width: 0px !important;
+}
+
+.dark {
+  .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-right-width: 0px !important;
+  }
+}
+
+.light-mode {
+  .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-right-width: 0px !important;
+  }
 }
 
 @font-face {
