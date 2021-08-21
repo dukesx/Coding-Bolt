@@ -82,6 +82,7 @@ const Nav: React.FC = () => {
             <Input
               placeholder="Let's find you something amazing 👀😇"
               allowClear
+              className="h-[35px]"
               suffix={<MagnifyingGlass className="ml-2" size={18} />}
             />
           </AutoComplete>
