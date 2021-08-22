@@ -33,7 +33,7 @@ class MyDocument extends Document {
             type="text/css"
           />
         </Head>
-        <body>
+        <body className="subpixel-antialiased text-base">
           <div
             style={{
               display: "none",
