@@ -32,6 +32,7 @@ const Nav: React.FC = () => {
   const dark = useDarkMode(false, {
     classNameDark: "dark",
   });
+
   const [value, setValue] = useState("");
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const [burger, setBurger] = useState(false);
@@ -51,8 +52,8 @@ const Nav: React.FC = () => {
   return (
     <Header className="bg-white drop-shadow-md dark:bg-transparent px-4 dark:shadow-blue py-0">
       <Row wrap={false} justify="space-between" align="middle">
-        <Col className="xxs:text-base flex font-medium font-display text-black dark:text-white text-xl uppercase justify-center items-center">
-          <div className="mr-2 mt-[2px] hidden xs:block sm:block xxs:block">
+        <Col className=" flex font-medium text-gray-700  dark:text-white font-norms text-xl uppercase justify-center items-center">
+          <div className="mr-2 mt-[2px] xxs:mt-[5px] hidden xs:block sm:block xxs:block">
             {burger ? (
               <X
                 className="hover:bg-gray-100 cursor-pointer xxs:h-[20px] xxs:w-[20px] dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
@@ -71,7 +72,7 @@ const Nav: React.FC = () => {
           </div>
           Coding Bolt
         </Col>
-        <Col xs={0} sm={0} md={10} lg={12} xl={14} xxl={14}>
+        <Col xs={0} sm={0} md={10} lg={12} xl={14} xxl={11}>
           <AutoComplete
             options={options}
             style={{ width: 200 }}
@@ -119,29 +120,42 @@ const Nav: React.FC = () => {
             weight="regular"
           />
         </Col>
-        <Col xs={9} sm={6} md={3} lg={2} xl={2}>
-          <Space className="flex items-center justify-evenly max-w-[200px]">
-            {dark.value ? (
+        <Col
+          className="max-w-[150px]"
+          xs={9}
+          sm={6}
+          md={3}
+          lg={2}
+          xl={2}
+          xxl={2}
+        >
+          <Space className="flex items-center justify-evenly">
+            <div className="bg-yellow-400 rounded-full dark:block hidden">
               <Sun
-                className="hover:bg-gray-100 cursor-pointer bg-yellow-400 p-2 rounded-full dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
                 size={33}
                 weight="fill"
                 color="white"
-                onClick={() => dark.toggle()}
+                onClick={() => {
+                  dark.toggle();
+                }}
+                className="cursor-pointer xxs:h-[26px] xxs:w-[26px] p-2 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
               />
-            ) : (
+            </div>
+            <div className="bg-gray-600 rounded-full hover:bg-gray-800 dark:hidden">
               <Moon
-                className="hover:bg-gray-800 cursor-pointer bg-gray-600 rounded-full p-2  dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                className="cursor-pointer p-2 hover:p-2 xxs:h-[26px] xxs:w-[26px] hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
                 size={33}
                 weight="fill"
                 color="white"
-                onClick={() => dark.toggle()}
+                onClick={() => {
+                  dark.toggle();
+                }}
               />
-            )}
+            </div>
 
             <Button
               type="primary"
-              className="hover:font-medium xxs:text-xs transition-none mx-4"
+              className="hover:font-medium xxs:text-[10px] xxs:h-[27px] transition-none ml-2 mr-2"
             >
               Get Started
             </Button>
