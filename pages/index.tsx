@@ -27,7 +27,7 @@ const Index: React.FC = () => {
                 <Image
                   alt="Something"
                   className="max-w-[390px] xxs:max-w-full"
-                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                  src="https://image.freepik.com/free-vector/abstract-background_23-2148041193.jpg"
                 />
               }
             >
