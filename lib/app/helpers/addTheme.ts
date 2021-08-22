@@ -28,5 +28,6 @@ export var themeLoader = function (param: any): void {
     link.href = "/assets/themes/light-theme.css";
   }
 
-  headID.appendChild(link);
+  // headID.appendChild(link);
+  headID.insertBefore(link, headID.firstChild);
 };
