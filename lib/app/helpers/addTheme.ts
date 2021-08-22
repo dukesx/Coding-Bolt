@@ -5,13 +5,13 @@ export var themeLoader = function (param: any): void {
   domArray.forEach((link, index) => {
     if (link.href.includes("light")) {
       lightIndex = lightIndex + 1;
-      if (lightIndex >= 2) {
+      if (lightIndex >= 1) {
         link.parentNode.removeChild(link);
       }
     }
     if (link.href.includes("dark")) {
       darkIndex = darkIndex + 1;
-      if (darkIndex >= 2) {
+      if (darkIndex >= 1) {
         link.parentNode.removeChild(link);
       }
     }
