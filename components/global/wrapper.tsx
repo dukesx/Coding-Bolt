@@ -60,14 +60,14 @@ const Wrapper = (props: any) => {
   return (
     <Layout className="bg-gray-50 dark:bg-transparent">
       <Nav />
-      <Layout className="mt-5 bg-gray-50 dark:bg-transparent">
+      <Layout className="mt-5 bg-gray-50 dark:bg-transparent max-w-[1600px] mx-auto">
         <Content>
           {props.children}
 
           <div>
             <h1>My App</h1>
             <p>
-              Welcome{" "}
+              Welcome
               {firebase.auth().currentUser &&
                 firebase.auth().currentUser.displayName}
               ! You are now signed-in!
