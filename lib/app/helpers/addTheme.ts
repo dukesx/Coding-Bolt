@@ -1,12 +1,19 @@
 export var themeLoader = function (param: any): void {
   var domArray = document.head.querySelectorAll("link");
-
-  domArray.forEach((link) => {
+  var lightIndex: number = 0;
+  var darkIndex: number = 0;
+  domArray.forEach((link, index) => {
     if (link.href.includes("light")) {
-      link.parentNode.removeChild(link);
+      lightIndex = lightIndex + 1;
+      if (lightIndex >= 2) {
+        link.parentNode.removeChild(link);
+      }
     }
     if (link.href.includes("dark")) {
-      link.parentNode.removeChild(link);
+      darkIndex = darkIndex + 1;
+      if (darkIndex >= 2) {
+        link.parentNode.removeChild(link);
+      }
     }
   });
 
