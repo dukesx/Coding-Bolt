@@ -19,9 +19,10 @@ module.exports = {
       sans: ["ui-sans-serif", "system-ui"],
       serif: ["ui-serif", "Georgia"],
       mono: ["ui-monospace", "SFMono-Regular"],
-      display: ["Poppins"],
+      norms: ["TT Norms Pro"],
       body: ["Avenir Next Cyr"],
       segoe: ["Segoe UI"],
+      point: ["Point"],
     },
     lineClamp: {
       1: 1,

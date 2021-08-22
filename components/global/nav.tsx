@@ -52,8 +52,8 @@ const Nav: React.FC = () => {
   return (
     <Header className="bg-white drop-shadow-md dark:bg-transparent px-4 dark:shadow-blue py-0">
       <Row wrap={false} justify="space-between" align="middle">
-        <Col className="xxs:text-base flex font-medium font-display text-black dark:text-white text-xl uppercase justify-center items-center">
-          <div className="mr-2 mt-[2px] hidden xs:block sm:block xxs:block">
+        <Col className=" flex font-medium text-gray-700  dark:text-white font-norms text-xl uppercase justify-center items-center">
+          <div className="mr-2 mt-[2px] xxs:mt-[5px] hidden xs:block sm:block xxs:block">
             {burger ? (
               <X
                 className="hover:bg-gray-100 cursor-pointer xxs:h-[20px] xxs:w-[20px] dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
@@ -138,12 +138,12 @@ const Nav: React.FC = () => {
                 onClick={() => {
                   dark.toggle();
                 }}
-                className="cursor-pointer p-2 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                className="cursor-pointer xxs:h-[26px] xxs:w-[26px] p-2 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
               />
             </div>
             <div className="bg-gray-600 rounded-full hover:bg-gray-800 dark:hidden">
               <Moon
-                className="cursor-pointer p-2 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                className="cursor-pointer p-2 hover:p-2 xxs:h-[26px] xxs:w-[26px] hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
                 size={33}
                 weight="fill"
                 color="white"
@@ -155,7 +155,7 @@ const Nav: React.FC = () => {
 
             <Button
               type="primary"
-              className="hover:font-medium xxs:text-xs transition-none ml-2 mr-2"
+              className="hover:font-medium xxs:text-[10px] xxs:h-[27px] transition-none ml-2 mr-2"
             >
               Get Started
             </Button>
