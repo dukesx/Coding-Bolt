@@ -27,11 +27,11 @@ class MyDocument extends Document {
             href="/assets/themes/light-theme.css"
             type="text/css"
           />
-          <link
+          {/* <link
             rel="stylesheet"
             href="/assets/themes/dark-theme.css"
             type="text/css"
-          />
+          /> */}
         </Head>
         <body className="subpixel-antialiased text-base">
           <div
