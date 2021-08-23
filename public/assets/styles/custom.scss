@@ -30,6 +30,7 @@
     url("/assets/fonts/avenir-next/AvenirNextCyr-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -43,6 +44,7 @@
     url("/assets/fonts/avenir-next/AvenirNextCyr-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -56,6 +58,7 @@
     url("/assets/fonts/avenir-next/AvenirNextCyr-Heavy.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -69,6 +72,7 @@
     url("/assets/fonts/avenir-next/AvenirNextCyr-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -82,6 +86,7 @@
     url("/assets/fonts/avenir-next/AvenirNextCyr-Demi.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -96,10 +101,12 @@
       format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "TT Norms Pro";
+  font-display: swap;
   font-style: normal;
   font-weight: 400;
   src: local("TT Norms Pro Regular"),
@@ -108,6 +115,7 @@
 
 @font-face {
   font-family: "TT Norms Pro";
+  font-display: swap;
   font-style: normal;
   font-weight: 300;
   src: local("TT Norms Pro Light"),
@@ -117,6 +125,7 @@
 @font-face {
   font-family: "TT Norms Pro";
   font-style: normal;
+  font-display: swap;
   font-weight: 500;
   src: local("TT Norms Pro Medium"),
     url("/assets/fonts/tt-norms/TT Norms Pro Medium.woff") format("woff");
@@ -125,6 +134,7 @@
 @font-face {
   font-family: "TT Norms Pro";
   font-style: normal;
+  font-display: swap;
   font-weight: 700;
   src: local("TT Norms Pro Bold"),
     url("/assets/fonts/tt-norms/TT Norms Pro Bold.woff") format("woff");
@@ -134,6 +144,7 @@
   font-family: "TT Norms Pro";
   font-style: normal;
   font-weight: 800;
+  font-display: swap;
   src: local("TT Norms Pro ExtraBold"),
     url("/assets/fonts/tt-norms/TT Norms Pro ExtraBold.woff") format("woff");
 }
@@ -142,6 +153,7 @@
   font-family: "TT Norms Pro";
   font-style: normal;
   font-weight: 900;
+  font-display: swap;
   src: local("TT Norms Pro Black"),
     url("/assets/fonts/tt-norms/TT Norms Pro Black.woff") format("woff");
 }
@@ -150,6 +162,7 @@
   font-family: "TT Norms Pro";
   font-style: normal;
   font-weight: 1000;
+  font-display: swap;
   src: local("TT Norms Pro ExtraBlack"),
     url("/assets/fonts/tt-norms/TT Norms Pro ExtraBlack.woff") format("woff");
 }
