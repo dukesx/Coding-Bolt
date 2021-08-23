@@ -21,6 +21,7 @@ import {
 } from "phosphor-react";
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
+import { useThemeSwitcher } from "react-css-theme-switcher";
 
 const { Header } = Layout;
 
@@ -32,7 +33,7 @@ const Nav: React.FC = () => {
   const dark = useDarkMode(false, {
     classNameDark: "dark",
   });
-
+  const { currentTheme, switcher } = useThemeSwitcher();
   const [value, setValue] = useState("");
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const [burger, setBurger] = useState(false);
@@ -136,6 +137,9 @@ const Nav: React.FC = () => {
                 weight="fill"
                 color="white"
                 onClick={() => {
+                  switcher({
+                    theme: "dark",
+                  });
                   dark.toggle();
                 }}
                 className="cursor-pointer xxs:h-[26px] xxs:w-[26px] p-2 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
@@ -148,6 +152,9 @@ const Nav: React.FC = () => {
                 weight="fill"
                 color="white"
                 onClick={() => {
+                  switcher({
+                    theme: "light",
+                  });
                   dark.toggle();
                 }}
               />
