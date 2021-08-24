@@ -72,7 +72,7 @@ export default function App(props: AppProps) {
             primaryColor: "blue",
             fontFamily: '"Inter", "Segoe UI", sans-serif',
             fontFamilyMonospace: "Courier, monospace",
-            headings: { fontFamily: "TT Norms Pro" },
+            headings: { fontFamily: '"Segoe UI", sans-serif' },
           }}
         >
           <NormalizeCSS />

@@ -97,7 +97,7 @@ export default class _Document extends Document {
         <Head>
           <link rel="icon" href="link to favicon" />
         </Head>
-        <body className="subpixel-antialiased text-base">
+        <body className="antialiased text-base">
           <div
             style={{
               display: "none",
