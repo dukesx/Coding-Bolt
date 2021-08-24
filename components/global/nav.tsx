@@ -211,7 +211,7 @@ const Nav = () => {
           <Grid grow align="center">
             <Col span={1}>
               <Group align="center">
-                <div className="hidden xs:flex xxs:flex md:flex">
+                <div className="hidden xs:flex xxs:flex md:flex xxs:mt-3">
                   {burger ? (
                     <X
                       className="hover:bg-gray-100 md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
@@ -230,7 +230,7 @@ const Nav = () => {
                 </div>
 
                 <Title
-                  className="xs:text-lg md:ml-0 md:text-sm uppercase md:text-base lg:text-base lg:ml-1 font-medium ml-2"
+                  className="xs:text-lg md:ml-0 md:text-[15px] uppercase md:text-base lg:text-base lg:ml-1 font-medium ml-2"
                   order={4}
                 >
                   Coding Bolt
@@ -290,7 +290,9 @@ const Nav = () => {
                   }}
                 />
 
-                <Button className="mx-4">Get Started</Button>
+                <Button className="mx-4 xxs:px-2 xxs:text-xs xxs:h-[30px]">
+                  Get Started
+                </Button>
               </Group>
             </Col>
           </Grid>
