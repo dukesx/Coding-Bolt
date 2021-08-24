@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import ProgressiveImage from "react-progressive-graceful-image";
+import { Loader, Center } from "@mantine/core";
 
 interface ImageProps {
   path: string;
@@ -29,7 +30,11 @@ const Image: React.FC<ImageProps> = ({
       {(src, loading) =>
         selfLoader ? (
           loading ? (
-            <div>Loading...</div>
+            <div className="p-6">
+              <Center>
+                <Loader size="sm" />
+              </Center>
+            </div>
           ) : (
             <img
               className={className ? className : ""}

@@ -22,12 +22,13 @@ const Index: React.FC = () => {
       </Head>
       <Wrapper>
         <Paper className="mt-10">
-          <Card className="w-[380px]" shadow="sm" padding="xl">
+          <Card className="w-[380px] xxs:max-w-full" shadow="sm" padding="xl">
             <CardSection>
               <Image
                 alt="Image"
                 path="https://i.pinimg.com/originals/40/1c/2e/401c2ee9c26ae7bd295be433b1490033.jpg"
                 className="h-[200px] w-[380px] object-cover"
+                selfLoader
               />
             </CardSection>
             <Group className="mt-2" withGutter direction="column">
