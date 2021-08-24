@@ -7,6 +7,8 @@ import {
   withAuthUser,
   withAuthUserTokenSSR,
 } from "next-firebase-auth";
+import { Paper, Card, CardSection, Title, Text, Group } from "@mantine/core";
+import Image from "components/global/image";
 
 const Index: React.FC = () => {
   const dark = useDarkMode();
@@ -19,32 +21,29 @@ const Index: React.FC = () => {
         <title>Welcome to Coding Bolt</title>
       </Head>
       <Wrapper>
-        {/* <Row>
-          <Col>
-            <Card
-              className="max-w-[390px]"
-              cover={
-                <Image
-                  alt="Something"
-                  className="max-w-[390px] xxs:max-w-full"
-                  src="https://image.freepik.com/free-vector/abstract-background_23-2148041193.jpg"
-                />
-              }
-            >
-              <div className="text-center text-5xl font-extrabold leading-none tracking-tight">
-                <span className="decoration-clone bg-clip-text text-transparent bg-gradient-to-b from-amber-400 to-red-500">
-                  Hello <br /> World
-                </span>
-              </div>
-              <Card.Meta
-                title="Hello World brings happiness to this world"
-                description={
-                  <p>This is wow and i know how awesome does this look</p>
-                }
+        <Paper className="mt-10">
+          <Card className="w-[380px]" shadow="sm" padding="xl">
+            <CardSection>
+              <Image
+                alt="Image"
+                path="https://i.pinimg.com/originals/40/1c/2e/401c2ee9c26ae7bd295be433b1490033.jpg"
+                className="h-[200px] w-[380px] object-cover"
               />
-            </Card>
-          </Col>
-        </Row> */}
+            </CardSection>
+            <Group className="mt-2" withGutter direction="column">
+              <Title className="font-semibold capitalize" order={4}>
+                Use Interface Props in Functional Components Using TypeScript
+                with React
+              </Title>
+              <Text className="clamp-2">
+                Writing function or class components in a React/TypeScript app
+                often requires you to define the type of props passed to them.
+                It enforces type checking so that the code adheres to the
+                defined contract
+              </Text>
+            </Group>
+          </Card>
+        </Paper>
       </Wrapper>
     </>
   );
