@@ -22,26 +22,32 @@ const Index: React.FC = () => {
       </Head>
       <Wrapper>
         <Paper className="mt-10">
-          <Card className="w-[380px] xxs:max-w-full" shadow="sm" padding="xl">
+          <Card
+            className="w-[320px] xxs:max-w-full xs:w-full"
+            shadow="sm"
+            padding="xl"
+          >
             <CardSection>
               <Image
                 alt="Image"
-                path="https://i.pinimg.com/originals/40/1c/2e/401c2ee9c26ae7bd295be433b1490033.jpg"
-                className="h-[200px] w-[380px] object-cover"
-                selfLoader
+                path="401c2ee9c26ae7bd295be433b1490033.jpg"
+                className="object-cover h-[230px]"
+                withPlaceholder
+                width={400}
+                height={250}
               />
             </CardSection>
             <Group className="mt-2" withGutter direction="column">
-              <Title className="font-semibold capitalize" order={4}>
+              <Text className="font-semibold capitalize">
                 Use Interface Props in Functional Components Using TypeScript
                 with React
-              </Title>
-              <Text className="clamp-2">
+              </Text>
+              {/* <Text className="clamp-2 text-base">
                 Writing function or class components in a React/TypeScript app
                 often requires you to define the type of props passed to them.
                 It enforces type checking so that the code adheres to the
                 defined contract
-              </Text>
+              </Text> */}
             </Group>
           </Card>
         </Paper>
