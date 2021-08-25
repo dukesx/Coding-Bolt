@@ -47,6 +47,7 @@
     "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-beautiful-dnd": "^13.1.0",
+    "react-cloudimage-responsive": "^3.5.1",
     "react-css-theme-switcher": "^0.3.0",
     "react-dom": "17.0.2",
     "react-firebaseui": "^5.0.2",
