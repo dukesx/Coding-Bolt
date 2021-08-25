@@ -11,6 +11,7 @@ interface ImageProps {
   width?: string | number;
   height?: string | number;
   className?: string;
+  withPlaceholder?: boolean;
 }
 const Image: React.FC<ImageProps> = ({
   path,
@@ -21,11 +22,16 @@ const Image: React.FC<ImageProps> = ({
   height,
   width,
   style,
+  withPlaceholder,
 }) => {
   return (
     <ProgressiveImage
-      src={path}
-      placeholder={selfLoader ? null : placeholder ? placeholder : null}
+      src={"https://ik.imagekit.io/codingbolt/tr:n-" + width + "x" + "/" + path}
+      placeholder={
+        selfLoader
+          ? null
+          : "https://ik.imagekit.io/codingbolt/tr:n-placeholder/" + path
+      }
     >
       {(src, loading) =>
         selfLoader ? (
