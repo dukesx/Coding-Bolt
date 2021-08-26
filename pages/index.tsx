@@ -13,7 +13,7 @@ import Img, { CloudimageProvider } from "react-cloudimage-responsive";
 
 const cloudimageConfig = {
   token: "aqytnfjixq",
-  baseURL: "https://aqytnfjixq.cloudimg.io/v7/_cb-assets_/",
+  baseURL: "_cb-assets_/",
 };
 const Index: React.FC = () => {
   const dark = useDarkMode();
