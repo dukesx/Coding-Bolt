@@ -36,6 +36,7 @@
     "firebase-admin": "^9.11.0",
     "firebaseui": "^5.0.0",
     "graphql": "^15.5.1",
+    "imagekitio-react": "^1.0.11",
     "lightgallery": "^2.1.8",
     "next": "11.1.0",
     "next-firebase-auth": "^0.13.3-alpha.1",

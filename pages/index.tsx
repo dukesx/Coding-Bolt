@@ -11,14 +11,15 @@ import { Paper, Card, CardSection, Title, Text, Group } from "@mantine/core";
 import Image from "components/global/image";
 import Img, { CloudimageProvider } from "react-cloudimage-responsive";
 
-const cloudimageConfig = {
-  token: "aqytnfjixq",
-  baseURL: "_cb-assets_/",
-};
 const Index: React.FC = () => {
   const dark = useDarkMode();
   const AuthUser = useAuthUser();
-
+  const cloudimageConfig = {
+    token: "aqytnfjixq",
+    baseURL: "_cb-assets_/",
+    placeholderBackground: dark.value ? "#111111" : "#f4f4f4",
+    delay: 20000,
+  };
   // const { Title } = Typography;
   return (
     <>
@@ -28,20 +29,20 @@ const Index: React.FC = () => {
       <Wrapper>
         <Paper className="mt-10">
           <Card
-            className="w-[600px] xxs:max-w-full xs:w-full"
+            className="w-[400px]  xxs:max-w-full xs:w-full"
             shadow="sm"
             padding="xl"
           >
-            <CardSection>
+            <CardSection className="h-[250px]">
+              {/* <Image
+                alt="Image"
+                path="redcharlie.jpg"
+                className="object-cover h-[230px]"
+                withPlaceholder
+                width={400}
+                height={250}
+              /> */}
               <CloudimageProvider config={cloudimageConfig}>
-                {/* <Image
-                  alt="Image"
-                  path="401c2ee9c26ae7bd295be433b1490033.jpg"
-                  className="object-cover h-[230px]"
-                  withPlaceholder
-                  width={400}
-                  height={250}
-                /> */}
                 <Img src="redcharlie.jpg" alt="Demo image" ratio={1.5} />
               </CloudimageProvider>
             </CardSection>

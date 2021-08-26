@@ -26,6 +26,7 @@ const Image: React.FC<ImageProps> = ({
 }) => {
   return (
     <ProgressiveImage
+      delay={1600}
       src={"https://ik.imagekit.io/codingbolt/tr:n-" + width + "x" + "/" + path}
       placeholder={
         selfLoader
