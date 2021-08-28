@@ -7,7 +7,7 @@ const Editor = (props: any) => {
   var editor = null;
   useEffect(() => {
     const EditorJS = require("@editorjs/editorjs");
-    const ImageTool = require("@editorjs/image");
+    const ImageTool = require("lib/editor/plugins/imageUpload/bundle");
     const Warning = require("@editorjs/warning");
     const Table = require("@editorjs/table");
     const CodeTool = require("@editorjs/code");
