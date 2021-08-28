@@ -1,4 +1,4 @@
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: false,
+  enabled: true,
 });
 module.exports = withBundleAnalyzer({});

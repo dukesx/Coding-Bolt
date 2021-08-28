@@ -25,7 +25,6 @@ const Wrapper = (props: any) => {
       },
       signInFlow: "popup",
       signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
         {
           provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           clientId:

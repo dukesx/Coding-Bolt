@@ -1,69 +1,67 @@
 /* eslint-disable @next/next/no-img-element */
 import ProgressiveImage from "react-progressive-graceful-image";
-import { Loader, Center } from "@mantine/core";
+// import { Loader, Center } from "@mantine/core";
+import { BlurhashCanvas } from "react-blurhash";
+import LazyLoad from "react-lazyload";
+import { ImageProps } from "types/defaults";
 
-interface ImageProps {
-  path: string;
-  placeholder?: string;
-  selfLoader?: boolean;
-  alt?: string;
-  style?: object;
-  width?: string | number;
-  height?: string | number;
-  className?: string;
-  withPlaceholder?: boolean;
-}
 const Image: React.FC<ImageProps> = ({
-  path,
-  placeholder,
+  name,
   selfLoader,
   alt,
   className,
   height,
   width,
   style,
-  withPlaceholder,
 }) => {
   return (
-    <ProgressiveImage
-      delay={1600}
-      src={"https://ik.imagekit.io/codingbolt/tr:n-" + width + "x" + "/" + path}
+    <LazyLoad
+      offset={-100}
+      unmountIfInvisible
       placeholder={
-        selfLoader
-          ? null
-          : "https://ik.imagekit.io/codingbolt/tr:n-placeholder/" + path
+        <div className="dark:bg-[#111111] bg-[#f4f4f4] h-[250px]"></div>
       }
     >
-      {(src, loading) =>
-        selfLoader ? (
-          loading ? (
-            <div className="p-6">
-              <Center>
-                <Loader size="sm" />
-              </Center>
-            </div>
+      <ProgressiveImage
+        src={`${process.env.IMAGE_CDN_PATH}/tr:n-` + width + "x" + "/" + name}
+        placeholder={
+          selfLoader
+            ? null
+            : `${process.env.IMAGE_CDN_PATH}/tr:n-placeholder/` + name
+        }
+      >
+        {(src, loading) =>
+          selfLoader ? (
+            loading ? (
+              <BlurhashCanvas
+                hash="LQE2Xd?HxvkX~V?G%Mo#Oaxu-oxt"
+                width={400}
+                height={250}
+                punch={1}
+              />
+            ) : (
+              <img
+                className={className ? className : null}
+                style={style ? style : {}}
+                alt={alt ? alt : "An Image"}
+                src={src}
+                width={width ? width : 400}
+                height={height ? height : "auto"}
+              />
+            )
           ) : (
             <img
-              className={className ? className : ""}
+              className={className ? className : null}
               style={style ? style : {}}
-              alt={alt ? alt : ""}
+              alt={alt ? alt : "An Image"}
               src={src}
               width={width ? width : 400}
               height={height ? height : "auto"}
             />
           )
-        ) : (
-          <img
-            className={className ? className : ""}
-            style={style ? style : {}}
-            alt={alt ? alt : ""}
-            src={src}
-            width={width ? width : 400}
-            height={height ? height : "auto"}
-          />
-        )
-      }
-    </ProgressiveImage>
+        }
+      </ProgressiveImage>
+    </LazyLoad>
   );
 };
 
