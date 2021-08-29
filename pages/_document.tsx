@@ -46,6 +46,11 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <link rel="icon" href="link to favicon" />
+          <script
+            data-ad-client="ca-pub-8151079988282804"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
         </Head>
         <body className="antialiased text-base">
           <div

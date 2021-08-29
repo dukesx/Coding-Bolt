@@ -4,7 +4,6 @@ import Unsplash from "lib/editor/plugins/unsplash";
 
 const Editor = (props: any) => {
   const [val, setVal] = useState(null);
-  var editor = null;
   useEffect(() => {
     const EditorJS = require("@editorjs/editorjs");
     const ImageTool = require("lib/editor/plugins/imageUpload/bundle");
