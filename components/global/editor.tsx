@@ -7,9 +7,7 @@ const Editor = (props: any) => {
   useEffect(() => {
     const EditorJS = require("@editorjs/editorjs");
     const ImageTool = require("lib/editor/plugins/imageUpload/bundle");
-    const Warning = require("@editorjs/warning");
     const Table = require("@editorjs/table");
-    const CodeTool = require("@editorjs/code");
     const InlineCode = require("@editorjs/inline-code");
     const Checklist = require("@editorjs/checklist");
     const Quote = require("@editorjs/quote");
@@ -65,8 +63,6 @@ const Editor = (props: any) => {
           class: Unsplash,
         },
 
-        warning: Warning,
-        code: CodeTool,
         inlineCode: {
           class: InlineCode,
           shortcut: "CMD+SHIFT+M",

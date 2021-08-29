@@ -39,7 +39,7 @@ const Index: React.FC = () => {
                 <CardSection>
                   <Image
                     alt="Image"
-                    name="IC1uxO8Sva.jpg"
+                    name="NyUbHUDAJ3.jpg"
                     className="object-cover h-[250px] transition-all ease-in-out"
                     width={400}
                     height={250}

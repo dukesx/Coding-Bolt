@@ -17,3 +17,38 @@
     border-right-width: 0px !important;
   }
 }
+
+.dark {
+  .ce-settings {
+    position: absolute;
+    background-color: rgb(37 38 43);
+    border: 1px solid rgb(26 27 30);
+    -webkit-box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
+    box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .ce-toolbar {
+    position: absolute;
+    background-color: rgb(26 27 30);
+    border: 1px solid #1d202b;
+    -webkit-box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
+    box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  svg {
+    fill: white;
+  }
+
+  .ce-block--selected .ce-block__content {
+    background: transparent !important;
+  }
+
+  .ce-code__textarea {
+    background: #1a1b1e !important;
+    color: white !important;
+  }
+}

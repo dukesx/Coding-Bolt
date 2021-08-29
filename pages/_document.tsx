@@ -14,7 +14,17 @@ export default class _Document extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const registry = new SheetsRegistry();
     const originalRenderPage = ctx.renderPage;
-
+    if (typeof window === "undefined") {
+      const originalWarn = console.warn;
+      console.warn = (...args: any) => {
+        if (
+          args[0] !==
+          'Warning: [JSS] Rule is not linked. Missing sheet option "link: true".'
+        ) {
+          originalWarn(...args);
+        }
+      };
+    }
     ctx.renderPage = () =>
       originalRenderPage({
         enhanceApp: (App) => (props) =>

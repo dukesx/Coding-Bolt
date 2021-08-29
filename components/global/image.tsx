@@ -13,8 +13,8 @@ const Imager: React.FC<ImageProps> = ({
 }) => {
   return (
     <Image
+      transitionTime="3s"
       className={className ? className + " object-cover" : "object-cover"}
-      transitionTime="4s"
       lazyLoad
       src={
         `https://${process.env.NEXT_PUBLIC_IMAGE_CDN_PATH}/tr:n-` +
@@ -23,18 +23,19 @@ const Imager: React.FC<ImageProps> = ({
         "/" +
         name
       }
-      width={width ? width : 400}
-      height={height ? height : 250}
+      width={width ? width + "px" : 400}
+      height={height ? height + "px" : 250}
       style={style ? style : null}
-      renderLoader={({ hasLoaded, hasFailed }) => (
-        <BlurhashCanvas
-          className="transition-all ease-in-out duration-500"
-          hash="UVKAf.?vbbs9~p-pM{RjI;NGjFt7aKs9ofS5"
-          width={400}
-          height={250}
-          punch={1}
-        />
-      )}
+      renderLoader={({ hasLoaded, hasFailed }) =>
+        !hasLoaded ? (
+          <BlurhashCanvas
+            hash="UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"
+            width={400}
+            height={250}
+            punch={1}
+          />
+        ) : null
+      }
       alt={alt ? alt : "An Image"}
     />
   );
