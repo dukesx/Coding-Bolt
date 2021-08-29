@@ -7,11 +7,11 @@ COPY package.json ./
 COPY .next ./
 COPY node_modules ./
 # Rebuild the source code only when needed
-FROM node:14-alpine AS builder
+FROM node:14.17-buster-slim AS builder
 WORKDIR /app
 COPY . .
 # Production image, copy all the files and run next
-FROM node:14-alpine AS runner
+FROM node:14.17-buster-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
