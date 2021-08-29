@@ -7,7 +7,7 @@ export default function (req, res) {
 
   return new Promise((resolve, reject) => {
     axios
-      .delete(`${process.env.BUCKET_URL}/${name}`, {
+      .delete(`https://${process.env.BUCKET_URL}/${name}`, {
         headers: {
           AccessKey: process.env.BUCKET_KEY,
         },

@@ -6,7 +6,16 @@ import {
   withAuthUser,
   withAuthUserTokenSSR,
 } from "next-firebase-auth";
-import { Paper, Card, CardSection, Text, Group } from "@mantine/core";
+import Editor from "components/global/editor";
+import {
+  Paper,
+  Card,
+  CardSection,
+  Text,
+  Group,
+  Grid,
+  Col,
+} from "@mantine/core";
 import Image from "components/global/image";
 
 const Index: React.FC = () => {
@@ -20,74 +29,34 @@ const Index: React.FC = () => {
       </Head>
       <Wrapper>
         <Paper className="mt-10">
-          <Card
-            className="w-[400px]  xxs:max-w-full xs:w-full mb-8"
-            shadow="sm"
-            padding="xl"
-          >
-            <CardSection>
-              <Image
-                alt="Image"
-                name="redcharlie.jpg"
-                className="object-cover h-[250px] transition-all ease-in-out"
-                selfLoader
-                width={400}
-                height={250}
-              />
-            </CardSection>
-            <Group className="mt-2" withGutter direction="column">
-              <Text className="font-semibold capitalize">
-                Use Interface Props in Functional Components Using TypeScript
-                with React
-              </Text>
-            </Group>
-          </Card>
-
-          <Card
-            className="w-[400px]  xxs:max-w-full xs:w-full mb-8"
-            shadow="sm"
-            padding="xl"
-          >
-            <CardSection>
-              <Image
-                alt="Image"
-                name="redcharlie.jpg"
-                className="object-cover h-[250px] transition-all ease-in-out"
-                selfLoader
-                width={400}
-                height={250}
-              />
-            </CardSection>
-            <Group className="mt-2" withGutter direction="column">
-              <Text className="font-semibold capitalize">
-                Use Interface Props in Functional Components Using TypeScript
-                with React
-              </Text>
-            </Group>
-          </Card>
-
-          <Card
-            className="w-[400px]  xxs:max-w-full xs:w-full mb-8"
-            shadow="sm"
-            padding="xl"
-          >
-            <CardSection>
-              <Image
-                alt="Image"
-                name="redcharlie.jpg"
-                className="object-cover h-[250px] transition-all ease-in-out"
-                selfLoader
-                width={400}
-                height={250}
-              />
-            </CardSection>
-            <Group className="mt-2" withGutter direction="column">
-              <Text className="font-semibold capitalize">
-                Use Interface Props in Functional Components Using TypeScript
-                with React
-              </Text>
-            </Group>
-          </Card>
+          <Grid>
+            <Col className="xs:w-full max-w-full" span={6}>
+              <Card
+                className="w-[400px] xxs:max-w-full xs:w-full mb-8"
+                shadow="sm"
+                padding="xl"
+              >
+                <CardSection>
+                  <Image
+                    alt="Image"
+                    name="NyUbHUDAJ3.jpg"
+                    className="object-cover h-[250px] transition-all ease-in-out"
+                    width={400}
+                    height={250}
+                  />
+                </CardSection>
+                <Group className="mt-2" withGutter direction="column">
+                  <Text className="font-semibold capitalize">
+                    Use Interface Props in Functional Components Using
+                    TypeScript with React
+                  </Text>
+                </Group>
+              </Card>
+            </Col>
+            <Col className="xs:max-w-full" span={8}>
+              <Editor />
+            </Col>
+          </Grid>
         </Paper>
       </Wrapper>
     </>

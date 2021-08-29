@@ -1,13 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import ProgressiveImage from "react-progressive-graceful-image";
-// import { Loader, Center } from "@mantine/core";
-import { BlurhashCanvas } from "react-blurhash";
-import LazyLoad from "react-lazyload";
+import { BlurhashCanvas, Blurhash } from "react-blurhash";
 import { ImageProps } from "types/defaults";
+import { Image } from "react-image-and-background-image-fade";
 
-const Image: React.FC<ImageProps> = ({
+const Imager: React.FC<ImageProps> = ({
   name,
-  selfLoader,
   alt,
   className,
   height,
@@ -15,54 +12,33 @@ const Image: React.FC<ImageProps> = ({
   style,
 }) => {
   return (
-    <LazyLoad
-      offset={-100}
-      unmountIfInvisible
-      placeholder={
-        <div className="dark:bg-[#111111] bg-[#f4f4f4] h-[250px]"></div>
+    <Image
+      transitionTime="3s"
+      className={className ? className + " object-cover" : "object-cover"}
+      lazyLoad
+      src={
+        `https://${process.env.NEXT_PUBLIC_IMAGE_CDN_PATH}/tr:n-` +
+        width +
+        "x" +
+        "/" +
+        name
       }
-    >
-      <ProgressiveImage
-        src={`${process.env.IMAGE_CDN_PATH}/tr:n-` + width + "x" + "/" + name}
-        placeholder={
-          selfLoader
-            ? null
-            : `${process.env.IMAGE_CDN_PATH}/tr:n-placeholder/` + name
-        }
-      >
-        {(src, loading) =>
-          selfLoader ? (
-            loading ? (
-              <BlurhashCanvas
-                hash="LQE2Xd?HxvkX~V?G%Mo#Oaxu-oxt"
-                width={400}
-                height={250}
-                punch={1}
-              />
-            ) : (
-              <img
-                className={className ? className : null}
-                style={style ? style : {}}
-                alt={alt ? alt : "An Image"}
-                src={src}
-                width={width ? width : 400}
-                height={height ? height : "auto"}
-              />
-            )
-          ) : (
-            <img
-              className={className ? className : null}
-              style={style ? style : {}}
-              alt={alt ? alt : "An Image"}
-              src={src}
-              width={width ? width : 400}
-              height={height ? height : "auto"}
-            />
-          )
-        }
-      </ProgressiveImage>
-    </LazyLoad>
+      width={width ? width + "px" : 400}
+      height={height ? height + "px" : 250}
+      style={style ? style : null}
+      renderLoader={({ hasLoaded, hasFailed }) =>
+        !hasLoaded ? (
+          <BlurhashCanvas
+            hash="UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"
+            width={400}
+            height={250}
+            punch={1}
+          />
+        ) : null
+      }
+      alt={alt ? alt : "An Image"}
+    />
   );
 };
 
-export default Image;
+export default Imager;

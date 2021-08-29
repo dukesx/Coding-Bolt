@@ -2,11 +2,14 @@ import { Container } from "@mantine/core";
 import firebase from "firebase/app";
 import { useEffect, useState } from "react";
 import Nav from "./nav";
+import "firebase/performance";
 
 if (firebase.apps.length < 1) {
   firebase.initializeApp({
-    apiKey: "AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg",
+    apiKey: process.env.NEXT_PUBLIC_API_KEY,
     authDomain: "coding-bolt.firebaseapp.com",
+    projectId: "coding-bolt",
+    appId: "1:1036440562165:web:a6a6f355c425ddd9efd8bc",
   });
 }
 
@@ -15,6 +18,7 @@ const Wrapper = (props: any) => {
   var user = firebase.auth().currentUser;
 
   useEffect(() => {
+    const perf = firebase.performance();
     var firebaseui = require("firebaseui");
     var uiConfig = {
       signInSuccessUrl: "/",

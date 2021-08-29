@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
         console.log(response);
         axios
-          .put(`${process.env.BUCKET_URL}/${fileName}`, buff, {
+          .put(`https://${process.env.BUCKET_URL}/${fileName}`, buff, {
             headers: {
               AccessKey: process.env.BUCKET_KEY,
             },
