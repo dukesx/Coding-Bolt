@@ -34,6 +34,13 @@ jobs:
         name: Construct Image & Push to Docker Registry
         with:
           image: codingbolt/app
+          buildArgs: |
+            FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+            COOKIE_SECRET_CURRENT: ${{ secrets.COOKIE_SECRET_CURRENT }}
+            COOKIE_SECRET_PREVIOUS: ${{ secrets.COOKIE_SECRET_PREVIOUS }}
+            NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+            BUCKET_URL: ${{ secrets.BUCKET_URL }}
+            BUCKET_KEY: ${{ secrets.BUCKET_KEY }}
           tags: latest
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
