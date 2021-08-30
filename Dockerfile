@@ -5,8 +5,8 @@ FROM node:14.17-buster-slim AS deps
 WORKDIR /app
 COPY package.json ./
 RUN yarn install --frozen-lockfile
-COPY .next ./
-COPY node_modules ./
+# COPY .next ./
+# COPY node_modules ./
 COPY other ./
 # Rebuild the source code only when needed
 FROM node:14.17-buster-slim AS builder
