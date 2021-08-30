@@ -1,4 +1,4 @@
-#APP_!/bin/sh
+#!/bin/sh
 
 echo "Checking Vars"
 
