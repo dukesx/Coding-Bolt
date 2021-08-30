@@ -31,7 +31,6 @@ COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 
 RUN addgroup --gecos 1001 --system nodejs
 RUN adduser --system nextjs --uid 1001
-RUN chown -R nextjs:nodejs .next
 
 USER nextjs
 
