@@ -41,5 +41,5 @@ EXPOSE 3000
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
-ENTRYPOINT ["chmod", "+x","/app/entrypoint.sh"]
+ENTRYPOINT ["chmod", "+x","entrypoint.sh"]
 CMD ["yarn", "start"]
