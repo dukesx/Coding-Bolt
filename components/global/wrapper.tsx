@@ -6,7 +6,7 @@ import "firebase/performance";
 
 if (firebase.apps.length < 1) {
   firebase.initializeApp({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY,
+    apiKey: "AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg",
     authDomain: "coding-bolt.firebaseapp.com",
     projectId: "coding-bolt",
     appId: "1:1036440562165:web:a6a6f355c425ddd9efd8bc",
