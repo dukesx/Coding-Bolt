@@ -53,7 +53,7 @@ jobs:
           push: true
           tags: codingbolt/app:latest
           secret-files: |
-          "my_tokens=./other.txt"
+            "my_tokens=./other.txt"
       # - uses: mr-smithers-excellent/docker-build-push@v5
       #   name: Construct Image & Push to Docker Registry
       #   with:
