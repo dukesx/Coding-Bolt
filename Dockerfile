@@ -7,14 +7,14 @@ COPY package.json ./
 RUN yarn install --frozen-lockfile
 COPY .next ./
 COPY node_modules ./
-COPY other.txt ./
+COPY other ./
 # Rebuild the source code only when needed
 FROM node:14.17-buster-slim AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/other.txt ./other.txt
-RUN --mount=type=secret,id=other.txt cat /other.txt yarn build
+COPY --from=deps /app/other ./other
+RUN --mount=type=secret,id=other cat /other yarn build
 # Production image, copy all the files and run next
 FROM node:14.17-buster-slim AS runner
 WORKDIR /app

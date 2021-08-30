@@ -12,48 +12,54 @@ jobs:
     # this job will only run if the PR has been merged
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    env:
-      FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-      COOKIE_SECRET_CURRENT: ${{ secrets.COOKIE_SECRET_CURRENT }}
-      COOKIE_SECRET_PREVIOUS: ${{ secrets.COOKIE_SECRET_PREVIOUS }}
-      NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
-      BUCKET_URL: ${{ secrets.BUCKET_URL }}
-      BUCKET_KEY: ${{ secrets.BUCKET_KEY }}
-      NEXT_PUBLIC_IMAGE_CDN_PATH: ${{ secrets.NEXT_PUBLIC_IMAGE_CDN_PATH }}
+    # env:
+    #   FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+    #   COOKIE_SECRET_CURRENT: ${{ secrets.COOKIE_SECRET_CURRENT }}
+    #   COOKIE_SECRET_PREVIOUS: ${{ secrets.COOKIE_SECRET_PREVIOUS }}
+    #   NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+    #   BUCKET_URL: ${{ secrets.BUCKET_URL }}
+    #   BUCKET_KEY: ${{ secrets.BUCKET_KEY }}
+    #   NEXT_PUBLIC_IMAGE_CDN_PATH: ${{ secrets.NEXT_PUBLIC_IMAGE_CDN_PATH }}
     steps:
       - uses: actions/checkout@v2
-      - name: Create file
+      - name: Create Env File
         run: |
-          echo FIREBASE_PRIVATE_KEY= ${{ secrets.FIREBASE_PRIVATE_KEY }}                    > other.txt
-          echo COOKIE_SECRET_CURRENT= ${{ secrets.COOKIE_SECRET_CURRENT }}                 >> other.txt
-          echo COOKIE_SECRET_PREVIOUS= ${{ secrets.COOKIE_SECRET_PREVIOUS }}               >> other.txt
-          echo NEXT_PUBLIC_API_KEY= ${{ secrets.NEXT_PUBLIC_API_KEY }}                     >> other.txt
-          echo BUCKET_URL= ${{ secrets.BUCKET_URL }}                                       >> other.txt
-          echo BUCKET_KEY= ${{ secrets.BUCKET_KEY }}                                       >> other.txt
-          echo NEXT_PUBLIC_IMAGE_CDN_PATH= ${{ secrets.NEXT_PUBLIC_IMAGE_CDN_PATH }}       >> other.txt
-      - name: Use Stable Node.js
-        uses: actions/setup-node@v2
+          echo FIREBASE_PRIVATE_KEY= ${{ secrets.FIREBASE_PRIVATE_KEY }}                    > other
+          echo COOKIE_SECRET_CURRENT= ${{ secrets.COOKIE_SECRET_CURRENT }}                 >> other
+          echo COOKIE_SECRET_PREVIOUS= ${{ secrets.COOKIE_SECRET_PREVIOUS }}               >> other
+          echo NEXT_PUBLIC_API_KEY= ${{ secrets.NEXT_PUBLIC_API_KEY }}                     >> other
+          echo BUCKET_URL= ${{ secrets.BUCKET_URL }}                                       >> other
+          echo BUCKET_KEY= ${{ secrets.BUCKET_KEY }}                                       >> other
+          echo NEXT_PUBLIC_IMAGE_CDN_PATH= ${{ secrets.NEXT_PUBLIC_IMAGE_CDN_PATH }}       >> other
+      # - name: Use Stable Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "14.x"
+      # - name: Install Dependencies
+      #   run: npm install
+      # - name: Build App
+      #   run: npm run build
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
         with:
-          node-version: "14.x"
-      - name: Install Dependencies
-        run: npm install
-      - name: Build App
-        run: npm run build
-      - uses: mr-smithers-excellent/docker-build-push@v5
-        name: Construct Image & Push to Docker Registry
-        with:
-          image: codingbolt/app
-          # buildArgs: |
-          #   FIREBASE_PRIVATE_KEY= "${{ secrets.FIREBASE_PRIVATE_KEY }}"
-          #   COOKIE_SECRET_CURRENT= ${{ secrets.COOKIE_SECRET_CURRENT }}
-          #   COOKIE_SECRET_PREVIOUS= ${{ secrets.COOKIE_SECRET_PREVIOUS }}
-          #   NEXT_PUBLIC_API_KEY= ${{ secrets.NEXT_PUBLIC_API_KEY }}
-          #   BUCKET_URL= ${{ secrets.BUCKET_URL }}
-          #   BUCKET_KEY= ${{ secrets.BUCKET_KEY }}
-          tags: latest
-          registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: codingbolt/app:latest
+      # - uses: mr-smithers-excellent/docker-build-push@v5
+      #   name: Construct Image & Push to Docker Registry
+      #   with:
+      #     image: codingbolt/app
+      #     tags: latest
+      #     registry: docker.io
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
       # - name: Build and push
       #   id: docker_build
       #   uses: docker/build-push-action@v2
