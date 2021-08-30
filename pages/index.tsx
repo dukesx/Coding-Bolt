@@ -40,8 +40,8 @@ const Index: React.FC = () => {
                     alt="Image"
                     name="NyUbHUDAJ3.jpg"
                     className="object-cover h-[250px] transition-all ease-in-out"
-                    width={400}
-                    height={250}
+                    width="400px"
+                    height="250px"
                   />
                 </CardSection>
                 <Group className="mt-2" withGutter direction="column">
