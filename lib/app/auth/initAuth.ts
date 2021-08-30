@@ -24,10 +24,7 @@ const initAuth = () => {
       name: "fbase_auth", // required
       // Keys are required unless you set `signed` to `false`.
       // The keys cannot be accessible on the client side.
-      keys: [
-        process.env.COOKIE_SECRET_CURRENT,
-        process.env.COOKIE_SECRET_PREVIOUS,
-      ],
+      keys: [process.env.COOKIE_C, process.env.COOKIE_P],
       httpOnly: true,
       maxAge: 12 * 60 * 60 * 24 * 1000, // twelve days
       overwrite: true,
