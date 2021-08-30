@@ -17,10 +17,6 @@ WORKDIR /app
 
 ENV NODE_ENV production
 
-RUN addgroup --gecos 1001 --system nodejs
-RUN adduser --system nextjs --uid 1001
-RUN chown -R nextjs:nodejs /app/.next
-
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/next-env.d.ts ./
@@ -33,7 +29,9 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 
-
+RUN addgroup --gecos 1001 --system nodejs
+RUN adduser --system nextjs --uid 1001
+RUN chown -R nextjs:nodejs /app/.next
 
 USER nextjs
 
