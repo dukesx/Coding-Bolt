@@ -16,7 +16,7 @@ const initAuth = () => {
       databaseURL: process.env.DATABASE_URL,
     },
     firebaseClientInitConfig: {
-      apiKey: "AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg",
+      apiKey: process.env.NEXT_PUBLIC_API_KEY,
       authDomain: "coding-bolt.firebaseapp.com",
       databaseURL:
         "https://coding-bolt-default-rtdb.europe-west1.firebasedatabase.app",
