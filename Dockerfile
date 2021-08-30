@@ -5,16 +5,12 @@ FROM node:14.17-buster-slim AS deps
 WORKDIR /app
 COPY package.json ./
 RUN yarn install --frozen-lockfile
-# COPY other.txt ./
 # Rebuild the source code only when needed
 FROM node:14.17-buster-slim AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-# COPY --from=deps /app/other.txt ./other.txt
-# RUN --mount=type=secret,id=my_tokens \
-#     cat /run/secrets/my_tokens
-RUN FIREBASE_PRIVATE_KEY=APP_FIREBASE_PRIVATE_KEY;COOKIE_SECRET_CURRENT=APP_COOKIE_SECRET_CURRENT;COOKIE_SECRET_PREVIOUS=APP_COOKIE_SECRET_PREVIOUS;NEXT_PUBLIC_API_KEY=APP_NEXT_PUBLIC_API_KEY;BUCKET_URL=APP_BUCKET_URL;BUCKET_KEY=APP_BUCKET_KEY;NEXT_PUBLIC_IMAGE_CDN_PATH=APP_NEXT_PUBLIC_IMAGE_CDN_PATH yarn build
+RUN COOKIE_SECRET_CURRENT=APP_COOKIE_SECRET_CURRENT;COOKIE_SECRET_PREVIOUS=APP_COOKIE_SECRET_PREVIOUS yarn build
 # Production image, copy all the files and run next
 FROM node:14.17-buster-slim AS runner
 WORKDIR /app
@@ -27,7 +23,6 @@ RUN adduser --system nextjs --uid 1001
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/next-env.d.ts ./
-# COPY --from=builder /app/.eslintrc ./
 COPY --from=builder /app/postcss.config.js ./
 COPY --from=builder /app/tailwind.config.js ./
 COPY --from=builder /app/tsconfig.json ./
