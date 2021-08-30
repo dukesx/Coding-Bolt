@@ -42,5 +42,5 @@ EXPOSE 3000
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
 RUN chmod +x entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD npm start
