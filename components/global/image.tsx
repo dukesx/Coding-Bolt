@@ -23,8 +23,8 @@ const Imager: React.FC<ImageProps> = ({
         "/" +
         name
       }
-      width={width ? width : "400px"}
-      height={height ? height : "250px"}
+      width={width ? width + "px" : "400px"}
+      height={height ? height + "px" : "250px"}
       style={style ? style : null}
       renderLoader={({ hasLoaded, hasFailed }) =>
         !hasLoaded ? (
