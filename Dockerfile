@@ -10,7 +10,7 @@ FROM node:14.17-buster-slim AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN COOKIE_C=COOK COOKIE_P=POOK NEXT_PUBLIC_IM_CDN_PATH=imgkit yarn build
+RUN NEXT_PULIC_COOKIE_C=COOK NEXT_PUBLIC_COOKIE_P=POOK NEXT_PUBLIC_IM_CDN_PATH=imgkit yarn build
 # Production image, copy all the files and run next
 FROM node:14.17-buster-slim AS runner
 WORKDIR /app
