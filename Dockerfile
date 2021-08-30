@@ -31,7 +31,7 @@ COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 
 RUN addgroup --gecos 1001 --system nodejs
 RUN adduser --system nextjs --uid 1001
-RUN chown -R nextjs:nodejs /app/.next
+RUN chown -R nextjs:nodejs .next
 
 USER nextjs
 
@@ -41,5 +41,6 @@ EXPOSE 3000
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
-ENTRYPOINT ["chmod", "+x","entrypoint.sh"]
-CMD ["yarn", "start"]
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+CMD npm start
