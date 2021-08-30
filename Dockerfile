@@ -14,7 +14,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/other.txt ./other.txt
 RUN --mount=type=secret,id=my_tokens \
     cat /run/secrets/my_tokens
-RUN yarn build
+RUN FIREBASE_PRIVATE_KEY=$FIREBASE_PRIVATE_KEY;COOKIE_SECRET_CURRENT=$COOKIE_SECRET_CURRENT;COOKIE_SECRET_PREVIOUS=$COOKIE_SECRET_PREVIOUS;NEXT_PUBLIC_API_KEY=$NEXT_PUBLIC_API_KEY;BUCKET_URL=$BUCKET_URL;BUCKET_KEY=$BUCKET_KEY;NEXT_PUBLIC_IMAGE_CDN_PATH=$NEXT_PUBLIC_IMAGE_CDN_PATH yarn build
 # Production image, copy all the files and run next
 FROM node:14.17-buster-slim AS runner
 WORKDIR /app
