@@ -6,7 +6,6 @@ import {
   withAuthUser,
   withAuthUserTokenSSR,
 } from "next-firebase-auth";
-import Editor from "components/global/editor";
 import {
   Paper,
   Card,
@@ -30,7 +29,7 @@ const Index: React.FC = () => {
       <Wrapper>
         <Paper className="mt-10">
           <Grid>
-            <Col className="xs:w-full max-w-full" span={6}>
+            <Col span={12}>
               <Card
                 className="w-[400px] xxs:max-w-full xs:w-full mb-8"
                 shadow="sm"
@@ -52,9 +51,6 @@ const Index: React.FC = () => {
                   </Text>
                 </Group>
               </Card>
-            </Col>
-            <Col className="xs:max-w-full" span={8}>
-              <Editor />
             </Col>
           </Grid>
         </Paper>

@@ -5,17 +5,13 @@ FROM node:14.17-buster-slim AS deps
 WORKDIR /app
 COPY package.json ./
 RUN yarn install --frozen-lockfile
-# COPY .next ./
-# COPY node_modules ./
 COPY other.txt ./
-# COPY .env ./
 # Rebuild the source code only when needed
 FROM node:14.17-buster-slim AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/other.txt ./other.txt
-# COPY --from=deps /app/.env ./.env
 RUN --mount=type=secret,id=my_tokens \
     cat /run/secrets/my_tokens
 RUN yarn build
@@ -34,7 +30,6 @@ COPY --from=builder /app/next-env.d.ts ./
 # COPY --from=builder /app/.eslintrc ./
 COPY --from=builder /app/postcss.config.js ./
 COPY --from=builder /app/tailwind.config.js ./
-# COPY --from=builder /app/README.md ./
 COPY --from=builder /app/tsconfig.json ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
