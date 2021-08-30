@@ -15,7 +15,9 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/other ./other
-RUN --mount=type=secret,id=other cat /other yarn build
+RUN --mount=type=secret,id=my_tokens \
+    cat /run/secrets/my_tokens
+RUN yarn build
 # Production image, copy all the files and run next
 FROM node:14.17-buster-slim AS runner
 WORKDIR /app
