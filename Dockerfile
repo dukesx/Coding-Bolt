@@ -19,6 +19,7 @@ ENV NODE_ENV production
 
 RUN addgroup --gecos 1001 --system nodejs
 RUN adduser --system nextjs --uid 1001
+RUN chown -R nextjs:nodejs /app/.next
 
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./
@@ -42,5 +43,5 @@ EXPOSE 3000
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["chmod", "+x","/app/entrypoint.sh"]
 CMD ["yarn", "start"]
