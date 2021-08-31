@@ -1,8 +1,7 @@
 import { Container } from "@mantine/core";
 import firebase from "firebase/app";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Nav from "./nav";
-import "firebase/performance";
 
 if (firebase.apps.length < 1) {
   firebase.initializeApp({
@@ -14,11 +13,9 @@ if (firebase.apps.length < 1) {
 }
 
 const Wrapper = (props: any) => {
-  const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
   var user = firebase.auth().currentUser;
 
   useEffect(() => {
-    const perf = firebase.performance();
     var firebaseui = require("firebaseui");
     var uiConfig = {
       signInSuccessUrl: "/",
