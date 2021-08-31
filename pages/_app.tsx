@@ -4,11 +4,11 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider, NormalizeCSS, GlobalStyles } from "@mantine/core";
 import useDarkMode from "use-dark-mode";
-import initAuth from "lib/app/auth/initAuth";
+// import initAuth from "lib/app/auth/initAuth";
 import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
 
-initAuth();
+// initAuth();
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;

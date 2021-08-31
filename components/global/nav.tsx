@@ -4,11 +4,19 @@ import {
   Autocomplete,
   Paper,
   Button,
+  Text,
+  Menu,
+  MenuItem,
+  Avatar,
   Group,
+  Modal,
   Title,
 } from "@mantine/core";
 import {
   BellSimple,
+  CaretDown,
+  SignOut,
+  PencilCircle,
   ChatsCircle,
   Bookmarks,
   Sun,
@@ -16,19 +24,46 @@ import {
   TrendUp,
   X,
   List,
+  User,
 } from "phosphor-react";
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
+import { NavProps } from "types/defaults";
+import {
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  signInWithRedirect,
+} from "firebase/auth";
+import GoogleLogo from "public/assets/images/google.svg";
+import Image from "next/image";
 
-const Nav = () => {
+const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
+  const currentUser = auth.currentUser;
+
   const [burger, setBurger] = useState(false);
+  const [user, setUser] = useState(currentUser ? currentUser : null);
+
+  const [loginModal, setLoginModal] = useState(false);
   const dark = useDarkMode(false, {
     classNameDark: "dark",
+  });
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUser(user);
+      setLoginModal(false);
+    } else {
+      setUser(null);
+    }
   });
   return (
     <header>
       <nav>
-        <Paper padding="sm" shadow="xs">
+        <Paper
+          padding="xs"
+          className="border border-t-0 border-l-0 border-r-0 dark:border-gray-900"
+        >
           <Grid grow align="center">
             <Col span={1}>
               <Group align="center">
@@ -111,10 +146,112 @@ const Nav = () => {
                   }}
                 />
 
-                <Button className="mx-4 xxs:px-2 xxs:text-xs xxs:h-[30px]">
-                  Get Started
-                </Button>
+                {user ? (
+                  <Menu
+                    controlRefProp="ref"
+                    control={
+                      <div className="flex items-center xs:border-0 xxs:border-0 align-middle content-between border dark:border-gray-700 rounded-3xl px-3 py-0.5">
+                        {console.log(user.displayName.split(" "))}
+                        <Avatar
+                          className="mr-3 xxs:mr-2 xs:mr-2"
+                          color="blue"
+                          radius="xl"
+                          // size="md"
+                          styles={{
+                            placeholder: {
+                              fontSize: "12px",
+                            },
+                          }}
+                        >
+                          {user.displayName[0] +
+                            user.displayName.split(" ")[1][0]}
+                        </Avatar>
+                        <p className="truncate max-w-[150px] text-sm xs:hidden xxs:hidden">
+                          {user ? user.displayName : ""}{" "}
+                        </p>
+                        <CaretDown size={17} />
+                      </div>
+                    }
+                  >
+                    <MenuItem
+                      icon={
+                        <PencilCircle
+                          color="#228be6"
+                          size={18}
+                          weight="duotone"
+                        />
+                      }
+                    >
+                      Create
+                    </MenuItem>
+                    <MenuItem
+                      icon={<User size={18} color="#228be6" weight="duotone" />}
+                    >
+                      Profile
+                    </MenuItem>
+                    <MenuItem
+                      icon={
+                        <SignOut color="#228be6" size={18} weight="duotone" />
+                      }
+                      onClick={() => signOut(auth)}
+                    >
+                      Sign Out
+                    </MenuItem>
+                  </Menu>
+                ) : (
+                  <Button
+                    className="mx-4 xxs:px-2 xxs:text-xs xxs:h-[30px]"
+                    onClick={() => setLoginModal(true)}
+                  >
+                    Get Started
+                  </Button>
+                )}
               </Group>
+              <Modal
+                title={
+                  <Text className="font-semibold capitalize">
+                    Choose an option
+                  </Text>
+                }
+                opened={loginModal}
+                onClose={() => setLoginModal(false)}
+              >
+                <Group direction="column" className="py-5" align="center">
+                  <Button
+                    leftIcon={
+                      <Image
+                        alt="Login with Google"
+                        src={GoogleLogo}
+                        height={20}
+                        width={20}
+                      />
+                    }
+                    variant="light"
+                    color="blue"
+                    className="xs:hidden xxs:hidden"
+                    onClick={() => signInWithPopup(auth, loginOptions[0])}
+                  >
+                    Start With Google
+                  </Button>
+
+                  <Button
+                    leftIcon={
+                      <Image
+                        alt="Login with Google"
+                        src={GoogleLogo}
+                        height={20}
+                        width={20}
+                      />
+                    }
+                    variant="light"
+                    color="blue"
+                    className="hidden xs:block xxs:block"
+                    onClick={() => signInWithRedirect(auth, loginOptions[0])}
+                  >
+                    Start With Google
+                  </Button>
+                </Group>
+              </Modal>
             </Col>
           </Grid>
         </Paper>

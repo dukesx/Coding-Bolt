@@ -1,7 +1,6 @@
-import useDarkMode from "use-dark-mode";
 import Wrapper from "components/global/wrapper";
 import Head from "next/head";
-import { useAuthUser, withAuthUser } from "next-firebase-auth";
+// import { useAuthUser, withAuthUser } from "next-firebase-auth";
 import {
   Paper,
   Card,
@@ -14,8 +13,8 @@ import {
 import Image from "components/global/image";
 
 const Index: React.FC = () => {
-  const dark = useDarkMode();
-  const AuthUser = useAuthUser();
+  // const dark = useDarkMode();
+  // const AuthUser = useAuthUser();
 
   return (
     <>
@@ -57,4 +56,4 @@ const Index: React.FC = () => {
 
 // export const getServerSideProps = withAuthUserTokenSSR()();
 
-export default withAuthUser()(Index);
+export default Index;
