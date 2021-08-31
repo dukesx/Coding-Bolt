@@ -5,20 +5,24 @@ FROM node:14.17-buster-slim AS deps
 WORKDIR /app
 COPY package.json ./
 RUN yarn install --frozen-lockfile
+
 # Rebuild the source code only when needed
+
 FROM node:14.17-buster-slim AS builder
 WORKDIR /app
+ENV NODE_ENV production
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN COOKIE_C=COOK COOKIE_P=POOK NEXT_PUBLIC_IMAGE_CDN_PATH=imgkit yarn build
+
 # Production image, copy all the files and run next
+
 FROM node:14.17-buster-slim AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
-
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./
+
 COPY --from=builder /app/next-env.d.ts ./
 COPY --from=builder /app/postcss.config.js ./
 COPY --from=builder /app/tailwind.config.js ./
