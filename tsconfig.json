@@ -21,6 +21,6 @@
     "**/*.tsx",
     "__tests__/indexTest.tsx",
     "jest.setup.js"
-  ],
+, "public/sw-firebase.js"  ],
   "exclude": ["node_modules"]
 }
