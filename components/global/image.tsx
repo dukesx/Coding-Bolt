@@ -26,16 +26,14 @@ const Imager: React.FC<ImageProps> = ({
       width={width ? width + "px" : "400px"}
       height={height ? height + "px" : "250px"}
       style={style ? style : null}
-      renderLoader={({ hasLoaded, hasFailed }) =>
-        !hasLoaded ? (
-          <BlurhashCanvas
-            hash="UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"
-            width={400}
-            height={250}
-            punch={1}
-          />
-        ) : null
-      }
+      renderLoader={({ hasLoaded, hasFailed }) => (
+        <BlurhashCanvas
+          hash="UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"
+          width={400}
+          height={250}
+          punch={1}
+        />
+      )}
       alt={alt ? alt : "An Image"}
     />
   );
