@@ -21,8 +21,7 @@ FROM node:14.17-buster-slim AS runner
 WORKDIR /app
 
 # You only need to copy next.config.js if you are NOT using the default configuration
-# COPY --from=builder /app/next.config.js ./
-
+COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/next-env.d.ts ./
 COPY --from=builder /app/postcss.config.js ./
 COPY --from=builder /app/tailwind.config.js ./
