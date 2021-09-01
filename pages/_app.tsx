@@ -41,6 +41,13 @@ export default function App(props: AppProps) {
             fontFamily: '"Inter", "Segoe UI", sans-serif',
             fontFamilyMonospace: "Courier, monospace",
             headings: { fontFamily: '"Segoe UI", sans-serif' },
+            breakpoints: {
+              xs: 300,
+              sm: 576,
+              md: 768,
+              lg: 992,
+              xl: 1200,
+            },
           }}
         >
           <NormalizeCSS />
