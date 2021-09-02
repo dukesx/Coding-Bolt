@@ -23,10 +23,10 @@ const Index: React.FC = () => {
       </Head>
       <Wrapper>
         <Paper className="mt-10">
-          <Grid>
-            <Col span={12}>
+          <Grid grow gutter={24}>
+            <Col className="max-w-full" span={12}>
               <Card
-                className="w-[400px] xxs:max-w-full xs:w-full mb-8"
+                className="max-w-[400px] xxs:max-w-full mb-8"
                 shadow="sm"
                 padding="xl"
               >

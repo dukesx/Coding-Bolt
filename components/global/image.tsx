@@ -14,7 +14,11 @@ const Imager: React.FC<ImageProps> = ({
   return (
     <Image
       transitionTime="3s"
-      className={className ? className + " object-cover" : "object-cover"}
+      className={
+        className
+          ? className + " object-cover max-w-[400px]"
+          : "object-cover max-w-[400px]"
+      }
       lazyLoad
       src={
         `https://${process.env.NEXT_PUBLIC_IMAGE_CDN_PATH}/tr:n-` +
