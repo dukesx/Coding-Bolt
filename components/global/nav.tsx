@@ -62,17 +62,6 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
     }
   });
 
-  getRedirectResult(auth)
-    .then((result) => {
-      if (result.user) {
-        setUser(result.user);
-      }
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      // ...
-    });
-
   return (
     <header>
       <nav>
@@ -84,6 +73,7 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
             <Col
               className="lg:max-w-[120px] xl:max-w-[140px]"
               span={2}
+              xs={2}
               sm={1}
               md={1}
               lg={1}
@@ -244,7 +234,7 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                   </Menu>
                 ) : (
                   <Button
-                    className="mx-4 xxs:px-2 xxs:text-xs xxs:h-[30px]"
+                    className="ml-4 mr-2 mt-3 xxs:px-2 xxs:text-xs xxs:h-[30px]"
                     onClick={() => setLoginModal(true)}
                     loading={userLoading ? true : false}
                     leftIcon={<Rocket size={18} weight="duotone" />}
