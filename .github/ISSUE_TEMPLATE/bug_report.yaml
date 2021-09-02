@@ -45,7 +45,8 @@ body:
   - type: markdown
     id: upload-description
     attributes: 
-       label: If you have any screenshots, make sure to attach it in the comments section
+       label: |
+       If you have any screenshots, make sure to attach it in the comments section
   - type: checkboxes
     id: terms
     attributes:
