@@ -45,7 +45,7 @@ body:
   - type: markdown
     id: upload-description
     attributes: 
-      value: "###### If you have any screenshots, make sure to attach it in the comments section"
+      value: "#### If you have any screenshots, make sure to attach it in the comments section"
   - type: checkboxes
     id: terms
     attributes:
