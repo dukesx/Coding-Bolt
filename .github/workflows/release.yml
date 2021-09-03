@@ -4,7 +4,7 @@ name: Release
 on:
   workflow_run:
     workflows:
-      - Deploy
+      - Deployment
     types:
       - completed
 
