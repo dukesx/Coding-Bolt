@@ -24,8 +24,8 @@ body:
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
       value: |
-      Write your details here and in case you want you add screenshots, use "#### Screenshots" as heading and add screenshots
-      below that
+        Write your details here and in case you want you add screenshots, use "#### Screenshots" as heading and add screenshots
+        below that
     validations:
       required: true
   - type: dropdown
