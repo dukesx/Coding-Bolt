@@ -4,7 +4,7 @@ FROM node:14.17-buster-slim AS deps
 # RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json ./
-RUN yarn install --frozen-lockfile
+RUN npm ci
 
 # Rebuild the source code only when needed
 

@@ -36,6 +36,7 @@
     "@mantine/notifications": "^2.4.1",
     "@mantine/prism": "^2.4.1",
     "@next/bundle-analyzer": "^10.2.3",
+    "@sentry/nextjs": "^6.12.0",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "@tanem/react-nprogress": "^3.0.75",
