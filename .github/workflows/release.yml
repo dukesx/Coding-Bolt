@@ -1,10 +1,12 @@
-name: Release App
+name: Release
 
 # Run the workflow when a Pull Request is opened or when changes are pushed to master
 on:
- pull_request:
- push:
-  branches: [ main ]
+  workflow_run:
+    workflows:
+      - Deploy
+    types:
+      - completed
 
 jobs:
  release:
