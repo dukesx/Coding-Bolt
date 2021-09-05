@@ -56,16 +56,24 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <link rel="icon" href="link to favicon" />
+          <script
+            src="https://accounts.google.com/gsi/client"
+            async
+            defer
+          ></script>
         </Head>
         <body className="antialiased text-base">
-          <div
-            style={{
-              display: "none",
-            }}
-            id="firebaseui-auth"
-          />
+          {/* <div
+            id="g_id_onload"
+            data-client_id="1036440562165-j7g06r27357plblbsbdosmf6k5gh6drv.apps.googleusercontent.com"
+            data-context="signin"
+            data-callback="handleCredentialResponse"
+            data-skip_prompt_cookie="sid"
+          ></div> */}
+
           <Main />
           <NextScript />
+          {/* <script src="/getyolo.js" async /> */}
         </body>
       </Html>
     );

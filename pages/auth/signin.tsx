@@ -1,5 +1,7 @@
 import { getProviders, signIn } from "next-auth/client";
 import { Button } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+
 interface Signin {
   providers: [
     {
@@ -9,12 +11,13 @@ interface Signin {
   ];
 }
 const SignIn: React.FC<Signin> = ({ providers }) => {
+  const matches = useMediaQuery("(max-width: 1025)");
   return (
     <>
       <Button
         onClick={() =>
           signIn("google", {
-            callbackUrl: "foobar://?token=123",
+            callbackUrl: `foobar://?token=123`,
           })
         }
       >
