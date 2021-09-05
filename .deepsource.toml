@@ -8,10 +8,6 @@ enabled = true
   plugins = ["react"]
 
 [[analyzers]]
-name = "test-coverage"
-enabled = true
-
-[[analyzers]]
 name = "docker"
 enabled = true
 

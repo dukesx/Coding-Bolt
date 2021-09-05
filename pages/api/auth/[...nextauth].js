@@ -15,8 +15,7 @@ export default NextAuth({
       return true;
     },
     async redirect(url, baseUrl) {
-      console.log(url);
-      return "foobar://?token=123";
+      return url;
     },
     async session(session, user) {
       return session;
@@ -27,5 +26,5 @@ export default NextAuth({
   },
 
   // A database is optional, but required to persist accounts in a database
-  database: process.env.PROSTGRES_SERVER_STRING,
+  database: process.env.DATABASE_URL,
 });

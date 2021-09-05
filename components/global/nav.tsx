@@ -29,26 +29,10 @@ import {
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
 import { NavProps } from "types/defaults";
-// import {
-//   signInWithPopup,
-//   signOut,
-//   onAuthStateChanged,
-//   getRedirectResult,
-//   signInWithRedirect,
-// } from "firebase/auth";
 import GoogleLogo from "public/assets/images/google.svg";
 import Image from "next/image";
 
-const Nav: React.FC<NavProps> = ({
-  // loginOptions,
-  // auth,
-  session,
-  loading,
-  signOut,
-  signIn,
-}) => {
-  // const currentUser = auth.currentUser;
-
+const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
   const [user, setUser] = useState(null);
   const [userLoading, setUserLoading] = useState(true);
@@ -56,17 +40,6 @@ const Nav: React.FC<NavProps> = ({
   const dark = useDarkMode(false, {
     classNameDark: "dark",
   });
-
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     setUser(user);
-  //     setUserLoading(false);
-  //     setLoginModal(false);
-  //   } else {
-  //     setUserLoading(false);
-  //     setUser(null);
-  //   }
-  // });
 
   return (
     <header>
@@ -200,9 +173,6 @@ const Nav: React.FC<NavProps> = ({
                             },
                           }}
                         >
-                          {/* {user.displayName[0] +
-                            user.displayName.split(" ")[1][0]} */}
-
                           {session &&
                             session.user.name[0] +
                               session.user.name.split(" ")[1][0]}
@@ -239,10 +209,7 @@ const Nav: React.FC<NavProps> = ({
                       icon={
                         <SignOut color="#228be6" size={20} weight="duotone" />
                       }
-                      onClick={() =>
-                        // signOut(auth)
-                        signOut()
-                      }
+                      onClick={() => signOut()}
                     >
                       Sign Out
                     </MenuItem>
@@ -254,7 +221,6 @@ const Nav: React.FC<NavProps> = ({
                     loading={loading ? true : false}
                     leftIcon={<Rocket size={18} weight="duotone" />}
                     variant="filled"
-                    // gradient={{ from: "indigo", to: "cyan" }}
                   >
                     {loading ? "Loading SSO" : "Get Started"}
                   </Button>
@@ -286,31 +252,8 @@ const Nav: React.FC<NavProps> = ({
                     color="blue"
                     className="xs:hidden xxs:hidden"
                     onClick={() =>
-                      // signInWithPopup(auth, loginOptions[0])
                       signIn("google", {
                         callbackUrl: "/",
-                      })
-                    }
-                  >
-                    Start With Google
-                  </Button>
-
-                  <Button
-                    leftIcon={
-                      <Image
-                        alt="Login with Google"
-                        src={GoogleLogo}
-                        height={20}
-                        width={20}
-                      />
-                    }
-                    variant="light"
-                    color="blue"
-                    className="hidden xs:block xxs:block"
-                    onClick={() =>
-                      // signInWithRedirect(auth, loginOptions[0])
-                      signIn("google", {
-                        callbackUrl: "foobar://?token=123",
                       })
                     }
                   >
