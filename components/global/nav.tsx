@@ -17,7 +17,6 @@ import {
   CaretDown,
   SignOut,
   PencilCircle,
-  ChatsCircle,
   Bookmarks,
   Sun,
   Rocket,

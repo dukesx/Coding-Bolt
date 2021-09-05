@@ -4,7 +4,7 @@ FROM node:14.17-buster-slim AS deps
 # RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json ./
-RUN yarn install --frozen-lockfile
+RUN npm ci
 
 # Rebuild the source code only when needed
 
@@ -13,7 +13,7 @@ WORKDIR /app
 ENV NODE_ENV production
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN COOKIE_C=COOK COOKIE_P=POOK NEXT_PUBLIC_IMAGE_CDN_PATH=imgkit yarn build
+RUN COOKIE_C=COOK COOKIE_P=POOK NEXT_PUBLIC_IMAGE_CDN_PATH=imgkit SENTRY_DSN=abc NEXT_PUBLIC_SENTRY_DSN=bcd NEXT_PUBLIC_SENTRY_API=afz SENTRY_API_KEY=bcd yarn build
 
 # Production image, copy all the files and run next
 
