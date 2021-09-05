@@ -15,8 +15,7 @@ export default NextAuth({
       return true;
     },
     async redirect(url, baseUrl) {
-      console.log(url);
-      return "foobar://?token=123";
+      return url;
     },
     async session(session, user) {
       return session;
