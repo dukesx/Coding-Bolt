@@ -288,7 +288,7 @@ const Nav: React.FC<NavProps> = ({
                     onClick={() =>
                       // signInWithPopup(auth, loginOptions[0])
                       signIn("google", {
-                        callbackUrl: "foobar://?token=123",
+                        callbackUrl: "/",
                       })
                     }
                   >
@@ -310,7 +310,7 @@ const Nav: React.FC<NavProps> = ({
                     onClick={() =>
                       // signInWithRedirect(auth, loginOptions[0])
                       signIn("google", {
-                        callbackUrl: "/",
+                        callbackUrl: "foobar://?token=123",
                       })
                     }
                   >
