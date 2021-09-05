@@ -2,9 +2,12 @@
 FROM node:14.17-buster-slim AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 # RUN apk add --no-cache libc6-compat
+RUN apt-get update && apt-get install -y ca-certificates
+
 WORKDIR /app
 COPY package.json ./
 RUN yarn install --frozen-lockfile
+
 
 # Rebuild the source code only when needed
 
@@ -13,7 +16,7 @@ WORKDIR /app
 ENV NODE_ENV production
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN COOKIE_C=COOK COOKIE_P=POOK NEXT_PUBLIC_IMAGE_CDN_PATH=imgkit SENTRY_DSN=abc NEXT_PUBLIC_SENTRY_DSN=bcd NEXT_PUBLIC_SENTRY_API=afz SENTRY_API_KEY=bcd yarn build
+RUN COOKIE_C=COOK COOKIE_P=POOK NEXT_PUBLIC_IMAGE_CDN_PATH=imgkit SENTRY_DSN=abc NEXT_PUBLIC_SENTRY_DSN=bcd NEXT_PUBLIC_SENTRY_API=afz SENTRY_API_KEY=bcd SENTRY_AUTH_TOKEN=ykaz yarn build
 
 # Production image, copy all the files and run next
 
