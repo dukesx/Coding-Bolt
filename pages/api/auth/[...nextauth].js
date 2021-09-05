@@ -5,9 +5,8 @@ export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     Providers.Google({
-      clientId:
-        "1036440562165-j7g06r27357plblbsbdosmf6k5gh6drv.apps.googleusercontent.com",
-      clientSecret: "dqNSViuFyAK_dU1_HoDr-1Y5",
+      clientId: process.env.GOOGLE_OAUTH_API_KEY,
+      clientSecret: process.env.GOOGLE_OAUTH_API_SECRET,
     }),
     //add more providers
   ],
@@ -27,5 +26,5 @@ export default NextAuth({
   },
 
   // A database is optional, but required to persist accounts in a database
-  database: "postgres://codingbolt:Afzaal12@139.162.37.102:5432/codingbolt",
+  database: process.env.PROSTGRES_SERVER_STRING,
 });
