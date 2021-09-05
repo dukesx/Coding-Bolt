@@ -10,6 +10,11 @@ import "public/assets/styles/custom.scss";
 
 // initAuth();
 
+export function reportWebVitals(metric) {
+  if (metric.label === "web-vital") {
+    console.log(metric); // The metric object ({ id, name, startTime, value, label }) is logged to the console
+  }
+}
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
