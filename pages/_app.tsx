@@ -7,6 +7,7 @@ import useDarkMode from "use-dark-mode";
 // import initAuth from "lib/app/auth/initAuth";
 import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
+import { Provider } from "next-auth/client";
 
 // initAuth();
 
@@ -52,7 +53,9 @@ export default function App(props: AppProps) {
         >
           <NormalizeCSS />
           <GlobalStyles />
-          <Component {...pageProps} />
+          <Provider session={pageProps.session}>
+            <Component {...pageProps} />
+          </Provider>
         </MantineProvider>
       </JssProvider>
     </>

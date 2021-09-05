@@ -1,32 +1,35 @@
 import { Container } from "@mantine/core";
-import {
-  GoogleAuthProvider,
-  GithubAuthProvider,
-  TwitterAuthProvider,
-  FacebookAuthProvider,
-  getAuth,
-  getRedirectResult,
-} from "firebase/auth";
-import { getApps, initializeApp } from "@firebase/app";
+// import {
+//   GoogleAuthProvider,
+//   GithubAuthProvider,
+//   TwitterAuthProvider,
+//   FacebookAuthProvider,
+//   getAuth,
+//   getRedirectResult,
+// } from "firebase/auth";
+// import { getApps, initializeApp } from "@firebase/app";
 import Nav from "./nav";
-import { useEffect } from "react";
+// import { useEffect } from "react";
+import { signIn, signOut, useSession } from "next-auth/client";
 
-if (!getApps.length) {
-  initializeApp({
-    apiKey: "AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg",
-    authDomain: "auth.codingbolt.com",
-    projectId: "coding-bolt",
-    appId: "1:1036440562165:web:a6a6f355c425ddd9efd8bc",
-  });
-}
+// if (!getApps.length) {
+//   initializeApp({
+//     apiKey: "AIzaSyDlBtYlp4pfEhiisgDT1U9PIZNf9qsC-mg",
+//     authDomain: "auth.codingbolt.com",
+//     projectId: "coding-bolt",
+//     appId: "1:1036440562165:web:a6a6f355c425ddd9efd8bc",
+//   });
+// }
 
-const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
-const twitterProvider = new TwitterAuthProvider();
-const githubProvider = new GithubAuthProvider();
-const auth = getAuth();
+// const googleProvider = new GoogleAuthProvider();
+// const facebookProvider = new FacebookAuthProvider();
+// const twitterProvider = new TwitterAuthProvider();
+// const githubProvider = new GithubAuthProvider();
+// const auth = getAuth();
 
 const Wrapper = (props: any) => {
+  const [session, loading] = useSession();
+
   return (
     <Container
       style={{
@@ -35,13 +38,17 @@ const Wrapper = (props: any) => {
       fluid
     >
       <Nav
-        loginOptions={[
-          googleProvider,
-          facebookProvider,
-          twitterProvider,
-          githubProvider,
-        ]}
-        auth={auth}
+        // loginOptions={[
+        //   googleProvider,
+        //   facebookProvider,
+        //   twitterProvider,
+        //   githubProvider,
+        // ]}
+        // auth={auth}
+        session={session}
+        loading={loading}
+        signIn={signIn}
+        signOut={signOut}
       />
       <Container size={1660}>{props.children}</Container>
     </Container>
