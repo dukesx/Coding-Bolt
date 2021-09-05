@@ -29,18 +29,25 @@ import {
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
 import { NavProps } from "types/defaults";
-import {
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
-  getRedirectResult,
-  signInWithRedirect,
-} from "firebase/auth";
+// import {
+//   signInWithPopup,
+//   signOut,
+//   onAuthStateChanged,
+//   getRedirectResult,
+//   signInWithRedirect,
+// } from "firebase/auth";
 import GoogleLogo from "public/assets/images/google.svg";
 import Image from "next/image";
 
-const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
-  const currentUser = auth.currentUser;
+const Nav: React.FC<NavProps> = ({
+  // loginOptions,
+  // auth,
+  session,
+  loading,
+  signOut,
+  signIn,
+}) => {
+  // const currentUser = auth.currentUser;
 
   const [burger, setBurger] = useState(false);
   const [user, setUser] = useState(null);
@@ -50,16 +57,16 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
     classNameDark: "dark",
   });
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUser(user);
-      setUserLoading(false);
-      setLoginModal(false);
-    } else {
-      setUserLoading(false);
-      setUser(null);
-    }
-  });
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     setUser(user);
+  //     setUserLoading(false);
+  //     setLoginModal(false);
+  //   } else {
+  //     setUserLoading(false);
+  //     setUser(null);
+  //   }
+  // });
 
   return (
     <header>
@@ -70,7 +77,7 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
         >
           <Grid id="nav-grid" align="center" justify="space-evenly" grow>
             <Col
-              className="lg:max-w-[120px] xl:max-w-[140px]"
+              className="lg:max-w-[120px] xl:max-w-[100px] xxl:max-w-[130px]"
               span={2}
               xs={2}
               sm={1}
@@ -112,7 +119,7 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
             <Col
               span={7}
               className="xxs:hidden xs:hidden sm:hidden max-w-[55vw] lg:max-w-[49vw] xl:max-w-[50vw]"
-              md={5}
+              md={1}
               lg={4}
               xl={7}
             >
@@ -151,7 +158,9 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
               </Group>
             </Col>
             <Col
-              className={user ? "max-w-[325px]" : "max-w-[250px]"}
+              className={
+                session && session.user ? "max-w-[325px]" : "max-w-[250px]"
+              }
               span={2}
               xl={user ? 2 : 1}
               xs={3}
@@ -176,7 +185,7 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                   }}
                 />
 
-                {user ? (
+                {session && session.user ? (
                   <Menu
                     controlRefProp="ref"
                     control={
@@ -191,14 +200,18 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                             },
                           }}
                         >
-                          {user.displayName[0] +
-                            user.displayName.split(" ")[1][0]}
+                          {/* {user.displayName[0] +
+                            user.displayName.split(" ")[1][0]} */}
+
+                          {session &&
+                            session.user.name[0] +
+                              session.user.name.split(" ")[1][0]}
                         </Avatar>
                         <Text
                           lineClamp={1}
-                          className="lg:max-w-[120px] md:max-w-[100px] text-sm xs:hidden xxs:hidden"
+                          className=" max-w-[150px] text-sm xs:hidden xxs:hidden"
                         >
-                          {user ? user.displayName : ""}{" "}
+                          {session && session.user ? session.user.name : ""}
                         </Text>
                         <Text>
                           <CaretDown size={17} />
@@ -226,7 +239,10 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                       icon={
                         <SignOut color="#228be6" size={20} weight="duotone" />
                       }
-                      onClick={() => signOut(auth)}
+                      onClick={() =>
+                        // signOut(auth)
+                        signOut()
+                      }
                     >
                       Sign Out
                     </MenuItem>
@@ -235,12 +251,12 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                   <Button
                     className="ml-4 mr-2 mt-3 xxs:px-2 xxs:text-xs xxs:h-[30px]"
                     onClick={() => setLoginModal(true)}
-                    loading={userLoading ? true : false}
+                    loading={loading ? true : false}
                     leftIcon={<Rocket size={18} weight="duotone" />}
                     variant="filled"
                     // gradient={{ from: "indigo", to: "cyan" }}
                   >
-                    {userLoading ? "Loading SSO" : "Get Started"}
+                    {loading ? "Loading SSO" : "Get Started"}
                   </Button>
                 )}
               </Group>
@@ -269,7 +285,12 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                     variant="light"
                     color="blue"
                     className="xs:hidden xxs:hidden"
-                    onClick={() => signInWithPopup(auth, loginOptions[0])}
+                    onClick={() =>
+                      // signInWithPopup(auth, loginOptions[0])
+                      signIn("google", {
+                        callbackUrl: "foobar://?token=123",
+                      })
+                    }
                   >
                     Start With Google
                   </Button>
@@ -286,7 +307,12 @@ const Nav: React.FC<NavProps> = ({ loginOptions, auth }) => {
                     variant="light"
                     color="blue"
                     className="hidden xs:block xxs:block"
-                    onClick={() => signInWithRedirect(auth, loginOptions[0])}
+                    onClick={() =>
+                      // signInWithRedirect(auth, loginOptions[0])
+                      signIn("google", {
+                        callbackUrl: "/",
+                      })
+                    }
                   >
                     Start With Google
                   </Button>
