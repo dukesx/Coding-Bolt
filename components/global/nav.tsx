@@ -120,7 +120,7 @@ const Nav: React.FC<NavProps> = ({
             <Col
               span={7}
               className="xxs:hidden xs:hidden sm:hidden max-w-[55vw] lg:max-w-[49vw] xl:max-w-[50vw]"
-              md={5}
+              md={1}
               lg={4}
               xl={7}
             >
