@@ -7,17 +7,18 @@ const Imager: React.FC<ImageProps> = ({
   name,
   alt,
   className,
+  hash,
   height,
   width,
   style,
 }) => {
   return (
     <Image
-      transitionTime="3s"
+      transitionTime="1s"
       className={
         className
-          ? className + " object-cover max-w-[400px]"
-          : "object-cover max-w-[400px]"
+          ? className + " object-cover max-w-[600px]"
+          : "object-cover max-w-[600px]"
       }
       lazyLoad
       src={
@@ -30,10 +31,9 @@ const Imager: React.FC<ImageProps> = ({
       width={width ? width + "px" : "400px"}
       height={height ? height + "px" : "250px"}
       style={style ? style : null}
-      
       renderLoader={({ hasLoaded, hasFailed }) => (
         <BlurhashCanvas
-          hash="UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"
+          hash={hash ? hash : "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
           width={400}
           height={250}
           punch={1}

@@ -97,7 +97,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
               xl={7}
             >
               <Autocomplete
-                placeholder="Pick one"
+                placeholder="Find your favorite 🔥🔥"
                 data={["React", "Angular", "Svelte", "Vue"]}
               />
             </Col>
