@@ -46,14 +46,6 @@ const Index: React.FC = () => {
                   </Text>
                 </Group>
               </Card>
-              <button
-                type="button"
-                onClick={() => {
-                  throw new Error("Sentry Frontend Error");
-                }}
-              >
-                Throw error
-              </button>
             </Col>
           </Grid>
         </Paper>
