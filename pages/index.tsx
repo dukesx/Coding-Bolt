@@ -31,9 +31,9 @@ const Index: React.FC = () => {
                 <CardSection>
                   <Image
                     hash="UOHT,v^H{ba0$i=wN1ELvcr?%3bwIx-5KPXU"
-                    width="500"
+                    width={500}
                     name="o_lJqPFyCn.jpg"
-                    height="250"
+                    height={250}
                   />
                 </CardSection>
                 <Text className="mt-4 mb-2 font-semibold">
@@ -48,9 +48,9 @@ const Index: React.FC = () => {
                 <Group>
                   <Image
                     hash="UDS;$aof.nxVozazoIj[*KoJErWDxBjaRnWC"
-                    width="90"
+                    width={90}
                     name="lW92uiAOED.jpg"
-                    height="90"
+                    height={90}
                   />
                   <Group
                     className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[400px] xl:max-w-[300px] xxl:max-w-[400px]"
@@ -68,9 +68,9 @@ const Index: React.FC = () => {
                 <Group>
                   <Image
                     hash="UjQ9Wok8?[S%W?ozs8ae?[a#IBn#skWBSibb"
-                    width="90"
+                    width={90}
                     name="za6FB2a7i_.jpg"
-                    height="90"
+                    height={90}
                   />
                   <Group
                     className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[400px] xl:max-w-[300px] xxl:max-w-[400px]"
@@ -91,9 +91,9 @@ const Index: React.FC = () => {
                 <Group>
                   <Image
                     hash="UhQH|zGYKQKj$%%Ka3xo~Nw}rWrsE+IuxnN3"
-                    width="90"
+                    width={90}
                     name="P_n0gObpOE.jpg"
-                    height="90"
+                    height={90}
                   />
                   <Group
                     className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[400px] xl:max-w-[300px] xxl:max-w-[400px]"
@@ -122,9 +122,9 @@ const Index: React.FC = () => {
                 <CardSection>
                   <Image
                     hash="U2RV;0*0%i?G.9s8beQ+tmng9aNIXAT1v{aJ"
-                    width="400"
+                    width={400}
                     name="4eFAYfMR8c.jpg"
-                    height="250"
+                    height={250}
                   />
                 </CardSection>
                 <Text lineClamp={2} className="mt-4 mb-2 font-semibold">

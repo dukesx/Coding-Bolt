@@ -34,8 +34,8 @@ const Imager: React.FC<ImageProps> = ({
       renderLoader={({ hasLoaded, hasFailed }) => (
         <BlurhashCanvas
           hash={hash ? hash : "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
-          width={400}
-          height={250}
+          width={width ? width : 400}
+          height={height ? height : 250}
           punch={1}
         />
       )}
