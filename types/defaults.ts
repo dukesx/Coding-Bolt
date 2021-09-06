@@ -3,8 +3,8 @@ export interface ImageProps {
   name: string;
   alt?: string;
   style?: object;
-  width?: string | number;
-  height?: string | number;
+  width?: number;
+  height?: number;
   className?: string;
   hash?: string;
 }
