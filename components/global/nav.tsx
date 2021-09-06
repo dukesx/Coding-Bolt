@@ -48,9 +48,9 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
           padding="xs"
           className="border border-t-0 border-l-0 border-r-0 dark:border-gray-900"
         >
-          <Grid id="nav-grid" align="center" justify="space-evenly" grow>
+          <Grid id="nav-grid" align="center" justify="space-between" grow>
             <Col
-              className="lg:max-w-[120px] xl:max-w-[100px] xxl:max-w-[130px]"
+              className="lg:max-w-[120px] xl:max-w-[140px] xxl:max-w-[130px]"
               span={2}
               xs={2}
               sm={1}
