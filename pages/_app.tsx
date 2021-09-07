@@ -40,11 +40,11 @@ export default function App(props: AppProps) {
             fontFamilyMonospace: "Courier, monospace",
             headings: { fontFamily: '"Segoe UI", sans-serif' },
             breakpoints: {
-              xs: 300,
-              sm: 576,
+              xs: 280,
+              sm: 640,
               md: 768,
-              lg: 992,
-              xl: 1200,
+              lg: 1024,
+              xl: 1280,
             },
           }}
         >

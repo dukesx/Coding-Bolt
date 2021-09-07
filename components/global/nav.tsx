@@ -250,7 +250,6 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     }
                     variant="light"
                     color="blue"
-                    className="xs:hidden xxs:hidden"
                     onClick={() =>
                       signIn("google", {
                         callbackUrl: "/",
