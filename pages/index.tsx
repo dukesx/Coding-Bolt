@@ -22,11 +22,11 @@ const Index: React.FC = () => {
         <Paper className="mt-10">
           <Grid
             id="index-article-grid"
-            // className="xs:hidden xxs:hidden"
+            // className="xxs:hidden"
             // grow
             gutter={1}
           >
-            <Col span={3} sm={3} md={4} lg={3} xl={4} xs={12}>
+            <Col span={3} sm={5} md={4} lg={3} xl={4} xs={12}>
               <Card padding="lg" className="bg-transparent">
                 <CardSection>
                   <Image
@@ -43,7 +43,7 @@ const Index: React.FC = () => {
                 <Text>It works every time.</Text>
               </Card>
             </Col>
-            <Col span={6} sm={6} md={8} lg={6} xl={5} xs={12}>
+            <Col span={6} sm={7} md={8} lg={6} xl={5} xs={12}>
               <Card className="max-w-full bg-transparent mb-6 pl-8 xs:pl-2 xxs:pl-2 py-2">
                 <Group>
                   <Image
@@ -53,7 +53,7 @@ const Index: React.FC = () => {
                     height={90}
                   />
                   <Group
-                    className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[400px] xl:max-w-[300px] xxl:max-w-[400px]"
+                    className="ml-4 max-w-[500px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[400px]"
                     direction="column"
                   >
                     <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
@@ -73,7 +73,7 @@ const Index: React.FC = () => {
                     height={90}
                   />
                   <Group
-                    className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[400px] xl:max-w-[300px] xxl:max-w-[400px]"
+                    className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] sm:max-w-[230px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[400px]"
                     direction="column"
                   >
                     <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
@@ -96,7 +96,7 @@ const Index: React.FC = () => {
                     height={90}
                   />
                   <Group
-                    className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[400px] xl:max-w-[300px] xxl:max-w-[400px]"
+                    className="ml-4 max-w-[500px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[400px]"
                     direction="column"
                   >
                     <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
@@ -111,18 +111,21 @@ const Index: React.FC = () => {
             </Col>
             <Col
               span={3}
-              sm={3}
+              sm={12}
               md={3}
               lg={3}
               xl={3}
               xs={12}
-              className="md:hidden"
+              className="sm:hidden xs:text-center md:hidden"
             >
-              <Card padding="lg" className="max-w-[380px] bg-transparent">
-                <CardSection>
+              <Card
+                padding="lg"
+                className="max-w-[380px] xs:max-w-full bg-transparent"
+              >
+                <CardSection className="flex justify-center">
                   <Image
                     hash="U2RV;0*0%i?G.9s8beQ+tmng9aNIXAT1v{aJ"
-                    width={400}
+                    width={500}
                     name="4eFAYfMR8c.jpg"
                     height={250}
                   />
