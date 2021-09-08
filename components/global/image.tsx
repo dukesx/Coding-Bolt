@@ -42,6 +42,7 @@ const Imager: React.FC<ImageProps> = ({
       // )}
       alt={alt ? alt : "An Image"}
       placeholder="blur"
+      // priority
       blurDataURL={hash ? hash : "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
       src={
         // `https://${process.env.NEXT_PUBLIC_IMAGE_CDN_PATH}/tr:n-` +
@@ -52,7 +53,7 @@ const Imager: React.FC<ImageProps> = ({
       }
       width={width ? width : 400}
       height={height ? height : 250}
-      // priority
+      priority
       loader={({ src, width, quality }) => {
         return `https://${
           process.env.NEXT_PUBLIC_IMAGE_CDN_PATH
