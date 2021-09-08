@@ -19,14 +19,15 @@ const Index: React.FC = () => {
         <title>Welcome to Coding Bolt</title>
       </Head>
       <Wrapper>
-        <Paper className="mt-10">
+        <Paper className="mt-0">
           <Grid
             id="index-article-grid"
+            className="bg-blue-50 xxl:py-6 xxl:px-8 bg-opacity-70 dark:bg-transparent"
             // className="xxs:hidden"
             // grow
             gutter={1}
           >
-            <Col span={3} sm={5} md={4} lg={3} xl={4} xs={12}>
+            <Col span={3} sm={5} md={4} lg={3} xl={3} xs={12}>
               <Card padding="lg" className="bg-transparent">
                 <CardSection>
                   <Image
@@ -53,11 +54,12 @@ const Index: React.FC = () => {
                     height={90}
                   />
                   <Group
-                    className="ml-4 max-w-[500px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[400px]"
+                    className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[500px]"
                     direction="column"
                   >
                     <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
-                      Seven Stereotypes About Seo That Arent Always True.
+                      Localbitcoins clone script-A guide for entrepreneurs to
+                      start a p2p exchange website like Localbitcoins?
                     </Text>
                     <Text>Qualcomm says the can.</Text>
                   </Group>
@@ -73,11 +75,12 @@ const Index: React.FC = () => {
                     height={90}
                   />
                   <Group
-                    className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] sm:max-w-[230px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[400px]"
+                    className="ml-4 max-w-[500px] xxs:max-w-[240px] xs:max-w-[290px] sm:max-w-[230px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[500px]"
                     direction="column"
                   >
                     <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
-                      Top Seven Common Prejudices About Seo.
+                      Learning Python- Intermediate course: Day 22, Bold or
+                      Italics !
                     </Text>
                     <Text lineClamp={2}>
                       If you have taken a call to grow your career in the
@@ -96,11 +99,12 @@ const Index: React.FC = () => {
                     height={90}
                   />
                   <Group
-                    className="ml-4 max-w-[500px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[400px]"
+                    className="ml-4 max-w-[500px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[300px] md:max-w-[360px] xl:max-w-[300px] xxl:max-w-[500px]"
                     direction="column"
                   >
                     <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
-                      Seven Facts About Seo That Will Blow Your Mind.
+                      All You Need to Know About Hiring Python Experts for Your
+                      Project
                     </Text>
                     <Text lineClamp={2}>
                       It’s probably not what you’re expecting
@@ -114,14 +118,11 @@ const Index: React.FC = () => {
               sm={12}
               md={3}
               lg={3}
-              xl={3}
+              xl={4}
               xs={12}
               className="sm:hidden xs:text-center md:hidden"
             >
-              <Card
-                padding="lg"
-                className="max-w-[380px] xs:max-w-full bg-transparent"
-              >
+              <Card padding="lg" className="xs:max-w-full bg-transparent">
                 <CardSection className="flex justify-center">
                   <Image
                     hash="U2RV;0*0%i?G.9s8beQ+tmng9aNIXAT1v{aJ"
@@ -142,7 +143,7 @@ const Index: React.FC = () => {
           </Grid>
           <Grid
             id="index-layout-grid"
-            className="max-w-[1300px] mx-auto mt-4"
+            className="max-w-[1400px] mx-auto bg-yellow-50 dark:bg-transparent"
             grow
             gutter={24}
           >
