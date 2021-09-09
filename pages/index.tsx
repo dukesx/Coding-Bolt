@@ -23,8 +23,6 @@ const Index: React.FC = () => {
           <Grid
             id="index-article-grid"
             className="bg-blue-50 xxl:py-6 xxl:px-4 bg-opacity-70 dark:bg-transparent pt-4 xs:pt-0 xxs:pt-0"
-            // className="xxs:hidden"
-            // grow
             gutter={1}
           >
             <Col span={3} sm={5} md={4} lg={3} xl={3} xs={12}>
