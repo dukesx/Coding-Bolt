@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       var nameLength = files.image.name.split(".").length;
       var name = nanoid() + "." + files.image.name.split(".")[nameLength - 1];
       axios
-        .post("http://localhost:3000/api/blurHash/encode", {
+        .post("http://localhost:3000/api/placeholder/encode", {
           path: files.image.path,
         })
         .then(function (response1) {
