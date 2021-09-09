@@ -53,7 +53,7 @@ const Imager: React.FC<ImageProps> = ({
       }
       width={width ? width : 400}
       height={height ? height : 250}
-      priority
+      // priority
       loader={({ src, width, quality }) => {
         return `https://${
           process.env.NEXT_PUBLIC_IMAGE_CDN_PATH
