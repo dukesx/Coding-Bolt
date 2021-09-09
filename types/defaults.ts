@@ -7,6 +7,7 @@ export interface ImageProps {
   height?: number;
   className?: string;
   hash?: string;
+  priority?: boolean;
 }
 
 export interface NavProps {

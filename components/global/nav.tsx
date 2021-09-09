@@ -34,8 +34,6 @@ import Image from "next/image";
 
 const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
-  const [user, setUser] = useState(null);
-  const [userLoading, setUserLoading] = useState(true);
   const [loginModal, setLoginModal] = useState(false);
   const dark = useDarkMode(false, {
     classNameDark: "dark",
@@ -82,7 +80,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 </div>
 
                 <Title
-                  className="xs:text-lg md:ml-0 md:text-[15px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-medium ml-2"
+                  className="xs:text-[19px] md:ml-0 xs:mt-0 md:text-[15px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-medium ml-2"
                   order={4}
                 >
                   Coding Bolt
@@ -135,7 +133,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 session && session.user ? "max-w-[325px]" : "max-w-[250px]"
               }
               span={2}
-              xl={user ? 2 : 1}
+              xl={1}
               xs={3}
             >
               <Group position="right">
