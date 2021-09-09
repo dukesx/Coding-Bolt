@@ -1,18 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Wrapper from "components/global/wrapper";
 import Head from "next/head";
-import {
-  Paper,
-  Card,
-  CardSection,
-  Text,
-  Group,
-  Grid,
-  Col,
-} from "@mantine/core";
-import Image from "components/global/image";
+import { Paper, Card, Title, Text, Grid, Col } from "@mantine/core";
+import Image from "next/image";
 import VerticalArticleCard from "components/global/article/card/vertical";
 import HorizontalArticleCard from "components/global/article/card/horizontal";
+import { TrendUp, TextT } from "phosphor-react";
 
 const Index: React.FC = () => {
   return (
@@ -24,7 +17,7 @@ const Index: React.FC = () => {
         <Paper className="mt-0">
           <Grid
             id="index-article-grid"
-            className="bg-blue-50 xxl:py-6 xxl:px-4 bg-opacity-70 dark:bg-transparent pt-4 xs:pt-0 xxs:pt-0"
+            className="bg-blue-50 xxl:pt-6 xxl:px-4 bg-opacity-70 dark:bg-transparent pt-4 xs:pt-0 xxs:pt-0"
             gutter={1}
           >
             <Col span={3} sm={5} md={4} lg={3} xl={4} xs={12}>
@@ -51,7 +44,7 @@ const Index: React.FC = () => {
               xs={12}
             >
               <HorizontalArticleCard
-                title="Localbitcoins clone script-A guide for entrepreneurs to
+                title="Local bitcoins clone script-A guide for entrepreneurs to
                 start a p2p exchange website like Localbitcoins?"
                 description="Qualcomm says the can."
                 cover={{
@@ -119,25 +112,180 @@ const Index: React.FC = () => {
               />
             </Col>
           </Grid>
-          <Grid
-            id="index-layout-grid"
-            className="max-w-[1400px] mx-auto bg-yellow-50 dark:bg-transparent"
-            grow
-            gutter={24}
-          >
-            <Col span={9}>
-              <Card className="">
-                <Text>How To Have A Fantastic Seo With Minimal Spending.</Text>
-              </Card>
-            </Col>
-            <Col className="xs:hidden xxs:hidden" span={3}>
-              <Card>
-                <Text>
-                  Disclaimer: The author is a self-proclaimed nice guy
-                </Text>
-              </Card>
-            </Col>
-          </Grid>
+
+          <Card className="md:px-0 pt-0 xs:px-0 xxs:px-0">
+            <Grid
+              id="index-layout-grid"
+              className="max-w-[1400px] pt-6 mx-auto bg-yellow-50 dark:bg-transparent bg-opacity-50"
+              grow
+              gutter={24}
+            >
+              <Col span={6} md={8} lg={9} xl={7} className="md:px-0">
+                <div className="pt-2 pb-6 pl-6 flex">
+                  <Text className="">
+                    <TextT
+                      className="mt-[-4px]"
+                      size={40}
+                      color="#2563eb"
+                      weight="bold"
+                    />
+                  </Text>
+                  <Title
+                    className="text-gray-800 ml-3 dark:text-white uppercase font-bold mt-[3px]"
+                    order={3}
+                  >
+                    from all over
+                  </Title>
+                </div>
+                <HorizontalArticleCard
+                  title="Every React Developer should know these libraries"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+
+                <HorizontalArticleCard
+                  title="Learn a new blockchain database technology, build something cool and win a swag box! "
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+
+                <HorizontalArticleCard
+                  title="🔥 Learn Full-Stack JavaScript: Start from the basics of JS, HTML, CSS and progress to Node.js, React.js, React Native 🔥"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+
+                <HorizontalArticleCard
+                  title="Build an app for sending GIFs and win the first prize! 💸"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+                <HorizontalArticleCard
+                  title="Looking for an Experienced dApp and React Developer to assist with a Task"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+                <HorizontalArticleCard
+                  title="Build your own Clubhouse clone using React and 100ms 🚀"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+                <HorizontalArticleCard
+                  title="WhatsApp: The Not-So-Private Privacy App, Prohibitory Automated Resume Filters, and Some Updates About Apple — on DevNews!"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+                <HorizontalArticleCard
+                  title="All You Need to Know About Hiring Python Experts for Your
+                Project"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+                <HorizontalArticleCard
+                  title="All You Need to Know About Hiring Python Experts for Your
+                Project"
+                  description="It’s probably not what you’re expecting"
+                  cover={{
+                    height: 80,
+                    width: 80,
+                    alt: "an image",
+                    preload: false,
+
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                    name: "DBLa8Z0Int.jpg",
+                  }}
+                />
+              </Col>
+              <Col
+                className="xs:hidden xxs:hidden"
+                span={6}
+                md={4}
+                lg={3}
+                xl={5}
+              >
+                <div className="pt-2 pb-6 pl-6 flex">
+                  <span>
+                    <TrendUp color="red" size={48} />
+                  </span>
+                  <Title
+                    className="text-gray-800 dark:text-white uppercase font-bold align-middle mt-3 ml-3"
+                    order={3}
+                  >
+                    Trending
+                  </Title>
+                </div>
+                <Card>
+                  <Text>
+                    Disclaimer: The author is a self-proclaimed nice guy
+                  </Text>
+                </Card>
+              </Col>
+            </Grid>
+          </Card>
         </Paper>
       </Wrapper>
     </>
