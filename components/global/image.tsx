@@ -10,33 +10,28 @@ const Imager: React.FC<ImageProps> = ({
   hash,
   height,
   width,
-  priority,
+  preload,
   style,
 }) => {
-  const [loading, setLoading] = useState(true);
   return (
     <Image
       className={
-        className
-          ? className + " object-cover max-w-[600px]"
-          : "object-cover max-w-[600px]"
+        (className || null) +
+        " max-w-[600px] transition-all ease-in-out duration-1000"
       }
-      alt={alt ? alt : "An Image"}
+      alt={alt || "An Image"}
       placeholder="blur"
+      objectFit="cover"
       lazyBoundary="0px"
-      priority={priority ? true : false}
-      blurDataURL={hash ? hash : "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
+      priority={preload || false}
+      blurDataURL={hash || "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
       src={name}
-      width={width ? width : 400}
-      height={height ? height : 250}
+      width={width || 400}
+      height={height || 250}
       loader={({ src, width, quality }) => {
         return `https://${
           process.env.NEXT_PUBLIC_IMAGE_CDN_PATH
         }/tr:w-${width},h-${height},q-${quality || 75}/${src}`;
-      }}
-      onLoad={() => {
-        setLoading(false);
-        console.log(loading);
       }}
     />
   );
