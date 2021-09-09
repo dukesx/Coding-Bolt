@@ -10,7 +10,7 @@ const Imager: React.FC<ImageProps> = ({
   hash,
   height,
   width,
-  priority,
+  preload,
   style,
 }) => {
   return (
@@ -23,7 +23,7 @@ const Imager: React.FC<ImageProps> = ({
       placeholder="blur"
       objectFit="cover"
       lazyBoundary="0px"
-      priority={priority ? true : false}
+      priority={preload || false}
       blurDataURL={hash || "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
       src={name}
       width={width || 400}

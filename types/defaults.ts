@@ -7,7 +7,7 @@ export interface ImageProps {
   height?: number;
   className?: string;
   hash?: string;
-  priority?: boolean;
+  preload?: boolean;
 }
 
 export interface NavProps {
@@ -17,4 +17,17 @@ export interface NavProps {
   loading?: boolean;
   signIn?: any;
   signOut?: any;
+}
+
+export interface ArticleCardProps {
+  title: string;
+  description: string;
+  cover: {
+    width: number;
+    height: number;
+    hash: string;
+    alt: string;
+    name: string;
+    preload?: boolean;
+  };
 }
