@@ -5,9 +5,11 @@ import {
   Paper,
   Button,
   Text,
+  Card,
   Menu,
   MenuItem,
   Avatar,
+  Drawer,
   TextInput,
   Divider,
   InputWrapper,
@@ -29,6 +31,8 @@ import {
   User,
   Lightning,
   ArrowCircleRight,
+  House,
+  BookmarksSimple,
 } from "phosphor-react";
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
@@ -39,6 +43,7 @@ import Image from "next/image";
 const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [drawer, setDrawer] = useState(false);
   const dark = useDarkMode(false, {
     classNameDark: "dark",
   });
@@ -358,6 +363,99 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   </Text>
                 </Group>
               </Modal>
+              <Drawer
+                opened={burger}
+                onClose={() => setBurger(false)}
+                // title={<Text className="font-medium">Hi Afridi</Text>}
+                hideCloseButton
+              >
+                <Card className="p-0">
+                  <Group
+                    direction="row"
+                    className="max-w-[100%] bg-gray-50 bg-opacity-50 border border-t-0 border-r-0 border-l-0  dark:border-blue-600 border-b-4 dark:bg-transparent p-4 m-0"
+                    noWrap
+                  >
+                    <Avatar
+                      radius="xl"
+                      src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80"
+                      size={60}
+                    />
+                    <div className="">
+                      <Text className="text-sm font-semibold" lineClamp={1}>
+                        Muhammad Afzaal Afridi
+                      </Text>
+                      <Text className="text-xs mt-1" lineClamp={1}>
+                        Member
+                      </Text>
+                      <div className="flex mt-1.5">
+                        <Text
+                          className="text-xs mr-4"
+                          variant="link"
+                          component="a"
+                          href="#"
+                        >
+                          View Profile
+                        </Text>
+                        <Text
+                          className="text-xs"
+                          variant="link"
+                          component="a"
+                          href="#"
+                        >
+                          Sign Out
+                        </Text>
+                      </div>
+                    </div>
+                  </Group>
+                </Card>
+
+                <Divider
+                  className="mt-6"
+                  labelPosition="center"
+                  label="Navigation"
+                  margins="xs"
+                />
+                <Group direction="column" align="unset" className="mt-0 px-1">
+                  <div className="flex px-1">
+                    <House
+                      className="mr-2"
+                      size={22}
+                      color="#495057"
+                      weight="duotone"
+                    />
+                    <Text className="text-sm">Home</Text>
+                  </div>
+                  <div className="flex p-1">
+                    <Text>
+                      <TrendUp
+                        color="#FA5252"
+                        className="mr-2"
+                        size={22}
+                        weight="duotone"
+                      />
+                    </Text>{" "}
+                    <Text className="text-sm">Trending</Text>
+                  </div>
+
+                  <div className="flex p-1">
+                    <Text>
+                      <BookmarksSimple
+                        color="#495057"
+                        className="mr-2"
+                        size={22}
+                        weight="duotone"
+                      />
+                    </Text>
+                    <Text className="text-sm">Bookmarks</Text>
+                  </div>
+                  <Divider
+                    className="mt-6"
+                    labelPosition="center"
+                    label="More"
+                    margins="xs"
+                  />
+                </Group>
+              </Drawer>
             </Col>
           </Grid>
         </Paper>
