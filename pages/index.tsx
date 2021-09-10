@@ -2,7 +2,6 @@
 import Wrapper from "components/global/wrapper";
 import Head from "next/head";
 import { Paper, Card, Title, Text, Grid, Col } from "@mantine/core";
-import Image from "next/image";
 import VerticalArticleCard from "components/global/article/card/vertical";
 import HorizontalArticleCard from "components/global/article/card/horizontal";
 import { TextT, SketchLogo } from "phosphor-react";

@@ -64,8 +64,6 @@
     "react-headroom": "^3.1.1",
     "react-jss": "^10.7.1",
     "react-lazyload": "^3.2.0",
-    "react-sticky": "^6.0.3",
-    "react-sticky-box": "^0.9.3",
     "react-stickynode": "^4.0.0",
     "sharp": "^0.29.0",
     "tailwindcss-line-clamp": "^1.0.5",
