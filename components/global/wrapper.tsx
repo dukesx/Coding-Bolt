@@ -1,6 +1,7 @@
 import { Container } from "@mantine/core";
 import Nav from "./nav";
 import { signIn, signOut, useSession } from "next-auth/client";
+import Script from "next/script";
 
 const Wrapper = (props: any) => {
   const [session, loading] = useSession();
@@ -21,6 +22,10 @@ const Wrapper = (props: any) => {
       <Container className="xs:p-0 xxs:p-0 pt-0 px-1" size={1660}>
         {props.children}
       </Container>
+      <Script
+        src="https://accounts.google.com/gsi/client"
+        strategy="lazyOnload"
+      ></Script>
     </Container>
   );
 };
