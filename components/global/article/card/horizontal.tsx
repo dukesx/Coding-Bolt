@@ -18,7 +18,7 @@ const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
           alt={alt}
         />
         <Group
-          className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[230px] xs:max-w-[290px] lg:max-w-[70%] md:max-w-[360px] xl:max-w-[80%] xxl:max-w-[80%]"
+          className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[70%] xs:max-w-[290px] lg:max-w-[70%] md:max-w-[70%] xl:max-w-[80%] xxl:max-w-[80%]"
           direction="column"
         >
           <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
