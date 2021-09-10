@@ -24,7 +24,7 @@ const Wrapper = (props: any) => {
       </Container>
       <Script
         src="https://accounts.google.com/gsi/client"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       ></Script>
     </Container>
   );

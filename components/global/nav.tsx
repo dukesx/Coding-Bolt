@@ -8,6 +8,9 @@ import {
   Menu,
   MenuItem,
   Avatar,
+  TextInput,
+  Divider,
+  InputWrapper,
   Group,
   Modal,
   Title,
@@ -17,25 +20,21 @@ import {
   CaretDown,
   SignOut,
   PencilCircle,
-  ArrowRight,
   Bookmarks,
   Sun,
-  Rocket,
   Moon,
   TrendUp,
   X,
   List,
   User,
-  SignIn,
   Lightning,
+  ArrowCircleRight,
 } from "phosphor-react";
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
 import { NavProps } from "types/defaults";
 import GoogleLogo from "public/assets/images/google.svg";
 import Image from "next/image";
-import Logo from "public/assets/images/logo/cb-square.jpg";
-import LogoDark from "public/assets/images/logo/cb-square-dark.jpg";
 
 const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
@@ -239,33 +238,62 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 ) : (
                   <Button
                     className="ml-4 mr-2 mt-3 xxs:px-2 xxs:text-xs xxs:h-[32px]"
-                    radius="sm"
+                    radius="xl"
                     onClick={() => setLoginModal(true)}
                     loading={loading ? true : false}
-                    rightIcon={<ArrowRight weight="bold" size={18} />}
+                    rightIcon={
+                      loading ? (
+                        ""
+                      ) : (
+                        <ArrowCircleRight weight="fill" size={26} />
+                      )
+                    }
                     variant="gradient"
                     gradient={{
                       to: "indigo",
                       from: "blue",
                     }}
                   >
-                    {loading ? "Loading" : "Get Started"}
+                    Sign in
                   </Button>
                 )}
               </Group>
               <Modal
                 title={
                   <Text className="font-semibold capitalize">
-                    Get Started With Single Sign On
+                    {" "}
+                    Sign In ⚡🤟
                   </Text>
                 }
                 opened={loginModal}
                 onClose={() => setLoginModal(false)}
               >
-                <Group direction="column" className="py-5" align="center">
-                  <Text size="sm" className="mb-5" color="gray">
-                    Start quickly with a single press of a button ⚡🤟
-                  </Text>
+                <Group direction="column" className="pt-2 pb-4 items-stretch">
+                  <form>
+                    <InputWrapper
+                      id="input-demo"
+                      required
+                      className="w-[400px] xs:max-w-[98%]"
+                      label="Username"
+                      description="name@email.com"
+                    >
+                      <TextInput />
+                    </InputWrapper>
+
+                    <InputWrapper
+                      id="input-demo"
+                      required
+                      className="w-[400px] xs:max-w-[98%] mt-4"
+                      label="Password"
+                      description="Your secret passcode/passphrase"
+                    >
+                      <TextInput />
+                    </InputWrapper>
+                    <Button className="w-full mt-6" type="submit">
+                      Sign in
+                    </Button>
+                  </form>
+                  <Divider margins="xs" label="OR" labelPosition="center" />
                   <Button
                     leftIcon={
                       <Image
@@ -275,16 +303,59 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         width={20}
                       />
                     }
-                    variant="light"
-                    color="blue"
+                    variant="filled"
                     onClick={() =>
                       signIn("google", {
                         callbackUrl: "/",
                       })
                     }
+                    color="white"
+                    styles={{
+                      root: {
+                        background: "white",
+                      },
+                      label: {
+                        textShadow: "none",
+                      },
+                    }}
+                    className="text-gray-600 font-medium shadow-md dark:bg-[#1a1b1e] dark:text-gray-100 hover:border hover:border-blue-600 dark:hover:border-gray-700 hover:border-l-8 transition-all ease-in-out"
                   >
-                    Start With Google
+                    Sign in with Google
                   </Button>
+
+                  <Text
+                    size="sm"
+                    className="text-xs font-medium inline-block flex mt-8"
+                    variant="link"
+                    component="a"
+                    href="https://mantine.dev"
+                  >
+                    Dont have an account yet?
+                  </Text>
+                  <Text
+                    size="sm"
+                    className="text-xs font-medium inline-block flex mt-1"
+                    color="gray"
+                  >
+                    *By signing in, you agree to our
+                    <Text
+                      component="a"
+                      href="https://mantine.dev"
+                      className="text-xs mx-1"
+                      variant="link"
+                    >
+                      Terms
+                    </Text>
+                    and
+                    <Text
+                      component="a"
+                      href="https://mantine.dev"
+                      className="text-xs mx-1"
+                      variant="link"
+                    >
+                      Privacy Policy{" "}
+                    </Text>
+                  </Text>
                 </Group>
               </Modal>
             </Col>
