@@ -5,7 +5,8 @@ import { Paper, Card, Title, Text, Grid, Col } from "@mantine/core";
 import Image from "next/image";
 import VerticalArticleCard from "components/global/article/card/vertical";
 import HorizontalArticleCard from "components/global/article/card/horizontal";
-import { TrendUp, TextT } from "phosphor-react";
+import { TextT, SketchLogo } from "phosphor-react";
+import Sticky from "react-stickynode";
 
 const Index: React.FC = () => {
   return (
@@ -48,8 +49,8 @@ const Index: React.FC = () => {
                 start a p2p exchange website like Localbitcoins?"
                 description="Qualcomm says the can."
                 cover={{
-                  height: 90,
-                  width: 90,
+                  height: 80,
+                  width: 80,
                   alt: "an image",
                   preload: false,
                   hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBAUG/8QAJxAAAQMDAwMEAwAAAAAAAAAAAQIDBAAFEQYSIQcxUSIyQWEVouH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EAB0RAAICAgMBAAAAAAAAAAAAAAECABEEIQMSIjH/2gAMAwEAAhEDEQA/AFpc74pa1YJx5zmsSRc1K4yB91guy1FXckmrl7tMy2uyWpMeS25GWlt7en0gqHBBHGD8VK6+ygBOxLIuTifaogfRornwsjuoCijUEZGl7Ci1Xq23Z+E087EfbUISnCUuHAIKzzgghWQOOB4IqTX+sWdV3R2O0ytMJLit7Sl5DnqylWRzuHn+1advqYLj0aVGUliTIK3nGzh5tIQtOxOePcpJPPO3HzWN060PL1bfmY0eTFaQFpL6lODcW85WUpHfAz4HIrErM/pjOgVXjHVRGT0m6S6dcsC7trEuOtXAhUBvcApLSc5UccHJP69hRTBu0L8vKSzAbfYtkFtMeIGzhJQnjjz2opGylU0TuKuPYsT/2Q==",
@@ -63,8 +64,8 @@ const Index: React.FC = () => {
                 description="If you have taken a call to grow your career in the
                 information technology"
                 cover={{
-                  height: 90,
-                  width: 90,
+                  height: 80,
+                  width: 80,
                   alt: "an image",
                   preload: false,
 
@@ -78,8 +79,8 @@ const Index: React.FC = () => {
                 Project"
                 description="It’s probably not what you’re expecting"
                 cover={{
-                  height: 90,
-                  width: 90,
+                  height: 80,
+                  width: 80,
                   alt: "an image",
                   preload: false,
 
@@ -95,7 +96,7 @@ const Index: React.FC = () => {
               lg={3}
               xl={3}
               xs={12}
-              className="sm:hidden xs:text-center md:hidden"
+              className="sm:hidden xs:text-center md:hidden sm:text-center"
             >
               <VerticalArticleCard
                 title="The Biggest Contribution Of Seo To Humanity."
@@ -113,14 +114,14 @@ const Index: React.FC = () => {
             </Col>
           </Grid>
 
-          <Card className="md:px-0 pt-0 xs:px-0 xxs:px-0">
+          <Card className="md:px-0 pt-0 xs:px-0 xxs:px-0 sm:px-0">
             <Grid
               id="index-layout-grid"
               className="max-w-[1400px] pt-6 mx-auto bg-yellow-50 dark:bg-transparent bg-opacity-50"
               grow
-              gutter={24}
+              gutter={12}
             >
-              <Col span={6} md={8} lg={9} xl={7} className="md:px-0">
+              <Col span={6} md={6} lg={7} xl={7} className="md:px-0">
                 <div className="pt-2 pb-6 pl-6 flex">
                   <Text className="">
                     <TextT
@@ -261,28 +262,87 @@ const Index: React.FC = () => {
                 />
               </Col>
               <Col
-                className="xs:hidden xxs:hidden"
+                className="xs:hidden xxs:hidden md:hidden sm:hidden"
                 span={6}
-                md={4}
-                lg={3}
+                md={6}
+                lg={5}
                 xl={5}
               >
-                <div className="pt-2 pb-6 pl-6 flex">
-                  <span>
-                    <TrendUp color="red" size={48} />
-                  </span>
-                  <Title
-                    className="text-gray-800 dark:text-white uppercase font-bold align-middle mt-3 ml-3"
-                    order={3}
-                  >
-                    Trending
-                  </Title>
-                </div>
-                <Card>
-                  <Text>
-                    Disclaimer: The author is a self-proclaimed nice guy
-                  </Text>
-                </Card>
+                <Sticky bottomBoundary="#index-article-grid">
+                  <div className="pt-6 pb-6 pl-6 flex">
+                    <span>
+                      <SketchLogo
+                        color="#2563eb"
+                        className=""
+                        weight="duotone"
+                        size={45}
+                      />
+                    </span>
+                    <Title
+                      className="text-gray-800 dark:text-white uppercase font-bold align-middle mt-3 ml-3"
+                      order={3}
+                    >
+                      Must read
+                    </Title>
+                  </div>
+                  <VerticalArticleCard
+                    title="The Biggest Contribution Of Seo To Humanity."
+                    description="Educational YouTube channels are the best. Here is the list of
+                my personal favorites. Feel free to add more!"
+                    cover={{
+                      height: 250,
+                      width: 600,
+                      alt: "an image",
+                      preload: false,
+                      hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGBwT/xAAsEAACAQMDAgUCBwAAAAAAAAABAgMEBREABiESMRMiQVGBBxQVMjNSYXGR/8QAFgEBAQEAAAAAAAAAAAAAAAAABAUD/8QAJhEAAgEDAgQHAAAAAAAAAAAAAQIDABEhBEEFEjFhEyIzUYHw8f/aAAwDAQACEQMRAD8AzvdP1BuF3vEsNzVJGHkBeQqqKf2gflGpprWaq4zxLJH4oXrPnIGOOQfXPB0+vV6tS2+CClSl8anYxVBmoYZDKzNnrV2HWMDjHbgapd5WLbW4rfbTsOjNJU9DJUlYnjBIAJV1JwexOV4xoCKqpzLgm1WppJHnKSZjW9hgC2bZtvt3qCtVrSvuZVFp+iAFCQ6uW9srnv8AyOBo0vqNvXi2XWChq6dqeoch42Ug5BHBDDn4ONGsp0Ib1AKVoJYzGb6YvnqPyntVtWrebx4aalkSJEaSMynEj483mPPyTzp0d2z2aGOWjtrR1dL0Qxw1MXAPYA44ccf3p7R1ILqkZDDHUR3CH157Z1yXelZ6SqaKHxgQWMR5DEewOgrrDzKH2+KtycJQq4QAXv1AOdiPb7i9Z/uq6fidf98soapl/XdeQWPOQf8AR8aNUlFaKG4sjQwKtEEPUCmD1Y9vQg86NNGvij8pBqPNwHVTt4isDe3bav/Z",
+                      name: "yXbld5A7Lz.jpg",
+                    }}
+                  />
+                  <HorizontalArticleCard
+                    title="All You Need to Know About Hiring Python Experts for Your
+                Project"
+                    description="It’s probably not what you’re expecting"
+                    cover={{
+                      height: 80,
+                      width: 80,
+                      alt: "an image",
+                      preload: false,
+
+                      hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                      name: "DBLa8Z0Int.jpg",
+                    }}
+                  />
+
+                  <HorizontalArticleCard
+                    title="All You Need to Know About Hiring Python Experts for Your
+                Project"
+                    description="It’s probably not what you’re expecting"
+                    cover={{
+                      height: 80,
+                      width: 80,
+                      alt: "an image",
+                      preload: false,
+
+                      hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                      name: "DBLa8Z0Int.jpg",
+                    }}
+                  />
+
+                  <HorizontalArticleCard
+                    title="All You Need to Know About Hiring Python Experts for Your
+                Project"
+                    description="It’s probably not what you’re expecting"
+                    cover={{
+                      height: 80,
+                      width: 80,
+                      alt: "an image",
+                      preload: false,
+
+                      hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGwAAAgEFAAAAAAAAAAAAAAAAAAUGAQIEBwj/xAArEAACAgIBAQcCBwAAAAAAAAABAgMEAAUREgYHEyEiMWFSsTJBU3FygcH/xAAYAQACAwAAAAAAAAAAAAAAAAACAwEEBf/EABwRAAMAAwADAAAAAAAAAAAAAAABAhITIRFRUv/aAAwDAQACEQMRAD8A6PVfjKPGCCCMVUdXeg4Ee3mZR+UiBvucbRxyqeJ51ccfp9P+4YhdFVqqhk9sMNpelrzBYaMlhfqWVR98MnIW5RqDVd5+ys2JqkeqnkksMwgElgAoOkDo4HJdv4/UBmR3U7+Xabi3Up02p1K1cV5i8kvEXhcgIA7c9XLHk8fv7Yi0kVvc9oNu9ySoZKmwWYOF44l8MAFT7geQ/sDJbQ7OUaE01gXF8aVi8jqfU7n3J+ecq5t15bNFxEzipXS+zt9mmw2UKV7GwWG48aNFME6F6EIB5Pn+I4ZF57lDVbjZG1ZhnFmUSrzYZGT0KpDAfIwwtte2K0R8o//Z",
+                      name: "DBLa8Z0Int.jpg",
+                    }}
+                  />
+                </Sticky>
               </Col>
             </Grid>
           </Card>
