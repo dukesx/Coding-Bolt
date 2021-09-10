@@ -48,7 +48,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
         >
           <Grid id="nav-grid" align="center" justify="space-between" grow>
             <Col
-              className="lg:max-w-[120px] xl:max-w-[140px] xxl:max-w-[130px]"
+              className="lg:max-w-[120px] xl:max-w-[140px] xxl:max-w-[140px]"
               span={2}
               xs={2}
               sm={1}
@@ -70,7 +70,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   ) : (
                     <Text>
                       <List
-                        className="hover:bg-gray-100 sm:mt-[3px] xxs:mt-[1px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px] xs:mt-1   dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out xs:mt-[2px]"
+                        className="hover:bg-gray-100 sm:mt-[3px] xxs:mt-[1px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px] xs:mt-0   dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out xs:mt-[2px]"
                         size={24}
                         weight="regular"
                         onClick={() => setBurger(true)}
@@ -80,7 +80,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 </div>
 
                 <Title
-                  className="xs:text-[19px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[-3px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-medium ml-2"
+                  className="xs:text-[19px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-medium ml-2"
                   order={4}
                 >
                   Coding Bolt
@@ -138,7 +138,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
             >
               <Group position="right">
                 <Sun
-                  className="dark:block hidden cursor-pointer bg-yellow-400 p-1.5 rounded-full hover:p-2 hover:rounded-full hover:h-[33px] hover:w-[33px] transition-all ease-in-out"
+                  className="dark:block hidden cursor-pointer bg-yellow-400 p-1.5 rounded-full hover:p-2 xs:p-1.5 xs:h-[31px] xs:w-[31px] xxs:h-[31px] xxs:w-[31px] xxs:p-1.5 hover:rounded-full hover:h-[33px] hover:w-[33px] transition-all ease-in-out"
                   size={33}
                   weight="fill"
                   color="white"
@@ -147,7 +147,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   }}
                 />
                 <Moon
-                  className="dark:hidden cursor-pointer bg-gray-600 p-1.5 rounded-full hover:p-2 hover:bg-gray-800 hover:rounded-full hover:h-[33px] hover:w-[33px] transition-all ease-in-out"
+                  className="dark:hidden cursor-pointer bg-gray-600 p-1.5 rounded-full hover:p-2 hover:bg-gray-800 xs:h-[31px] xs:w-[31px] xxs:h-[28px] xxs:w-[28px] xxs:p-1.5 hover:rounded-full hover:h-[33px] hover:w-[33px] transition-all ease-in-out"
                   size={33}
                   weight="fill"
                   color="white"
@@ -214,7 +214,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   </Menu>
                 ) : (
                   <Button
-                    className="ml-4 mr-2 mt-3 xxs:px-2 xxs:text-xs xxs:h-[30px]"
+                    className="ml-4 mr-2 mt-3 xxs:px-2 xs:px-2 xxs:text-xs xxs:h-[32px]"
                     onClick={() => setLoginModal(true)}
                     loading={loading ? true : false}
                     leftIcon={<Rocket size={18} weight="duotone" />}
