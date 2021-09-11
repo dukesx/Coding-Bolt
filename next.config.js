@@ -6,6 +6,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer({
   assetPrefix: isProd ? "https://cdn.codingbolt.com" : "",
   images: {
+    loader: "custom",
     domains: ["ik.imagekit.io"],
   },
 });
