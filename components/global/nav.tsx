@@ -14,8 +14,10 @@ import {
   Divider,
   InputWrapper,
   Group,
+  Loader,
   Modal,
   Title,
+  LoadingOverlay,
 } from "@mantine/core";
 import {
   BellSimple,
@@ -53,7 +55,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
       <nav>
         <Paper
           padding="xs"
-          className="border border-t-0 border-l-0 border-r-0 dark:border-gray-900"
+          className="border border-t-0 border-b-4 xs:border-b-4 border-l-0 border-r-0 dark:border-yellow-600"
         >
           <Grid id="nav-grid" align="center" justify="space-between" grow>
             <Col
@@ -70,7 +72,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   {burger ? (
                     <Text>
                       <X
-                        className="hover:bg-gray-100 sm:mt-[3px] xxs:mt-[1px] xs:mt-[2px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out"
+                        className="sm:mt-[3px] xxs:mt-[1px] xs:mt-[2px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px]"
                         size={24}
                         weight="regular"
                         onClick={() => setBurger(false)}
@@ -79,7 +81,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   ) : (
                     <Text>
                       <List
-                        className="hover:bg-gray-100 sm:mt-[3px] xxs:mt-[1px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px] xs:mt-0   dark:hover:bg-gray-600 hover:p-2 hover:rounded-full hover:h-[37px] hover:w-[37px] transition-all ease-in-out xs:mt-[2px]"
+                        className="sm:mt-[3px] xxs:mt-[1px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px] xs:mt-0 xs:mt-[2px]"
                         size={24}
                         weight="regular"
                         onClick={() => setBurger(true)}
@@ -245,14 +247,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     className="ml-4 mr-2 mt-3 xxs:px-2 xxs:text-xs xxs:h-[32px]"
                     radius="xl"
                     onClick={() => setLoginModal(true)}
-                    loading={loading ? true : false}
-                    rightIcon={
-                      loading ? (
-                        ""
-                      ) : (
-                        <ArrowCircleRight weight="fill" size={26} />
-                      )
-                    }
+                    rightIcon={<ArrowCircleRight weight="fill" size={26} />}
                     variant="gradient"
                     gradient={{
                       to: "indigo",
@@ -264,6 +259,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 )}
               </Group>
               <Modal
+                className=""
                 title={
                   <Text className="font-semibold capitalize">
                     {" "}
@@ -273,12 +269,17 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 opened={loginModal}
                 onClose={() => setLoginModal(false)}
               >
-                <Group direction="column" className="pt-2 pb-4 items-stretch">
-                  <form>
+                <Group
+                  direction="column"
+                  className="pt-2 pb-4 items-stretch xs:max-w-[370px]"
+                >
+                  <form className="max-w-[100%] relative">
+                    <LoadingOverlay visible={loading} />
+
                     <InputWrapper
                       id="input-demo"
                       required
-                      className="w-[400px] xs:max-w-[98%]"
+                      className=""
                       label="Username"
                       description="name@email.com"
                     >
@@ -297,97 +298,101 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     <Button className="w-full mt-6" type="submit">
                       Sign in
                     </Button>
+                    <Divider margins="xs" label="OR" labelPosition="center" />
+                    <div className="flex flex-col">
+                      <Button
+                        leftIcon={
+                          <Image
+                            alt="Login with Google"
+                            src={GoogleLogo}
+                            height={20}
+                            width={20}
+                          />
+                        }
+                        variant="filled"
+                        onClick={() =>
+                          signIn("google", {
+                            callbackUrl: "/",
+                          })
+                        }
+                        color="white"
+                        styles={{
+                          root: {
+                            background: "white",
+                          },
+                          label: {
+                            textShadow: "none",
+                          },
+                        }}
+                        className="text-gray-600 font-medium shadow-md dark:bg-[#1a1b1e] dark:text-gray-100 hover:border hover:border-blue-600 dark:hover:border-gray-700 hover:border-l-8 transition-all ease-in-out"
+                      >
+                        Sign in with Google
+                      </Button>
+                      <Text
+                        size="sm"
+                        className="text-xs font-medium mt-8"
+                        variant="link"
+                        component="a"
+                        href="https://mantine.dev"
+                      >
+                        Dont have an account yet?
+                      </Text>
+                      <Text
+                        size="sm"
+                        className="text-xs font-medium mt-1"
+                        color="gray"
+                      >
+                        *By signing in, you agree to our
+                        <Text
+                          component="a"
+                          href="https://mantine.dev"
+                          className="text-xs mx-1"
+                          variant="link"
+                        >
+                          Terms
+                        </Text>
+                        and
+                        <Text
+                          component="a"
+                          href="https://mantine.dev"
+                          className="text-xs mx-1"
+                          variant="link"
+                        >
+                          Privacy Policy{" "}
+                        </Text>
+                      </Text>
+                    </div>
                   </form>
-                  <Divider margins="xs" label="OR" labelPosition="center" />
-                  <Button
-                    leftIcon={
-                      <Image
-                        alt="Login with Google"
-                        src={GoogleLogo}
-                        height={20}
-                        width={20}
-                      />
-                    }
-                    variant="filled"
-                    onClick={() =>
-                      signIn("google", {
-                        callbackUrl: "/",
-                      })
-                    }
-                    color="white"
-                    styles={{
-                      root: {
-                        background: "white",
-                      },
-                      label: {
-                        textShadow: "none",
-                      },
-                    }}
-                    className="text-gray-600 font-medium shadow-md dark:bg-[#1a1b1e] dark:text-gray-100 hover:border hover:border-blue-600 dark:hover:border-gray-700 hover:border-l-8 transition-all ease-in-out"
-                  >
-                    Sign in with Google
-                  </Button>
-
-                  <Text
-                    size="sm"
-                    className="text-xs font-medium inline-block flex mt-8"
-                    variant="link"
-                    component="a"
-                    href="https://mantine.dev"
-                  >
-                    Dont have an account yet?
-                  </Text>
-                  <Text
-                    size="sm"
-                    className="text-xs font-medium inline-block flex mt-1"
-                    color="gray"
-                  >
-                    *By signing in, you agree to our
-                    <Text
-                      component="a"
-                      href="https://mantine.dev"
-                      className="text-xs mx-1"
-                      variant="link"
-                    >
-                      Terms
-                    </Text>
-                    and
-                    <Text
-                      component="a"
-                      href="https://mantine.dev"
-                      className="text-xs mx-1"
-                      variant="link"
-                    >
-                      Privacy Policy{" "}
-                    </Text>
-                  </Text>
                 </Group>
               </Modal>
               <Drawer
                 opened={burger}
                 onClose={() => setBurger(false)}
-                // title={<Text className="font-medium">Hi Afridi</Text>}
                 hideCloseButton
               >
                 <Card className="p-0">
                   <Group
                     direction="row"
-                    className="max-w-[100%] bg-gray-50 bg-opacity-50 border border-t-0 border-r-0 border-l-0  dark:border-blue-600 border-b-4 dark:bg-transparent p-4 m-0"
+                    className="max-w-[100%] bg-gray-50 bg-opacity-50 border border-gray-200 border-t-0 border-r-0 border-l-0  dark:border-blue-600 border-b-4 dark:bg-transparent p-4 m-0"
                     noWrap
                   >
                     <Avatar
-                      radius="xl"
                       src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80"
-                      size={60}
+                      size={80}
+                      className="rounded-full"
                     />
                     <div className="">
-                      <Text className="text-sm font-semibold" lineClamp={1}>
+                      <Text
+                        className="text-sm font-semibold"
+                        data-autofocus
+                        lineClamp={1}
+                      >
                         Muhammad Afzaal Afridi
                       </Text>
                       <Text className="text-xs mt-1" lineClamp={1}>
                         Member
                       </Text>
-                      <div className="flex mt-1.5">
+                      <div className="flex mt-2">
                         <Text
                           className="text-xs mr-4"
                           variant="link"
@@ -409,23 +414,25 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   </Group>
                 </Card>
 
-                <Divider
-                  className="mt-6"
-                  labelPosition="center"
-                  label="Navigation"
-                  margins="xs"
-                />
-                <Group direction="column" align="unset" className="mt-0 px-1">
-                  <div className="flex px-1">
-                    <House
-                      className="mr-2"
-                      size={22}
-                      color="#495057"
-                      weight="duotone"
-                    />
+                <Group
+                  direction="column"
+                  align="unset"
+                  withGutter
+                  className="px-4"
+                >
+                  <div className="my-3" />
+                  <div className="flex px-1 py-1 hover:py-2.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <Text>
+                      <House
+                        className="mr-2"
+                        color="#2563eb"
+                        size={22}
+                        weight="fill"
+                      />
+                    </Text>
                     <Text className="text-sm">Home</Text>
                   </div>
-                  <div className="flex p-1">
+                  <div className="flex px-1 py-1 hover:py-2.5 hover:bg-gray-100 dark:hover:bg-gray-800">
                     <Text>
                       <TrendUp
                         color="#FA5252"
@@ -433,21 +440,22 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         size={22}
                         weight="duotone"
                       />
-                    </Text>{" "}
+                    </Text>
                     <Text className="text-sm">Trending</Text>
                   </div>
 
-                  <div className="flex p-1">
+                  <div className="flex px-1 py-1 hover:py-2.5 hover:bg-gray-100 dark:hover:bg-gray-800">
                     <Text>
                       <BookmarksSimple
-                        color="#495057"
+                        color="#2563eb"
                         className="mr-2"
                         size={22}
-                        weight="duotone"
+                        weight="fill"
                       />
                     </Text>
                     <Text className="text-sm">Bookmarks</Text>
                   </div>
+
                   <Divider
                     className="mt-6"
                     labelPosition="center"
