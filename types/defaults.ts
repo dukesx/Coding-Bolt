@@ -8,11 +8,10 @@ export interface ImageProps {
   className?: string;
   hash?: string;
   preload?: boolean;
+  avatar?: boolean;
 }
 
 export interface NavProps {
-  // loginOptions?: Array<GoogleAuthProvider>;
-  // auth?: Auth;
   session?: any;
   loading?: boolean;
   signIn?: any;

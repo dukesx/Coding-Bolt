@@ -10,6 +10,7 @@ const Imager: React.FC<ImageProps> = ({
   hash,
   height,
   width,
+  avatar,
   preload,
   style,
 }) => {
@@ -31,7 +32,9 @@ const Imager: React.FC<ImageProps> = ({
       loader={({ src, width, quality }) => {
         return `https://${
           process.env.NEXT_PUBLIC_IMAGE_CDN_PATH
-        }/tr:w-${width},h-${height},q-${quality || 75}/${src}`;
+        }/tr:w-${width},h-${height},q-${quality || 75},${
+          avatar ? ",fo-auto" : ""
+        }/${src}`;
       }}
     />
   );

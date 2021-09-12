@@ -8,9 +8,10 @@ import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
 import { Provider } from "next-auth/client";
 
-export default function App(props: AppProps) {
-  const { Component, pageProps } = props;
-
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   useEffect(() => {
     const jssStyles = document.getElementById("mantine-ssr-styles");
     if (jssStyles) {
@@ -50,7 +51,7 @@ export default function App(props: AppProps) {
         >
           <NormalizeCSS />
           <GlobalStyles />
-          <Provider session={pageProps.session}>
+          <Provider session={session}>
             <Component {...pageProps} />
           </Provider>
         </MantineProvider>

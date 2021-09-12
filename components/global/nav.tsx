@@ -35,12 +35,18 @@ import {
   ArrowCircleRight,
   House,
   BookmarksSimple,
+  ArrowCircleLeft,
+  Star,
+  ChatsCircle,
+  Tag,
+  TreeStructure,
 } from "phosphor-react";
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
 import { NavProps } from "types/defaults";
 import GoogleLogo from "public/assets/images/google.svg";
 import Image from "next/image";
+import Image2 from "components/global/image";
 
 const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
@@ -59,7 +65,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
         >
           <Grid id="nav-grid" align="center" justify="space-between" grow>
             <Col
-              className="lg:max-w-[150px] xl:max-w-[140px] xxl:max-w-[140px]"
+              className="max-w-[140px]"
               span={2}
               xs={2}
               sm={1}
@@ -78,7 +84,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         onClick={() => setBurger(false)}
                       />
                     </Text>
-                  ) : (
+                  ) : !session ? (
                     <Text>
                       <List
                         className="sm:mt-[3px] xxs:mt-[1px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px] xxs:mt-[-4px] xs:mt-0 xs:mt-[2px]"
@@ -87,14 +93,14 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         onClick={() => setBurger(true)}
                       />
                     </Text>
-                  )}
+                  ) : null}
                 </div>
 
                 <Title
-                  className="flex items-center xs:text-[24px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black ml-2"
+                  className="flex ml-3 items-center xs:text-[24px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
                   order={4}
                 >
-                  <div className="flex ml-2 xs:hidden xxs:hidden items-center">
+                  <div className="flex xs:hidden xxs:hidden items-center">
                     Coding
                     <Lightning
                       className=""
@@ -119,7 +125,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
             </Col>
             <Col
               span={7}
-              className="xxs:hidden xs:hidden sm:hidden max-w-[55vw] lg:max-w-[49vw] xl:max-w-[50vw]"
+              className="xxs:hidden ml-4 xs:hidden sm:hidden max-w-[58vw] lg:max-w-[49vw] xl:max-w-[50vw]"
               md={1}
               lg={4}
               xl={7}
@@ -159,14 +165,12 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
               </Group>
             </Col>
             <Col
-              className={
-                session && session.user ? "max-w-[325px]" : "max-w-[250px]"
-              }
+              className={`${loading ? "max-w-[220px]" : "max-w-[200px]"}`}
               span={2}
               xl={1}
               xs={3}
             >
-              <Group position="right">
+              <Group position="right" className="">
                 <Sun
                   className="dark:block hidden cursor-pointer bg-yellow-400 p-[6px] hover:p-[8px] rounded-full transition-all ease-in-out"
                   size={33}
@@ -187,65 +191,37 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 />
 
                 {session && session.user ? (
-                  <Menu
-                    controlRefProp="ref"
-                    control={
-                      <div className="flex items-center xs:border-0 xxs:border-0 align-middle content-between border dark:border-gray-700 rounded-3xl px-3 py-0.5">
-                        <Avatar
-                          className="mr-3 xxs:mr-2 xs:mr-2"
-                          color="blue"
-                          radius="xl"
-                          styles={{
-                            placeholder: {
-                              fontSize: "12px",
-                            },
-                          }}
-                        >
-                          {session &&
-                            session.user.name[0] +
-                              session.user.name.split(" ")[1][0]}
-                        </Avatar>
-                        <Text
-                          lineClamp={1}
-                          className=" max-w-[150px] text-sm xs:hidden xxs:hidden"
-                        >
-                          {session && session.user ? session.user.name : ""}
-                        </Text>
-                        <Text>
-                          <CaretDown size={17} />
-                        </Text>
-                      </div>
-                    }
-                  >
-                    <MenuItem
-                      icon={
-                        <PencilCircle
-                          color="#228be6"
-                          size={20}
-                          weight="duotone"
+                  <div>
+                    <div
+                      className="items-center ml-2 cursor-pointer"
+                      onClick={() => setBurger(true)}
+                    >
+                      <Avatar
+                        size={40}
+                        className="mr-3 xxs:mr-2 xs:mr-2"
+                        color="blue"
+                        radius="xl"
+                        styles={{
+                          placeholder: {
+                            fontSize: "12px",
+                          },
+                        }}
+                      >
+                        <Image2
+                          name="Cr90BEcUsP.jpg"
+                          width={120}
+                          height={120}
+                          avatar
+                          hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYDBQQHCP/EACwQAAEDAgUBBgcAAAAAAAAAAAECAxEABAUGEhMhMRVBYXGBkQciIyQyYtH/xAAVAQEBAAAAAAAAAAAAAAAAAAAGBP/EACQRAAIBAQgCAwAAAAAAAAAAAAECADEDBAUREiEiQQZRYZHB/9oADAMBAAIRAxEAPwDWQQURKGfeaq8QecF4rSwx8vA+nMis1Tj5aSllsOOFQSDHST31eY9gGNYThC8RduUshW2i5t0aULbJnb4BnSRzJ6zUd1ORzYxn5Uy6EsFWm5PXYicq5uJ4aaHkyP5RUov7xRP3T5j9zRV+r5gjQPQjplPKWJ5mbuHLBAZt2klLryyQkkj8R4x7Vb5pyJjVllS4vlP3N9oc1vIIEttJEaj3qjjyAmnXIeLdk5Utlidrb3nEjkKBJk+cCfSmXttd5bqZYYbXb3LW2pSjzCkEc+M8eooomKMt4YAbAkfUa4uz3wcuqZfs52yqyUC4WUBSXAkj0KhRTlb/AA/zFYJCLXDFqGkAr0TrAJg9fGilyDasCPa8qGf/2Q=="
                         />
-                      }
-                    >
-                      Create
-                    </MenuItem>
-                    <MenuItem
-                      icon={<User size={20} color="#228be6" weight="duotone" />}
-                    >
-                      Profile
-                    </MenuItem>
-                    <MenuItem
-                      icon={
-                        <SignOut color="#228be6" size={20} weight="duotone" />
-                      }
-                      onClick={() => signOut()}
-                    >
-                      Sign Out
-                    </MenuItem>
-                  </Menu>
+                      </Avatar>
+                    </div>
+                  </div>
                 ) : (
                   <Button
-                    className="ml-4 mr-2 mt-3 xxs:px-2 xxs:text-xs xxs:h-[32px]"
+                    className="ml-4 mr-2 mt-2 xxs:px-2 xxs:text-xs xxs:h-[32px]"
                     radius="xl"
+                    loading={loading ? true : false}
                     onClick={() => setLoginModal(true)}
                     rightIcon={<ArrowCircleRight weight="fill" size={26} />}
                     variant="gradient"
@@ -259,12 +235,8 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 )}
               </Group>
               <Modal
-                className=""
                 title={
-                  <Text className="font-semibold capitalize">
-                    {" "}
-                    Sign In ⚡🤟
-                  </Text>
+                  <Text className="font-semibold capitalize">Sign In ⚡🤟</Text>
                 }
                 opened={loginModal}
                 onClose={() => setLoginModal(false)}
@@ -274,8 +246,6 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   className="pt-2 pb-4 items-stretch xs:max-w-[370px]"
                 >
                   <form className="max-w-[100%] relative">
-                    <LoadingOverlay visible={loading} />
-
                     <InputWrapper
                       id="input-demo"
                       required
@@ -370,46 +340,57 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 onClose={() => setBurger(false)}
                 hideCloseButton
               >
-                <Card className="p-0">
+                <div className=" h-[166px] w-full z-[-1] w-full relative">
+                  {session ? (
+                    <Image2
+                      name="45A7fRAfAa.jpg"
+                      className=""
+                      height={200}
+                      width={400}
+                      hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGAgT/xAArEAABAwMDAgUEAwAAAAAAAAABAgMEAAURBiExEhMHIkFRYRQjMoGCkbH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQAAf/EACARAAICAQMFAAAAAAAAAAAAAAECAAMRBBJxEyFRwfH/2gAMAwEAAhEDEQA/AHLGo37U423Ck3SV3j2kNhsJJCEHp3BV/nHrTuDqyeGAblGlMrVnZ1sJGedlFPHyeK57FoC/w7rBny7mwkxnCshpSgrBSUkA422J3qxu9phzoq42oFz2kuILXcckqU0QecLGMfyApK9Q9zCsWtThSDxn2BJqXqbVNv089cUSIKkhWG2ekEuZVgYIPGxOfisaW11qC72+W9NQx9O4ntNhLRClkkAkH2ANTWoPCWDAWX49/lsMvDpQw653EqIGB0dOFE/3nJqv8PPDyJH0kyxfO9InF5xYfQ6ttSEdXlSP0M7jkmqLL7GrwqqG4+yVdMqPuDsR4JllqB1xqP8AbWpGUK/E4pwjzIAVuCACD60UUEaJPRYUVmdcFsxmG1pcCUqS2AQMcA+1O4O0dGPc0UVhOz//2Q=="
+                    />
+                  ) : null}
+                </div>
+                <Card className="p-0 backdrop-blur-[4px] bg-black bg-opacity-50 h-[164px] relative z-50 top-[-169px] bg-transparent border-t-0 border-r-0 border-l-0  dark:border-yellow-600 dark:border-b-4">
                   <Group
                     direction="row"
-                    className="max-w-[100%] bg-gray-50 bg-opacity-50 border border-gray-200 border-t-0 border-r-0 border-l-0  dark:border-blue-600 border-b-4 dark:bg-transparent p-4 m-0"
+                    className="max-w-[100%] p-4 m-0 mt-4"
                     noWrap
                   >
-                    <Avatar
-                      src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80"
-                      size={80}
-                      className="rounded-full"
-                    />
+                    <Avatar size={80} className="rounded-full" color="blue">
+                      {session ? (
+                        <Image2
+                          name="Cr90BEcUsP.jpg"
+                          width={120}
+                          height={120}
+                          avatar
+                          hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYDBQQHCP/EACwQAAEDAgUBBgcAAAAAAAAAAAECAxEABAUGEhMhMRVBYXGBkQciIyQyYtH/xAAVAQEBAAAAAAAAAAAAAAAAAAAGBP/EACQRAAIBAQgCAwAAAAAAAAAAAAECADEDBAUREiEiQQZRYZHB/9oADAMBAAIRAxEAPwDWQQURKGfeaq8QecF4rSwx8vA+nMis1Tj5aSllsOOFQSDHST31eY9gGNYThC8RduUshW2i5t0aULbJnb4BnSRzJ6zUd1ORzYxn5Uy6EsFWm5PXYicq5uJ4aaHkyP5RUov7xRP3T5j9zRV+r5gjQPQjplPKWJ5mbuHLBAZt2klLryyQkkj8R4x7Vb5pyJjVllS4vlP3N9oc1vIIEttJEaj3qjjyAmnXIeLdk5Utlidrb3nEjkKBJk+cCfSmXttd5bqZYYbXb3LW2pSjzCkEc+M8eooomKMt4YAbAkfUa4uz3wcuqZfs52yqyUC4WUBSXAkj0KhRTlb/AA/zFYJCLXDFqGkAr0TrAJg9fGilyDasCPa8qGf/2Q=="
+                        />
+                      ) : null}
+                    </Avatar>
                     <div className="">
                       <Text
-                        className="text-sm font-semibold"
+                        className="text-sm font-semibold text-white"
                         data-autofocus
                         lineClamp={1}
                       >
-                        Muhammad Afzaal Afridi
+                        {session ? "Muhammad Afzaal Afridi" : "Guest"}
                       </Text>
-                      <Text className="text-xs mt-1" lineClamp={1}>
+                      <Text className="text-xs mt-1 text-white" lineClamp={1}>
                         Member
                       </Text>
-                      <div className="flex mt-2">
+                      {session ? (
                         <Text
-                          className="text-xs mr-4"
                           variant="link"
                           component="a"
                           href="#"
-                        >
-                          View Profile
-                        </Text>
-                        <Text
-                          className="text-xs"
-                          variant="link"
-                          component="a"
-                          href="#"
+                          onClick={() => signOut()}
+                          className="text-xs mt-2 text-white"
+                          lineClamp={1}
                         >
                           Sign Out
                         </Text>
-                      </div>
+                      ) : null}
                     </div>
                   </Group>
                 </Card>
@@ -418,50 +399,97 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   direction="column"
                   align="unset"
                   withGutter
-                  className="px-4"
+                  className="px-4 mt-[-190px]"
                 >
                   <div className="my-3" />
-                  <div className="flex px-1 py-1 hover:py-2.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+                  <div className="flex px-1 py-1 transition-all ease-in-out hover:py-2.5 hover:bg-gray-100 dark:hover:bg-[#1f2125]">
                     <Text>
                       <House
                         className="mr-2"
-                        color="#2563eb"
+                        color="#9d9fa4"
                         size={22}
-                        weight="fill"
+                        weight="regular"
                       />
                     </Text>
                     <Text className="text-sm">Home</Text>
                   </div>
-                  <div className="flex px-1 py-1 hover:py-2.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <Text>
-                      <TrendUp
-                        color="#FA5252"
-                        className="mr-2"
-                        size={22}
-                        weight="duotone"
-                      />
-                    </Text>
-                    <Text className="text-sm">Trending</Text>
-                  </div>
 
-                  <div className="flex px-1 py-1 hover:py-2.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+                  <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
                     <Text>
                       <BookmarksSimple
-                        color="#2563eb"
+                        color="#9d9fa4"
                         className="mr-2"
                         size={22}
-                        weight="fill"
+                        weight="regular"
                       />
                     </Text>
                     <Text className="text-sm">Bookmarks</Text>
                   </div>
 
+                  <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
+                    <Text>
+                      <Tag
+                        color="#9d9fa4"
+                        className="mr-2"
+                        size={22}
+                        weight="regular"
+                      />
+                    </Text>
+                    <Text className="text-sm">Tags</Text>
+                  </div>
+                  <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
+                    <Text>
+                      <TreeStructure
+                        color="#9d9fa4"
+                        className="mr-2"
+                        size={22}
+                        weight="regular"
+                      />
+                    </Text>
+                    <Text className="text-sm">Categories</Text>
+                  </div>
                   <Divider
                     className="mt-6"
                     labelPosition="center"
-                    label="More"
+                    label="Scoreboards"
                     margins="xs"
                   />
+
+                  <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
+                    <Text>
+                      <TrendUp
+                        color="#FA5252"
+                        className="mr-2"
+                        size={22}
+                        weight="fill"
+                      />
+                    </Text>
+                    <Text className="text-sm">Trending</Text>
+                  </div>
+
+                  <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
+                    <Text>
+                      <Star
+                        color="#FAB005"
+                        className="mr-2"
+                        size={22}
+                        weight="fill"
+                      />
+                    </Text>
+                    <Text className="text-sm">Top 10</Text>
+                  </div>
+
+                  <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
+                    <Text>
+                      <ChatsCircle
+                        color="#868E96"
+                        className="mr-2"
+                        size={22}
+                        weight="fill"
+                      />
+                    </Text>
+                    <Text className="text-sm">Most Discussed</Text>
+                  </div>
                 </Group>
               </Drawer>
             </Col>

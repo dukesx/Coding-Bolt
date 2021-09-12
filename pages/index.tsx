@@ -6,7 +6,6 @@ import VerticalArticleCard from "components/global/article/card/vertical";
 import HorizontalArticleCard from "components/global/article/card/horizontal";
 import { TextT, SketchLogo } from "phosphor-react";
 import Sticky from "react-stickynode";
-
 const Index: React.FC = () => {
   return (
     <>
@@ -29,8 +28,8 @@ const Index: React.FC = () => {
                   width: 500,
                   alt: "an image",
                   preload: false,
-                  hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASACADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABwAGBf/EACcQAAEDAwQCAgIDAAAAAAAAAAECAwQABREGBxIhMWETQSNRMpGx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAMEAf/EAB4RAAIBAwUAAAAAAAAAAAAAAAABMQIREgMhMlFx/9oADAMBAAIRAxEAPwDK6d3cslv0/ZoL8C4mRBjllam1I4rURgkZOcUlad3ARr25P3GzolWsQ2W46y6pB5lQPo/Qoqi7TviL8jk5pLQBJwtSiMegnJru6Vab0alSI02FKZdcS461IS62FcfAypI67PVU49ilZwImpmrveLS9Z3XHZjEpSPxLcSjn3j+QHWMUDbtaVY0Pe9OhiKph51pUhbK3i4QQsAd/XjxS3D3HMKQhYg25xDZy2hFwSOHoZFY7c+bb9xbtDly0SICobAZHwrD6VFSiokqA6PrFY1falBfGWNmk2m1WiOstoKzyyopGaxW6s+ZFDYiy5DI4+G3Cn/DVVQ5HU8F4A16u1xfkhD8+W4k+Qt5RB/s1xU/r6Kcke/3VVTdOCWuT/9k=",
-                  name: "OJSY1eOirg.jpg",
+                  hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAdACADASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAABwgDBAUGCf/EAC4QAAEDAwMCBAQHAAAAAAAAAAECAwQFBhEAEiEHMRMiQVEIFELBFWFxgZKh0f/EABcBAAMBAAAAAAAAAAAAAAAAAAECBAP/xAAkEQACAQMEAAcAAAAAAAAAAAABAhEAAxIEITFBBRNhgZGhsf/aAAwDAQACEQMRAD8AW+pkCx7So7teqdrUiTI3hKAYjYK1n340F1brRckxlUW3o0OiQvpTEaSjA/X/AAaozq5ajV42c/AcfVHW04iQh5KQoo2nng9/KTqfqdQrBiLQzCiVe8KjhRS20kqaVjv22ox7nJxqHV+ILpSEFtnY9KJ+TsB7mnS2X7AFDlzXJJlylmr1WbNfz5kBZ/tR+w11wVQlR+VaZjZ+sjev+SvtjTN1AsqtXHTTMNDpVBRFbcU0ylXmUlAJKStA8JOR2yrKuMaDTCd27kgkjunHOq7RuPaW5cXEnqQfylcKrFQZivUJRBSQeQRqcOqFauW3bsdoltw2YwUESmZLaSo+H2wlB8iRwUkYGcn3062nUHKpbVNmvgB15lKlY98aMfiWioj2tCrzJUibBkBlJSSnehzgpJHPBAP7aosi0XHnTj6c/dI+USnPU1K10VitVaozPxSZLkSCoNuMvOZWraeAGxnCQDx6axVeFDhyM035lTBSlaVSdiXVcc5SknA9QeD7+mttpb8iRIbckOAu4UpSfLk8DnHpg9s656XSIlJojVVWHHE7dngtKDW70O5WDnP5Aa0dkhkQbTsTzQQtvlzX/9k=",
+                  name: "DUYxk8Q2CD.jpg",
                 }}
               />
             </Col>
