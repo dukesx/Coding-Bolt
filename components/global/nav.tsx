@@ -40,6 +40,8 @@ import {
   ChatsCircle,
   Tag,
   TreeStructure,
+  SmileyWink,
+  SignIn,
 } from "phosphor-react";
 import { useState } from "react";
 import useDarkMode from "use-dark-mode";
@@ -196,13 +198,12 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 session && session.user ? ( */}
                 <div>
                   <div
-                    className="items-center ml-2 cursor-pointer flex relative z-[2]"
+                    className="items-center ml-0 cursor-pointer flex relative z-[2]"
                     onClick={() => setBurger(true)}
                   >
                     <Avatar
                       size={45}
-                      className="mr-3 xxs:mr-2 xs:mr-1"
-                      color="blue"
+                      className="mr-3 xxs:mr-2 xs:mr-1 p-0"
                       radius="xl"
                       styles={{
                         placeholder: {
@@ -218,25 +219,14 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                           avatar
                           hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYDBQQHCP/EACwQAAEDAgUBBgcAAAAAAAAAAAECAxEABAUGEhMhMRVBYXGBkQciIyQyYtH/xAAVAQEBAAAAAAAAAAAAAAAAAAAGBP/EACQRAAIBAQgCAwAAAAAAAAAAAAECADEDBAUREiEiQQZRYZHB/9oADAMBAAIRAxEAPwDWQQURKGfeaq8QecF4rSwx8vA+nMis1Tj5aSllsOOFQSDHST31eY9gGNYThC8RduUshW2i5t0aULbJnb4BnSRzJ6zUd1ORzYxn5Uy6EsFWm5PXYicq5uJ4aaHkyP5RUov7xRP3T5j9zRV+r5gjQPQjplPKWJ5mbuHLBAZt2klLryyQkkj8R4x7Vb5pyJjVllS4vlP3N9oc1vIIEttJEaj3qjjyAmnXIeLdk5Utlidrb3nEjkKBJk+cCfSmXttd5bqZYYbXb3LW2pSjzCkEc+M8eooomKMt4YAbAkfUa4uz3wcuqZfs52yqyUC4WUBSXAkj0KhRTlb/AA/zFYJCLXDFqGkAr0TrAJg9fGilyDasCPa8qGf/2Q=="
                         />
-                      ) : null}
+                      ) : (
+                        <div className="p-1.5 rounded-full  bg-gradient-to-r dark:from-pink-400 dark:to-yellow-600 from-blue-400 to-blue-600">
+                          <SignIn color="white" size={30} />
+                        </div>
+                      )}
                     </Avatar>
                   </div>
                 </div>
-                {/* ) : (
-                  <Button
-                    className="ml-4 mr-2 mt-2 xxs:px-2 xxs:text-xs xxs:h-[32px]"
-                    radius="xl"
-                    onClick={() => setLoginModal(true)}
-                    rightIcon={<ArrowCircleRight weight="fill" size={26} />}
-                    variant="gradient"
-                    gradient={{
-                      to: "indigo",
-                      from: "blue",
-                    }}
-                  >
-                    Sign in
-                  </Button>
-                )} */}
               </Group>
               <Modal
                 zIndex={5000}
@@ -351,7 +341,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                   {session ? (
                     <Image2
                       name="45A7fRAfAa.jpg"
-                      className=""
+                      className="blur-sm"
                       height={200}
                       width={400}
                       hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGAgT/xAArEAABAwMDAgUEAwAAAAAAAAABAgMEAAURBiExEhMHIkFRYRQjMoGCkbH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQAAf/EACARAAICAQMFAAAAAAAAAAAAAAECAAMRBBJxEyFRwfH/2gAMAwEAAhEDEQA/AHLGo37U423Ck3SV3j2kNhsJJCEHp3BV/nHrTuDqyeGAblGlMrVnZ1sJGedlFPHyeK57FoC/w7rBny7mwkxnCshpSgrBSUkA422J3qxu9phzoq42oFz2kuILXcckqU0QecLGMfyApK9Q9zCsWtThSDxn2BJqXqbVNv089cUSIKkhWG2ekEuZVgYIPGxOfisaW11qC72+W9NQx9O4ntNhLRClkkAkH2ANTWoPCWDAWX49/lsMvDpQw653EqIGB0dOFE/3nJqv8PPDyJH0kyxfO9InF5xYfQ6ttSEdXlSP0M7jkmqLL7GrwqqG4+yVdMqPuDsR4JllqB1xqP8AbWpGUK/E4pwjzIAVuCACD60UUEaJPRYUVmdcFsxmG1pcCUqS2AQMcA+1O4O0dGPc0UVhOz//2Q=="
@@ -374,7 +364,15 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     className="max-w-[100%] p-4 m-0 mt-4"
                     noWrap
                   >
-                    <Avatar size={80} className="rounded-full" color="blue">
+                    <Avatar
+                      size={80}
+                      className="rounded-full p-0 bg-transparent"
+                      styles={{
+                        placeholder: {
+                          backgroundColor: "unset",
+                        },
+                      }}
+                    >
                       {session ? (
                         <Image2
                           name="Cr90BEcUsP.jpg"
@@ -383,7 +381,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                           avatar
                           hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYDBQQHCP/EACwQAAEDAgUBBgcAAAAAAAAAAAECAxEABAUGEhMhMRVBYXGBkQciIyQyYtH/xAAVAQEBAAAAAAAAAAAAAAAAAAAGBP/EACQRAAIBAQgCAwAAAAAAAAAAAAECADEDBAUREiEiQQZRYZHB/9oADAMBAAIRAxEAPwDWQQURKGfeaq8QecF4rSwx8vA+nMis1Tj5aSllsOOFQSDHST31eY9gGNYThC8RduUshW2i5t0aULbJnb4BnSRzJ6zUd1ORzYxn5Uy6EsFWm5PXYicq5uJ4aaHkyP5RUov7xRP3T5j9zRV+r5gjQPQjplPKWJ5mbuHLBAZt2klLryyQkkj8R4x7Vb5pyJjVllS4vlP3N9oc1vIIEttJEaj3qjjyAmnXIeLdk5Utlidrb3nEjkKBJk+cCfSmXttd5bqZYYbXb3LW2pSjzCkEc+M8eooomKMt4YAbAkfUa4uz3wcuqZfs52yqyUC4WUBSXAkj0KhRTlb/AA/zFYJCLXDFqGkAr0TrAJg9fGilyDasCPa8qGf/2Q=="
                         />
-                      ) : null}
+                      ) : (
+                        <div className="p-1.5 rounded-full  bg-gradient-to-r dark:from-pink-400 dark:to-yellow-600 from-blue-400 to-blue-600">
+                          <SmileyWink color="white" size={50} />
+                        </div>
+                      )}
                     </Avatar>
                     <div className="">
                       <Text
