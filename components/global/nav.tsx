@@ -97,7 +97,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 </div>
 
                 <Title
-                  className="flex ml-3 items-center xs:text-[24px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
+                  className="flex ml-3 xs:ml-0.5 items-center xs:text-[24px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
                   order={4}
                 >
                   <div className="flex xs:hidden xxs:hidden items-center">
@@ -193,12 +193,12 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 {session && session.user ? (
                   <div>
                     <div
-                      className="items-center ml-2 cursor-pointer"
+                      className="items-center ml-2 cursor-pointer flex relative z-[2]"
                       onClick={() => setBurger(true)}
                     >
                       <Avatar
-                        size={40}
-                        className="mr-3 xxs:mr-2 xs:mr-2"
+                        size={45}
+                        className="mr-3 xxs:mr-2 xs:mr-1"
                         color="blue"
                         radius="xl"
                         styles={{
@@ -351,7 +351,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     />
                   ) : null}
                 </div>
-                <Card className="p-0 backdrop-blur-[4px] bg-black bg-opacity-50 h-[164px] relative z-50 top-[-169px] bg-transparent border-t-0 border-r-0 border-l-0  dark:border-yellow-600 dark:border-b-4">
+                <Card className="p-0 backdrop-blur-[4px] bg-black bg-opacity-50 h-[164px] relative z-50 top-[-169px] border-t-0 border-r-0 border-l-0  dark:border-yellow-600 dark:border-b-4">
                   <Group
                     direction="row"
                     className="max-w-[100%] p-4 m-0 mt-4"
