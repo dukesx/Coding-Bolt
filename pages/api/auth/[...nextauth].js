@@ -24,7 +24,5 @@ export default NextAuth({
       return token;
     },
   },
-
-  // A database is optional, but required to persist accounts in a database
   database: process.env.DATABASE_URL,
 });
