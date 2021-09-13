@@ -6,36 +6,26 @@ import {
   Button,
   Text,
   Card,
-  Menu,
-  MenuItem,
   Avatar,
   Drawer,
   TextInput,
   Divider,
   InputWrapper,
   Group,
-  Loader,
   Modal,
   Title,
-  LoadingOverlay,
 } from "@mantine/core";
 import {
   BellSimple,
-  CaretDown,
-  SignOut,
-  PencilCircle,
   Bookmarks,
   Sun,
   Moon,
   TrendUp,
   X,
   List,
-  User,
   Lightning,
-  ArrowCircleRight,
   House,
   BookmarksSimple,
-  ArrowCircleLeft,
   Star,
   ChatsCircle,
   Tag,
@@ -54,7 +44,6 @@ import AssetPlaceholderCover from "public/assets/images/asset-placeholder-cover.
 const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
-  const [drawer, setDrawer] = useState(false);
   const dark = useDarkMode(false, {
     classNameDark: "dark",
   });
@@ -68,7 +57,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
         >
           <Grid id="nav-grid" align="center" justify="space-between" grow>
             <Col
-              className="max-w-[140px]"
+              className="max-w-[140px] md:max-w-[169px]"
               span={2}
               xs={2}
               sm={1}
@@ -78,7 +67,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
             >
               <Group align="center">
                 <div className="hidden xs:flex xxs:flex md:flex sm:flex xxs:mt-3">
-                  {burger ? (
+                  {burger && !session ? (
                     <Text>
                       <X
                         className="sm:mt-[3px] xxs:mt-[1px] xs:mt-[2px] md:h-[20px] md:w-[20px] cursor-pointer xxs:h-[20px] xxs:w-[20px]"
@@ -100,7 +89,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 </div>
 
                 <Title
-                  className="flex ml-3 xs:ml-0.5 items-center xs:text-[24px] xxs:text-[16px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
+                  className="flex ml-3 xs:ml-0.5 items-center xs:text-[24px] xxs:text-[22px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
                   order={4}
                 >
                   <div className="flex xs:hidden xxs:hidden items-center">
@@ -167,12 +156,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 </Text>
               </Group>
             </Col>
-            <Col
-              className={`${loading ? "max-w-[220px]" : "max-w-[200px]"}`}
-              span={2}
-              xl={1}
-              xs={3}
-            >
+            <Col className="max-w-[150px]" span={2} xl={1} xs={3}>
               <Group position="right" className="">
                 <Sun
                   className="dark:block hidden cursor-pointer bg-yellow-400 p-[6px] hover:p-[8px] rounded-full transition-all ease-in-out"
