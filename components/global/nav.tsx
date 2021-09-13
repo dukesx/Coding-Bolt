@@ -14,6 +14,7 @@ import {
   Group,
   Modal,
   Title,
+  Tooltip,
 } from "@mantine/core";
 import {
   BellSimple,
@@ -40,6 +41,7 @@ import GoogleLogo from "public/assets/images/google.svg";
 import Image from "next/image";
 import Image2 from "components/global/image";
 import AssetPlaceholderCover from "public/assets/images/asset-placeholder-cover.jpg";
+import Link from "next/link";
 
 const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
   const [burger, setBurger] = useState(false);
@@ -133,53 +135,59 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
               lg={2}
             >
               <Group position="center" spacing={22}>
-                <TrendUp
-                  className="cursor-pointer bg-red-500 p-1.5 rounded-full hover:p-2 hover:rounded-full hover:h-[33px] hover:w-[33px] transition-all ease-in-out"
-                  size={33}
-                  weight="bold"
-                  color="white"
-                />
-
-                <Text>
-                  <Bookmarks
-                    className="hover:bg-gray-50 dark:hover:bg-gray-600 hover:p-[7px] hover:transition-all hover:ease-in-out cursor-pointer hover:w-[36px] hover:h-[36px] hover:rounded-full"
-                    size={26}
-                    weight="regular"
+                <Tooltip label="Trending">
+                  <TrendUp
+                    className="cursor-pointer bg-red-500 p-1.5 rounded-full hover:p-2 hover:rounded-full hover:h-[33px] hover:w-[33px] transition-all ease-in-out"
+                    size={33}
+                    weight="bold"
+                    color="white"
                   />
-                </Text>
-                <Text>
-                  <BellSimple
-                    className="hover:bg-gray-50 dark:hover:bg-gray-600 hover:p-[7px] hover:transition-all hover:ease-in-out cursor-pointer hover:w-[36px] hover:h-[36px] hover:rounded-full"
-                    size={26}
-                    weight="regular"
-                  />
-                </Text>
+                </Tooltip>
+                <Tooltip label="Bookmarks">
+                  <Text>
+                    <Bookmarks
+                      className="hover:bg-gray-50 dark:hover:bg-gray-600 hover:p-[7px] hover:transition-all hover:ease-in-out cursor-pointer hover:w-[36px] hover:h-[36px] hover:rounded-full"
+                      size={26}
+                      weight="regular"
+                    />
+                  </Text>
+                </Tooltip>
+                <Tooltip label="Notifications">
+                  <Text>
+                    <BellSimple
+                      className="hover:bg-gray-50 dark:hover:bg-gray-600 hover:p-[7px] hover:transition-all hover:ease-in-out cursor-pointer hover:w-[36px] hover:h-[36px] hover:rounded-full"
+                      size={26}
+                      weight="regular"
+                    />
+                  </Text>
+                </Tooltip>
               </Group>
             </Col>
             <Col className="max-w-[150px]" span={2} xl={1} xs={3}>
               <Group position="right" className="">
-                <Sun
-                  className="dark:block hidden cursor-pointer bg-yellow-400 p-[6px] hover:p-[8px] rounded-full transition-all ease-in-out"
-                  size={33}
-                  weight="fill"
-                  color="white"
-                  onClick={() => {
-                    dark.toggle();
-                  }}
-                />
-                <Moon
-                  className="dark:hidden cursor-pointer bg-gray-600 rounded-full transition-all ease-in-out p-[6px] hover:p-[8px]"
-                  size={33}
-                  weight="fill"
-                  color="white"
-                  onClick={() => {
-                    dark.toggle();
-                  }}
-                />
+                <Tooltip label="Light Mode">
+                  <Sun
+                    className="dark:block hidden cursor-pointer bg-yellow-400 p-[6px] hover:p-[8px] rounded-full transition-all ease-in-out"
+                    size={33}
+                    weight="fill"
+                    color="white"
+                    onClick={() => {
+                      dark.toggle();
+                    }}
+                  />
+                </Tooltip>
+                <Tooltip label="Dark Mode">
+                  <Moon
+                    className="dark:hidden cursor-pointer bg-gray-600 rounded-full transition-all ease-in-out p-[6px] hover:p-[8px]"
+                    size={33}
+                    weight="fill"
+                    color="white"
+                    onClick={() => {
+                      dark.toggle();
+                    }}
+                  />
+                </Tooltip>
 
-                {/* {
-                
-                session && session.user ? ( */}
                 <div>
                   <div
                     className="items-center ml-0 cursor-pointer flex relative z-[2]"
@@ -204,9 +212,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                           hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYDBQQHCP/EACwQAAEDAgUBBgcAAAAAAAAAAAECAxEABAUGEhMhMRVBYXGBkQciIyQyYtH/xAAVAQEBAAAAAAAAAAAAAAAAAAAGBP/EACQRAAIBAQgCAwAAAAAAAAAAAAECADEDBAUREiEiQQZRYZHB/9oADAMBAAIRAxEAPwDWQQURKGfeaq8QecF4rSwx8vA+nMis1Tj5aSllsOOFQSDHST31eY9gGNYThC8RduUshW2i5t0aULbJnb4BnSRzJ6zUd1ORzYxn5Uy6EsFWm5PXYicq5uJ4aaHkyP5RUov7xRP3T5j9zRV+r5gjQPQjplPKWJ5mbuHLBAZt2klLryyQkkj8R4x7Vb5pyJjVllS4vlP3N9oc1vIIEttJEaj3qjjyAmnXIeLdk5Utlidrb3nEjkKBJk+cCfSmXttd5bqZYYbXb3LW2pSjzCkEc+M8eooomKMt4YAbAkfUa4uz3wcuqZfs52yqyUC4WUBSXAkj0KhRTlb/AA/zFYJCLXDFqGkAr0TrAJg9fGilyDasCPa8qGf/2Q=="
                         />
                       ) : (
-                        <div className="p-1.5 rounded-full  bg-gradient-to-r dark:from-pink-400 dark:to-yellow-600 from-blue-400 to-blue-600">
-                          <SignIn color="white" size={30} />
-                        </div>
+                        <Tooltip label="Sign in">
+                          <div className="p-1.5 rounded-full  bg-gradient-to-r dark:from-pink-400 dark:to-yellow-600 from-blue-400 to-blue-600">
+                            <SignIn color="white" size={30} />
+                          </div>
+                        </Tooltip>
                       )}
                     </Avatar>
                   </div>
@@ -427,7 +437,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="regular"
                       />
                     </Text>
-                    <Text className="text-sm">Home</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Home
+                      </Text>
+                    </Link>
                   </div>
 
                   <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
@@ -439,7 +453,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="regular"
                       />
                     </Text>
-                    <Text className="text-sm">Bookmarks</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Bookmarks
+                      </Text>
+                    </Link>
                   </div>
 
                   <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
@@ -451,7 +469,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="regular"
                       />
                     </Text>
-                    <Text className="text-sm">Tags</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Tags
+                      </Text>
+                    </Link>
                   </div>
                   <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
                     <Text>
@@ -462,7 +484,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="regular"
                       />
                     </Text>
-                    <Text className="text-sm">Categories</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Categories
+                      </Text>
+                    </Link>
                   </div>
                   <Divider
                     className="mt-6"
@@ -480,7 +506,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="fill"
                       />
                     </Text>
-                    <Text className="text-sm">Trending</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Trending
+                      </Text>
+                    </Link>{" "}
                   </div>
 
                   <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
@@ -492,7 +522,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="fill"
                       />
                     </Text>
-                    <Text className="text-sm">Top 10</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Top 10
+                      </Text>
+                    </Link>
                   </div>
 
                   <div className="flex px-1 py-1 hover:py-2.5 transition-all ease-in-out hover:bg-gray-100 dark:hover:bg-[#1f2125]">
@@ -504,7 +538,11 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="fill"
                       />
                     </Text>
-                    <Text className="text-sm">Most Discussed</Text>
+                    <Link href="/hello" passHref>
+                      <Text className="text-sm" component="a">
+                        Most Discussed
+                      </Text>
+                    </Link>
                   </div>
                 </Group>
               </Drawer>
