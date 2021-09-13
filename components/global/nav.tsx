@@ -165,28 +165,24 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
             </Col>
             <Col className="max-w-[150px]" span={2} xl={1} xs={3}>
               <Group position="right" className="">
-                <Tooltip label="Light Mode">
-                  <Sun
-                    className="dark:block hidden cursor-pointer bg-yellow-400 p-[6px] hover:p-[8px] rounded-full transition-all ease-in-out"
-                    size={33}
-                    weight="fill"
-                    color="white"
-                    onClick={() => {
-                      dark.toggle();
-                    }}
-                  />
-                </Tooltip>
-                <Tooltip label="Dark Mode">
-                  <Moon
-                    className="dark:hidden cursor-pointer bg-gray-600 rounded-full transition-all ease-in-out p-[6px] hover:p-[8px]"
-                    size={33}
-                    weight="fill"
-                    color="white"
-                    onClick={() => {
-                      dark.toggle();
-                    }}
-                  />
-                </Tooltip>
+                <Sun
+                  className="dark:block hidden cursor-pointer bg-yellow-400 p-[6px] hover:p-[8px] rounded-full transition-all ease-in-out"
+                  size={33}
+                  weight="fill"
+                  color="white"
+                  onClick={() => {
+                    dark.toggle();
+                  }}
+                />
+                <Moon
+                  className="dark:hidden cursor-pointer bg-gray-600 rounded-full transition-all ease-in-out p-[6px] hover:p-[8px]"
+                  size={33}
+                  weight="fill"
+                  color="white"
+                  onClick={() => {
+                    dark.toggle();
+                  }}
+                />
 
                 <div>
                   <div
