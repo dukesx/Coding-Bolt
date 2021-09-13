@@ -8,6 +8,7 @@ export interface ImageProps {
   className?: string;
   hash?: string;
   preload?: boolean;
+  caption?: string;
   avatar?: boolean;
 }
 
