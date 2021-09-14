@@ -208,11 +208,9 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                           hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYDBQQHCP/EACwQAAEDAgUBBgcAAAAAAAAAAAECAxEABAUGEhMhMRVBYXGBkQciIyQyYtH/xAAVAQEBAAAAAAAAAAAAAAAAAAAGBP/EACQRAAIBAQgCAwAAAAAAAAAAAAECADEDBAUREiEiQQZRYZHB/9oADAMBAAIRAxEAPwDWQQURKGfeaq8QecF4rSwx8vA+nMis1Tj5aSllsOOFQSDHST31eY9gGNYThC8RduUshW2i5t0aULbJnb4BnSRzJ6zUd1ORzYxn5Uy6EsFWm5PXYicq5uJ4aaHkyP5RUov7xRP3T5j9zRV+r5gjQPQjplPKWJ5mbuHLBAZt2klLryyQkkj8R4x7Vb5pyJjVllS4vlP3N9oc1vIIEttJEaj3qjjyAmnXIeLdk5Utlidrb3nEjkKBJk+cCfSmXttd5bqZYYbXb3LW2pSjzCkEc+M8eooomKMt4YAbAkfUa4uz3wcuqZfs52yqyUC4WUBSXAkj0KhRTlb/AA/zFYJCLXDFqGkAr0TrAJg9fGilyDasCPa8qGf/2Q=="
                         />
                       ) : (
-                        <Tooltip label="Sign in">
-                          <div className="p-1.5 rounded-full  bg-gradient-to-r dark:from-pink-400 dark:to-yellow-600 from-blue-400 to-blue-600">
-                            <SignIn color="white" size={30} />
-                          </div>
-                        </Tooltip>
+                        <div className="p-1.5 rounded-full  bg-gradient-to-r dark:from-pink-400 dark:to-yellow-600 from-blue-400 to-blue-600">
+                          <SignIn color="white" size={30} />
+                        </div>
                       )}
                     </Avatar>
                   </div>
@@ -322,6 +320,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
               </Modal>
               <Drawer
                 opened={burger}
+                className="md:overflow-y-scroll lg:overflow-y-scroll overflow-x-hidden focus:shadow-none"
                 onClose={() => setBurger(false)}
                 hideCloseButton
                 noCloseOnClickOutside={loginModal ? true : false}
@@ -348,7 +347,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     />
                   )}
                 </div>
-                <Card className="p-0 bg-black bg-opacity-50 h-[164px] relative z-50 top-[-169px] border-t-0 border-r-0 border-l-0  dark:border-yellow-600 dark:border-b-4">
+                <Card className="p-0 bg-black bg-opacity-50 rounded-none h-[164px] relative z-50 top-[-169px] border-t-0 border-r-0 border-l-0  dark:border-yellow-600 dark:border-b-4">
                   <Group
                     direction="row"
                     className="max-w-[100%] p-4 m-0 mt-4"
@@ -433,7 +432,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                         weight="regular"
                       />
                     </Text>
-                    <Link href="/hello" passHref>
+                    <Link href="/" passHref>
                       <Text className="text-sm" component="a">
                         Home
                       </Text>
