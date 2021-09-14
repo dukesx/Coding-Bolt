@@ -322,6 +322,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
               </Modal>
               <Drawer
                 opened={burger}
+                className="overflow-y-scroll overflow-x-hidden"
                 onClose={() => setBurger(false)}
                 hideCloseButton
                 noCloseOnClickOutside={loginModal ? true : false}
