@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { JssProvider, createGenerateId } from "react-jss";
 import { AppProps } from "next/app";
 import Head from "next/head";
@@ -7,11 +7,13 @@ import useDarkMode from "use-dark-mode";
 import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
 import { Provider } from "next-auth/client";
+import { useRouter } from "next/router";
+import Loading from "components/global/pageLoading";
 
-export default function App({
+const App: React.FC<AppProps> = ({
   Component,
   pageProps: { session, ...pageProps },
-}) {
+}) => {
   useEffect(() => {
     const jssStyles = document.getElementById("mantine-ssr-styles");
     if (jssStyles) {
@@ -19,10 +21,46 @@ export default function App({
     }
   }, []);
 
+  const router = useRouter();
+
+  const [state, setState] = useState({
+    isRouteChanging: false,
+    loadingKey: 0,
+  });
+
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      setState((prevState) => ({
+        ...prevState,
+        isRouteChanging: true,
+        loadingKey: prevState.loadingKey ^ 1,
+      }));
+    };
+
+    const handleRouteChangeEnd = () => {
+      setState((prevState) => ({
+        ...prevState,
+        isRouteChanging: false,
+      }));
+    };
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+    router.events.on("routeChangeComplete", handleRouteChangeEnd);
+    router.events.on("routeChangeError", handleRouteChangeEnd);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+      router.events.off("routeChangeComplete", handleRouteChangeEnd);
+      router.events.off("routeChangeError", handleRouteChangeEnd);
+    };
+  }, [router.events]);
+
   const darkMode = useDarkMode(false);
 
   return (
     <>
+      <Loading isRouteChanging={state.isRouteChanging} key={state.loadingKey} />
+
       <JssProvider generateId={createGenerateId({ minify: false })}>
         <Head>
           <title>Mantine next example</title>
@@ -58,4 +96,6 @@ export default function App({
       </JssProvider>
     </>
   );
-}
+};
+
+export default App;

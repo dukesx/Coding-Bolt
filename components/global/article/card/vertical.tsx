@@ -1,18 +1,11 @@
 import { Card, Text, CardSection } from "@mantine/core";
 import Image from "../../image";
 import { ArticleCardProps } from "types/defaults";
-
+import Link from "next/link";
 const VerticalArticleCard: React.FC<ArticleCardProps> = ({
   title,
   description,
-  cover: {
-    hash,
-    height,
-    width,
-    alt,
-    name,
-    preload
-  }
+  cover: { hash, height, width, alt, name, preload },
 }) => {
   return (
     <Card padding="lg" className="bg-transparent">
@@ -26,9 +19,11 @@ const VerticalArticleCard: React.FC<ArticleCardProps> = ({
           preload={preload}
         />
       </CardSection>
-      <Text className="mt-4 mb-2 font-semibold">
-        {title}
-      </Text>
+      <Link passHref href={`/article/${title.replaceAll(" ", "-")}`}>
+        <Text component="a" className="mt-4 mb-2 font-semibold">
+          {title}
+        </Text>
+      </Link>
       <Text>{description}</Text>
     </Card>
   );

@@ -1,6 +1,7 @@
 import { Card, Text, CardSection, CardProps, Group } from "@mantine/core";
 import Image from "../../image";
 import { ArticleCardProps } from "types/defaults";
+import Link from "next/link";
 
 const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
   title,
@@ -21,9 +22,15 @@ const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
           className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[70%] xs:max-w-[290px] lg:max-w-[70%] md:max-w-[70%] xl:max-w-[80%] xxl:max-w-[80%]"
           direction="column"
         >
-          <Text lineClamp={2} className="mt-4 mb-2 font-semibold">
-            {title}
-          </Text>
+          <Link passHref href={`/article/${title.replaceAll(" ", "-")}`}>
+            <Text
+              component="a"
+              lineClamp={2}
+              className="mt-4 mb-2 font-semibold"
+            >
+              {title}
+            </Text>
+          </Link>
           <Text>{description}</Text>
         </Group>
       </Group>
