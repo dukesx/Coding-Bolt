@@ -19,7 +19,7 @@ const VerticalArticleCard: React.FC<ArticleCardProps> = ({
           preload={preload}
         />
       </CardSection>
-      <Link passHref href={`/article/${title.replaceAll(" ", "-")}`}>
+      <Link passHref href={`/article/${title.replace(/ /g, "-")}`}>
         <Text component="a" className="mt-4 mb-2 font-semibold">
           {title}
         </Text>

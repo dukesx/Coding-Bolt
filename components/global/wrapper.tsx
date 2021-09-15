@@ -19,7 +19,7 @@ const Wrapper = (props: any) => {
         signIn={signIn}
         signOut={signOut}
       />
-      <Container className="xs:p-0 xxs:p-0 pt-0 px-1" size={1660}>
+      <Container className="xs:p-0 xxs:p-0 pt-0 px-0" size={1660}>
         {props.children}
       </Container>
       <Script

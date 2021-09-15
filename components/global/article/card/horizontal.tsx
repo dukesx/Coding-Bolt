@@ -22,7 +22,7 @@ const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
           className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[70%] xs:max-w-[290px] lg:max-w-[70%] md:max-w-[70%] xl:max-w-[80%] xxl:max-w-[80%]"
           direction="column"
         >
-          <Link passHref href={`/article/${title.replaceAll(" ", "-")}`}>
+          <Link passHref href={`/article/${title.replace(/ /g, "-")}`}>
             <Text
               component="a"
               lineClamp={2}

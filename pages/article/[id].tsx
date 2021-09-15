@@ -7,6 +7,7 @@ import {
   BookmarkSimple,
   HandWaving,
   Heart,
+  Lightning,
   ThumbsUp,
 } from "phosphor-react";
 import { Prism } from "@mantine/prism";
@@ -14,40 +15,106 @@ import Sticky from "react-stickynode";
 const SingleArticle: React.FC<ArticleProps> = () => {
   return (
     <Wrapper>
-      <Grid id="article-grid" className="w-full justify-center">
-        <Col className="" span={1} lg={2} md={12}>
-          {/* <Sticky
-            className="md:bottom-7 md:flex-row md:w-full md:top-auto md:fixed md:z-10"
-            top={500}
-          >
-            <div className="h-[400px] md:w-full flex flex-col ml-auto md:bg-white md:h-20">
-              <div className="rounded-lg p-1 text-center dark:border-yellow-400 border border-blue-600 border-r-[5px] border-b-[5px] flex">
-                <Text className="text-2xl my-5 rounded-full">
-                  <Heart
-                    className="mx-auto"
-                    weight="duotone"
-                    color="yellow"
-                    size={40}
-                  />
-                </Text>
-                <Text className="text-2xl my-5 my-2 rounded-full">
-                  <ThumbsUp className="mx-auto" weight="duotone" size={40} />
-                </Text>
-                <Text className="text-2xl my-5 my-2 rounded-full">
-                  <HandWaving className="mx-auto" weight="duotone" size={40} />
-                </Text>
-                <Text className="text-2xl my-5  my-2 rounded-full">
-                  <BookmarkSimple
-                    className="mx-auto"
-                    weight="duotone"
-                    size={40}
-                  />
-                </Text>
-              </div>
+      <Grid id="article-grid" className="w-full justify-center m-0">
+        <Col
+          className="py-0 pl-0 pr-3 mr-0 bg-gray-50 dark:bg-[#25262b] xs:pt-0 bg-opacity-10 xs:pb-[0px]"
+          span={1}
+          lg={2}
+          xs={12}
+          md={3}
+        >
+          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] xxs:fixed xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
+            <Text className=" uppercase font-black text-center xs:hidden xxs:hidden">
+              Share like you mean it!
+            </Text>
+            <div className="rounded-lg p-1 mt-2 text-center xs:w-full xxs:w-full xxs:flex xxs:justify-between xs:flex xs:justify-between xs:pb-4 xs:px-8 xxs:px-5">
+              <Text className="text-2xl mt-4 lg:my-5 xl:my-5 xxs:mt-2 xxl:my-8 rounded-full cursor-pointer">
+                <Heart
+                  className="mx-auto hover:scale-[1.3] transition-all ease-in-out bg-red-400 border border-red-600 border-2 bg-opacity-25 rounded-full p-1"
+                  weight="duotone"
+                  color="#FA5252"
+                  size={40}
+                />
+                <span>
+                  <Text className="font-semibold mt-1 xs:hidden xxs:hidden text-sm">
+                    I loved it!
+                  </Text>
+                </span>
+
+                <Badge
+                  color="red"
+                  className="absolute mt-[-80px] xs:mt-[-55px] xxs:mt-[-60px]"
+                >
+                  500
+                </Badge>
+              </Text>
+              <Text className="text-2xl mt-4 lg:my-5 xxs:mt-2 xl:my-5 xxl:my-8 xs:shadow-sm rounded-full cursor-pointer ">
+                <Lightning
+                  className=" mx-auto hover:scale-[1.3] transition-all ease-in-out bg-yellow-400 bg-opacity-25 rounded-full p-1.5"
+                  weight="duotone"
+                  color="#FAB005"
+                  size={40}
+                />
+                <span>
+                  <Text className="mt-1 xs:hidden xxs:hidden text-sm">
+                    Bolt It!
+                  </Text>
+                </span>
+                <Badge
+                  color="blue"
+                  className="absolute mt-[-80px] xs:mt-[-55px] xxs:mt-[-60px]"
+                >
+                  500
+                </Badge>
+              </Text>
+              <Text className="text-2xl mt-4 xxs:mt-2 lg:my-5 xl:my-5 xxl:my-8  rounded-full cursor-pointer">
+                <HandWaving
+                  className="mx-auto hover:scale-[1.3] transition-all ease-in-out bg-pink-400 bg-opacity-25 rounded-full p-1"
+                  weight="duotone"
+                  color="#E64980"
+                  size={40}
+                />
+                <span>
+                  <Text className="mt-1 xs:hidden text-sm xxs:hidden">
+                    Noice
+                  </Text>
+                </span>
+                <Badge
+                  color="pink"
+                  className="absolute mt-[-80px] xs:mt-[-50px] xxs:mt-[-60px]"
+                >
+                  500
+                </Badge>
+              </Text>
+              <Text className="text-2xl mt-4 xxs:mt-2 lg:my-5 xl:my-5 xxl:my-8 rounded-full">
+                <BookmarkSimple
+                  className="mx-auto hover:scale-[1.5] transition-all ease-in-out cursor-pointer border-2 border-blue-600 bg-blue-400 rounded-full bg-opacity-25 p-1"
+                  weight="duotone"
+                  color="#228BE6"
+                  size={40}
+                />
+                <span>
+                  <Text className="mt-1 xs:hidden xxs:hidden text-sm font-semibold">
+                    Saved
+                  </Text>
+                </span>
+                <Badge
+                  color="blue"
+                  className="absolute mt-[-80px] xs:mt-[-50px] xxs:mt-[-60px] xxs:right-[0px]"
+                >
+                  500
+                </Badge>
+              </Text>
             </div>
-          </Sticky> */}
+          </div>
         </Col>
-        <Col span={11} lg={10}>
+        <Col
+          className="p-0 pb-[10px] xs:pb-[70px]"
+          span={11}
+          lg={10}
+          xs={12}
+          md={9}
+        >
           <Group
             className="max-w-full justify-center p-8 xs:p-0 xxs:p-0 m-0"
             align="center"
@@ -90,7 +157,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
             </div>
           </Group>
           <div className="flex max-w-[900px] mx-auto">
-            <div className="text-left mt-4 flex flex-col max-w-[800px]">
+            <div className="text-left mt-4 flex flex-col max-w-[800px] xxs:w-full xs:max-w-full">
               <Text className="xs:px-3 xxs:px-2.5 my-4 leading-normal">
                 React JS is a popular JavaScript framework for building
                 front-end applications, such as user interfaces that let people
