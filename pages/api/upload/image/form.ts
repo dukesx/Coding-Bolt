@@ -17,13 +17,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   return new Promise((resolve, reject) => {
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err);
-
-      var buffer = fs.readFileSync(files.image.path);
-      var nameLength = files.image.name.split(".").length;
-      var name = nanoid() + "." + files.image.name.split(".")[nameLength - 1];
+      var imageSetting = files.image
+        ? files.image
+        : files.file
+        ? files.file
+        : files.files;
+      console.log(imageSetting);
+      console.log(files.image);
+      var buffer = fs.readFileSync(imageSetting.path);
+      var nameLength = imageSetting.name.split(".").length;
+      var name = nanoid() + "." + imageSetting.name.split(".")[nameLength - 1];
       axios
         .post("http://localhost:3000/api/placeholder/encode", {
-          path: files.image.path,
+          path: imageSetting.path,
         })
         .then(function (response1) {
           axios

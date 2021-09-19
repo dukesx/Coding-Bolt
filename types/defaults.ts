@@ -2,14 +2,20 @@
 export interface ImageProps {
   name: string;
   alt?: string;
-  style?: object;
+  style?: any;
   width?: number;
   height?: number;
   className?: string;
   hash?: string;
+  cover?: boolean;
   preload?: boolean;
   caption?: string;
+  crop?: {
+    x: number;
+    y: number;
+  };
   avatar?: boolean;
+  fill?: boolean;
 }
 
 export interface NavProps {

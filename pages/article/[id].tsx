@@ -7,14 +7,54 @@ import {
   BookmarkSimple,
   HandWaving,
   Heart,
+  ArrowUp,
   Lightning,
   ThumbsUp,
+  ArrowCircleUp,
+  CaretCircleLeft,
+  CaretCircleRight,
 } from "phosphor-react";
 import { Prism } from "@mantine/prism";
-import Sticky from "react-stickynode";
+import { useState } from "react";
+import HeadRoom from "react-headroom";
+
 const SingleArticle: React.FC<ArticleProps> = () => {
+  const [react, setReact] = useState(false);
+  const [onPin, setOnPin] = useState(false);
   return (
     <Wrapper>
+      <HeadRoom
+        pinStart={200}
+        onPin={() => setOnPin(true)}
+        onUnfix={() => setOnPin(false)}
+        style={{
+          WebkitTransition: "all 1s ease-in-out",
+        }}
+      >
+        <div
+          className="absolute w-full shadow-md px-4 transition-all ease-in-out duration-1000 xs:px-2 xs:py-3 py-4 items-center dark:bg-[#25262b] bg-white absolute z-[10000]"
+          style={{
+            display: onPin ? "flex" : "none",
+            visibility: onPin ? "visible" : "hidden",
+          }}
+        >
+          <Text className="text-lg xs:text-sm xs:w-[250px]" lineClamp={2}>
+            <b className="font-semibold">Now Reading</b> : Top 5 Useful Packages
+            That Every React Developer Should Know
+          </Text>
+          <Text className="ml-3 text-lg"></Text>
+          <Text className="ml-auto">
+            <CaretCircleLeft size={30} />
+          </Text>
+          <Text className="mr-3 mx-3">
+            <ArrowCircleUp size={30} />
+          </Text>
+          <Text className="mr-2">
+            <CaretCircleRight size={30} />
+          </Text>
+        </div>
+      </HeadRoom>
+
       <Grid id="article-grid" className="w-full justify-center m-0">
         <Col
           className="py-0 pl-0 pr-3 mr-0 bg-gray-50 dark:bg-[#25262b] xs:pt-0 bg-opacity-10 xs:pb-[0px]"
@@ -22,33 +62,14 @@ const SingleArticle: React.FC<ArticleProps> = () => {
           lg={2}
           xs={12}
           md={3}
+          sm={3}
         >
-          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] xxs:fixed xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
-            <Text className=" uppercase font-black text-center xs:hidden xxs:hidden">
-              Share like you mean it!
+          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] sm:items-center sm:bottom-0 sm:left-0 xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
+            <Text className="uppercase font-semibold text-center xs:hidden xxs:hidden">
+              <b>Express</b> Yourself!
             </Text>
-            <div className="rounded-lg p-1 mt-2 text-center xs:w-full xxs:w-full xxs:flex xxs:justify-between xs:flex xs:justify-between xs:pb-4 xs:px-8 xxs:px-5">
-              <Text className="text-2xl mt-4 lg:my-5 xl:my-5 xxs:mt-2 xxl:my-8 rounded-full cursor-pointer">
-                <Heart
-                  className="mx-auto hover:scale-[1.3] transition-all ease-in-out bg-red-400 border border-red-600 border-2 bg-opacity-25 rounded-full p-1"
-                  weight="duotone"
-                  color="#FA5252"
-                  size={40}
-                />
-                <span>
-                  <Text className="font-semibold mt-1 xs:hidden xxs:hidden text-sm">
-                    I loved it!
-                  </Text>
-                </span>
-
-                <Badge
-                  color="red"
-                  className="absolute mt-[-80px] xs:mt-[-55px] xxs:mt-[-60px]"
-                >
-                  500
-                </Badge>
-              </Text>
-              <Text className="text-2xl mt-4 lg:my-5 xxs:mt-2 xl:my-5 xxl:my-8 xs:shadow-sm rounded-full cursor-pointer ">
+            <div className="rounded-lg p-1 mt-0 text-center xs:w-full xxs:w-full xxs:flex xxs:justify-between xs:flex xs:justify-between xs:pb-4 xs:px-8 xxs:px-5">
+              <Text className="text-2xl mt-4 lg:my-10 xxs:mt-2 xl:my-10 sm:my-10 xxl:my-8 xs:shadow-sm rounded-full cursor-pointer ">
                 <Lightning
                   className=" mx-auto hover:scale-[1.3] transition-all ease-in-out bg-yellow-400 bg-opacity-25 rounded-full p-1.5"
                   weight="duotone"
@@ -61,13 +82,44 @@ const SingleArticle: React.FC<ArticleProps> = () => {
                   </Text>
                 </span>
                 <Badge
-                  color="blue"
+                  color="yellow"
                   className="absolute mt-[-80px] xs:mt-[-55px] xxs:mt-[-60px]"
                 >
                   500
                 </Badge>
               </Text>
-              <Text className="text-2xl mt-4 xxs:mt-2 lg:my-5 xl:my-5 xxl:my-8  rounded-full cursor-pointer">
+
+              <Text className="text-2xl mt-4 lg:my-10 xl:my-10 sm:my-10 xxs:mt-2 xxl:my-8 rounded-full cursor-pointer">
+                <Heart
+                  onClick={() => setReact(!react)}
+                  className={
+                    (react ? "" : "border-none ") +
+                    "mx-auto hover:scale-[1.3] transition-all ease-in-out bg-red-400 border border-red-600 border-[2px] bg-opacity-25 rounded-full p-1"
+                  }
+                  weight="duotone"
+                  color="#FA5252"
+                  size={40}
+                />
+                <span>
+                  <Text
+                    className={
+                      (react ? "font-semibold" : "") +
+                      " mt-1 xs:hidden xxs:hidden text-sm capitalize"
+                    }
+                  >
+                    {!react ? "Love it" : "lovin' it!"}
+                  </Text>
+                </span>
+
+                <Badge
+                  color="red"
+                  className="absolute mt-[-80px] xs:mt-[-55px] xxs:mt-[-60px]"
+                >
+                  {!react ? 500 : 500 + 1}
+                </Badge>
+              </Text>
+
+              <Text className="text-2xl mt-4 xxs:mt-2 lg:my-10 sm:my-10 xl:my-10 xxl:my-8 rounded-full cursor-pointer">
                 <HandWaving
                   className="mx-auto hover:scale-[1.3] transition-all ease-in-out bg-pink-400 bg-opacity-25 rounded-full p-1"
                   weight="duotone"
@@ -86,7 +138,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
                   500
                 </Badge>
               </Text>
-              <Text className="text-2xl mt-4 xxs:mt-2 lg:my-5 xl:my-5 xxl:my-8 rounded-full">
+              <Text className="text-2xl mt-4 xxs:mt-2 lg:my-10 sm:my-10 xl:my-10 xxl:my-8 rounded-full">
                 <BookmarkSimple
                   className="mx-auto hover:scale-[1.5] transition-all ease-in-out cursor-pointer border-2 border-blue-600 bg-blue-400 rounded-full bg-opacity-25 p-1"
                   weight="duotone"
@@ -114,6 +166,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
           lg={10}
           xs={12}
           md={9}
+          sm={9}
         >
           <Group
             className="max-w-full justify-center p-8 xs:p-0 xxs:p-0 m-0"
@@ -172,13 +225,16 @@ const SingleArticle: React.FC<ArticleProps> = () => {
                 AJAX may do this, Axios can give extra functionality that goes a
                 long way with React-based apps
               </Text>
-              <Image
-                hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBAUG/8QAJxAAAQMDAwMEAwAAAAAAAAAAAQIDBAAFEQYSIQcxUSIyQWEVouH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EAB0RAAICAgMBAAAAAAAAAAAAAAECABEEIQMSIjH/2gAMAwEAAhEDEQA/AFpc74pa1YJx5zmsSRc1K4yB91guy1FXckmrl7tMy2uyWpMeS25GWlt7en0gqHBBHGD8VK6+ygBOxLIuTifaogfRornwsjuoCijUEZGl7Ci1Xq23Z+E087EfbUISnCUuHAIKzzgghWQOOB4IqTX+sWdV3R2O0ytMJLit7Sl5DnqylWRzuHn+1advqYLj0aVGUliTIK3nGzh5tIQtOxOePcpJPPO3HzWN060PL1bfmY0eTFaQFpL6lODcW85WUpHfAz4HIrErM/pjOgVXjHVRGT0m6S6dcsC7trEuOtXAhUBvcApLSc5UccHJP69hRTBu0L8vKSzAbfYtkFtMeIGzhJQnjjz2opGylU0TuKuPYsT/2Q=="
-                name="t2osHgPxj1.jpg"
-                alt=""
-                caption="This is a default image caption"
-                className="mx-auto"
-              />
+              <div className="relative h-[400px]">
+                <Image
+                  hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBAUG/8QAJxAAAQMDAwMEAwAAAAAAAAAAAQIDBAAFEQYSIQcxUSIyQWEVouH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EAB0RAAICAgMBAAAAAAAAAAAAAAECABEEIQMSIjH/2gAMAwEAAhEDEQA/AFpc74pa1YJx5zmsSRc1K4yB91guy1FXckmrl7tMy2uyWpMeS25GWlt7en0gqHBBHGD8VK6+ygBOxLIuTifaogfRornwsjuoCijUEZGl7Ci1Xq23Z+E087EfbUISnCUuHAIKzzgghWQOOB4IqTX+sWdV3R2O0ytMJLit7Sl5DnqylWRzuHn+1advqYLj0aVGUliTIK3nGzh5tIQtOxOePcpJPPO3HzWN060PL1bfmY0eTFaQFpL6lODcW85WUpHfAz4HIrErM/pjOgVXjHVRGT0m6S6dcsC7trEuOtXAhUBvcApLSc5UccHJP69hRTBu0L8vKSzAbfYtkFtMeIGzhJQnjjz2opGylU0TuKuPYsT/2Q=="
+                  name="t2osHgPxj1.jpg"
+                  alt=""
+                  caption="This is a default image caption"
+                  className="mx-auto"
+                  fill
+                />
+              </div>
               <Text className="xs:px-3 xxs:px-2.5 my-4 leading-normal">
                 Redux is a JavaScript library that allows you to manage and
                 centralize your application state. For creating user interfaces,

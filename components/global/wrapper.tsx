@@ -8,6 +8,7 @@ const Wrapper = (props: any) => {
 
   return (
     <Container
+      className="w-full"
       style={{
         padding: 0,
       }}

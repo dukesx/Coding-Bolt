@@ -59,7 +59,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
         >
           <Grid id="nav-grid" align="center" justify="space-between" grow>
             <Col
-              className="max-w-[140px] md:max-w-[169px]"
+              className="max-w-[210px] md:max-w-[180px]"
               span={2}
               xs={2}
               sm={1}
@@ -89,32 +89,33 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                     </Text>
                   ) : null}
                 </div>
-
-                <Title
-                  className="flex ml-3 xs:ml-0.5 items-center xs:text-[24px] xxs:text-[22px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
-                  order={4}
-                >
-                  <div className="flex xs:hidden xxs:hidden items-center">
-                    Coding
-                    <Lightning
-                      className=""
-                      color={dark.value ? "#ffae00" : null}
-                      weight={dark.value ? "duotone" : null}
-                      size={25}
-                    />
-                    Bolt
-                  </div>
-                  <div className="hidden xs:flex xxs:flex items-center">
-                    C{" "}
-                    <Lightning
-                      className=""
-                      color={dark.value ? "#ffae00" : null}
-                      weight={dark.value ? "duotone" : null}
-                      size={25}
-                    />{" "}
-                    B
-                  </div>
-                </Title>
+                <Link passHref href="/">
+                  <Text
+                    component="a"
+                    className="flex ml-3 text-xl xs:ml-0.5 items-center xs:text-[24px] xxs:text-[22px] md:ml-0 xs:mt-[-3px] md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
+                  >
+                    <div className="flex xs:hidden xxs:hidden items-center">
+                      Coding
+                      <Lightning
+                        className=""
+                        color={dark.value ? "#ffae00" : null}
+                        weight={dark.value ? "duotone" : null}
+                        size={25}
+                      />
+                      Bolt
+                    </div>
+                    <div className="hidden xs:flex xxs:flex items-center">
+                      C{" "}
+                      <Lightning
+                        className=""
+                        color={dark.value ? "#ffae00" : null}
+                        weight={dark.value ? "duotone" : null}
+                        size={25}
+                      />{" "}
+                      B
+                    </div>
+                  </Text>
+                </Link>
               </Group>
             </Col>
             <Col

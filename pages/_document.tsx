@@ -1,6 +1,3 @@
-/* eslint-disable react/display-name */
-// /* eslint-disable @next/next/no-css-tags */
-
 import Document, {
   Html,
   Head,
@@ -8,33 +5,21 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
-import { SheetsRegistry, JssProvider, createGenerateId } from "react-jss";
+import { SsrProvider, SheetsRegistry, ServerStyles } from "@mantine/core";
 
 export default class _Document extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const registry = new SheetsRegistry();
     const originalRenderPage = ctx.renderPage;
-    if (typeof window === "undefined") {
-      const originalWarn = console.warn;
-      console.warn = (...args: any) => {
-        if (
-          args[0] !==
-          'Warning: [JSS] Rule is not linked. Missing sheet option "link: true".'
-        ) {
-          originalWarn(...args);
-        }
-      };
-    }
+
     ctx.renderPage = () =>
       originalRenderPage({
+        // eslint-disable-next-line react/display-name
         enhanceApp: (App) => (props) =>
           (
-            <JssProvider
-              registry={registry}
-              generateId={createGenerateId({ minify: false })}
-            >
+            <SsrProvider registry={registry}>
               <App {...props} />
-            </JssProvider>
+            </SsrProvider>
           ),
       });
 
@@ -45,7 +30,7 @@ export default class _Document extends Document {
       styles: (
         <>
           {initialProps.styles}
-          <style id="mantine-ssr-styles">{registry.toString()}</style>
+          <ServerStyles registry={registry} />
         </>
       ),
     };
@@ -56,23 +41,10 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <link rel="icon" href="link to favicon" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-          />
         </Head>
-        <body className="antialiased text-base">
-          {/* <div
-            id="g_id_onload"
-            data-client_id="1036440562165-j7g06r27357plblbsbdosmf6k5gh6drv.apps.googleusercontent.com"
-            data-context="signin"
-            data-callback="handleCredentialResponse"
-            data-skip_prompt_cookie="sid"
-          ></div> */}
-
+        <body>
           <Main />
           <NextScript />
-          {/* <script src="/getyolo.js" async /> */}
         </body>
       </Html>
     );

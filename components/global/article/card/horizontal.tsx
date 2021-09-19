@@ -26,7 +26,7 @@ const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
             <Text
               component="a"
               lineClamp={2}
-              className="mt-4 mb-2 font-semibold"
+              className="mt-4 mb-2 font-semibold focus:shadow-none"
             >
               {title}
             </Text>

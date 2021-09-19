@@ -6,6 +6,7 @@ import VerticalArticleCard from "components/global/article/card/vertical";
 import HorizontalArticleCard from "components/global/article/card/horizontal";
 import { TextT, SketchLogo } from "phosphor-react";
 import Sticky from "react-stickynode";
+
 const Index: React.FC = () => {
   return (
     <>
@@ -16,7 +17,7 @@ const Index: React.FC = () => {
         <Paper className="mt-0">
           <Grid
             id="index-article-grid"
-            className="bg-blue-50 xxl:pt-6 xxl:px-4 bg-opacity-70 dark:bg-transparent pt-4 xs:pt-0 xxs:pt-0"
+            className="bg-blue-50 m-0 xxl:pt-6 xxl:px-4 bg-opacity-70 dark:bg-transparent pt-4 xs:pt-0 xxs:pt-0"
             gutter={1}
           >
             <Col span={3} sm={5} md={4} lg={3} xl={4} xs={12}>
