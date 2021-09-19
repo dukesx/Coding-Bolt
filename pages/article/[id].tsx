@@ -7,15 +7,54 @@ import {
   BookmarkSimple,
   HandWaving,
   Heart,
+  ArrowUp,
   Lightning,
   ThumbsUp,
+  ArrowCircleUp,
+  CaretCircleLeft,
+  CaretCircleRight,
 } from "phosphor-react";
 import { Prism } from "@mantine/prism";
 import { useState } from "react";
+import HeadRoom from "react-headroom";
+
 const SingleArticle: React.FC<ArticleProps> = () => {
   const [react, setReact] = useState(false);
+  const [onPin, setOnPin] = useState(false);
   return (
     <Wrapper>
+      <HeadRoom
+        pinStart={200}
+        onPin={() => setOnPin(true)}
+        onUnfix={() => setOnPin(false)}
+        style={{
+          WebkitTransition: "all 1s ease-in-out",
+        }}
+      >
+        <div
+          className="absolute w-full shadow-md px-4 transition-all ease-in-out duration-1000 xs:px-2 xs:py-3 py-4 items-center dark:bg-[#25262b] bg-white absolute z-[10000]"
+          style={{
+            display: onPin ? "flex" : "none",
+            visibility: onPin ? "visible" : "hidden",
+          }}
+        >
+          <Text className="text-lg xs:text-sm xs:w-[250px]" lineClamp={2}>
+            <b className="font-semibold">Now Reading</b> : Top 5 Useful Packages
+            That Every React Developer Should Know
+          </Text>
+          <Text className="ml-3 text-lg"></Text>
+          <Text className="ml-auto">
+            <CaretCircleLeft size={30} />
+          </Text>
+          <Text className="mr-3 mx-3">
+            <ArrowCircleUp size={30} />
+          </Text>
+          <Text className="mr-2">
+            <CaretCircleRight size={30} />
+          </Text>
+        </div>
+      </HeadRoom>
+
       <Grid id="article-grid" className="w-full justify-center m-0">
         <Col
           className="py-0 pl-0 pr-3 mr-0 bg-gray-50 dark:bg-[#25262b] xs:pt-0 bg-opacity-10 xs:pb-[0px]"
@@ -186,13 +225,16 @@ const SingleArticle: React.FC<ArticleProps> = () => {
                 AJAX may do this, Axios can give extra functionality that goes a
                 long way with React-based apps
               </Text>
-              <Image
-                hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBAUG/8QAJxAAAQMDAwMEAwAAAAAAAAAAAQIDBAAFEQYSIQcxUSIyQWEVouH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EAB0RAAICAgMBAAAAAAAAAAAAAAECABEEIQMSIjH/2gAMAwEAAhEDEQA/AFpc74pa1YJx5zmsSRc1K4yB91guy1FXckmrl7tMy2uyWpMeS25GWlt7en0gqHBBHGD8VK6+ygBOxLIuTifaogfRornwsjuoCijUEZGl7Ci1Xq23Z+E087EfbUISnCUuHAIKzzgghWQOOB4IqTX+sWdV3R2O0ytMJLit7Sl5DnqylWRzuHn+1advqYLj0aVGUliTIK3nGzh5tIQtOxOePcpJPPO3HzWN060PL1bfmY0eTFaQFpL6lODcW85WUpHfAz4HIrErM/pjOgVXjHVRGT0m6S6dcsC7trEuOtXAhUBvcApLSc5UccHJP69hRTBu0L8vKSzAbfYtkFtMeIGzhJQnjjz2opGylU0TuKuPYsT/2Q=="
-                name="t2osHgPxj1.jpg"
-                alt=""
-                caption="This is a default image caption"
-                className="mx-auto"
-              />
+              <div className="relative h-[400px]">
+                <Image
+                  hash="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABUDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBAUG/8QAJxAAAQMDAwMEAwAAAAAAAAAAAQIDBAAFEQYSIQcxUSIyQWEVouH/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EAB0RAAICAgMBAAAAAAAAAAAAAAECABEEIQMSIjH/2gAMAwEAAhEDEQA/AFpc74pa1YJx5zmsSRc1K4yB91guy1FXckmrl7tMy2uyWpMeS25GWlt7en0gqHBBHGD8VK6+ygBOxLIuTifaogfRornwsjuoCijUEZGl7Ci1Xq23Z+E087EfbUISnCUuHAIKzzgghWQOOB4IqTX+sWdV3R2O0ytMJLit7Sl5DnqylWRzuHn+1advqYLj0aVGUliTIK3nGzh5tIQtOxOePcpJPPO3HzWN060PL1bfmY0eTFaQFpL6lODcW85WUpHfAz4HIrErM/pjOgVXjHVRGT0m6S6dcsC7trEuOtXAhUBvcApLSc5UccHJP69hRTBu0L8vKSzAbfYtkFtMeIGzhJQnjjz2opGylU0TuKuPYsT/2Q=="
+                  name="t2osHgPxj1.jpg"
+                  alt=""
+                  caption="This is a default image caption"
+                  className="mx-auto"
+                  fill
+                />
+              </div>
               <Text className="xs:px-3 xxs:px-2.5 my-4 leading-normal">
                 Redux is a JavaScript library that allows you to manage and
                 centralize your application state. For creating user interfaces,

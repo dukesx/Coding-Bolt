@@ -80,6 +80,20 @@ module.exports = {
       blue: "3px 4px 8px 1px rgb(59 130 246 / 29%), 0 2px 4px -1px rgb(59 130 246 / 91%)",
       red: "3px 4px 8px 1px #ff7875, 0 2px 4px -1px #ff4d4f",
     },
+    objectPosition: {
+      profileCover: "0px -151px",
+      bottom: "bottom",
+      center: "center",
+      left: "left",
+      "left-bottom": "left bottom",
+      "left-top": "left top",
+      right: "right",
+      "right-bottom": "right bottom",
+      "right-top": "right top",
+      top: "top",
+      "center-bottom": "center bottom",
+      "center-top": "center top",
+    },
   },
   variants: {
     extend: {

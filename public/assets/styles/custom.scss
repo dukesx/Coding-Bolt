@@ -36,3 +36,33 @@
     color: white !important;
   }
 }
+
+div:focus {
+  box-shadow: none !important;
+}
+
+a:focus {
+  box-shadow: none !important;
+}
+
+span:focus {
+  box-shadow: none !important;
+}
+
+.dark {
+  color: white;
+
+  .filepond--panel-root {
+    color: white;
+    font-weight: bold;
+    background: transparent !important;
+  }
+}
+
+.filepond--drop-label.filepond--drop-label label {
+  padding: 0px !important;
+}
+
+.filepond--credits {
+  display: none;
+}

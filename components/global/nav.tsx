@@ -92,7 +92,7 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 <Link passHref href="/">
                   <Text
                     component="a"
-                    className="flex ml-3 text-xl xs:ml-0.5 items-center xs:text-[24px] xxs:text-[22px] md:ml-0 xs:mt-0 md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
+                    className="flex ml-3 text-xl xs:ml-0.5 items-center xs:text-[24px] xxs:text-[22px] md:ml-0 xs:mt-[-3px] md:text-[15px] xxs:mt-[0px] uppercase sm:text-[16px] md:text-base lg:text-base lg:ml-1 font-black"
                   >
                     <div className="flex xs:hidden xxs:hidden items-center">
                       Coding

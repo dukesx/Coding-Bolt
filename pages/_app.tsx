@@ -2,24 +2,27 @@ import { useEffect, useState } from "react";
 import { JssProvider, createGenerateId } from "react-jss";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { MantineProvider, NormalizeCSS, GlobalStyles } from "@mantine/core";
 import useDarkMode from "use-dark-mode";
 import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
 import { Provider } from "next-auth/client";
 import { useRouter } from "next/router";
 import Loading from "components/global/pageLoading";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+import "filepond/dist/filepond.min.css";
+import {
+  MantineProvider,
+  NormalizeCSS,
+  GlobalStyles,
+  useStylesCleanup,
+  SsrProvider,
+} from "@mantine/core";
 
 const App: React.FC<AppProps> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  useEffect(() => {
-    const jssStyles = document.getElementById("mantine-ssr-styles");
-    if (jssStyles) {
-      jssStyles?.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
+  useStylesCleanup();
 
   const router = useRouter();
 
@@ -61,7 +64,7 @@ const App: React.FC<AppProps> = ({
     <>
       <Loading isRouteChanging={state.isRouteChanging} key={state.loadingKey} />
 
-      <JssProvider generateId={createGenerateId({ minify: false })}>
+      <SsrProvider>
         <Head>
           <title>Mantine next example</title>
           <meta
@@ -93,7 +96,7 @@ const App: React.FC<AppProps> = ({
             <Component {...pageProps} />
           </Provider>
         </MantineProvider>
-      </JssProvider>
+      </SsrProvider>
     </>
   );
 };

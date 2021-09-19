@@ -11,13 +11,16 @@ const Imager: React.FC<ImageProps> = ({
   hash,
   height,
   width,
+  cover,
   avatar,
   caption,
   preload,
+  fill,
   style,
+  crop,
 }) => {
   return (
-    <div className="contents">
+    <div className="flex justify-items-stretch flex-col">
       <Image
         className={
           (className || null) + " transition-all ease-in-out duration-1000"
@@ -29,13 +32,15 @@ const Imager: React.FC<ImageProps> = ({
         priority={preload || false}
         blurDataURL={hash || "UUE{U]Im0f^+~WI:Io%2xVW@ngRkWUWYnhWr"}
         src={name}
-        width={width || 400}
-        height={height || 250}
+        layout={fill ? "fill" : "intrinsic"}
+        width={width ? width : null}
+        height={height ? height : null}
+        onDrag={(e) => console.log(e)}
         loader={({ src, width, quality }) => {
           return `https://${
             process.env.NEXT_PUBLIC_IMAGE_CDN_PATH
           }/tr:w-${width},h-${height},q-${quality || 75},${
-            avatar ? ",fo-auto" : ""
+            avatar ? "fo-auto" : cover ? "fo-center" : ""
           }/${src}`;
         }}
       />
