@@ -1,6 +1,5 @@
 import Wrapper from "components/global/wrapper";
 import { UserProps } from "types/user";
-import Cropper from "react-easy-crop";
 import {
   Card,
   CardSection,
@@ -12,7 +11,7 @@ import {
   Tabs,
 } from "@mantine/core";
 import Image from "components/global/image";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import {
   Upload,
   Camera,
