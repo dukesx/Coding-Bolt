@@ -17,6 +17,7 @@ import {
 import { Prism } from "@mantine/prism";
 import { useState } from "react";
 import HeadRoom from "react-headroom";
+import Fade from "react-reveal/Fade";
 
 const SingleArticle: React.FC<ArticleProps> = () => {
   const [react, setReact] = useState(false);
@@ -28,31 +29,36 @@ const SingleArticle: React.FC<ArticleProps> = () => {
         onPin={() => setOnPin(true)}
         onUnfix={() => setOnPin(false)}
         style={{
-          WebkitTransition: "all 1s ease-in-out",
+          display: onPin ? "block" : "none",
         }}
       >
-        <div
-          className="absolute w-full shadow-md px-4 transition-all ease-in-out duration-1000 xs:px-2 xs:py-3 py-4 items-center dark:bg-[#25262b] bg-white absolute z-[10000]"
-          style={{
-            display: onPin ? "flex" : "none",
-            visibility: onPin ? "visible" : "hidden",
-          }}
-        >
-          <Text className="text-lg xs:text-sm xs:w-[250px]" lineClamp={2}>
-            <b className="font-semibold">Now Reading</b> : Top 5 Useful Packages
-            That Every React Developer Should Know
-          </Text>
-          <Text className="ml-3 text-lg"></Text>
-          <Text className="ml-auto">
-            <CaretCircleLeft size={30} />
-          </Text>
-          <Text className="mr-3 mx-3">
-            <ArrowCircleUp size={30} />
-          </Text>
-          <Text className="mr-2">
-            <CaretCircleRight size={30} />
-          </Text>
-        </div>
+        <Fade duration={100} delay={100} collapse top>
+          <div
+            className="absolute w-full shadow-md border-b-4 dark:border-yellow-600 px-4 xs:px-2 xs:py-3 py-4 items-center dark:bg-[#25262b] bg-white absolute z-[10000]"
+            style={{
+              display: onPin ? "flex" : "none",
+              visibility: onPin ? "visible" : "hidden",
+            }}
+          >
+            <Text
+              className="text-lg xs:text-sm xs:w-[250px] xxs:text-xs xxs:w-[150px]"
+              lineClamp={2}
+            >
+              <b className="font-semibold">Now Reading</b> : Top 5 Useful
+              Packages That Every React Developer Should Know
+            </Text>
+            <Text className="ml-3 text-lg"></Text>
+            <Text className="ml-auto">
+              <CaretCircleLeft size={30} />
+            </Text>
+            <Text className="mr-3 mx-3">
+              <ArrowCircleUp size={30} />
+            </Text>
+            <Text className="mr-2">
+              <CaretCircleRight size={30} />
+            </Text>
+          </div>
+        </Fade>
       </HeadRoom>
 
       <Grid id="article-grid" className="w-full justify-center m-0">
@@ -64,7 +70,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
           md={3}
           sm={3}
         >
-          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] sm:items-center sm:bottom-0 sm:left-0 xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
+          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] sm:items-center sm:bottom-0 sm:left-0 xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xxs:fixed xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
             <Text className="uppercase font-semibold text-center xs:hidden xxs:hidden">
               <b>Express</b> Yourself!
             </Text>
