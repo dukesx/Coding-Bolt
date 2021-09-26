@@ -17,6 +17,7 @@ import {
 import { Prism } from "@mantine/prism";
 import { useState } from "react";
 import HeadRoom from "react-headroom";
+import Fade from "react-reveal/Fade";
 
 const SingleArticle: React.FC<ArticleProps> = () => {
   const [react, setReact] = useState(false);
@@ -28,31 +29,36 @@ const SingleArticle: React.FC<ArticleProps> = () => {
         onPin={() => setOnPin(true)}
         onUnfix={() => setOnPin(false)}
         style={{
-          WebkitTransition: "all 1s ease-in-out",
+          display: onPin ? "block" : "none",
         }}
       >
-        <div
-          className="absolute w-full shadow-md px-4 transition-all ease-in-out duration-1000 xs:px-2 xs:py-3 py-4 items-center dark:bg-[#25262b] bg-white absolute z-[10000]"
-          style={{
-            display: onPin ? "flex" : "none",
-            visibility: onPin ? "visible" : "hidden",
-          }}
-        >
-          <Text className="text-lg xs:text-sm xs:w-[250px]" lineClamp={2}>
-            <b className="font-semibold">Now Reading</b> : Top 5 Useful Packages
-            That Every React Developer Should Know
-          </Text>
-          <Text className="ml-3 text-lg"></Text>
-          <Text className="ml-auto">
-            <CaretCircleLeft size={30} />
-          </Text>
-          <Text className="mr-3 mx-3">
-            <ArrowCircleUp size={30} />
-          </Text>
-          <Text className="mr-2">
-            <CaretCircleRight size={30} />
-          </Text>
-        </div>
+        <Fade duration={100} delay={100} collapse top>
+          <div
+            className="absolute w-full shadow-md border-b-4 dark:border-yellow-600 px-4 xs:px-2 xs:py-3 py-4 items-center dark:bg-[#25262b] bg-white absolute z-[10000]"
+            style={{
+              display: onPin ? "flex" : "none",
+              visibility: onPin ? "visible" : "hidden",
+            }}
+          >
+            <Text
+              className="text-lg xs:text-sm xs:w-[250px] xxs:text-xs xxs:w-[150px]"
+              lineClamp={2}
+            >
+              <b className="font-semibold">Now Reading</b> : Top 5 Useful
+              Packages That Every React Developer Should Know
+            </Text>
+            <Text className="ml-3 text-lg"></Text>
+            <Text className="ml-auto">
+              <CaretCircleLeft size={30} />
+            </Text>
+            <Text className="mr-3 mx-3">
+              <ArrowCircleUp size={30} />
+            </Text>
+            <Text className="mr-2">
+              <CaretCircleRight size={30} />
+            </Text>
+          </div>
+        </Fade>
       </HeadRoom>
 
       <Grid id="article-grid" className="w-full justify-center m-0">
@@ -64,14 +70,14 @@ const SingleArticle: React.FC<ArticleProps> = () => {
           md={3}
           sm={3}
         >
-          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] sm:items-center sm:bottom-0 sm:left-0 xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
+          <div className="left-0 xs:bg-gray-100 xxs:bg-gray-100 dark:bg-[#25262b] sm:items-center sm:bottom-0 sm:left-0 xxs:items-center xxs:bottom-0 xxs:left-0 xxs:flex-row xs:items-center xs:fixed xs:bottom-0 xs:left-0 sticky xxs:fixed xs:flex-row md:z-[1000] xxs:z-[1000] xxs:w-full xxs:h-[70px] xxs:top-[unset] xs:w-full xs:z-[1000] xs:h-[70px] flex flex-col ml-auto top-[30%] xs:top-[unset]">
             <Text className="uppercase font-semibold text-center xs:hidden xxs:hidden">
               <b>Express</b> Yourself!
             </Text>
             <div className="rounded-lg p-1 mt-0 text-center xs:w-full xxs:w-full xxs:flex xxs:justify-between xs:flex xs:justify-between xs:pb-4 xs:px-8 xxs:px-5">
               <Text className="text-2xl mt-4 lg:my-10 xxs:mt-2 xl:my-10 sm:my-10 xxl:my-8 xs:shadow-sm rounded-full cursor-pointer ">
                 <Lightning
-                  className=" mx-auto hover:scale-[1.3] transition-all ease-in-out bg-yellow-400 bg-opacity-25 rounded-full p-1.5"
+                  className=" mx-auto hover:scale-[1.3] xs:hover:scale-[1] xxs:hover:scale-[1] xs:active:scale-[1.3] xxs:active:scale-[1.3] transition-all ease-in-out bg-yellow-400 bg-opacity-25 rounded-full p-1.5"
                   weight="duotone"
                   color="#FAB005"
                   size={40}
@@ -94,7 +100,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
                   onClick={() => setReact(!react)}
                   className={
                     (react ? "" : "border-none ") +
-                    "mx-auto hover:scale-[1.3] transition-all ease-in-out bg-red-400 border border-red-600 border-[2px] bg-opacity-25 rounded-full p-1"
+                    "mx-auto hover:scale-[1.3] xs:hover:scale-[1] xxs:hover:scale-[1] xs:active:scale-[1.3] xxs:active:scale-[1.3] transition-all ease-in-out bg-red-400 border border-red-600 border-[2px] bg-opacity-25 rounded-full p-1"
                   }
                   weight="duotone"
                   color="#FA5252"
@@ -121,7 +127,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
 
               <Text className="text-2xl mt-4 xxs:mt-2 lg:my-10 sm:my-10 xl:my-10 xxl:my-8 rounded-full cursor-pointer">
                 <HandWaving
-                  className="mx-auto hover:scale-[1.3] transition-all ease-in-out bg-pink-400 bg-opacity-25 rounded-full p-1"
+                  className="mx-auto hover:scale-[1.3] xs:hover:scale-[1] xxs:hover:scale-[1] xs:active:scale-[1.3] xxs:active:scale-[1.3] transition-all ease-in-out bg-pink-400 bg-opacity-25 rounded-full p-1"
                   weight="duotone"
                   color="#E64980"
                   size={40}
@@ -140,7 +146,7 @@ const SingleArticle: React.FC<ArticleProps> = () => {
               </Text>
               <Text className="text-2xl mt-4 xxs:mt-2 lg:my-10 sm:my-10 xl:my-10 xxl:my-8 rounded-full">
                 <BookmarkSimple
-                  className="mx-auto hover:scale-[1.5] transition-all ease-in-out cursor-pointer border-2 border-blue-600 bg-blue-400 rounded-full bg-opacity-25 p-1"
+                  className="mx-auto hover:scale-[1.3] xs:hover:scale-[1] xxs:hover:scale-[1] xs:active:scale-[1.3] xxs:active:scale-[1.3] transition-all ease-in-out cursor-pointer border-2 border-blue-600 bg-blue-400 rounded-full bg-opacity-25 p-1"
                   weight="duotone"
                   color="#228BE6"
                   size={40}

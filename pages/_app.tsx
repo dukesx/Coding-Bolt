@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { JssProvider, createGenerateId } from "react-jss";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import useDarkMode from "use-dark-mode";
 import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
-import { Provider } from "next-auth/client";
 import { useRouter } from "next/router";
 import Loading from "components/global/pageLoading";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
@@ -17,6 +15,10 @@ import {
   useStylesCleanup,
   SsrProvider,
 } from "@mantine/core";
+import "lib/editor/plugins/embeds/style.css";
+import "@egjs/flicking-plugins/dist/arrow.css";
+import "@egjs/flicking/css/flicking.css";
+import "simplebar/dist/simplebar.min.css";
 
 const App: React.FC<AppProps> = ({
   Component,
@@ -92,9 +94,7 @@ const App: React.FC<AppProps> = ({
         >
           <NormalizeCSS />
           <GlobalStyles />
-          <Provider session={session}>
-            <Component {...pageProps} />
-          </Provider>
+          <Component {...pageProps} />
         </MantineProvider>
       </SsrProvider>
     </>

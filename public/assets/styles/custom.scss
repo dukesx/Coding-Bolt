@@ -35,6 +35,10 @@
     background: #1a1b1e !important;
     color: white !important;
   }
+
+  .codex-editor--narrow .ce-toolbox {
+    background: #1a1b1e !important;
+  }
 }
 
 div:focus {
@@ -65,4 +69,96 @@ span:focus {
 
 .filepond--credits {
   display: none;
+}
+
+.dark {
+  div[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: white;
+    svg {
+      fill: lightgrey;
+    }
+  }
+
+  div[class*="ce-settings__"] {
+    background: #1a1b1e !important;
+    color: white;
+    svg {
+      fill: lightgrey;
+    }
+    :hover {
+      background: #1a1b1e !important;
+    }
+  }
+
+  div[class*="codex-editor--"] {
+    background: #1a1b1e !important;
+    color: white;
+    svg {
+      fill: lightgrey;
+    }
+  }
+
+  div[class*="ce-toolbar__"] {
+    background: #1a1b1e !important;
+    color: white;
+    svg {
+      fill: lightgrey;
+    }
+  }
+
+  span[class*="ce-toolbar__"] {
+    background: #1a1b1e !important;
+    color: white;
+    svg {
+      fill: lightgrey;
+    }
+  }
+
+  span[class*="ce-toolbar__"] {
+    background: #1a1b1e !important;
+    color: white;
+    svg {
+      fill: lightgrey;
+    }
+  }
+
+  span[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+
+  h1[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+
+  h2[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+
+  h3[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+
+  h4[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+
+  h5[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+
+  h6[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
+  p[class*="cdx-"] {
+    background: #1a1b1e !important;
+    color: lightgrey;
+  }
 }

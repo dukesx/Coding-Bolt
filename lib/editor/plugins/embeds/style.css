@@ -1,4 +1,4 @@
-.container {
+/* .container {
   padding: 20px 0;
 }
 
@@ -9,12 +9,28 @@
   border-radius: 3px;
   outline: none;
   font-size: 14px;
-}
+} */
 
 .error-wrapper {
   @apply text-black bg-red-200 border border-red-600;
 }
 
+.embed-spinner {
+  text-align: center;
+  margin: 0px auto;
+  width: 40px;
+}
+
+.embed-input {
+  padding: 5px;
+  font-size: 12px;
+  height: 30px;
+  width: 100%;
+}
+.embed-card {
+  -webkit-box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
+  box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
+}
 .card-body {
   padding: 12px 24px 36px 24px;
 }

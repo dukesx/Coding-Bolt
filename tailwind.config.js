@@ -53,6 +53,8 @@ module.exports = {
     extend: {
       colors: {
         dark: "#191919",
+        manDark: "#1a1b1e",
+        manLightDark: "#25262b",
       },
       width: {
         "100px": "100px",
