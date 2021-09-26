@@ -41,6 +41,11 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <link rel="icon" href="link to favicon" />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/egjs-flicking/4.x.x/flicking.css"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />
