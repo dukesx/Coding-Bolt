@@ -5,29 +5,30 @@ import Link from "next/link";
 const VerticalArticleCard: React.FC<ArticleCardProps> = ({
   title,
   description,
-  cover: { hash, height, width, alt, name, preload },
+  cover,
 }) => {
   return (
     <Card padding="lg" className="bg-transparent">
       <CardSection>
-        <Image
-          hash={hash}
-          width={width}
-          name={name}
-          height={height}
-          alt={alt}
-          preload={preload}
-        />
+        {cover ? (
+          <Image
+            hash={cover.hash}
+            width={cover.width}
+            name={cover.name}
+            height={cover.height}
+            alt={cover.alt}
+          />
+        ) : null}
       </CardSection>
       <Link passHref href={`/article/${title.replace(/ /g, "-")}`}>
         <Text
           component="a"
-          className="font-semibold focus:shadow-none block my-2 clamp-2"
+          className="font-semibold block focus:shadow-none my-2 clamp-2"
         >
           {title}
         </Text>
       </Link>
-      <Text>{description}</Text>
+      <Text className="clamp-2">{description}</Text>
     </Card>
   );
 };

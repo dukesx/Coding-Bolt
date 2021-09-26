@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Frame from "lib/editor/plugins/embeds";
-import Unsplash from "lib/editor/plugins/unsplash";
 
 const Editor = (props: any) => {
   const [val, setVal] = useState(null);
@@ -59,9 +58,6 @@ const Editor = (props: any) => {
         embeds: {
           class: Frame,
         },
-        unsplash: {
-          class: Unsplash,
-        },
 
         inlineCode: {
           class: InlineCode,
@@ -105,7 +101,9 @@ const Editor = (props: any) => {
         // console.log("Editor.js is ready to work!");
         /** Do anything you need after editor initialization */
       })
-      .catch((reason: any) => {});
+      .catch((reason: any) => {
+        console.log(reason);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

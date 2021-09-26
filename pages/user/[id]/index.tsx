@@ -18,13 +18,14 @@ import {
   Trash,
   ListDashes,
   IdentificationBadge,
+  Files,
 } from "phosphor-react";
 import Uploader from "rc-upload";
 import Image2 from "next/image";
 import PlaceholderCover from "public/assets/images/asset-placeholder-cover.jpg";
-import HorizontalArticleCard from "components/global/article/card/horizontal";
-
-const UserProfile: React.FC<UserProps> = () => {
+import HorizontalArticleCard from "components/global/article/list/horizontal";
+import { supabase } from "lib/supabaseClient";
+const UserProfile: React.FC<UserProps> = ({ user }) => {
   const [image, setImage] = useState(null);
   const [avatar, setAvatar] = useState(null);
   const [uploadingCover, setUploadingCover] = useState(false);
@@ -85,7 +86,6 @@ const UserProfile: React.FC<UserProps> = () => {
               action="/api/upload/image/form"
               name="image"
               onStart={() => {
-                console.log("start");
                 setUploadingCover(true);
               }}
               onSuccess={(file: any) => {
@@ -130,12 +130,16 @@ const UserProfile: React.FC<UserProps> = () => {
               className="rounded-full xs:w-[120px] xs:h-[120px] xxs:w-[100px] xxs:h-[100px] backdrop-blur-sm"
               // color="blue"
             >
-              {avatar ? (
+              {user || avatar ? (
                 <Image
                   alt=""
                   className="rounded-t-none"
-                  name={avatar.url.split("/")[avatar.url.split("/").length - 1]}
-                  hash={avatar.hash}
+                  name={
+                    user
+                      ? user[0].avatar_url
+                      : avatar.url.split("/")[avatar.url.split("/").length - 1]
+                  }
+                  hash={user ? user[0].hash : avatar.hash}
                   width={140}
                   height={140}
                   cover
@@ -151,12 +155,21 @@ const UserProfile: React.FC<UserProps> = () => {
               onStart={() => {
                 setUploadingAvatar(true);
               }}
-              onSuccess={(file: any) => {
+              onSuccess={async (file: any) => {
                 setUploadingAvatar(false);
                 setAvatar({
                   hash: file.file.hash,
                   url: file.file.url,
                 });
+                const { data, error } = await supabase
+                  .from("profiles")
+                  .upsert({
+                    avatar_url:
+                      avatar.url.split("/")[avatar.url.split("/").length - 1],
+                    id: supabase.auth.user().id,
+                    hash: file.file.hash,
+                  })
+                  .eq("id", supabase.auth.user().id);
               }}
             >
               <Button
@@ -260,3 +273,29 @@ const UserProfile: React.FC<UserProps> = () => {
 };
 
 export default UserProfile;
+
+export const getServerSideProps = async ({ req }) => {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+
+  if (!user) {
+    // If no user, redirect to index.
+    return {
+      props: {
+        user: null,
+      },
+      // redirect: { destination: "/", permanent: false }
+    };
+  }
+
+  // If there is a user, return it.
+  const { data, error } = await supabase
+    .from("profiles")
+    .select(
+      `
+    hash,
+    avatar_url
+  `
+    )
+    .eq("id", user.id);
+  return { props: { user: data } };
+};

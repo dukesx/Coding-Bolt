@@ -6,18 +6,26 @@ import Link from "next/link";
 const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
   title,
   description,
-  cover: { hash, height, width, alt, name, preload },
+  cover,
 }) => {
   return (
-    <Card className="max-w-full bg-transparent mb-6 pl-8 xs:pl-2 xxs:pl-2 py-2">
+    <Card
+      className={
+        (cover ? "mb-6 " : "mb-3 ") +
+        "max-w-full bg-transparent pl-8 xs:pl-2 xxs:pl-2 py-2"
+      }
+    >
       <Group>
-        <Image
-          hash={hash}
-          width={width}
-          name={name}
-          height={height}
-          alt={alt}
-        />
+        {cover ? (
+          <Image
+            hash={cover.hash}
+            width={cover.width}
+            name={cover.name}
+            height={cover.height}
+            alt={cover.alt}
+          />
+        ) : null}
+
         <Group
           className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[70%] xs:max-w-[290px] lg:max-w-[70%] md:max-w-[70%] xl:max-w-[80%] xxl:max-w-[80%]"
           direction="column"
@@ -31,7 +39,7 @@ const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
               {title}
             </Text>
           </Link>
-          <Text>{description}</Text>
+          <Text>{description ? description : null}</Text>
         </Group>
       </Group>
     </Card>

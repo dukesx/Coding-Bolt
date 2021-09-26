@@ -27,13 +27,13 @@ export interface NavProps {
 
 export interface ArticleCardProps {
   title: string;
-  description: string;
-  cover: {
-    width: number;
-    height: number;
-    hash: string;
-    alt: string;
-    name: string;
+  description?: string;
+  cover?: {
+    width?: number;
+    height?: number;
+    hash?: string;
+    alt?: string;
+    name?: string;
     preload?: boolean;
   };
 }

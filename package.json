@@ -9,7 +9,8 @@
     "lint": "next lint",
     "gulp": "npx gulp less",
     "test": "jest --collectCoverage=true",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "gen:types": "cross-env npx openapi-typescript $process.env.NEXT_PUBLIC_SUPABASE_URL/rest/v1/?apikey=$process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY --output types/supabase.ts"
   },
   "dependencies": {
     "@codexteam/ajax": "^4.2.0",
@@ -26,7 +27,7 @@
     "@editorjs/quote": "^2.4.0",
     "@editorjs/table": "^2.0.1",
     "@editorjs/warning": "^1.2.0",
-    "@egjs/flicking-plugins": "^4.2.0",
+    "@egjs/flicking-plugins": "^4.2.1",
     "@egjs/react-flicking": "^3.7.3",
     "@graphql-codegen/typescript-urql": "^2.0.11",
     "@hcaptcha/react-hcaptcha": "^0.3.7",
@@ -37,6 +38,7 @@
     "@mantine/prism": "^2.5.0",
     "@next/bundle-analyzer": "^10.2.3",
     "@prisma/client": "^3.0.2",
+    "@supabase/supabase-js": "^1.23.0",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "@tanem/react-nprogress": "^3.0.75",
@@ -72,7 +74,9 @@
     "react-reveal": "^1.2.2",
     "react-stickynode": "^4.0.0",
     "sharp": "^0.29.0",
+    "simplebar-react": "^2.3.6",
     "tailwindcss-line-clamp": "^1.0.5",
+    "unsplash-js": "^7.0.15",
     "urql": "^2.0.4",
     "urql-persisted-queries": "^0.1.0",
     "use-dark-mode": "^2.3.1"
@@ -97,6 +101,7 @@
     "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^10.3.2",
     "babel-jest": "^27.0.6",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.24.0",
