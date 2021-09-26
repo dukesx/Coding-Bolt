@@ -17,7 +17,7 @@ import {
 } from "@mantine/core";
 import "lib/editor/plugins/embeds/style.css";
 import "@egjs/flicking-plugins/dist/arrow.css";
-import "@egjs/flicking/css/flicking.css";
+import "@egjs/flicking/dist/flicking.css";
 import "simplebar/dist/simplebar.min.css";
 
 const App: React.FC<AppProps> = ({
