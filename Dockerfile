@@ -18,7 +18,7 @@ COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN --mount=type=secret,id=my_token \
   cat /run/secrets/my_token
-RUN NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY yarn build 
+RUN NEXT_PUBLIC_SUPABASE_URL=NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY=NEXT_PUBLIC_SUPABASE_ANON_KEY yarn build 
  
 
 # Production image, copy all the files and run next
