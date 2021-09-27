@@ -48,4 +48,4 @@ jobs:
           push: true
           tags: codingbolt/app:latest
           secrets: |
-            "./other.txt"
+            "my_token=./other.txt"
