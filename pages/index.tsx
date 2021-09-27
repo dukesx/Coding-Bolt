@@ -31,14 +31,13 @@ const Index: React.FC = () => {
         <Paper className="mt-0">
           <div className="bg-gray-100 dark:bg-transparent pt-2 pb-0">
             <Flicking
-              hideBeforeInit={true}
+              // hideBeforeInit={true}
               circular={true}
-              viewportTag="div"
-              cameraTag="div"
               align="center"
+              firstPanelSize="200px"
               gap={15}
               horizontal
-              resizeOnContentsReady
+              // resizeOnContentsReady
             >
               <div className="w-[350px]">
                 <VerticalArticleCard
