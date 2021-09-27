@@ -33,7 +33,6 @@ const Index: React.FC = () => {
             <Flicking
               hideBeforeInit={true}
               circular={true}
-              zIndex={500}
               viewportTag="div"
               cameraTag="div"
               align="center"
