@@ -51,15 +51,14 @@ const Wrapper = (props: any) => {
       <Nav session={session} />
       <div className="bg-gray-100 p-2 dark:bg-transparent">
         <Flicking
-          hideBeforeInit={true}
+          // firstPanelSize="200px"
+          // hideBeforeInit={true}
           circular={true}
-          viewportTag="div"
-          cameraTag="div"
           align="center"
           gap={15}
           horizontal
-          resizeOnContentsReady
-          adaptive
+          // resizeOnContentsReady
+          // adaptive
         >
           <Button
             leftIcon={<ReactOrignalIcon />}
