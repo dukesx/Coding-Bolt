@@ -47,5 +47,5 @@ jobs:
           context: .
           push: true
           tags: codingbolt/app:latest
-          secrets: |
+          secrets-files: |
             "my_token=./other.txt"
