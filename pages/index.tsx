@@ -7,15 +7,18 @@ import {
   Title,
   Text,
   Grid,
+  Loader,
   Col,
   SegmentedControl,
 } from "@mantine/core";
 import VerticalArticleCard from "components/global/article/list/vertical";
 import HorizontalArticleCard from "components/global/article/list/horizontal";
 import Sticky from "react-stickynode";
-import Flicking, { ViewportSlot } from "@egjs/react-flicking";
+import { ViewportSlot } from "@egjs/react-flicking";
 // import SimpleBar from "simplebar-react";
 import { useState } from "react";
+import ContentLoader from "react-content-loader";
+
 import {
   TextT,
   BellSlash,
@@ -27,6 +30,28 @@ import {
   BellRinging,
 } from "phosphor-react";
 import { Arrow, Fade } from "@egjs/flicking-plugins";
+import dynamic from "next/dynamic";
+
+const Flicker = dynamic(() => import("@egjs/react-flicking"), {
+  loading: () => (
+    <div className="flex w-full mx-auto">
+      <ContentLoader
+        className="mx-auto"
+        speed={2}
+        width={330}
+        height={278}
+        viewBox="0 0 330 278"
+        backgroundColor="#b1aaaa"
+        foregroundColor="#d4d3de"
+      >
+        <rect x="30" y="3" rx="0" ry="0" width="330" height="175" />
+        <rect x="43" y="188" rx="8" ry="8" width="278" height="16" />
+        <rect x="43" y="221" rx="8" ry="8" width="278" height="16" />
+      </ContentLoader>
+    </div>
+  ),
+  ssr: false,
+});
 
 const Index: React.FC = () => {
   const [segment, setSegment] = useState("followed");
@@ -38,8 +63,8 @@ const Index: React.FC = () => {
       <Wrapper>
         <Paper className="mt-0">
           <div className="bg-gray-100 dark:bg-transparent pt-2 pb-2 xs:pb-0">
-            <Flicking
-              hideBeforeInit={true}
+            <Flicker
+              // hideBeforeInit={true}
               className="pb-12"
               align="center"
               horizontal
@@ -158,7 +183,7 @@ const Index: React.FC = () => {
                   />
                 </span>
               </ViewportSlot>
-            </Flicking>
+            </Flicker>
           </div>
 
           <Card className="md:px-0 pt-0 xs:px-0 xxs:px-0 sm:px-0">
