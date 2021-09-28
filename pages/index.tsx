@@ -13,8 +13,8 @@ import {
 import VerticalArticleCard from "components/global/article/list/vertical";
 import HorizontalArticleCard from "components/global/article/list/horizontal";
 import Sticky from "react-stickynode";
-import Flicking, { ViewportSlot } from "@egjs/react-flicking";
-import SimpleBar from "simplebar-react";
+// import Flicking, { ViewportSlot } from "@egjs/react-flicking";
+// import SimpleBar from "simplebar-react";
 import { useState } from "react";
 import {
   TextT,
@@ -26,7 +26,7 @@ import {
   Bell,
   BellRinging,
 } from "phosphor-react";
-import { Arrow, Fade } from "@egjs/flicking-plugins";
+// import { Arrow, Fade } from "@egjs/flicking-plugins";
 
 const Index: React.FC = () => {
   const [segment, setSegment] = useState("followed");
@@ -190,10 +190,11 @@ const Index: React.FC = () => {
                   </div>
 
                   {segment == "followed" ? (
-                    <SimpleBar
-                      style={{ maxHeight: 300 }}
-                      className="pl-8 md:pl-2 flex flex-col capitalize max-w-[320px] min-w-[200px]"
-                    >
+                    // <SimpleBar
+                    //   style={{ maxHeight: 300 }}
+                    //   className="pl-8 md:pl-2 flex flex-col capitalize max-w-[320px] min-w-[200px]"
+                    // >
+                    <>
                       <div className="flex items-center w-full">
                         <Text className="font-semibold bg-gray-100 dark:bg-manDark p-3 mt-0 mb-2 mx-2 rounded-xl w-max">
                           #react
@@ -261,12 +262,14 @@ const Index: React.FC = () => {
                           <BellSlash size={22} />
                         </Text>
                       </div>
-                    </SimpleBar>
-                  ) : segment == "alltags" ? (
-                    <SimpleBar
-                      style={{ maxHeight: 300 }}
-                      className="pl-8 md:pl-2 flex flex-col capitalize max-w-[320px] min-w-[200px]"
-                    >
+                    </>
+                  ) : // </SimpleBar>
+                  segment == "alltags" ? (
+                    // <SimpleBar
+                    //   style={{ maxHeight: 300 }}
+                    //   className="pl-8 md:pl-2 flex flex-col capitalize max-w-[320px] min-w-[200px]"
+                    // >
+                    <>
                       <div className="flex items-center w-full">
                         <Text className="font-semibold bg-gray-100 dark:bg-manDark p-3 mt-0 mb-2 mx-2 rounded-xl w-max">
                           #react
@@ -342,12 +345,14 @@ const Index: React.FC = () => {
                           <BellRinging size={20} />
                         </Text>
                       </div>
-                    </SimpleBar>
+                    </>
                   ) : (
-                    <SimpleBar
-                      style={{ maxHeight: 300 }}
-                      className="pl-8 md:pl-2 flex flex-col capitalize max-w-[320px] min-w-[200px]"
-                    >
+                    // </SimpleBar>
+                    // <SimpleBar
+                    //   style={{ maxHeight: 300 }}
+                    //   className="pl-8 md:pl-2 flex flex-col capitalize max-w-[320px] min-w-[200px]"
+                    // >
+                    <>
                       <div className="flex items-center w-full">
                         <Text className="font-semibold bg-gray-100 dark:bg-manDark p-3 mt-0 mb-2 mx-2 rounded-xl w-max">
                           #react
@@ -356,7 +361,8 @@ const Index: React.FC = () => {
                           <CheckCircle size={22} />
                         </Text>
                       </div>
-                    </SimpleBar>
+                    </>
+                    // </SimpleBar>
                   )}
 
                   <div className="pt-6 pb-6 pl-6 flex">
