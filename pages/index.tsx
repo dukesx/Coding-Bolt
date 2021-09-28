@@ -46,7 +46,7 @@ const Index: React.FC = () => {
               align="center"
               horizontal
               id="newer"
-              // resizeOnContentsReady
+              resizeOnContentsReady
               plugins={[new Arrow(), new Fade()]}
               adaptive
               circular={true}
@@ -143,7 +143,7 @@ const Index: React.FC = () => {
               </div>
 
               <ViewportSlot>
-                <span className="flicking-arrow-prev xs:hidden xxs:w-[40px] xxs:h-[40px] xs:w-[40px] from-blue-400 to-blue-600 xs:h-[40px] h-[50px] w-[50px] top-[36%] after:hidden before:hidden bg-gradient-to-r dark:from-pink-400 dark:to-yellow-500 flex flex-col items-center justify-center rounded-full">
+                <span className="flicking-arrow-prev xxs:hidden xs:hidden xxs:w-[40px] xxs:h-[40px] xs:w-[40px] from-blue-400 to-blue-600 xs:h-[40px] h-[50px] w-[50px] top-[36%] after:hidden before:hidden bg-gradient-to-r dark:from-pink-400 dark:to-yellow-500 flex flex-col items-center justify-center rounded-full">
                   <CaretLeft
                     className="xs:h-[18px] xs:w-[18px] xxs:h-[18px] xxs:w-[18px]"
                     size={22}
@@ -151,7 +151,7 @@ const Index: React.FC = () => {
                     weight="bold"
                   />
                 </span>
-                <span className="flicking-arrow-next xs:hidden xxs:w-[40px] xxs:h-[40px] xs:w-[40px] from-blue-400 to-blue-600 xs:h-[40px] h-[50px] w-[50px] top-[36%] after:hidden before:hidden bg-gradient-to-r dark:from-pink-400 dark:to-yellow-500 flex flex-col items-center justify-center rounded-full">
+                <span className="flicking-arrow-next xxs:hidden xs:hidden xxs:w-[40px] xxs:h-[40px] xs:w-[40px] from-blue-400 to-blue-600 xs:h-[40px] h-[50px] w-[50px] top-[36%] after:hidden before:hidden bg-gradient-to-r dark:from-pink-400 dark:to-yellow-500 flex flex-col items-center justify-center rounded-full">
                   <CaretRight
                     className="xs:h-[18px] xs:w-[18px] xxs:h-[18px] xxs:w-[18px]"
                     size={22}
