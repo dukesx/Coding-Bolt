@@ -13,7 +13,7 @@ import {
 import VerticalArticleCard from "components/global/article/list/vertical";
 import HorizontalArticleCard from "components/global/article/list/horizontal";
 import Sticky from "react-stickynode";
-// import Flicking, { ViewportSlot } from "@egjs/react-flicking";
+import Flicking, { ViewportSlot } from "@egjs/react-flicking";
 // import SimpleBar from "simplebar-react";
 import { useState } from "react";
 import {
@@ -26,7 +26,7 @@ import {
   Bell,
   BellRinging,
 } from "phosphor-react";
-// import { Arrow, Fade } from "@egjs/flicking-plugins";
+import { Arrow, Fade } from "@egjs/flicking-plugins";
 
 const Index: React.FC = () => {
   const [segment, setSegment] = useState("followed");
@@ -37,7 +37,7 @@ const Index: React.FC = () => {
       </Head>
       <Wrapper>
         <Paper className="mt-0">
-          {/* <div className="bg-gray-100 dark:bg-transparent pt-2 pb-2 xs:pb-0">
+          <div className="bg-gray-100 dark:bg-transparent pt-2 pb-2 xs:pb-0">
             <Flicking
               hideBeforeInit={true}
               className="pb-12"
@@ -159,7 +159,7 @@ const Index: React.FC = () => {
                 </span>
               </ViewportSlot>
             </Flicking>
-          </div> */}
+          </div>
 
           <Card className="md:px-0 pt-0 xs:px-0 xxs:px-0 sm:px-0">
             <Grid
