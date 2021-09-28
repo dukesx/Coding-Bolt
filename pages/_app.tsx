@@ -6,8 +6,6 @@ import "tailwindcss/tailwind.css";
 import "public/assets/styles/custom.scss";
 import { useRouter } from "next/router";
 import Loading from "components/global/pageLoading";
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import "filepond/dist/filepond.min.css";
 import {
   MantineProvider,
   NormalizeCSS,
@@ -18,6 +16,7 @@ import {
 import "lib/editor/plugins/embeds/style.css";
 import "@egjs/flicking-plugins/dist/arrow.css";
 import "simplebar/dist/simplebar.min.css";
+import "@egjs/react-flicking/dist/flicking.css";
 
 const App: React.FC<AppProps> = ({
   Component,

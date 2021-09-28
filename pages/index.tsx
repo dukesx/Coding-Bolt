@@ -8,17 +8,27 @@ import {
   Text,
   Grid,
   Col,
-  Button,
   SegmentedControl,
 } from "@mantine/core";
 import VerticalArticleCard from "components/global/article/list/vertical";
 import HorizontalArticleCard from "components/global/article/list/horizontal";
-import { TextT, SketchLogo, BellSlash, MinusCircle } from "phosphor-react";
 import Sticky from "react-stickynode";
-import Flicking from "@egjs/react-flicking";
+import Flicking, { ViewportSlot } from "@egjs/react-flicking";
 import SimpleBar from "simplebar-react";
 import { useState } from "react";
-import { X, CheckCircle, Bell, BellRinging, BellSimple } from "phosphor-react";
+import {
+  TextT,
+  BellSlash,
+  MinusCircle,
+  CheckCircle,
+  CaretRight,
+  CaretLeft,
+  Bell,
+  BellRinging,
+  ArrowLeft,
+  ArrowRight,
+} from "phosphor-react";
+import { Arrow, Fade } from "@egjs/flicking-plugins";
 
 const Index: React.FC = () => {
   const [segment, setSegment] = useState("followed");
@@ -29,17 +39,20 @@ const Index: React.FC = () => {
       </Head>
       <Wrapper>
         <Paper className="mt-0">
-          <div className="bg-gray-100 dark:bg-transparent pt-2 pb-0">
+          <div className="bg-gray-100 dark:bg-transparent pt-2 pb-2 xs:pb-0">
             <Flicking
-              // hideBeforeInit={true}
-              circular={true}
+              hideBeforeInit={true}
+              className="pb-12"
               align="center"
-              firstPanelSize="200px"
-              gap={15}
               horizontal
+              id="newer"
               // resizeOnContentsReady
+              plugins={[new Arrow(), new Fade()]}
+              adaptive
+              circular={true}
+              defaultIndex={1}
             >
-              <div className="w-[350px]">
+              <div className="w-[350px] xs:w-[330px] xs:mx-1 xxs:w-[320px] xxs:mx-1 h-[250px] mx-2">
                 <VerticalArticleCard
                   title="The Biggest Contribution Of Seo To Humanity."
                   description="Educational YouTube channels are the best. Here is the list of
@@ -54,7 +67,7 @@ const Index: React.FC = () => {
                   }}
                 />
               </div>
-              <div className="w-[350px]">
+              <div className="w-[350px] xs:w-[330px] xs:mx-1 xxs:w-[320px] xxs:mx-1 h-[250px] mx-2">
                 <VerticalArticleCard
                   title="Seven Seo Trends You Should Know Before Even Starting Your Business"
                   description="It works every time."
@@ -68,6 +81,85 @@ const Index: React.FC = () => {
                   }}
                 />
               </div>
+
+              <div className="w-[350px] xs:w-[330px] xs:mx-1 xxs:w-[320px] xxs:mx-1 h-[250px] mx-2">
+                <VerticalArticleCard
+                  title="The Biggest Contribution Of Seo To Humanity."
+                  description="Educational YouTube channels are the best. Here is the list of
+                my personal favorites. Feel free to add more!"
+                  cover={{
+                    height: 250,
+                    width: 500,
+                    alt: "an image",
+                    preload: false,
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGBwT/xAAsEAACAQMDAgUCBwAAAAAAAAABAgMEBREABiESMRMiQVGBBxQVMjNSYXGR/8QAFgEBAQEAAAAAAAAAAAAAAAAABAUD/8QAJhEAAgEDAgQHAAAAAAAAAAAAAQIDABEhBEEFEjFhEyIzUYHw8f/aAAwDAQACEQMRAD8AzvdP1BuF3vEsNzVJGHkBeQqqKf2gflGpprWaq4zxLJH4oXrPnIGOOQfXPB0+vV6tS2+CClSl8anYxVBmoYZDKzNnrV2HWMDjHbgapd5WLbW4rfbTsOjNJU9DJUlYnjBIAJV1JwexOV4xoCKqpzLgm1WppJHnKSZjW9hgC2bZtvt3qCtVrSvuZVFp+iAFCQ6uW9srnv8AyOBo0vqNvXi2XWChq6dqeoch42Ug5BHBDDn4ONGsp0Ib1AKVoJYzGb6YvnqPyntVtWrebx4aalkSJEaSMynEj483mPPyTzp0d2z2aGOWjtrR1dL0Qxw1MXAPYA44ccf3p7R1ILqkZDDHUR3CH157Z1yXelZ6SqaKHxgQWMR5DEewOgrrDzKH2+KtycJQq4QAXv1AOdiPb7i9Z/uq6fidf98soapl/XdeQWPOQf8AR8aNUlFaKG4sjQwKtEEPUCmD1Y9vQg86NNGvij8pBqPNwHVTt4isDe3bav/Z",
+                    name: "yXbld5A7Lz.jpg",
+                  }}
+                />
+              </div>
+              <div className="w-[350px] xs:w-[330px] xs:mx-1 xxs:w-[320px] xxs:mx-1 h-[250px] mx-2">
+                <VerticalArticleCard
+                  title="Seven Seo Trends You Should Know Before Even Starting Your Business"
+                  description="It works every time."
+                  cover={{
+                    height: 250,
+                    width: 500,
+                    alt: "an image",
+                    preload: false,
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAdACADASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAABwgDBAUGCf/EAC4QAAEDAwMCBAQHAAAAAAAAAAECAwQFBhEAEiEHMRMiQVEIFELBFWFxgZKh0f/EABcBAAMBAAAAAAAAAAAAAAAAAAECBAP/xAAkEQACAQMEAAcAAAAAAAAAAAABAhEAAxIEITFBBRNhgZGhsf/aAAwDAQACEQMRAD8AW+pkCx7So7teqdrUiTI3hKAYjYK1n340F1brRckxlUW3o0OiQvpTEaSjA/X/AAaozq5ajV42c/AcfVHW04iQh5KQoo2nng9/KTqfqdQrBiLQzCiVe8KjhRS20kqaVjv22ox7nJxqHV+ILpSEFtnY9KJ+TsB7mnS2X7AFDlzXJJlylmr1WbNfz5kBZ/tR+w11wVQlR+VaZjZ+sjev+SvtjTN1AsqtXHTTMNDpVBRFbcU0ylXmUlAJKStA8JOR2yrKuMaDTCd27kgkjunHOq7RuPaW5cXEnqQfylcKrFQZivUJRBSQeQRqcOqFauW3bsdoltw2YwUESmZLaSo+H2wlB8iRwUkYGcn3062nUHKpbVNmvgB15lKlY98aMfiWioj2tCrzJUibBkBlJSSnehzgpJHPBAP7aosi0XHnTj6c/dI+USnPU1K10VitVaozPxSZLkSCoNuMvOZWraeAGxnCQDx6axVeFDhyM035lTBSlaVSdiXVcc5SknA9QeD7+mttpb8iRIbckOAu4UpSfLk8DnHpg9s656XSIlJojVVWHHE7dngtKDW70O5WDnP5Aa0dkhkQbTsTzQQtvlzX/9k=",
+                    name: "DUYxk8Q2CD.jpg",
+                  }}
+                />
+              </div>
+
+              <div className="w-[350px] xs:w-[330px] xs:mx-1 xxs:w-[320px] xxs:mx-1 h-[250px] mx-2">
+                <VerticalArticleCard
+                  title="The Biggest Contribution Of Seo To Humanity."
+                  description="Educational YouTube channels are the best. Here is the list of
+                my personal favorites. Feel free to add more!"
+                  cover={{
+                    height: 250,
+                    width: 500,
+                    alt: "an image",
+                    preload: false,
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGBwT/xAAsEAACAQMDAgUCBwAAAAAAAAABAgMEBREABiESMRMiQVGBBxQVMjNSYXGR/8QAFgEBAQEAAAAAAAAAAAAAAAAABAUD/8QAJhEAAgEDAgQHAAAAAAAAAAAAAQIDABEhBEEFEjFhEyIzUYHw8f/aAAwDAQACEQMRAD8AzvdP1BuF3vEsNzVJGHkBeQqqKf2gflGpprWaq4zxLJH4oXrPnIGOOQfXPB0+vV6tS2+CClSl8anYxVBmoYZDKzNnrV2HWMDjHbgapd5WLbW4rfbTsOjNJU9DJUlYnjBIAJV1JwexOV4xoCKqpzLgm1WppJHnKSZjW9hgC2bZtvt3qCtVrSvuZVFp+iAFCQ6uW9srnv8AyOBo0vqNvXi2XWChq6dqeoch42Ug5BHBDDn4ONGsp0Ib1AKVoJYzGb6YvnqPyntVtWrebx4aalkSJEaSMynEj483mPPyTzp0d2z2aGOWjtrR1dL0Qxw1MXAPYA44ccf3p7R1ILqkZDDHUR3CH157Z1yXelZ6SqaKHxgQWMR5DEewOgrrDzKH2+KtycJQq4QAXv1AOdiPb7i9Z/uq6fidf98soapl/XdeQWPOQf8AR8aNUlFaKG4sjQwKtEEPUCmD1Y9vQg86NNGvij8pBqPNwHVTt4isDe3bav/Z",
+                    name: "yXbld5A7Lz.jpg",
+                  }}
+                />
+              </div>
+              <div className="w-[350px] xs:w-[330px] xs:mx-1 xxs:w-[320px] xxs:mx-1 h-[250px] mx-2">
+                <VerticalArticleCard
+                  title="Seven Seo Trends You Should Know Before Even Starting Your Business"
+                  description="It works every time."
+                  cover={{
+                    height: 250,
+                    width: 500,
+                    alt: "an image",
+                    preload: false,
+                    hash: "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAdACADASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAABwgDBAUGCf/EAC4QAAEDAwMCBAQHAAAAAAAAAAECAwQFBhEAEiEHMRMiQVEIFELBFWFxgZKh0f/EABcBAAMBAAAAAAAAAAAAAAAAAAECBAP/xAAkEQACAQMEAAcAAAAAAAAAAAABAhEAAxIEITFBBRNhgZGhsf/aAAwDAQACEQMRAD8AW+pkCx7So7teqdrUiTI3hKAYjYK1n340F1brRckxlUW3o0OiQvpTEaSjA/X/AAaozq5ajV42c/AcfVHW04iQh5KQoo2nng9/KTqfqdQrBiLQzCiVe8KjhRS20kqaVjv22ox7nJxqHV+ILpSEFtnY9KJ+TsB7mnS2X7AFDlzXJJlylmr1WbNfz5kBZ/tR+w11wVQlR+VaZjZ+sjev+SvtjTN1AsqtXHTTMNDpVBRFbcU0ylXmUlAJKStA8JOR2yrKuMaDTCd27kgkjunHOq7RuPaW5cXEnqQfylcKrFQZivUJRBSQeQRqcOqFauW3bsdoltw2YwUESmZLaSo+H2wlB8iRwUkYGcn3062nUHKpbVNmvgB15lKlY98aMfiWioj2tCrzJUibBkBlJSSnehzgpJHPBAP7aosi0XHnTj6c/dI+USnPU1K10VitVaozPxSZLkSCoNuMvOZWraeAGxnCQDx6axVeFDhyM035lTBSlaVSdiXVcc5SknA9QeD7+mttpb8iRIbckOAu4UpSfLk8DnHpg9s656XSIlJojVVWHHE7dngtKDW70O5WDnP5Aa0dkhkQbTsTzQQtvlzX/9k=",
+                    name: "DUYxk8Q2CD.jpg",
+                  }}
+                />
+              </div>
+
+              <ViewportSlot>
+                <span className="flicking-arrow-prev xs:hidden xxs:w-[40px] xxs:h-[40px] xs:w-[40px] from-blue-400 to-blue-600 xs:h-[40px] h-[50px] w-[50px] top-[36%] after:hidden before:hidden bg-gradient-to-r dark:from-pink-400 dark:to-yellow-500 flex flex-col items-center justify-center rounded-full">
+                  <CaretLeft
+                    className="xs:h-[18px] xs:w-[18px] xxs:h-[18px] xxs:w-[18px]"
+                    size={22}
+                    color="white"
+                    weight="bold"
+                  />
+                </span>
+                <span className="flicking-arrow-next xs:hidden xxs:w-[40px] xxs:h-[40px] xs:w-[40px] from-blue-400 to-blue-600 xs:h-[40px] h-[50px] w-[50px] top-[36%] after:hidden before:hidden bg-gradient-to-r dark:from-pink-400 dark:to-yellow-500 flex flex-col items-center justify-center rounded-full">
+                  <CaretRight
+                    className="xs:h-[18px] xs:w-[18px] xxs:h-[18px] xxs:w-[18px]"
+                    size={22}
+                    color="white"
+                    weight="bold"
+                  />
+                </span>
+              </ViewportSlot>
             </Flicking>
           </div>
 
@@ -305,7 +397,7 @@ const Index: React.FC = () => {
                 md={7}
                 lg={7}
                 xl={6}
-                className="md:px-3 max-w-[600px] pt-6"
+                className="md:px-3 max-w-[600px] pt-6 xs:pt-4 xxs:pt-4"
               >
                 {/* <div className="pt-2 pb-6 pl-6 flex">
                   <Title
@@ -326,7 +418,7 @@ const Index: React.FC = () => {
                     name: "yXbld5A7Lz.jpg",
                   }}
                 />
-
+                <div className="py-2" />
                 <HorizontalArticleCard
                   title="Every React Developer should know these libraries"
                   description="It’s probably not what you’re expecting"
@@ -396,6 +488,7 @@ const Index: React.FC = () => {
                     name: "DBLa8Z0Int.jpg",
                   }}
                 />
+                <div className="py-2" />
 
                 <VerticalArticleCard
                   title="The Biggest Contribution Of Seo To Humanity."
@@ -410,6 +503,7 @@ const Index: React.FC = () => {
                     name: "yXbld5A7Lz.jpg",
                   }}
                 />
+                <div className="py-2" />
 
                 <HorizontalArticleCard
                   title="Every React Developer should know these libraries"
@@ -454,7 +548,7 @@ const Index: React.FC = () => {
                 />
               </Col>
               <Col
-                className="xs:hidden xxs:hidden md:hidden sm:hidden lg:hidden"
+                className="xs:hidden xxs:hidden md:hidden sm:hidden lg:hidden pl-10"
                 span={6}
                 md={6}
                 lg={3}
@@ -474,6 +568,7 @@ const Index: React.FC = () => {
                     description="Educational YouTube channels are the best. Here is the list of
                 my personal favorites. Feel free to add more!"
                   />
+                  <div className="py-1" />
                   <HorizontalArticleCard
                     title="All You Need to Know About Hiring Python Experts for Your
                 Project"

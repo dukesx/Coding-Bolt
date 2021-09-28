@@ -639,24 +639,24 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
                 hideCloseButton
                 zIndex={2500}
               >
-                <Text className="text-lg text-center font-medium mb-8 uppercase dark:border-transparent dark:bg-[#25262b]  border border-l-[6px] border-b-[6px] p-2 border-gray-600">
+                <Text className="text-lg py-2 text-center font-medium mb-4 uppercase w-full bg-gray-100 dark:bg-manLightDark">
                   Choose a type
                 </Text>
 
                 <Group withGutter direction="column" className="justify-evenly">
                   <Link passHref href="/create/article">
                     <a className="block w-full">
-                      <div className="p-4 hover:border-r-4 rounded-sm border-yellow-600 w-full transition-all ease-in">
+                      <div className="p-4 hover:bg-gray-100 dark:hover:bg-manLightDark rounded-sm w-full transition-all ease-in">
                         <Group>
-                          <Text>
-                            <Article weight="regular" size={50} />
+                          <Text className="bg-gradient-to-r from-blue-500 to-blue-600 dark:from-pink-400 dark:to-yellow-600 rounded-full p-2">
+                            <Article color="white" weight="light" size={40} />
                           </Text>
                           <Group direction="column" className="ml-1">
-                            <Text className="text-base font-medium mt-1 uppercase mb-1">
+                            <Text className="text-base mt-1 uppercase mb-1 font-medium">
                               Article
                             </Text>
                             <Text
-                              className="text-xs font-semibold mt-0 uppercase"
+                              className="text-xs font-segoe font-medium mt-0 uppercase"
                               color="gray"
                             >
                               Everyday stories
@@ -669,17 +669,21 @@ const Nav: React.FC<NavProps> = ({ session, loading, signOut, signIn }) => {
 
                   <Link passHref href="/create/list">
                     <a className="block w-full">
-                      <div className="p-4 rounded-sm hover:border-r-4 border-yellow-600 w-full transition-all ease-in-out duration-100">
+                      <div className="p-4 rounded-sm hover:bg-gray-100 dark:hover:bg-manLightDark w-full transition-all ease-in-out duration-100">
                         <Group>
-                          <Text>
-                            <ListNumbers weight="regular" size={50} />
+                          <Text className="bg-gradient-to-r from-blue-500 to-blue-600 dark:from-pink-400 dark:to-yellow-600 rounded-full p-2">
+                            <ListNumbers
+                              weight="light"
+                              color="white"
+                              size={40}
+                            />
                           </Text>
                           <Group direction="column" className="ml-1">
-                            <Text className="text-base font-medium mt-1 uppercase mb-1">
+                            <Text className="text-base mt-1 uppercase mb-1 font-medium">
                               List
                             </Text>
                             <Text
-                              className="text-xs font-semibold mt-0 uppercase"
+                              className="text-xs font-medium font-segoe mt-0 uppercase"
                               color="gray"
                             >
                               Ranked/Numbered Entries

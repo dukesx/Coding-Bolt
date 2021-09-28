@@ -27,19 +27,19 @@ const HorizontalArticleCard: React.FC<ArticleCardProps> = ({
         ) : null}
 
         <Group
-          className="ml-4 max-w-[600px] xxs:max-w-[240px] sm:max-w-[70%] xs:max-w-[290px] lg:max-w-[70%] md:max-w-[70%] xl:max-w-[80%] xxl:max-w-[80%]"
+          className="ml-4 block xxs:max-w-[70%] xs:max-w-[70%] max-w-[80%]"
           direction="column"
         >
           <Link passHref href={`/article/${title.replace(/ /g, "-")}`}>
             <Text
               component="a"
               lineClamp={2}
-              className="my-1 font-semibold focus:shadow-none block clamp-2"
+              className="my-1 font-medium focus:shadow-none block clamp-2"
             >
               {title}
             </Text>
           </Link>
-          <Text>{description ? description : null}</Text>
+          <Text className="clamp-2">{description ? description : null}</Text>
         </Group>
       </Group>
     </Card>
