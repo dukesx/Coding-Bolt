@@ -3,7 +3,7 @@ import Nav from "./nav";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "lib/supabaseClient";
-import Flicking from "@egjs/react-flicking";
+// import Flicking from "@egjs/react-flicking";
 import ReactOrignalIcon from "react-devicons/react/original";
 import AngularjsOriginalIcon from "react-devicons/angularjs/original";
 import DartOriginalIcon from "react-devicons/dart/original";
