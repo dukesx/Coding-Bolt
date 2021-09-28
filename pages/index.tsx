@@ -25,8 +25,6 @@ import {
   CaretLeft,
   Bell,
   BellRinging,
-  ArrowLeft,
-  ArrowRight,
 } from "phosphor-react";
 import { Arrow, Fade } from "@egjs/flicking-plugins";
 
