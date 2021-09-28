@@ -3,7 +3,7 @@ import Nav from "./nav";
 // import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "lib/supabaseClient";
-// import Flicking from "@egjs/react-flicking";
+import Flicking from "@egjs/react-flicking";
 import ReactOrignalIcon from "react-devicons/react/original";
 import AngularjsOriginalIcon from "react-devicons/angularjs/original";
 import DartOriginalIcon from "react-devicons/dart/original";
@@ -37,7 +37,7 @@ const Wrapper = (props: any) => {
       fluid
     >
       <Nav session={session} />
-      {/* <div className="bg-gray-100 p-2 dark:bg-transparent">
+      <div className="bg-gray-100 p-2 dark:bg-transparent">
         <Flicking
           hideBeforeInit={true}
           align="center"
@@ -211,7 +211,7 @@ const Wrapper = (props: any) => {
             </Button>
           </div>
         </Flicking>
-      </div> */}
+      </div>
       <Container className="xs:p-0 xxs:p-0 pt-0 px-0" size={1660}>
         {props.children}
       </Container>
