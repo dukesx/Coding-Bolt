@@ -46,7 +46,7 @@ const Index: React.FC = () => {
               align="center"
               horizontal
               id="newer"
-              // resizeOnContentsReady
+              resizeOnContentsReady
               plugins={[new Arrow(), new Fade()]}
               adaptive
               circular={true}
