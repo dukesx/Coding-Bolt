@@ -3,7 +3,7 @@ import Nav from "./nav";
 // import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "lib/supabaseClient";
-// import Flicking from "@egjs/react-flicking";
+import Flicking from "@egjs/react-flicking";
 import ReactOrignalIcon from "react-devicons/react/original";
 import AngularjsOriginalIcon from "react-devicons/angularjs/original";
 import DartOriginalIcon from "react-devicons/dart/original";
@@ -11,15 +11,6 @@ import VuejsOriginalIcon from "react-devicons/vuejs/original";
 import SvelteOriginalIcon from "react-devicons/svelte/original";
 import dynamic from "next/dynamic";
 
-const Flicker = dynamic(() => import("@egjs/react-flicking"), {
-  loading: () => (
-    <div className="flex w-full flex-col items-center">
-      <Text className="my-4">Loading... </Text>
-      <Loader />
-    </div>
-  ),
-  ssr: false,
-});
 const Wrapper = (props: any) => {
   const [session, setSession] = useState(null);
   const sessioner = supabase.auth.session();
@@ -48,7 +39,7 @@ const Wrapper = (props: any) => {
     >
       <Nav session={session} />
       <div className="bg-gray-100 p-2 dark:bg-transparent">
-        <Flicker
+        <Flicking
           // hideBeforeInit={true}
           align="center"
           horizontal
@@ -220,7 +211,7 @@ const Wrapper = (props: any) => {
               Svelte
             </Button>
           </div>
-        </Flicker>
+        </Flicking>
       </div>
       <Container className="xs:p-0 xxs:p-0 pt-0 px-0" size={1660}>
         {props.children}
