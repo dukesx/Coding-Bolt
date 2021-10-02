@@ -17,23 +17,3 @@ export interface ImageProps {
   avatar?: boolean;
   fill?: boolean;
 }
-
-export interface NavProps {
-  session?: any;
-  loading?: boolean;
-  signIn?: any;
-  signOut?: any;
-}
-
-export interface ArticleCardProps {
-  title: string;
-  description?: string;
-  cover?: {
-    width?: number;
-    height?: number;
-    hash?: string;
-    alt?: string;
-    name?: string;
-    preload?: boolean;
-  };
-}

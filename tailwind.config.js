@@ -7,20 +7,13 @@ module.exports = {
     content: [
       "./pages/**/*.{js,ts,jsx,tsx}",
       "./components/**/*.{js,ts,jsx,tsx}",
+      "./lib/editor/**/*.{js,ts,jsx,tsx}",
     ],
   },
   darkMode: "class",
   theme: {
-    backgroundColor: (theme) => ({
-      ...theme("colors"),
-      antdark: "#141414",
-    }),
     fontFamily: {
-      sans: ["ui-sans-serif", "system-ui"],
-      serif: ["ui-serif", "Georgia"],
       mono: ["ui-monospace", "SFMono-Regular"],
-      norms: ["TT Norms Pro"],
-      avenir: ["Avenir Next Cyr"],
       segoe: ["Segoe UI"],
       inter: ["Inter"],
     },
@@ -77,10 +70,6 @@ module.exports = {
       xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
       "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
-      inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
-      none: "none",
-      blue: "3px 4px 8px 1px rgb(59 130 246 / 29%), 0 2px 4px -1px rgb(59 130 246 / 91%)",
-      red: "3px 4px 8px 1px #ff7875, 0 2px 4px -1px #ff4d4f",
     },
     objectPosition: {
       profileCover: "0px -151px",
