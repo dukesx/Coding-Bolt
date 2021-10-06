@@ -2,7 +2,6 @@
 import { ImageProps } from "types/defaults";
 import Image from "next/image";
 import { useState } from "react";
-import { Text } from "@mantine/core";
 
 const Imager: React.FC<ImageProps> = ({
   name,
@@ -45,9 +44,9 @@ const Imager: React.FC<ImageProps> = ({
         }}
       />
       {caption ? (
-        <Text className="font-medium text-sm mt-3 text-center italic font-semibold">
+        <div className="font-medium text-sm mt-3 text-center italic font-semibold">
           {caption}
-        </Text>
+        </div>
       ) : null}
     </div>
   );

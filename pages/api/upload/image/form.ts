@@ -44,6 +44,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                   success: 1,
                   file: {
                     url: `https://${process.env.NEXT_PUBLIC_IMAGE_CDN_PATH}/tr:n-400x/${name}`,
+                    //@ts-ignore
                     hash: response1.data.hash,
                   },
                 });

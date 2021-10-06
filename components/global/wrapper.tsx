@@ -1,4 +1,3 @@
-import { Container, Button, Text, Loader } from "@mantine/core";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "lib/supabaseClient";
 
@@ -20,17 +19,20 @@ const Wrapper = (props: any) => {
   }, [sessioner]);
   // const plugins = [new Arrow()];
   return (
-    <Container
+    <div
       className="w-full"
       style={{
         padding: 0,
       }}
-      fluid
+      // fluid
     >
-      <Container className="xs:p-0 xxs:p-0 pt-0 px-0" size={1660}>
+      <div
+        className="xs:p-0 xxs:p-0 pt-0 px-0"
+        //  size={1660}
+      >
         {props.children}
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 
