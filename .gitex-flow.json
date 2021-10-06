@@ -12,13 +12,10 @@
     "projectConfig": {
         "projectPath": "./",
         "autoStash": true,
-        "changelogFileName": "CHANGELOG.md",
-        "storeLatestChangelog": false,
-        "conventionalChangelogPresent": "angular",
         "changelog": {
             "type": "ConventionalChangelog",
             "changelogFileName": "CHANGELOG.md",
-            "storeLatestChangelog": false,
+            "storeLatestChangelog": true,
             "conventionalChangelogPresent": "angular"
         },
         "conventionalCommit": {
