@@ -7,17 +7,14 @@ jobs:
       - image: circleci/node:16.6.2
     steps:
       - checkout
-      # - run:
-      #     name: Update NPM
-      #     command: "sudo npm install -g npm"
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
             - ./.next/cache
       - run:
           name: Install Dependencies
-          command: npm install
+          command: yarn
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
@@ -25,4 +22,4 @@ jobs:
             - ./.next/cache
       - run:
           name: Run Next JS Build
-          command: npm run build
+          command: yarn lint
