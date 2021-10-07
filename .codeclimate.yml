@@ -1,11 +1,8 @@
-version: "2" # required to adjust maintainability checks
-plugins:
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
   eslint:
-  enabled: true
-  config:
-    extensions:
-      - .es6
-      - .js
-      - .jsx
-      - .tsx
-      - .ts
+    enabled: true
