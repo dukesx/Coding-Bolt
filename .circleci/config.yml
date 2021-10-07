@@ -7,19 +7,19 @@ jobs:
       - image: circleci/node:16.6.2
     steps:
       - checkout
-      # - restore_cache:
-      #     key: dependency-cache-{{ checksum "yarn.lock" }}
-      #     paths:
-      #       - ./node_modules
-      #       - ./.next/cache
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+            - ./.next/cache
       - run:
           name: Install Dependencies
           command: npm install
-      # - save_cache:
-      #     key: dependency-cache-{{ checksum "yarn.lock" }}
-      #     paths:
-      #       - ./node_modules
-      #       - ./.next/cache
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+            - ./.next/cache
       - run:
-          name: Run Lint
-          command: npm run lint
+          name: Run Build
+          command: yarn build
