@@ -14,12 +14,12 @@ jobs:
             - ./.next/cache
       - run:
           name: Install Dependencies
-          command: yarn
+          command: yarn install --frozen-lockfile
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
             - ./.next/cache
       - run:
-          name: Run Next JS Build
+          name: Run Lint
           command: yarn lint
