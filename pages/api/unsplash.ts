@@ -1,9 +1,13 @@
 import { createApi } from "unsplash-js";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const unsplash = createApi({
   accessKey: process.env.UNSPLASH_API,
 });
-export default function returnUnsplash(req, res) {
+export default function returnUnsplash(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { search } = req.body;
   return new Promise((resolve, reject) => {
     unsplash.search

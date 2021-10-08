@@ -1,8 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import type { NextApiRequest, NextApiResponse } from "next";
-const axios = require("axios");
-const path = require("path");
-export default function (req, res) {
+import axios, { AxiosResponse } from "axios";
+export default function (req: NextApiRequest, res: NextApiResponse) {
   const { name } = req.body;
 
   return new Promise((resolve, reject) => {
@@ -12,7 +11,7 @@ export default function (req, res) {
           AccessKey: process.env.BUCKET_KEY,
         },
       })
-      .then((reso) => {
+      .then((reso: AxiosResponse) => {
         res.send(
           JSON.stringify({
             response: "deleted",

@@ -1,8 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import type { NextApiRequest, NextApiResponse } from "next";
 const axios = require("axios").default;
-const fs = require("fs");
-const path = require("path");
+import path from "path";
 import { customAlphabet } from "nanoid";
 //
 const nanoid = customAlphabet(
