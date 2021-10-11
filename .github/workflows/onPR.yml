@@ -4,21 +4,22 @@ on: pull_request
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+
+      - uses: actions/cache@v2
         with:
-          node-version: "16.x"
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      # Install dependencies
-      - run: yarn --frozen-lock-file
+      - name: Install packages
+        run: yarn install
 
-      # Build and output webpack stats to artifacts/webpack-stats.json
       - run: yarn build
-
-      # Send webpack stats and build information to RelativeCI
-      - name: Send webpack stats to RelativeCI
-        uses: relative-ci/agent-action@v1.1.0
-        with:
-          webpackStatsFile: ./artifacts/bundle-stats.json
-          key: ${{ secrets.RELATIVE_CI_KEY }}
+        env:
+          RELATIVE_CI_KEY: ${{ secrets.RELATIVE_CI_KEY }}

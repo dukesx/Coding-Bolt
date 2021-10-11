@@ -1,19 +1,31 @@
-// const withBundleAnalyzer = require("@next/bundle-analyzer")({
-//   enabled: process.env.ANALYZE === "true",
-// });
+const { StatsWriterPlugin } = require("webpack-stats-plugin");
+const { RelativeCiAgentWebpackPlugin } = require("@relative-ci/agent");
 
-const withBundleStats = require("next-plugin-bundle-stats")({
-  outDir: "../artifacts",
-  stats: {
-    context: "./src", // optional, will improve readability of the paths
-    assets: true,
-    entrypoints: true,
-    chunks: true,
-    modules: true,
-  },
-  json: true,
-});
-
-module.exports = withBundleStats({
+module.exports = {
   reactStrictMode: true,
-});
+  webpack: function (config, options) {
+    const { dev, isServer } = options;
+
+    if (!dev && !isServer) {
+      config.plugins.push(
+        new RelativeCiAgentWebpackPlugin({
+          stats: { excludeAssets: [/stats.json/] },
+        })
+      );
+    }
+    config.plugins.push(
+      new StatsWriterPlugin({
+        filename: "stats.json",
+        stats: {
+          context: "./", // optional, will improve readability of the paths
+          assets: true,
+          entrypoints: true,
+          chunks: true,
+          modules: true,
+        },
+      })
+    );
+
+    return config;
+  },
+};
