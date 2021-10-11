@@ -1,3 +1,5 @@
+import { Session } from "@supabase/gotrue-js";
+
 // import { Auth, GoogleAuthProvider, UserCredential } from "firebase/auth";
 export interface ImageProps {
   name: string;
@@ -16,4 +18,8 @@ export interface ImageProps {
   };
   avatar?: boolean;
   fill?: boolean;
+}
+
+export interface NavProps {
+  session?: Session;
 }

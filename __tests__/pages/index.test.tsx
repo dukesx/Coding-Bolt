@@ -4,9 +4,9 @@ import Index from "../../pages/index";
 import "@testing-library/jest-dom";
 
 describe("Index Page", () => {
-  test("Is Working", async () => {
-    const { findByText } = render(<Index />);
-    const element = await findByText("Hmmmmm....What are you waiting for ?");
+  test("Wrapper Is Rendered", async () => {
+    const { findByTestId } = render(<Index />);
+    const element = await findByTestId("wrapper");
     expect(element).toBeInTheDocument();
   });
 });

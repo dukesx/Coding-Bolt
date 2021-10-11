@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { supabase } from "lib/supabaseClient";
-
+import { supabase } from "../../lib/supabaseClient";
+import { Container } from "@mantine/core";
+import Nav from "components/global/nav";
+import { Session } from "@supabase/gotrue-js";
 const Wrapper = (props: any) => {
   const [session, setSession] = useState(null);
   const sessioner = supabase.auth.session();
@@ -19,20 +21,22 @@ const Wrapper = (props: any) => {
   }, [sessioner]);
   // const plugins = [new Arrow()];
   return (
-    <div
-      className="w-full"
+    <Container
+      data-testid="wrapper"
+      className="w-full max-w-[1600px]"
       style={{
         padding: 0,
       }}
       // fluid
     >
-      <div
+      <Nav session={session} />
+      <Container
         className="xs:p-0 xxs:p-0 pt-0 px-0"
         //  size={1660}
       >
         {props.children}
-      </div>
-    </div>
+      </Container>
+    </Container>
   );
 };
 

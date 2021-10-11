@@ -1,7 +1,8 @@
 module.exports = {
   roots: ["<rootDir>"],
+  moduleDirectories: ["node_modules", "."],
   testEnvironment: "jsdom",
-  moduleFileExtensions: ["ts", "tsx", "js", "json", "jsx"],
+  moduleFileExtensions: ["tsx", "json", "jsx", "js", "ts"],
   testPathIgnorePatterns: ["<rootDir>[/\\\\](node_modules|.next)[/\\\\]"],
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(ts|tsx|js|jsx)$"],
   transform: {
@@ -15,4 +16,5 @@ module.exports = {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
   },
+  setupFiles: ["dotenv/config"],
 };

@@ -13,6 +13,9 @@ import {
   useLocalStorageValue,
   useColorScheme,
 } from "@mantine/hooks";
+import { useEffect, useState } from "react";
+import Loading from "../components/global/pageLoading";
+import { useRouter } from "next/router";
 
 /**
  *
@@ -32,11 +35,68 @@ export default function App(props: AppProps): JSX.Element {
     defaultValue: preferredColorScheme,
   });
 
-  const toggleColorScheme = (value?: ColorScheme) =>
+  const toggleColorScheme = (value?: ColorScheme) => {
     //@ts-ignore
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+  };
+
+  /**
+   * React-NProgress
+   *
+   */
+
+  useEffect(() => {
+    if (typeof window) {
+      if (colorScheme == "dark") {
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+      }
+    }
+  }, [colorScheme]);
 
   useHotkeys([["mod+J", () => toggleColorScheme()]]);
+
+  const router = useRouter();
+
+  const [state, setState] = useState({
+    isRouteChanging: false,
+    loadingKey: 0,
+  });
+
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      setState((prevState) => ({
+        ...prevState,
+        isRouteChanging: true,
+        loadingKey: prevState.loadingKey ^ 1,
+      }));
+    };
+
+    const handleRouteChangeEnd = () => {
+      setState((prevState) => ({
+        ...prevState,
+        isRouteChanging: false,
+      }));
+    };
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+    router.events.on("routeChangeComplete", handleRouteChangeEnd);
+    router.events.on("routeChangeError", handleRouteChangeEnd);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+      router.events.off("routeChangeComplete", handleRouteChangeEnd);
+      router.events.off("routeChangeError", handleRouteChangeEnd);
+    };
+  }, [router.events]);
+
+  /**
+   * React-NProgress
+   *
+   */
 
   /**
    *
@@ -50,6 +110,8 @@ export default function App(props: AppProps): JSX.Element {
    */
   return (
     <>
+      <Loading isRouteChanging={state.isRouteChanging} key={state.loadingKey} />
+
       <Head>
         <title>Page title</title>
         <meta
@@ -65,6 +127,7 @@ export default function App(props: AppProps): JSX.Element {
           theme={{
             /** Put your mantine theme override here */
             colorScheme: colorScheme,
+            fontFamily: "'Inter', Segoe UI, Sans-serif",
           }}
         >
           <NormalizeCSS />
