@@ -12,6 +12,7 @@ yarn-error.log
 .eslintcache
 
 
+
 # Remove Environment Variables
 .env
 .env.local
@@ -32,3 +33,6 @@ out
 
 # Supabase
 .supabase
+
+#relative Ci
+artifacts

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Frame from "lib/editor/plugins/embeds";
+import Frame from "../../lib/editor/plugins/embeds/index";
 
-const Editor = (props: any) => {
+const Editor = (props) => {
   const [val, setVal] = useState(null);
   useEffect(() => {
     const EditorJS = require("@editorjs/editorjs");
-    const ImageTool = require("lib/editor/plugins/imageUpload/bundle");
+    const ImageTool = require("../../lib/editor/plugins/imageUpload/bundle");
     const Table = require("@editorjs/table");
     const InlineCode = require("@editorjs/inline-code");
     const Checklist = require("@editorjs/checklist");
@@ -22,13 +22,13 @@ const Editor = (props: any) => {
       placeholder: props.placeholder
         ? props.placeholder
         : "Hello There ! Care to Start Writing ? 😁😅",
-      onChange: (val: any) => {
+      onChange: (val) => {
         editor
           .save()
-          .then((outputData: any) => {
+          .then((outputData) => {
             onChange(outputData);
           })
-          .catch((error: any) => {
+          .catch((error) => {
             // console.log("Saving failed: ", error);
           });
       },
@@ -101,17 +101,23 @@ const Editor = (props: any) => {
         // console.log("Editor.js is ready to work!");
         /** Do anything you need after editor initialization */
       })
-      .catch((reason: any) => {
+      .catch((reason) => {
         console.log(reason);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onChange = (val: any) => {
+  const onChange = (val) => {
     props.setData(val);
   };
 
-  return <div className="font-display" id={props.id ? props.id : "content"} />;
+  return (
+    <div
+      className="font-display"
+      data-testid={props.id ? props.id : "content"}
+      id={props.id ? props.id : "content"}
+    />
+  );
 };
 
 export default Editor;
