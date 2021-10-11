@@ -11,10 +11,10 @@ jobs:
           node-version: "16.x"
 
       # Install dependencies
-      - run: yarn
+      - run: yarn --frozen-lock-file
 
       # Build and output webpack stats to artifacts/webpack-stats.json
-      - run: yarn build --frozen-lock-file
+      - run: yarn build
 
       # Send webpack stats and build information to RelativeCI
       - name: Send webpack stats to RelativeCI
