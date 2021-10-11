@@ -93,7 +93,7 @@ const Nav: React.FC<NavProps> = ({ session }) => {
         onClose={() => setDrawer(false)}
         noCloseOnClickOutside={signIn ? true : false}
         hideCloseButton
-        className="p-0 hover:shadow"
+        className="p-0 hover:shadow focus:shadow"
         padding="xs"
       >
         <div className="h-[159px] flex flex-col items-center justify-center mt-1 w-full relative bg-transparent z-50">
