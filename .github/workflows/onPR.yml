@@ -11,14 +11,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Restore NPM Cache
       - uses: actions/cache@v2
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install packages
         run: yarn install
-      - name: Restore Next Cache
       - uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/.next/cache
