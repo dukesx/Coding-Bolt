@@ -1,6 +1,6 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
+// const withBundleAnalyzer = require("@next/bundle-analyzer")({
+//   enabled: process.env.ANALYZE === "true",
+// });
 
 const withBundleStats = require("next-plugin-bundle-stats")({
   outDir: "../artifacts",
