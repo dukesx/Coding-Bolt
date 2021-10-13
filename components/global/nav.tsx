@@ -96,9 +96,9 @@ const Nav: React.FC<NavProps> = ({ session }) => {
         className="p-0 hover:shadow focus:shadow"
         padding="xs"
       >
-        <div className="h-[159px] flex flex-col items-center justify-center mt-1 w-full relative bg-transparent z-50">
+        <div className="h-[159px] flex flex-col items-center justify-center mt-0 w-full relative bg-black bg-opacity-25 z-50">
           <div className="flex">
-            <Avatar radius="xl" className="rounded-full" size={80}>
+            <Avatar radius="xl" className="rounded-full" size={90}>
               <Image
                 height={120}
                 width={120}
@@ -116,7 +116,7 @@ const Nav: React.FC<NavProps> = ({ session }) => {
         </div>
         <div className="absolute w-full top-0">
           <Image
-            className="blur-[2px] brightness-75"
+            className="blur-[2px]"
             height={200}
             width={400}
             src={CoverPlaceholder}
