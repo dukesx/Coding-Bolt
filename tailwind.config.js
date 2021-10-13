@@ -48,6 +48,8 @@ module.exports = {
         dark: "#191919",
         manDark: "#1a1b1e",
         manLightDark: "#25262b",
+        manLightHover: "#F8F9FA",
+        manDarkHover: "#2C2E33",
       },
       width: {
         "100px": "100px",

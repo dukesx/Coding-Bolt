@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import Loading from "../components/global/pageLoading";
 import { useRouter } from "next/router";
+import "@egjs/react-flicking/dist/flicking.css";
 
 /**
  *

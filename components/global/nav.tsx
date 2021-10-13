@@ -2,20 +2,46 @@ import {
   Grid,
   Col,
   useMantineColorScheme,
+  Button,
   Text,
   Avatar,
+  Accordion,
   Drawer,
+  Divider,
+  List,
   Modal,
 } from "@mantine/core";
-import { Lightning, Sun, MoonStars, List, SmileyWink } from "phosphor-react";
+import {
+  Lightning,
+  Sun,
+  MoonStars,
+  List as ListIcon,
+  Trophy,
+  Fire,
+  DiscordLogo,
+  GithubLogo,
+  Student,
+  Heart,
+  BookmarkSimple,
+  Rss,
+  Heartbeat,
+  BellRinging,
+} from "phosphor-react";
+import GoogleOrignalIcon from "react-devicons/google/original";
+import GithubOriginalIcon from "react-devicons/github/original";
 import { useState } from "react";
 import { NavProps } from "../../types/defaults";
 import Image2 from "./image";
 import Image from "next/image";
 import CoverPlaceholder from "../../public/assets/images/asset-placeholder-cover.jpg";
 import PlaceholderAvatar from "../../public/assets/images/asset-placeholder-avatar.jpg";
-
-const Nav: React.FC<NavProps> = ({ session }) => {
+import ListVar1 from "./lists/var-1";
+/**
+ * The Nav Component
+ * @param {Session} session
+ * @param {SupabaseClient} supabase
+ **/
+const Nav: React.FC<NavProps> = ({ session, supabase }) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [drawer, setDrawer] = useState(false);
   const [signIn, setSignIn] = useState(false);
@@ -45,8 +71,8 @@ const Nav: React.FC<NavProps> = ({ session }) => {
                   session.user.user_metadata.full_name.split(" ")[1].charAt(0)
                 )
               ) : (
-                <SmileyWink
-                  size={24}
+                <ListIcon
+                  size={20}
                   // className="mx-0.5"
                   color={colorScheme == "dark" ? "#FAB005" : "#228BE6"}
                   weight="duotone"
@@ -89,14 +115,14 @@ const Nav: React.FC<NavProps> = ({ session }) => {
       </nav>
       <Drawer
         opened={drawer}
-        noFocusTrap={signIn ? true : false}
+        noFocusTrap={true}
         onClose={() => setDrawer(false)}
         noCloseOnClickOutside={signIn ? true : false}
         hideCloseButton
         className="p-0 hover:shadow focus:shadow"
         padding="xs"
       >
-        <div className="h-[159px] flex flex-col items-center justify-center mt-0 w-full relative bg-black bg-opacity-30 z-50">
+        <div className="h-[160px] flex flex-col items-center justify-center mt-0 w-full relative bg-black bg-opacity-30 z-50">
           <div className="flex">
             <Avatar radius="xl" className="rounded-full" size={90}>
               <Image
@@ -109,8 +135,25 @@ const Nav: React.FC<NavProps> = ({ session }) => {
               />
             </Avatar>
             <div className="flex flex-col ml-4 mt-4 font-semibold">
-              <Text className="text-sm text-white">Muhammad Afzaal Afridi</Text>
-              <Text className="text-sm text-white">Administrator</Text>
+              <Text className="text-sm text-white">
+                {session ? session.user.user_metadata.full_name : "Guest"}
+              </Text>
+              <Text className="text-xs text-white mt-1">Administrator</Text>
+              {session ? (
+                <Text
+                  className="text-xs mt-1 text-white cursor-pointer"
+                  onClick={() => supabase.auth.signOut()}
+                >
+                  Sign out
+                </Text>
+              ) : (
+                <Text
+                  className="text-xs mt-1 text-white cursor-pointer"
+                  onClick={() => setSignIn(true)}
+                >
+                  Sign in
+                </Text>
+              )}
             </div>
           </div>
         </div>
@@ -124,7 +167,54 @@ const Nav: React.FC<NavProps> = ({ session }) => {
             placeholder="blur"
           />
         </div>
+        <div className="p-2">
+          <Button
+            variant="gradient"
+            gradient={{
+              from: colorScheme == "dark" ? "yellow" : "blue",
+              to: colorScheme == "dark" ? "orange" : "indigo",
+            }}
+            className="w-full"
+          >
+            Start Writing!
+          </Button>
+        </div>
+        <div className="mt-2 font-medium text-xs ">
+          <ListVar1
+            title="Courses"
+            icon={<Student color="#4C6EF5" weight="fill" size={24} />}
+          />
+
+          <Divider
+            className="px-8"
+            labelPosition="center"
+            label="Leaderboards"
+          />
+          <ListVar1
+            title="Bolt-ing"
+            icon={<Lightning color="#FAB005" weight="duotone" size={24} />}
+          />
+
+          <ListVar1
+            title="HOT!"
+            icon={<Fire color="#E8590C" weight="duotone" size={24} />}
+          />
+
+          <ListVar1
+            title="All Time Favs"
+            icon={<Trophy color="#FAB005" weight="duotone" size={24} />}
+          />
+        </div>
       </Drawer>
+      <Modal
+        title="Becoming a Part"
+        onClose={() => setSignIn(false)}
+        opened={signIn}
+      >
+        {/**
+         * Awaiting further
+         */}
+      </Modal>
     </header>
   );
 };
