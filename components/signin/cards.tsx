@@ -13,7 +13,7 @@ export const SignInCarouselCard: React.FC<CarouselCardProps> = ({
   icon,
 }) => {
   return (
-    <Card className="w-[400px] xs:w-full xxs:w-full h-[500px] shadow-lg dark:bg-manLightDark m-2">
+    <Card className="dark:bg-manLightDark">
       <Card.Section className="h-[300px]">
         <div className="card-1" />
       </Card.Section>

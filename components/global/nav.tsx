@@ -54,7 +54,7 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
         <Grid
           align="center"
           justify="center"
-          className="shadow-sm py-0 my-0 dark:border-b border-manLightDark"
+          className="shadow-sm py-0 my-0 dark:border-b border-manLightDark w-full"
         >
           <Col span={2}>
             <Avatar
@@ -98,23 +98,44 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
             </Link>
           </Col>
           <Col span={2}>
-            {colorScheme == "dark" ? (
-              <Sun
-                className="cursor-pointer mr-auto xs:ml-auto xxs:ml-auto xs:mr-4 xxs:mr-4"
-                color="#FAB005"
-                weight="duotone"
-                size={24}
-                onClick={() => toggleColorScheme()}
-              />
-            ) : (
-              <MoonStars
-                className="cursor-pointer mr-auto xs:ml-auto xxs:ml-auto xs:mr-4 xxs:mr-4"
-                color="#228BE6"
-                weight="duotone"
-                size={24}
-                onClick={() => toggleColorScheme()}
-              />
-            )}
+            <div className="flex">
+              {session ? (
+                <Text
+                  component="a"
+                  className="mr-6 font-semibold xs:hidden xxs:hidden cursor-pointer"
+                  onClick={() => supabase.auth.signOut()}
+                >
+                  Sign out
+                </Text>
+              ) : (
+                <Link href="/signin" passHref>
+                  <Text
+                    component="a"
+                    className="mr-6 font-semibold xs:hidden xxs:hidden"
+                  >
+                    Sign in
+                  </Text>
+                </Link>
+              )}
+
+              {colorScheme == "dark" ? (
+                <Sun
+                  className="cursor-pointer mr-auto xs:ml-auto xxs:ml-auto xs:mr-4 xxs:mr-4"
+                  color="#FAB005"
+                  weight="duotone"
+                  size={24}
+                  onClick={() => toggleColorScheme()}
+                />
+              ) : (
+                <MoonStars
+                  className="cursor-pointer mr-auto xs:ml-auto xxs:ml-auto xs:mr-4 xxs:mr-4"
+                  color="#228BE6"
+                  weight="duotone"
+                  size={24}
+                  onClick={() => toggleColorScheme()}
+                />
+              )}
+            </div>
           </Col>
         </Grid>
       </nav>

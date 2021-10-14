@@ -13,22 +13,28 @@ import {
 import GoogleOrignalIcon from "react-devicons/google/original";
 import GithubOriginalIcon from "react-devicons/github/original";
 import { SignInCarouselCard } from "components/signin/cards";
+import { supabase } from "lib/supabaseClient";
 
 /**
  * Sign in page for authentication
  * @param props
+ * @todo add integration with supabase by passing user in props
  *
  */
 const SignInComponent: React.FC<SigninProps> = (props) => {
   return (
     <Wrapper>
-      <Grid className="mt-20" gutter={24}>
+      <Grid className="mt-20 mb-0 mx-0 w-full" gutter={24}>
         <Col span={12} xs={12} xl={8} lg={8} md={8} sm={7}>
           <Text className="font-black uppercase p-2" size="xl">
             Sign up and Get These Goodies 🤟
           </Text>
-          <Flicking className="p-4 w-full" align="prev" circular>
-            <div>
+          <Flicking
+            className="p-4 dark:bg-transparent w-full drop-shadow-xl"
+            align="prev"
+            circular
+          >
+            <div className="w-[400px] xs:w-full xxs:w-full h-[500px] mx-2 shadow-lg ">
               <SignInCarouselCard
                 title="Favorites"
                 icon={
@@ -42,7 +48,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
                 description="Love creating playlists ? So create your own playlist of favorite articles, and more with just a few clicks"
               />
             </div>
-            <div>
+            <div className="w-[400px] xs:w-full xxs:w-full h-[500px] mx-2 shadow-lg ">
               <SignInCarouselCard
                 title="Bookmarks"
                 icon={
@@ -58,7 +64,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
               PC, Mobile or Tablet"
               />
             </div>
-            <div>
+            <div className="w-[400px] xs:w-full xxs:w-full h-[500px] mx-2 shadow-lg ">
               <SignInCarouselCard
                 title="Customized Feeds"
                 icon={
@@ -73,7 +79,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
               and more to come!"
               />
             </div>
-            <div>
+            <div className="w-[400px] xs:w-full xxs:w-full h-[500px] mx-2 shadow-lg">
               <SignInCarouselCard
                 title="Customized Notifications"
                 icon={
@@ -91,8 +97,16 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
             </div>
           </Flicking>
         </Col>
-        <Col span={12} xs={12} xl={4} lg={4} md={4} sm={5}>
-          <Card className="shadow-lg h-[600px] xxs:h-[350px] max-w-[370px] xs:max-w-full xxs:max-w-full ml-auto xs:ml-0 xxs:ml-0 xs:w-full xxs:w-full xs:h-[450px] dark:bg-manLightDark text-center font-semibold capitalize">
+        <Col
+          span={12}
+          xs={12}
+          xl={4}
+          lg={4}
+          md={4}
+          sm={5}
+          className="xs:p-0 xxs:p-0"
+        >
+          <Card className="border-t-[6px] shadow-lg border-blue-400 dark:border-yellow-600 h-[600px] xxs:h-[350px] max-w-[370px] mt-5 xs:max-w-full xxs:max-w-full ml-auto xs:ml-0 xxs:ml-0 xs:w-full xxs:w-full xs:h-[450px] dark:bg-manLightDark text-center font-semibold capitalize">
             <Text className="mt-5"> Get Started with the speed of ⚡ </Text>
             <Text className="mt-1 mb-5 xxs:w-full mx-auto font-medium text-sm text-center normal-case">
               Simple and Straight-forward Authentication
@@ -103,6 +117,16 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
                 className="my-2.5 mx-auto shadow-lg"
                 variant="white"
                 leftIcon={<GoogleOrignalIcon size={18} />}
+                onClick={() =>
+                  supabase.auth.signIn(
+                    {
+                      provider: "google",
+                    },
+                    {
+                      redirectTo: "/",
+                    }
+                  )
+                }
               >
                 Sign in with Google
               </Button>
