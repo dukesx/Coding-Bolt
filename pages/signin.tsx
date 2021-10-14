@@ -12,7 +12,7 @@ import {
 } from "phosphor-react";
 import GoogleOrignalIcon from "react-devicons/google/original";
 import GithubOriginalIcon from "react-devicons/github/original";
-import SignInCarouselCard from "components/signin/cards";
+import { SignInCarouselCard } from "components/signin/cards";
 
 /**
  * Sign in page for authentication

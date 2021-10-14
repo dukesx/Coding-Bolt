@@ -1,6 +1,13 @@
 import { Card, Text } from "@mantine/core";
 import { CarouselCardProps } from "types/signin/carouselCard";
-const SignInCarouselCard: React.FC<CarouselCardProps> = ({
+
+/**
+ * The Card used inside Carousel, seen on Sign in Page
+ * @param {string} title  - Title of Card
+ * @param {ReactNode} icon - Icon used for Card
+ * @param {string} description - Description of Card
+ */
+export const SignInCarouselCard: React.FC<CarouselCardProps> = ({
   description,
   title,
   icon,
@@ -20,5 +27,3 @@ const SignInCarouselCard: React.FC<CarouselCardProps> = ({
     </Card>
   );
 };
-
-export default SignInCarouselCard;
