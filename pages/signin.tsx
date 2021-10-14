@@ -30,7 +30,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
             Sign up and Get These Goodies 🤟
           </Text>
           <Flicking
-            className="p-4 dark:bg-transparent w-full xs:drop-shadow-xl xxs:drop-shadow-xl"
+            className="p-4 dark:bg-transparent \ w-full xs:drop-shadow-xl xxs:drop-shadow-xl"
             align="prev"
             circular
           >
@@ -114,8 +114,9 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
 
             <div className="text-center mt-16 xxs:mt-2 xs:mt-2 flex flex-col items-center">
               <Button
-                className="my-2.5 mx-auto shadow-lg"
+                className="my-2.5 mx-auto drop-shadow-md h-[40px]"
                 variant="white"
+                color="dark"
                 leftIcon={<GoogleOrignalIcon size={18} />}
                 onClick={() =>
                   supabase.auth.signIn(
@@ -131,16 +132,15 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
                 Sign in with Google
               </Button>
               <Button
-                leftIcon={<GithubOriginalIcon size={21} />}
-                className="my-2.5 shadow-lg"
-                variant="white"
+                leftIcon={<GithubOriginalIcon color="white" size={21} />}
+                className="my-2.5 shadow-lg h-[40px]"
                 color="dark"
               >
                 Sign in with Github
               </Button>
               <Button
                 leftIcon={<DiscordLogo weight="duotone" size={24} />}
-                className="my-2.5 shadow-lg"
+                className="my-2.5 shadow-lg h-[40px]"
                 color="violet"
               >
                 Sign in with Discord
