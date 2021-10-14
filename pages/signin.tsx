@@ -30,7 +30,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
             Sign up and Get These Goodies 🤟
           </Text>
           <Flicking
-            className="p-4 dark:bg-transparent w-full drop-shadow-xl"
+            className="p-4 dark:bg-transparent w-full xs:drop-shadow-xl xxs:drop-shadow-xl"
             align="prev"
             circular
           >
@@ -106,7 +106,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
           sm={5}
           className="xs:p-0 xxs:p-0"
         >
-          <Card className="border-t-[6px] shadow-lg border-blue-400 dark:border-yellow-600 h-[600px] xxs:h-[350px] max-w-[370px] mt-5 xs:max-w-full xxs:max-w-full ml-auto xs:ml-0 xxs:ml-0 xs:w-full xxs:w-full xs:h-[450px] dark:bg-manLightDark text-center font-semibold capitalize">
+          <Card className="border-t-[6px] relative shadow-lg border-blue-400 dark:border-yellow-600 h-[600px] xxs:h-[450px] max-w-[370px] mt-5 xs:max-w-full xxs:max-w-full ml-auto xs:ml-0 xxs:ml-0 xs:w-full xxs:w-full xs:h-[450px] dark:bg-manLightDark text-center font-semibold capitalize">
             <Text className="mt-5"> Get Started with the speed of ⚡ </Text>
             <Text className="mt-1 mb-5 xxs:w-full mx-auto font-medium text-sm text-center normal-case">
               Simple and Straight-forward Authentication
@@ -146,7 +146,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
                 Sign in with Discord
               </Button>
             </div>
-            <div className="-bottom-48 xs:-bottom-14 xxs:-bottom-1 relative">
+            <div className="absolute bottom-5">
               <div className="w-full inline-block normal-case">
                 <Text className="text-xs font-medium" component="span">
                   By clicking
