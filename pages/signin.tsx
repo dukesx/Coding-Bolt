@@ -30,7 +30,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
             Sign up and Get These Goodies 🤟
           </Text>
           <Flicking
-            className="p-4 dark:bg-transparent \ w-full xs:drop-shadow-xl xxs:drop-shadow-xl"
+            className="p-4 dark:bg-transparent bg-gray-100 w-full xs:drop-shadow-xl xxs:drop-shadow-xl"
             align="prev"
             circular
           >
