@@ -1,6 +1,6 @@
 module.exports = {
   roots: ["<rootDir>"],
-  moduleDirectories: ["node_modules", "."],
+  moduleDirectories: ["node_modules", "<rootDir>"],
   testEnvironment: "jsdom",
   moduleFileExtensions: ["tsx", "json", "jsx", "js", "ts"],
   testPathIgnorePatterns: ["<rootDir>[/\\\\](node_modules|.next)[/\\\\]"],
@@ -13,7 +13,7 @@ module.exports = {
     "jest-watch-typeahead/testname",
   ],
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+    "\\.(css|less|sass|scss|jpg)$": "identity-obj-proxy",
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
   },
   setupFiles: ["dotenv/config"],

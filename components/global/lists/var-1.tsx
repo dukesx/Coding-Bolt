@@ -1,4 +1,4 @@
-import { ListProps } from "../../../types/defaults";
+import { ListProps } from "../../../types/global/defaults";
 import { Text } from "@mantine/core";
 
 /**
@@ -12,7 +12,7 @@ const ListVar1: React.FC<ListProps> = ({ title, icon }) => {
       <div className="flex items-center p-3 hover:bg-manLightHover dark:hover:bg-manDarkHover">
         <div className="mr-2">{icon}</div>
         <div>
-          <Text>{title}</Text>
+          <Text className="text-sm">{title}</Text>
         </div>
       </div>
     </div>

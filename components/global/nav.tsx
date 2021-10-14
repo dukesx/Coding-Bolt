@@ -26,16 +26,19 @@ import {
   Rss,
   Heartbeat,
   BellRinging,
+  Tag,
+  Folder,
 } from "phosphor-react";
 import GoogleOrignalIcon from "react-devicons/google/original";
 import GithubOriginalIcon from "react-devicons/github/original";
 import { useState } from "react";
-import { NavProps } from "../../types/defaults";
+import { NavProps } from "../../types/global/defaults";
 import Image2 from "./image";
 import Image from "next/image";
 import CoverPlaceholder from "../../public/assets/images/asset-placeholder-cover.jpg";
 import PlaceholderAvatar from "../../public/assets/images/asset-placeholder-avatar.jpg";
 import ListVar1 from "./lists/var-1";
+import Link from "next/link";
 /**
  * The Nav Component
  * @param {Session} session
@@ -81,16 +84,18 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
             </Avatar>
           </Col>
           <Col className="min-w-[200px]" span={8}>
-            <Text className="flex justify-center font-black text-lg uppercase items-center">
-              Coding
-              <Lightning
-                size={24}
-                className="mx-0.5"
-                color={colorScheme == "dark" ? "#FAB005" : "#228BE6"}
-                weight="duotone"
-              />
-              Bolt
-            </Text>
+            <Link href="/" passHref>
+              <Text className="flex cursor-pointer justify-center font-black text-lg uppercase items-center">
+                Coding
+                <Lightning
+                  size={24}
+                  className="mx-0.5"
+                  color={colorScheme == "dark" ? "#FAB005" : "#228BE6"}
+                  weight="duotone"
+                />
+                Bolt
+              </Text>
+            </Link>
           </Col>
           <Col span={2}>
             {colorScheme == "dark" ? (
@@ -136,9 +141,11 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
             </Avatar>
             <div className="flex flex-col ml-4 mt-4 font-semibold">
               <Text className="text-sm text-white">
-                {session ? session.user.user_metadata.full_name : "Guest"}
+                {session ? session.user.user_metadata.full_name : "Visitor"}
               </Text>
-              <Text className="text-xs text-white mt-1">Administrator</Text>
+              <Text className="text-xs text-white mt-1">
+                {session ? "Member" : ""}
+              </Text>
               {session ? (
                 <Text
                   className="text-xs mt-1 text-white cursor-pointer"
@@ -147,12 +154,11 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
                   Sign out
                 </Text>
               ) : (
-                <Text
-                  className="text-xs mt-1 text-white cursor-pointer"
-                  onClick={() => setSignIn(true)}
-                >
-                  Sign in
-                </Text>
+                <Link href="/signin" passHref>
+                  <Text className="text-xs mt-1 text-white cursor-pointer">
+                    Sign in
+                  </Text>
+                </Link>
               )}
             </div>
           </div>
@@ -181,8 +187,16 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
         </div>
         <div className="mt-2 font-medium text-xs ">
           <ListVar1
+            title="Tags"
+            icon={<Tag color="#BE4BDB" weight="duotone" size={24} />}
+          />
+          <ListVar1
+            title="Categories"
+            icon={<Folder color="#E64980" weight="duotone" size={24} />}
+          />
+          <ListVar1
             title="Courses"
-            icon={<Student color="#4C6EF5" weight="fill" size={24} />}
+            icon={<Student color="#12B886" weight="duotone" size={24} />}
           />
 
           <Divider
@@ -192,12 +206,12 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
           />
           <ListVar1
             title="Bolt-ing"
-            icon={<Lightning color="#FAB005" weight="duotone" size={24} />}
+            icon={<Lightning color="#228BE6" weight="duotone" size={24} />}
           />
 
           <ListVar1
             title="HOT!"
-            icon={<Fire color="#E8590C" weight="duotone" size={24} />}
+            icon={<Fire color="#FA5252" weight="duotone" size={24} />}
           />
 
           <ListVar1

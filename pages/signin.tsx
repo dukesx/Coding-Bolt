@@ -1,5 +1,5 @@
-import { SimpleGrid, Col, Card, Text, Button } from "@mantine/core";
-import { SigninProps } from "types/defaults";
+import { SimpleGrid, Col, Card, Text, Button, Grid } from "@mantine/core";
+import { SigninProps } from "types/global/defaults";
 import Flicking from "@egjs/react-flicking";
 import Wrapper from "components/global/wrapper";
 import {
@@ -12,6 +12,7 @@ import {
 } from "phosphor-react";
 import GoogleOrignalIcon from "react-devicons/google/original";
 import GithubOriginalIcon from "react-devicons/github/original";
+import SignInCarouselCard from "components/signin/cards";
 
 /**
  * Sign in page for authentication
@@ -21,114 +22,85 @@ import GithubOriginalIcon from "react-devicons/github/original";
 const SignInComponent: React.FC<SigninProps> = (props) => {
   return (
     <Wrapper>
-      <SimpleGrid
-        data-testid="signin-grid"
-        className="mt-5"
-        spacing="lg"
-        cols={2}
-        breakpoints={[{ maxWidth: 500, cols: 1 }]}
-      >
-        <div className="">
+      <Grid className="mt-20" gutter={24}>
+        <Col span={12} xs={12} xl={8} lg={8} md={8} sm={7}>
           <Text className="font-black uppercase p-2" size="xl">
             Sign up and Get These Goodies 🤟
           </Text>
-          <Flicking align="prev" circular>
-            <Card className="w-[300px] bg-[#F1F3F5]  dark:bg-manLightDark m-2">
-              <div>
-                <div>
+          <Flicking className="p-4 w-full" align="prev" circular>
+            <div>
+              <SignInCarouselCard
+                title="Favorites"
+                icon={
                   <Heart
                     className="mx-auto"
-                    weight="fill"
-                    size={72}
+                    weight="duotone"
+                    size={150}
                     color="#FA5252"
                   />
-                </div>
-                <div className="text-center mt-2">
-                  <Text className="font-semibold text-lg">Favorites</Text>
-                  <Text className="mt-3 text-sm">
-                    Love creating playlists ? So create your own
-                    {` "playlist" `}
-                    of favorite articles, and more with just a few clicks
-                  </Text>
-                </div>
-              </div>
-            </Card>
-            <Card className="w-[300px] bg-[#F1F3F5]  dark:bg-manLightDark m-2">
-              <div>
-                <div>
+                }
+                description="Love creating playlists ? So create your own playlist of favorite articles, and more with just a few clicks"
+              />
+            </div>
+            <div>
+              <SignInCarouselCard
+                title="Bookmarks"
+                icon={
                   <Bookmarks
                     className="mx-auto"
-                    weight="fill"
-                    size={72}
+                    weight="duotone"
+                    size={150}
                     color="#228BE6"
                   />
-                </div>
-                <div className="text-center mt-2">
-                  <Text className="font-semibold text-lg">Bookmarks</Text>
-                  <Text className="mt-3 text-sm">
-                    Like an article ? Mark it ! read it later or share it with
-                    your friends, your articles are with you, whether you are on
-                    PC, Mobile or Tablet
-                  </Text>
-                </div>
-              </div>
-            </Card>
-            <Card className="w-[300px] bg-[#F1F3F5]  dark:bg-manLightDark m-2">
-              <div>
-                <div>
+                }
+                description=" Like an article ? Mark it ! read it later or share it with
+              your friends, your articles are with you, whether you are on
+              PC, Mobile or Tablet"
+              />
+            </div>
+            <div>
+              <SignInCarouselCard
+                title="Customized Feeds"
+                icon={
                   <Rss
                     className="mx-auto"
-                    weight="fill"
-                    size={72}
+                    weight="duotone"
+                    size={150}
                     color="#FAB005"
                   />
-                </div>
-                <div className="text-center mt-2">
-                  <Text className="font-semibold text-lg">
-                    Customized Feeds
-                  </Text>
-                  <Text className="mt-3 text-sm">
-                    Subscribe to your favorite tags, categories, authors, pages
-                    and more to come!
-                  </Text>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="w-[300px] bg-[#F1F3F5]  dark:bg-manLightDark m-2">
-              <div>
-                <div>
+                }
+                description="Subscribe to your favorite tags, categories, authors, pages
+              and more to come!"
+              />
+            </div>
+            <div>
+              <SignInCarouselCard
+                title="Customized Notifications"
+                icon={
                   <BellRinging
                     className="mx-auto"
-                    weight="fill"
-                    size={72}
+                    weight="duotone"
+                    size={150}
                     color="#ADB5BD"
                   />
-                </div>
-                <div className="text-center mt-2">
-                  <Text className="font-semibold text-lg">
-                    Customized Notifications
-                  </Text>
-                  <Text className="mt-3 text-sm">
-                    Never miss another read with subscriptions, powered by
-                    notifications, not just by email but also through app and
-                    ofcourse, tailored to your needs
-                  </Text>
-                </div>
-              </div>
-            </Card>
+                }
+                description="Never miss another read with subscriptions, powered by
+              notifications, not just by email but also through app and
+              ofcourse, tailored to your needs"
+              />
+            </div>
           </Flicking>
-        </div>
-        <div>
-          <Card className="bg-[#F1F3F5] h-[600px] xxs:h-[350px] xs:h-[450px] dark:bg-manLightDark text-center font-semibold capitalize">
+        </Col>
+        <Col span={12} xs={12} xl={4} lg={4} md={4} sm={5}>
+          <Card className="shadow-lg h-[600px] xxs:h-[350px] max-w-[370px] xs:max-w-full xxs:max-w-full ml-auto xs:ml-0 xxs:ml-0 xs:w-full xxs:w-full xs:h-[450px] dark:bg-manLightDark text-center font-semibold capitalize">
             <Text className="mt-5"> Get Started with the speed of ⚡ </Text>
-            <Text className="mt-1 mb-5 w-[400px] xxs:w-full mx-auto font-medium text-sm normal-case">
+            <Text className="mt-1 mb-5 xxs:w-full mx-auto font-medium text-sm text-center normal-case">
               Simple and Straight-forward Authentication
             </Text>
 
             <div className="text-center mt-16 xxs:mt-2 xs:mt-2 flex flex-col items-center">
               <Button
-                className="my-2.5 mx-auto shadow-md"
+                className="my-2.5 mx-auto shadow-lg"
                 variant="white"
                 leftIcon={<GoogleOrignalIcon size={18} />}
               >
@@ -136,7 +108,7 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
               </Button>
               <Button
                 leftIcon={<GithubOriginalIcon size={21} />}
-                className="my-2.5 shadow-md"
+                className="my-2.5 shadow-lg"
                 variant="white"
                 color="dark"
               >
@@ -144,29 +116,29 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
               </Button>
               <Button
                 leftIcon={<DiscordLogo weight="duotone" size={24} />}
-                className="my-2.5 shadow-md"
+                className="my-2.5 shadow-lg"
                 color="violet"
               >
                 Sign in with Discord
               </Button>
             </div>
             <div className="-bottom-48 xs:-bottom-14 xxs:-bottom-1 relative">
-              <div className="w-full inline-block">
+              <div className="w-full inline-block normal-case">
                 <Text className="text-xs font-medium" component="span">
-                  by clicking
+                  By clicking
                   <Text
                     className="text-xs mx-1"
                     weight="bold"
                     component="span"
-                  >{`"Sign in with"`}</Text>
-                  you hereby agree to
+                  >{`"Sign in"`}</Text>
+                  you hereby agree to our
                   <Text
                     href="#"
                     className="text-xs mx-1 inline"
                     variant="link"
                     component="a"
                   >
-                    our Terms
+                    Terms
                   </Text>
                   and
                   <Text
@@ -180,11 +152,11 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
                 </Text>
               </div>
 
-              <Text className="text-xs mt-1">© 2021, Coding Bolt</Text>
+              <Text className="text-xs mt-2">© 2021 Coding Bolt</Text>
             </div>
           </Card>
-        </div>
-      </SimpleGrid>
+        </Col>
+      </Grid>
     </Wrapper>
   );
 };

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageProps } from "types/defaults";
+import { ImageProps } from "types/global/defaults";
 import Image from "next/image";
 import { useState } from "react";
 
