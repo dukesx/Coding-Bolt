@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <Wrapper>
       <Container size="lg" className="pt-2 px-0">
-        <Grid className="">
+        <Grid className="sm:flex-col-reverse xs:flex-col-reverse xxs:flex-col-reverse w-full">
           <Col span={12} xl={7} lg={7} md={7} sm={7}>
             <Card className="w-full bg-transparent mt-2">
               <div className="flex">
@@ -499,258 +499,260 @@ export default function Home() {
             </Card>
           </Col>
           <Col
-            className="sticky top-0 h-full"
+            className="top-0 xs:relative xxs:relative xs:px-4 sm:relative sticky h-full"
             span={12}
             xl={5}
             lg={5}
             md={5}
             sm={5}
           >
-            <Card className="bg-transparent">
-              <div className="">
-                <div>
-                  <Text className="font-semibold">Top Comments</Text>
+            <div className="xs:flex xs:overflow-x-scroll xs:w-full xxs:flex xxs:overflow-x-scroll xxs:w-full sm:flex sm:overflow-x-scroll sm:w-full">
+              <Card className="bg-transparent min-w-[350px] xxs:min-w-[80%]">
+                <div className="">
+                  <div>
+                    <Text className="font-semibold">Top Comments</Text>
+                  </div>
+                  <div>
+                    <div className="my-2">
+                      <Text className="my-2 text-sm clamp-2">
+                        I dont think this is right, needs rectification
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text
+                            variant="link"
+                            component="a"
+                            href="#"
+                            className="flex items-center"
+                          >
+                            <ArrowSquareOut
+                              className="hover:underline"
+                              size={17}
+                            />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              View article
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <Text className="my-2 text-sm clamp-2">
+                        The list is very acurate, good job👏👏
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text
+                            variant="link"
+                            component="a"
+                            href="#"
+                            className="flex items-center"
+                          >
+                            <ArrowSquareOut
+                              className="hover:underline"
+                              size={17}
+                            />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer font-semibold">
+                              View article
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <Text className="my-2 text-sm clamp-2">
+                        Lets work on something together. Although i think that
+                        the project can make use of alot of improvements
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text
+                            variant="link"
+                            component="a"
+                            href="#"
+                            className="flex items-center"
+                          >
+                            <ArrowSquareOut
+                              className="hover:underline"
+                              size={17}
+                            />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              View article
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <Text className="my-2 text-sm clamp-2">
+                        Awesome work dude 🔥
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text
+                            variant="link"
+                            component="a"
+                            href="#"
+                            className="flex items-center"
+                          >
+                            <ArrowSquareOut
+                              className="hover:underline"
+                              size={17}
+                            />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              View article
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="my-2">
-                    <Text className="my-2 text-sm clamp-2">
-                      I don't think this is right, needs rectification
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text
-                          variant="link"
-                          component="a"
-                          href="#"
-                          className="flex items-center"
-                        >
-                          <ArrowSquareOut
-                            className="hover:underline"
-                            size={17}
-                          />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            View article
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <Text className="my-2 text-sm clamp-2">
-                      The list is very acurate, good job👏👏
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text
-                          variant="link"
-                          component="a"
-                          href="#"
-                          className="flex items-center"
-                        >
-                          <ArrowSquareOut
-                            className="hover:underline"
-                            size={17}
-                          />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer font-semibold">
-                            View article
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <Text className="my-2 text-sm clamp-2">
-                      Let's work on something together. Although i think that
-                      the project can make use of alot of improvements
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text
-                          variant="link"
-                          component="a"
-                          href="#"
-                          className="flex items-center"
-                        >
-                          <ArrowSquareOut
-                            className="hover:underline"
-                            size={17}
-                          />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            View article
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <Text className="my-2 text-sm clamp-2">
-                      Awesome work dude 🔥
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text
-                          variant="link"
-                          component="a"
-                          href="#"
-                          className="flex items-center"
-                        >
-                          <ArrowSquareOut
-                            className="hover:underline"
-                            size={17}
-                          />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            View article
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card className="bg-transparent">
-              <div className="">
-                <div>
-                  <Text className="font-semibold">🔥 Hot! Articles</Text>
+              <Card className="bg-transparent  min-w-[350px] xxs:min-w-[80%]">
+                <div className="">
+                  <div>
+                    <Text className="font-semibold">🔥 Hot! Articles</Text>
+                  </div>
+                  <div>
+                    <div className="my-2">
+                      <Text className="my-2 text-sm clamp-2 font-medium">
+                        I dont think this is right, needs rectification
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text className="flex items-center text-gray-500 dark:text-gray-400">
+                            <BookmarkSimple size={19} />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              Read later
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <Text className="my-2 text-sm clamp-2 font-medium">
+                        The list is very acurate, good job👏👏
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text className="flex items-center text-gray-500 dark:text-gray-400">
+                            <BookmarkSimple size={19} />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              Read later
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <Text className="my-2 text-sm clamp-2 font-medium">
+                        Lets work on something together. Although i think that
+                        the project can make use of alot of improvements
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text className="flex items-center text-gray-500 dark:text-gray-400">
+                            <BookmarkSimple size={19} />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              Read later
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <Text className="my-2 text-sm clamp-2 font-medium">
+                        Awesome work dude 🔥
+                      </Text>
+                      <div className="flex">
+                        <div className="flex items-center">
+                          <Text className="flex items-center text-gray-500 dark:text-gray-400">
+                            <BookmarkSimple size={19} />
+                            <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
+                              Read later
+                            </div>
+                          </Text>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <div className="">
+                            <AvatarsGroup size={30} limit={3}>
+                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
+                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
+                              <Avatar />
+                            </AvatarsGroup>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="my-2">
-                    <Text className="my-2 text-sm clamp-2 font-medium">
-                      I don't think this is right, needs rectification
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text className="flex items-center text-gray-500 dark:text-gray-400">
-                          <BookmarkSimple size={19} />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            Read later
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <Text className="my-2 text-sm clamp-2 font-medium">
-                      The list is very acurate, good job👏👏
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text className="flex items-center text-gray-500 dark:text-gray-400">
-                          <BookmarkSimple size={19} />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            Read later
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <Text className="my-2 text-sm clamp-2 font-medium">
-                      Let's work on something together. Although i think that
-                      the project can make use of alot of improvements
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text className="flex items-center text-gray-500 dark:text-gray-400">
-                          <BookmarkSimple size={19} />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            Read later
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <Text className="my-2 text-sm clamp-2 font-medium">
-                      Awesome work dude 🔥
-                    </Text>
-                    <div className="flex">
-                      <div className="flex items-center">
-                        <Text className="flex items-center text-gray-500 dark:text-gray-400">
-                          <BookmarkSimple size={19} />
-                          <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                            Read later
-                          </div>
-                        </Text>
-                        <Divider orientation="vertical" className="mx-2" />
-                        <div className="">
-                          <AvatarsGroup size={30} limit={3}>
-                            <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                            <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                            <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                            <Avatar />
-                          </AvatarsGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </Col>
         </Grid>
       </Container>
