@@ -1,7 +1,6 @@
 import { Session, UserCredentials } from "@supabase/gotrue-js";
 import { SupabaseClient } from "@supabase/supabase-js";
-import { IconProps } from "phosphor-react";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 /**
  * Custom Image Component
@@ -71,31 +70,7 @@ export interface NavProps {
   supabase?: SupabaseClient;
 }
 
-/**
- * Shared Interface for List Components
- * @property {ReactNode} icon
- * @property {string} title
- * @property {string} description
- * @property {ReactNode} header
- * @property {ReactNode} footer
- */
-export interface CB_ListProps {
-  /** Icon , in React Component Format */
-  icon: ReactNode;
-  /** Title of List */
-  title: string;
-  /** Description  */
-  description?: string;
-  /** Header Component, above title */
-  header?: ReactNode;
-  /** Footer Component, below description */
-  footer?: ReactNode;
-  image: {
-    name: string;
-  };
-  reactions?: [];
-  bookmarked?: boolean | false;
-}
+
 
 /**
  * Interface for Signin Component

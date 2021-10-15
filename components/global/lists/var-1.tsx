@@ -1,4 +1,4 @@
-import { CB_ListProps } from "../../../types/global/defaults";
+import { CB_ListProps } from "../../../types/global/lists";
 import { Text } from "@mantine/core";
 
 /**
