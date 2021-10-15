@@ -1,13 +1,9 @@
 import {
-  Button,
   Container,
   Grid,
   Col,
   Avatar,
   Card,
-  AvatarsGroup,
-  Badge,
-  CardSection,
   Text,
   Divider,
 } from "@mantine/core";
@@ -15,19 +11,12 @@ import Wrapper from "../components/global/wrapper";
 import Image2 from "../components/global/image";
 import {
   ArrowSquareOut,
-  ArrowSquareUpRight,
   BookmarkSimple,
   HandsClapping,
-  HandWaving,
   Heart,
   Lightning,
-  NumberOne,
-  Plus,
   ThumbsUp,
 } from "phosphor-react";
-// import ReactOriginalIcon from "react-devicons/react/original";
-// import AngularjsOriginalIcon from "react-devicons/angularjs/original";
-import Flicking from "@egjs/react-flicking";
 import { Reaction, ReactionsHorizontal } from "components/global/reactions";
 import { ReactionLayout } from "types/global/defaults";
 export default function Home() {

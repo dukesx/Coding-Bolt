@@ -79,7 +79,7 @@ export interface NavProps {
  * @property {ReactNode} header
  * @property {ReactNode} footer
  */
-export interface ListProps {
+export interface CB_ListProps {
   /** Icon , in React Component Format */
   icon: ReactNode;
   /** Title of List */
@@ -90,6 +90,11 @@ export interface ListProps {
   header?: ReactNode;
   /** Footer Component, below description */
   footer?: ReactNode;
+  image: {
+    name: string;
+  };
+  reactions?: [];
+  bookmarked?: boolean | false;
 }
 
 /**

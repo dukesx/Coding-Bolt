@@ -11,6 +11,14 @@ export const ReactionsVertical = () => {
   };
 };
 
+/**
+ * The Main Reaction component
+ * @summary To be used inside Horizontal or Vertical Container
+ * @param {ReactNode} icon - Icon in Component Format
+ * @param {string} label - label
+ * @param {string} iconColor - Mantine color
+ * @param {ReactLayout} layout - Custom or Normal
+ */
 export const Reaction: React.FC<ReactionProps> = ({
   icon,
   label,
@@ -27,6 +35,12 @@ export const Reaction: React.FC<ReactionProps> = ({
   );
 };
 
+/**
+ * Horizontal Container for Reactions
+ * @summary Can be used for single page article or widgets
+ * @param {ReactNode} children
+ * @param {number} reacts
+ */
 export const ReactionsHorizontal: React.FC<ReactionContainerProps> = ({
   children,
   reacts,
