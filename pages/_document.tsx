@@ -16,11 +16,7 @@ export default class _Document extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
           />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-          ></link>
-          <script async src="https://unpkg.com/phosphor-icons"></script>
+
         </Head>
         <body>
           <Main />

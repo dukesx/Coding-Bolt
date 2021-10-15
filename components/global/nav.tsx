@@ -58,7 +58,7 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
         >
           <Col span={2}>
             <Avatar
-              className="ml-auto xs:mr-auto xxs:mr-auto xs:ml-4 xxs:ml-4 cursor-pointer"
+              className="ml-auto md:ml-4 lg:ml-16 lg:mr-auto md:mr-auto xs:mr-auto xxs:mr-auto xs:ml-4 xxs:ml-4 cursor-pointer"
               radius="xl"
               onClick={() => setDrawer(true)}
               color={colorScheme == "dark" ? "yellow" : "blue"}
