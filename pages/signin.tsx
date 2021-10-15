@@ -24,9 +24,9 @@ import { supabase } from "lib/supabaseClient";
 const SignInComponent: React.FC<SigninProps> = (props) => {
   return (
     <Wrapper>
-      <Grid className="mt-20 mb-0 mx-0 w-full" gutter={24}>
+      <Grid className="mt-2 mb-0 mx-0 w-full" gutter={24}>
         <Col span={12} xs={12} xl={8} lg={8} md={8} sm={7}>
-          <Text className="font-black uppercase p-2" size="xl">
+          <Text className="font-black uppercase p-2 mb-5" size="xl">
             Sign up and Get These Goodies 🤟
           </Text>
           <Flicking

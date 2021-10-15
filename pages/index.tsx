@@ -12,14 +12,13 @@ import {
 import Wrapper from "../components/global/wrapper";
 import Image2 from "../components/global/image";
 import { BookmarkSimple, Heart, Lightning } from "phosphor-react";
-import ReactOriginalIcon from "react-devicons/react/original";
-import AngularjsOriginalIcon from "react-devicons/angularjs/original";
-import Image from "next/image";
-
+// import ReactOriginalIcon from "react-devicons/react/original";
+// import AngularjsOriginalIcon from "react-devicons/angularjs/original";
+import Flicking from "@egjs/react-flicking";
 export default function Home() {
   return (
     <Wrapper>
-      <Container size="lg" className="pt-20 px-0">
+      <Container size="lg" className="pt-2 px-0">
         <Grid className="">
           <Col span={12} xl={7} lg={7} md={7} sm={7}>
             <Card className="w-full bg-transparent ">
