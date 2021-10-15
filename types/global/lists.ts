@@ -20,7 +20,7 @@ export interface CB_ListProps {
   /** Footer Component, below description */
   footer?: ReactNode;
   /** Article Cover */
-  image: {
+  image?: {
     name: string;
   };
 }

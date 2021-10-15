@@ -6,15 +6,17 @@ import { Text } from "@mantine/core";
  * @param {string} title
  * @param {ReactNode} icon
  */
-const ListVar1: React.FC<CB_ListProps> = ({ title, icon }) => {
+const ListVar1: React.FC<CB_ListProps> = ({ title, icon, header, footer }) => {
   return (
     <div className="mt-0 font-medium text-xs cursor-pointer">
+      {header}
       <div className="flex items-center p-3 hover:bg-manLightHover dark:hover:bg-manDarkHover">
-        <div className="mr-2">{icon}</div>
+        {icon ? <div className="mr-2">{icon}</div> : null}
         <div>
           <Text className="text-sm">{title}</Text>
         </div>
       </div>
+      {footer}
     </div>
   );
 };
