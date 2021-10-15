@@ -35,8 +35,15 @@ export default function Home() {
     <Wrapper>
       <Container size="lg" className="pt-2 px-0">
         <Grid className="sm:flex-col-reverse xs:flex-col-reverse xxs:flex-col-reverse w-full">
-          <Col span={12} xl={7} lg={7} md={7} sm={7}>
-            <Card className="w-full bg-transparent mt-2">
+          <Col
+            className="xs:pt-0 xxs:pt-0 sm:pt-0"
+            span={12}
+            xl={7}
+            lg={7}
+            md={7}
+            sm={7}
+          >
+            <Card className="w-full bg-transparent mt-2 xs:mt-0 xxs:mt-0 sm:mt-0">
               <div className="flex">
                 <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
                   <Image2
@@ -49,34 +56,19 @@ export default function Home() {
                   />
                 </div>
                 <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // <i className="devicon-react-original colored"></i>
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
+                  <div className="flex mb-1 items-center">
+                    <Text className="text-sm ml-1">In</Text>
+                    <Text className="mx-1.5" color="blue">
+                      <i className="devicon-react-plain text-lg" />
+                    </Text>
+                    <Text className="text-sm">For</Text>
+                    <Text
+                      className="mx-1 text-sm font-semibold underline"
+                      component="a"
+                      href="/"
                     >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
+                      React Dev Team
+                    </Text>
                   </div>
                   <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
                     A React Application Meant To Keep Track Of The Most Popular
@@ -97,12 +89,39 @@ export default function Home() {
                     <Text className=" text-yellow-400">
                       <Lightning size={21} />
                     </Text>
+                    <Divider orientation="vertical" className="mx-2" />
+                    <div className="">
+                      <Avatar size={25} radius="xl">
+                        <Image2
+                          height={60}
+                          width={60}
+                          alt="something"
+                          name="ZzfNjwjAxJ.jpg"
+                          className="rounded-md"
+                          hash=""
+                        />
+                      </Avatar>
+                    </div>
+                    <Divider orientation="vertical" className="mx-2" />
+                    <ReactionsHorizontal reacts={100}>
+                      <Reaction
+                        layout={ReactionLayout.Custom}
+                        icon={<Heart size={22} weight="duotone" />}
+                        iconColor="red"
+                      />
+
+                      <Reaction
+                        layout={ReactionLayout.Custom}
+                        icon={<HandsClapping size={22} weight="duotone" />}
+                        iconColor="yellow"
+                      />
+                    </ReactionsHorizontal>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <Card className="w-full bg-transparent mt-2">
+            <Card className="w-full bg-transparent mt-2 xs:mt-0 xxs:mt-0 sm:mt-0">
               <div className="flex">
                 <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
                   <Image2
@@ -115,33 +134,19 @@ export default function Home() {
                   />
                 </div>
                 <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
+                  <div className="flex mb-1 items-center">
+                    <Text className="text-sm ml-1">In</Text>
+                    <Text className="mx-1.5" color="red">
+                      <i className="devicon-angularjs-plain text-lg" />
+                    </Text>
+                    <Text className="text-sm">For</Text>
+                    <Text
+                      className="mx-1 text-sm font-semibold underline"
+                      component="a"
+                      href="/"
                     >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
+                      Google Engineering
+                    </Text>
                   </div>
                   <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
                     A React Application Meant To Keep Track Of The Most Popular
@@ -162,6 +167,33 @@ export default function Home() {
                     <Text className=" text-yellow-400">
                       <Lightning size={21} />
                     </Text>
+                    <Divider orientation="vertical" className="mx-2" />
+                    <div className="">
+                      <Avatar size={25} radius="xl">
+                        <Image2
+                          height={60}
+                          width={60}
+                          alt="something"
+                          name="ZzfNjwjAxJ.jpg"
+                          className="rounded-md"
+                          hash=""
+                        />
+                      </Avatar>
+                    </div>
+                    <Divider orientation="vertical" className="mx-2" />
+                    <ReactionsHorizontal reacts={100}>
+                      <Reaction
+                        layout={ReactionLayout.Custom}
+                        icon={<Heart size={22} weight="duotone" />}
+                        iconColor="red"
+                      />
+
+                      <Reaction
+                        layout={ReactionLayout.Custom}
+                        icon={<HandsClapping size={22} weight="duotone" />}
+                        iconColor="yellow"
+                      />
+                    </ReactionsHorizontal>
                   </div>
                 </div>
               </div>
@@ -176,7 +208,7 @@ export default function Home() {
             sm={5}
           >
             <div className="xs:flex xs:overflow-x-scroll xs:w-full xxs:flex xxs:overflow-x-scroll xxs:w-full sm:flex sm:overflow-x-scroll sm:w-full">
-              <Card className="bg-transparent min-w-[350px] xxs:min-w-[80%]">
+              <Card className="bg-transparent min-w-[320px] xxs:min-w-[80%]">
                 <div className="">
                   <div>
                     <Text className="font-semibold">Top Comments</Text>
@@ -313,7 +345,7 @@ export default function Home() {
                 </div>
               </Card>
 
-              <Card className="bg-transparent  min-w-[350px] xxs:min-w-[80%]">
+              <Card className="bg-transparent min-w-[320px] xxs:min-w-[80%]">
                 <div className="">
                   <div>
                     <Text className="font-semibold">🔥 Hot! Articles</Text>
