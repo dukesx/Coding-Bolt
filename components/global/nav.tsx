@@ -151,13 +151,13 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
         <div className="h-[160px] flex flex-col items-center justify-center mt-0 w-full relative bg-black bg-opacity-30 z-50">
           <div className="flex">
             <Avatar radius="xl" className="rounded-full" size={90}>
-              <Image
+              <Image2
                 height={120}
                 width={120}
-                className="object-cover"
-                src={PlaceholderAvatar}
-                alt="avatar"
-                // placeholder="blur"
+                alt="something"
+                name="ZzfNjwjAxJ.jpg"
+                className="rounded-md"
+                hash=""
               />
             </Avatar>
             <div className="flex flex-col ml-4 mt-4 font-semibold">

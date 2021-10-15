@@ -102,3 +102,50 @@ export interface SigninProps {
    */
   user?: UserCredentials;
 }
+
+/**
+ * Interface for Reaction Component
+ */
+
+/**
+ * Reaction Layout Enum
+ * @property Normal
+ * @property Custom
+ */
+export enum ReactionLayout {
+  Normal,
+  Custom,
+}
+
+/**
+ * Interface for Reactions
+ * @property {string} label - for labeling reactions
+ * @property {string} iconColor - Mantine Color Name
+ * @property {ReactNode} icon - Icon in React Component Format
+ * @property {ReactionLayout} layout - Layout in enum , custom | normal
+ */
+export interface ReactionProps {
+  /**
+   * Label for Reaction
+   * */
+  label?: string;
+  /** Color of the icon */
+  iconColor?: string;
+  /** Icon for Reaction in React Node Format */
+  icon: ReactNode;
+  /** Layout for icons */
+  layout: ReactionLayout;
+}
+
+/**
+ * Interface for Reaction Container Component
+ * @property {ReactNode} children
+ * @property {number} reacts
+ *
+ */
+export interface ReactionContainerProps {
+  /** Reactions */
+  children?: ReactNode;
+  /** Total reactions number */
+  reacts: number;
+}

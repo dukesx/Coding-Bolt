@@ -17,12 +17,19 @@ import {
   ArrowSquareOut,
   ArrowSquareUpRight,
   BookmarkSimple,
+  HandsClapping,
+  HandWaving,
   Heart,
   Lightning,
+  NumberOne,
+  Plus,
+  ThumbsUp,
 } from "phosphor-react";
 // import ReactOriginalIcon from "react-devicons/react/original";
 // import AngularjsOriginalIcon from "react-devicons/angularjs/original";
 import Flicking from "@egjs/react-flicking";
+import { Reaction, ReactionsHorizontal } from "components/global/reactions";
+import { ReactionLayout } from "types/global/defaults";
 export default function Home() {
   return (
     <Wrapper>
@@ -83,13 +90,12 @@ export default function Home() {
                     about it.
                   </Text>
                   <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple-fill text-xl" />
+                    <Text className="text-gray-500 dark:text-gray-400 text-xl">
+                      <BookmarkSimple />
                     </Text>
                     <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
+                    <Text className=" text-yellow-400">
+                      <Lightning size={21} />
                     </Text>
                   </div>
                 </div>
@@ -114,7 +120,6 @@ export default function Home() {
                       className="border-none pl-0"
                       variant="outline"
                       leftSection={
-                        // <i className="devicon-react-original colored"></i>
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           alt=""
@@ -150,348 +155,12 @@ export default function Home() {
                     about it.
                   </Text>
                   <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple text-gray-400 text-xl" />
+                    <Text className="text-gray-500 dark:text-gray-400 text-xl">
+                      <BookmarkSimple />
                     </Text>
                     <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="w-full bg-transparent mt-2">
-              <div className="flex">
-                <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
-                  <Image2
-                    height={120}
-                    width={120}
-                    alt="something"
-                    name="ZzfNjwjAxJ.jpg"
-                    className="rounded-md"
-                    hash=""
-                  />
-                </div>
-                <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // <i className="devicon-react-original colored"></i>
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
-                    >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
-                  </div>
-                  <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
-                    A React Application Meant To Keep Track Of The Most Popular
-                    Crypto Currencies Status
-                  </Text>
-                  <Text className="text-sm clamp-1 mt-2 xs:text-xs xs:hidden xxs:hidden">
-                    A single page application meant to keep track of the most
-                    popular crypto currencies status. The user can sort the
-                    coins by highest gains or losses in the previous 24 hours,
-                    as well as click on a single coin to display more details
-                    about it.
-                  </Text>
-                  <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple text-gray-400 text-xl" />
-                    </Text>
-                    <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="w-full bg-transparent mt-2">
-              <div className="flex">
-                <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
-                  <Image2
-                    height={120}
-                    width={120}
-                    alt="something"
-                    name="ZzfNjwjAxJ.jpg"
-                    className="rounded-md"
-                    hash=""
-                  />
-                </div>
-                <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // <i className="devicon-react-original colored"></i>
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
-                    >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
-                  </div>
-                  <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
-                    A React Application Meant To Keep Track Of The Most Popular
-                    Crypto Currencies Status
-                  </Text>
-                  <Text className="text-sm clamp-1 mt-2 xs:text-xs xs:hidden xxs:hidden">
-                    A single page application meant to keep track of the most
-                    popular crypto currencies status. The user can sort the
-                    coins by highest gains or losses in the previous 24 hours,
-                    as well as click on a single coin to display more details
-                    about it.
-                  </Text>
-                  <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple text-gray-400 text-xl" />
-                    </Text>
-                    <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="w-full bg-transparent mt-2">
-              <div className="flex">
-                <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
-                  <Image2
-                    height={120}
-                    width={120}
-                    alt="something"
-                    name="ZzfNjwjAxJ.jpg"
-                    className="rounded-md"
-                    hash=""
-                  />
-                </div>
-                <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // <i className="devicon-react-original colored"></i>
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
-                    >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
-                  </div>
-                  <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
-                    A React Application Meant To Keep Track Of The Most Popular
-                    Crypto Currencies Status
-                  </Text>
-                  <Text className="text-sm clamp-1 mt-2 xs:text-xs xs:hidden xxs:hidden">
-                    A single page application meant to keep track of the most
-                    popular crypto currencies status. The user can sort the
-                    coins by highest gains or losses in the previous 24 hours,
-                    as well as click on a single coin to display more details
-                    about it.
-                  </Text>
-                  <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple text-gray-400 text-xl" />
-                    </Text>
-                    <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="w-full bg-transparent mt-2">
-              <div className="flex">
-                <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
-                  <Image2
-                    height={120}
-                    width={120}
-                    alt="something"
-                    name="ZzfNjwjAxJ.jpg"
-                    className="rounded-md"
-                    hash=""
-                  />
-                </div>
-                <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // <i className="devicon-react-original colored"></i>
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
-                    >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
-                  </div>
-                  <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
-                    A React Application Meant To Keep Track Of The Most Popular
-                    Crypto Currencies Status
-                  </Text>
-                  <Text className="text-sm clamp-1 mt-2 xs:text-xs xs:hidden xxs:hidden">
-                    A single page application meant to keep track of the most
-                    popular crypto currencies status. The user can sort the
-                    coins by highest gains or losses in the previous 24 hours,
-                    as well as click on a single coin to display more details
-                    about it.
-                  </Text>
-                  <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple text-gray-400 text-xl" />
-                    </Text>
-                    <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
-                    </Text>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="w-full bg-transparent mt-2">
-              <div className="flex">
-                <div className="mr-4 min-w-[80px] max-w-[80px] xs:min-w-[60px] xxs:min-w-[60px]">
-                  <Image2
-                    height={120}
-                    width={120}
-                    alt="something"
-                    name="ZzfNjwjAxJ.jpg"
-                    className="rounded-md"
-                    hash=""
-                  />
-                </div>
-                <div className="max-w-[80%]">
-                  <div className="flex mb-1">
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      leftSection={
-                        // <i className="devicon-react-original colored"></i>
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          alt=""
-                          width="16"
-                          height="16"
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                        ></img>
-                      }
-                    >
-                      React
-                    </Badge>
-
-                    <Badge
-                      className="border-none pl-0"
-                      variant="outline"
-                      color="red"
-                      leftSection={
-                        <i className="devicon-angularjs-plain text-lg text-red-600" />
-                      }
-                    >
-                      Angular
-                    </Badge>
-                  </div>
-                  <Text className="font-semibold clamp-2 text-base xs:text-sm xxs:text-sm md:text-sm">
-                    A React Application Meant To Keep Track Of The Most Popular
-                    Crypto Currencies Status
-                  </Text>
-                  <Text className="text-sm clamp-1 mt-2 xs:text-xs xs:hidden xxs:hidden">
-                    A single page application meant to keep track of the most
-                    popular crypto currencies status. The user can sort the
-                    coins by highest gains or losses in the previous 24 hours,
-                    as well as click on a single coin to display more details
-                    about it.
-                  </Text>
-                  <div className="flex mt-2">
-                    <Text className="text-gray-400">
-                      {/* <BookmarkSimple size={22} /> */}
-                      <i className="ph-bookmark-simple text-gray-400 text-xl" />
-                    </Text>
-                    <Divider className="mx-2" orientation="vertical" />
-                    <Text className="text-gray-400">
-                      <i className="ph-lightning text-yellow-400 text-xl" />
+                    <Text className=" text-yellow-400">
+                      <Lightning size={21} />
                     </Text>
                   </div>
                 </div>
@@ -534,13 +203,11 @@ export default function Home() {
                             </div>
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
-                          <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                          <div className="flex items-center">
+                            <Text className="flex mr-2" color="blue">
+                              <ThumbsUp weight="bold" />
+                            </Text>
+                            <Text className="text-sm">44 Votes</Text>
                           </div>
                         </div>
                       </div>
@@ -567,12 +234,12 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <div className="flex items-center">
+                              <Text className="flex mr-2" color="blue">
+                                <ThumbsUp weight="bold" />
+                              </Text>
+                              <Text className="text-sm">27 Votes</Text>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -600,12 +267,12 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <div className="flex items-center">
+                              <Text className="flex mr-2" color="blue">
+                                <ThumbsUp weight="bold" />
+                              </Text>
+                              <Text className="text-sm">9 Votes</Text>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -632,12 +299,12 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <div className="flex items-center">
+                              <Text className="flex mr-2" color="blue">
+                                <ThumbsUp weight="bold" />
+                              </Text>
+                              <Text className="text-sm">4 Votes</Text>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -666,13 +333,27 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <Avatar size={30} radius="xl">
+                              <Image2
+                                height={60}
+                                width={60}
+                                alt="something"
+                                name="ZzfNjwjAxJ.jpg"
+                                className="rounded-md"
+                                hash=""
+                              />
+                            </Avatar>
                           </div>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <ReactionsHorizontal reacts={20}>
+                            <Reaction
+                              layout={ReactionLayout.Custom}
+                              icon={
+                                <HandsClapping size={22} weight="duotone" />
+                              }
+                              iconColor="yellow"
+                            />
+                          </ReactionsHorizontal>
                         </div>
                       </div>
                     </div>
@@ -690,13 +371,25 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <Avatar size={30} radius="xl">
+                              <Image2
+                                height={60}
+                                width={60}
+                                alt="something"
+                                name="ZzfNjwjAxJ.jpg"
+                                className="rounded-md"
+                                hash=""
+                              />
+                            </Avatar>
                           </div>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <ReactionsHorizontal reacts={40}>
+                            <Reaction
+                              layout={ReactionLayout.Custom}
+                              icon={<Heart size={22} weight="duotone" />}
+                              iconColor="red"
+                            />
+                          </ReactionsHorizontal>
                         </div>
                       </div>
                     </div>
@@ -715,13 +408,33 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <Avatar size={30} radius="xl">
+                              <Image2
+                                height={60}
+                                width={60}
+                                alt="something"
+                                name="ZzfNjwjAxJ.jpg"
+                                className="rounded-md"
+                                hash=""
+                              />
+                            </Avatar>
                           </div>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <ReactionsHorizontal reacts={100}>
+                            <Reaction
+                              layout={ReactionLayout.Custom}
+                              icon={<Heart size={22} weight="duotone" />}
+                              iconColor="red"
+                            />
+
+                            <Reaction
+                              layout={ReactionLayout.Custom}
+                              icon={
+                                <HandsClapping size={22} weight="duotone" />
+                              }
+                              iconColor="yellow"
+                            />
+                          </ReactionsHorizontal>
                         </div>
                       </div>
                     </div>
@@ -739,13 +452,30 @@ export default function Home() {
                           </Text>
                           <Divider orientation="vertical" className="mx-2" />
                           <div className="">
-                            <AvatarsGroup size={30} limit={3}>
-                              <Avatar src="https://ik.imagekit.io/codingbolt/tr:w-128,h-120,q-75,/ZzfNjwjAxJ.jpg" />
-                              <Avatar src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
-                              <Avatar src="https://www.themobileindian.com/wp-content/uploads/2021/06/facebook-avatar-main.jpg" />
-                              <Avatar />
-                            </AvatarsGroup>
+                            <Avatar size={30} radius="xl">
+                              <Image2
+                                height={60}
+                                width={60}
+                                alt="something"
+                                name="ZzfNjwjAxJ.jpg"
+                                className="rounded-md"
+                                hash=""
+                              />
+                            </Avatar>
                           </div>
+                          <Divider orientation="vertical" className="mx-2" />
+                          <ReactionsHorizontal reacts={500}>
+                            <Reaction
+                              layout={ReactionLayout.Custom}
+                              icon={<Heart size={22} weight="duotone" />}
+                              iconColor="red"
+                            />
+                            <Reaction
+                              layout={ReactionLayout.Custom}
+                              icon={<ThumbsUp size={22} weight="duotone" />}
+                              iconColor="blue"
+                            />
+                          </ReactionsHorizontal>
                         </div>
                       </div>
                     </div>
