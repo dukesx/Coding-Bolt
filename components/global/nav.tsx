@@ -63,6 +63,8 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
               onClick={() => setDrawer(true)}
               color={colorScheme == "dark" ? "yellow" : "blue"}
             >
+              {console.log(session)}
+
               {session ? (
                 //@ts-ignore
 
@@ -70,7 +72,8 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
                   session.user.user_metadata.full_name.split(" ")[1].charAt(0) +
                   session.user.user_metadata.full_name.split(" ")[2].charAt(0)
                 ) : (
-                  session.user.user_metadata.full_name.split(" ")[0].charAt(0) +
+                  session.user.user_metadata.full_name.split(" ")[0].charAt(0) 
+                  +
                   session.user.user_metadata.full_name.split(" ")[1].charAt(0)
                 )
               ) : (

@@ -135,6 +135,16 @@ const SignInComponent: React.FC<SigninProps> = (props) => {
                 leftIcon={<GithubOriginalIcon color="white" size={21} />}
                 className="my-2.5 shadow-lg h-[40px]"
                 color="dark"
+                onClick={() =>
+                  supabase.auth.signIn(
+                    {
+                      provider: "github",
+                    },
+                    {
+                      redirectTo: "/",
+                    }
+                  )
+                }
               >
                 Sign in with Github
               </Button>

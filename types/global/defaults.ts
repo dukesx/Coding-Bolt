@@ -70,8 +70,6 @@ export interface NavProps {
   supabase?: SupabaseClient;
 }
 
-
-
 /**
  * Interface for Signin Component
  * @property {UserCredentials} user - Optional
@@ -128,4 +126,47 @@ export interface ReactionContainerProps {
   children?: ReactNode;
   /** Total reactions number */
   reacts: number;
+}
+
+export interface Like {
+  id?: string;
+  created?: Date;
+  author: Author[];
+}
+
+export interface Comment {
+  id?: string;
+  author: Author;
+  content: string;
+  article: Article;
+  likes: Like[];
+}
+
+export interface Reaction {
+  id?: string;
+  name: string;
+  icon: ReactNode;
+  author: Author;
+}
+
+export interface Author {
+  created?: Date;
+  id?: string;
+  name: string;
+  image: string;
+  url: string;
+}
+export interface Article {
+  id?: string;
+  title: string;
+  link: string;
+  cover?: string;
+  author: Author;
+  reactions: Reactions;
+  created?: Date;
+}
+
+export interface Reactions {
+  total: number;
+  array: Reaction[];
 }

@@ -2,13 +2,19 @@ import { Text, Divider } from "@mantine/core";
 import ListVar1 from "../lists/var-1";
 import { ArrowSquareOut, ThumbsUp } from "phosphor-react";
 import { CB_WidgetProps } from "types/global/widgets";
-const WidgetVar1: React.FC<CB_WidgetProps> = ({ title, comments }) => {
+const WidgetVar1: React.FC<CB_WidgetProps> = ({
+  title,
+  comments,
+  withComments,
+  withArticles,
+}) => {
   return (
     <div>
       <div>
         <Text className="font-semibold">{title}</Text>
+
         <ListVar1
-          title={comments}
+          title={title}
           footer={
             <div className="flex">
               <div className="flex items-center">

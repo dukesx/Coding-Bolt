@@ -4,6 +4,7 @@ import {
   Col,
   Avatar,
   Card,
+  Button,
   Text,
   Divider,
 } from "@mantine/core";
@@ -21,6 +22,7 @@ import { ReactionLayout } from "types/global/defaults";
 import ListVar2 from "components/global/lists/var-2";
 import ListHeaderVar1 from "components/global/lists/headers/var1";
 import ListFooterVar1 from "components/global/lists/footers/var-1";
+import { supabase } from "lib/supabaseClient";
 export default function Home() {
   return (
     <Wrapper>
@@ -34,6 +36,35 @@ export default function Home() {
             md={7}
             sm={7}
           >
+            <Button
+              onClick={async () => {
+                try 
+                {
+                const { data, error } = await supabase
+                  .from("articles")
+                  .delete()
+                  .match({
+                    id: 'eafe1c37-0dd0-473b-a833-8010dfc39541',
+                  });
+
+                if (data) {
+                  console.log("data is");
+                  console.log(data);
+                }
+                if(error)
+                {
+                  console.log(error)
+                }
+          
+              }
+              catch(err)
+              {
+                console.log(err)
+              }
+              }}
+            >
+              Delete
+            </Button>
             <ListVar2
               title=" A React Application Meant To Keep Track Of The Most Popular
               Crypto Currencies Status"
