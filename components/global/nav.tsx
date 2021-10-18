@@ -5,10 +5,8 @@ import {
   Button,
   Text,
   Avatar,
-  Accordion,
   Drawer,
   Divider,
-  List,
   Modal,
 } from "@mantine/core";
 import {
@@ -18,14 +16,7 @@ import {
   List as ListIcon,
   Trophy,
   Fire,
-  DiscordLogo,
-  GithubLogo,
   Student,
-  Heart,
-  BookmarkSimple,
-  Rss,
-  Heartbeat,
-  BellRinging,
   Tag,
   Folder,
 } from "phosphor-react";
@@ -58,22 +49,22 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
         >
           <Col span={2}>
             <Avatar
-              className="ml-auto md:ml-4 lg:ml-16 lg:mr-auto md:mr-auto xs:mr-auto xxs:mr-auto xs:ml-4 xxs:ml-4 cursor-pointer"
+              className="ml-auto md:ml-4 uppercase lg:ml-16 lg:mr-auto md:mr-auto xs:mr-auto xxs:mr-auto xs:ml-4 xxs:ml-4 cursor-pointer"
               radius="xl"
               onClick={() => setDrawer(true)}
               color={colorScheme == "dark" ? "yellow" : "blue"}
             >
-              {console.log(session)}
-
               {session ? (
                 //@ts-ignore
-
-                session.user.user_metadata.full_name.split(" ").length > 2 ? (
+                session.user.user_metadata.user_name ? (
+                  session.user.user_metadata.user_name.charAt(0) +
+                  session.user.user_metadata.user_name.charAt(1)
+                ) : session.user.user_metadata.full_name.split(" ").length >
+                  2 ? (
                   session.user.user_metadata.full_name.split(" ")[1].charAt(0) +
                   session.user.user_metadata.full_name.split(" ")[2].charAt(0)
                 ) : (
-                  session.user.user_metadata.full_name.split(" ")[0].charAt(0) 
-                  +
+                  session.user.user_metadata.full_name.split(" ")[0].charAt(0) +
                   session.user.user_metadata.full_name.split(" ")[1].charAt(0)
                 )
               ) : (
@@ -164,8 +155,12 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
               />
             </Avatar>
             <div className="flex flex-col ml-4 mt-4 font-semibold">
-              <Text className="text-sm text-white">
-                {session ? session.user.user_metadata.full_name : "Visitor"}
+              <Text className="text-sm text-white capitalize">
+                {session
+                  ? session.user.user_metadata.user_name
+                    ? session.user.user_metadata.user_name
+                    : session.user.user_metadata.full_name
+                  : "Visitor"}
               </Text>
               <Text className="text-xs text-white mt-1">
                 {session ? "Member" : ""}
@@ -213,14 +208,17 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
           <ListVar1
             title="Tags"
             icon={<Tag color="#BE4BDB" weight="duotone" size={24} />}
+            url="/"
           />
           <ListVar1
             title="Categories"
             icon={<Folder color="#E64980" weight="duotone" size={24} />}
+            url="/"
           />
           <ListVar1
             title="Courses"
             icon={<Student color="#12B886" weight="duotone" size={24} />}
+            url="/"
           />
 
           <Divider
@@ -231,16 +229,19 @@ const Nav: React.FC<NavProps> = ({ session, supabase }) => {
           <ListVar1
             title="Bolt-ing"
             icon={<Lightning color="#228BE6" weight="duotone" size={24} />}
+            url="/"
           />
 
           <ListVar1
             title="HOT!"
             icon={<Fire color="#FA5252" weight="duotone" size={24} />}
+            url="/"
           />
 
           <ListVar1
             title="All Time Favs"
             icon={<Trophy color="#FAB005" weight="duotone" size={24} />}
+            url="/"
           />
         </div>
       </Drawer>

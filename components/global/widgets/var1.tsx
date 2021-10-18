@@ -1,45 +1,43 @@
 import { Text, Divider } from "@mantine/core";
 import ListVar1 from "../lists/var-1";
-import { ArrowSquareOut, ThumbsUp } from "phosphor-react";
 import { CB_WidgetProps } from "types/global/widgets";
+
+/**
+ * Renders default Widget Style
+ *
+ * @param {string} title - Title of Widget
+ * @param {array} data - Data of Widget Comments[]|Articles[]
+ * @param {ReactNode} footer - Footer in Component Format - optional
+ * @param {ReactNode} header - Header in Component Format - optional
+ * @param {string} className - optional Classname to append to container
+ */
 const WidgetVar1: React.FC<CB_WidgetProps> = ({
   title,
-  comments,
-  withComments,
-  withArticles,
+  data,
+  footer,
+  className,
+  header,
 }) => {
   return (
-    <div>
+    <div
+      className={
+        `mt-6 xs:mt-2 xxs:mt-2 sm:mt-2 bg-transparent min-w-[320px] xxs:min-w-[80%]` +
+        " " +
+        className
+      }
+    >
       <div>
-        <Text className="font-semibold">{title}</Text>
-
-        <ListVar1
-          title={title}
-          footer={
-            <div className="flex">
-              <div className="flex items-center">
-                <Text
-                  variant="link"
-                  component="a"
-                  href="#"
-                  className="flex items-center"
-                >
-                  <ArrowSquareOut className="hover:underline" size={17} />
-                  <div className="ml-1 text-xs clamp-2 font-semibold cursor-pointer">
-                    View article
-                  </div>
-                </Text>
-                <Divider orientation="vertical" className="mx-2" />
-                <div className="flex items-center">
-                  <Text className="flex mr-2" color="blue">
-                    <ThumbsUp weight="bold" />
-                  </Text>
-                  <Text className="text-sm">44 Votes</Text>
-                </div>
-              </div>
-            </div>
-          }
-        />
+        <Text className="font-semibold ml-2">{title}</Text>
+        {data.map((data: any, index: number) => (
+          <ListVar1
+            url={`/data/${data.slug}`}
+            key={index}
+            widget
+            header={header}
+            title={data.title ? data.title : data.content}
+            footer={footer}
+          />
+        ))}
       </div>
     </div>
   );

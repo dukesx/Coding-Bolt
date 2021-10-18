@@ -15,6 +15,8 @@ export interface CB_ListProps {
   title: string;
   /** Description of article  */
   description?: string;
+  /** Url of List Item */
+  url: string;
   /** Header Component, above title */
   header?: ReactNode;
   /** Footer Component, below description */
@@ -23,6 +25,8 @@ export interface CB_ListProps {
   image?: {
     name: string;
   };
+  /** If it is being used in widget, turn off hover */
+  widget?: boolean | false;
 }
 
 /**

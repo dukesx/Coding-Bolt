@@ -1,19 +1,41 @@
 import { CB_ListProps } from "../../../types/global/lists";
 import { Text } from "@mantine/core";
-
+import Link from "next/link";
 /**
  *  List Component with icon and title, suitable for menus
  * @param {string} title
  * @param {ReactNode} icon
  */
-const ListVar1: React.FC<CB_ListProps> = ({ title, icon, header, footer }) => {
+const ListVar1: React.FC<CB_ListProps> = ({
+  title,
+  icon,
+  header,
+  footer,
+  widget,
+  url,
+}) => {
   return (
-    <div className="mt-0 font-medium text-xs cursor-pointer">
+    <div
+      className={
+        (widget ? " " : "cursor-pointer ") + "mt-0 font-medium text-xs"
+      }
+    >
       {header}
-      <div className="flex items-center p-3 hover:bg-manLightHover dark:hover:bg-manDarkHover">
+      <div
+        className={
+          (widget
+            ? " "
+            : "hover:bg-manLightHover dark:hover:bg-manDarkHover ") +
+          "flex items-center p-3"
+        }
+      >
         {icon ? <div className="mr-2">{icon}</div> : null}
         <div>
-          <Text className="text-sm">{title}</Text>
+          <Link href={url} passHref>
+            <Text component="a" className="text-sm">
+              {title}
+            </Text>
+          </Link>
         </div>
       </div>
       {footer}

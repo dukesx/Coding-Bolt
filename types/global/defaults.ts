@@ -134,12 +134,9 @@ export interface Like {
   author: Author[];
 }
 
-export interface Comment {
+export interface Comments {
   id?: string;
-  author: Author;
   content: string;
-  article: Article;
-  likes: Like[];
 }
 
 export interface Reaction {
@@ -156,14 +153,15 @@ export interface Author {
   image: string;
   url: string;
 }
-export interface Article {
+
+/** Interface for Articles Type */
+export interface Articles {
+  /** Id of Article */
   id?: string;
+  /** Title of Article */
   title: string;
-  link: string;
-  cover?: string;
-  author: Author;
-  reactions: Reactions;
-  created?: Date;
+  /** Slug of Article */
+  slug: string;
 }
 
 export interface Reactions {
