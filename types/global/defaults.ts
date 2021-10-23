@@ -168,3 +168,16 @@ export interface Reactions {
   total: number;
   array: Reaction[];
 }
+
+/** Interface for Single Article */
+export interface SingleArticle {
+  title: string;
+  content: [{}];
+  created_at: Date;
+  updated_at: Date;
+  author: {
+    name: string;
+    id: string;
+    cover: string;
+  };
+}

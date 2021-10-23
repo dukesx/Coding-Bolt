@@ -3,7 +3,7 @@ import ListVar1 from "../lists/var-1";
 import { CB_WidgetProps } from "types/global/widgets";
 
 /**
- * Renders default Widget Style
+ * Renders List with Comments or Article
  *
  * @param {string} title - Title of Widget
  * @param {array} data - Data of Widget Comments[]|Articles[]

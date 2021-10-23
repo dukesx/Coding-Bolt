@@ -27,6 +27,12 @@
   height: 30px;
   width: 100%;
 }
+.dark {
+  .embed-input:focus-visible {
+    outline: 0;
+    border: 0;
+  }
+}
 .embed-card {
   -webkit-box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);
   box-shadow: 0 3px 15px -3px rgb(13 20 33 / 13%);

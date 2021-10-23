@@ -152,23 +152,23 @@ export default function Home() {
                 data={[
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "i",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "t",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "t",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "s",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "a",
                   },
                 ]}
                 footer={
@@ -203,23 +203,23 @@ export default function Home() {
                 data={[
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "i",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "d",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "t",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "t",
                   },
                   {
                     title: "I dont think this is right, needs rectification",
-                    slug: "/",
+                    slug: "i",
                   },
                 ]}
                 footer={
