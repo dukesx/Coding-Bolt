@@ -1,7 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 dukesx/Coding-Bolt is built on the following main stack:
+
 - [Jest](http://facebook.github.io/jest/) – Javascript Testing Framework
 - [Swift](https://developer.apple.com/swift/) – Languages
 - [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
@@ -21,11 +22,13 @@ dukesx/Coding-Bolt is built on the following main stack:
 - [Docker](https://www.docker.com/) – Virtual Machine Platforms & Containers
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 dukesx/Coding-Bolt is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/830/jest.png' alt='Jest'/> [Jest](http://facebook.github.io/jest/) – Javascript Testing Framework
 - <img width='25' height='25' src='https://img.stackshare.io/service/1009/tuHsaI2U.png' alt='Swift'/> [Swift](https://developer.apple.com/swift/) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'/> [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
@@ -45,14 +48,15 @@ dukesx/Coding-Bolt is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/586/n4u37v9t_400x400.png' alt='Docker'/> [Docker](https://www.docker.com/) – Virtual Machine Platforms & Containers
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [dukesx/Coding-Bolt](https://github.com/dukesx/Coding-Bolt)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|43<br/>Tools used|11/11/23 <br/>Report generated|
+|43<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -277,11 +281,11 @@ Full tech stack [here](/techstack.md)
 |[postcss](https://www.npmjs.com/postcss)|v8.2.15|10/03/21|dukesx |MIT|[CVE-2023-44270](https://github.com/advisories/GHSA-7fh5-64p2-3v2j) (Moderate)|
 |[react-dom](https://www.npmjs.com/react-dom)|v16.14.0|10/11/21|dukesx |MIT|N/A|
 |[rewire](https://www.npmjs.com/rewire)|v5.0.0|10/11/21|dukesx |MIT|N/A|
-|[sharp](https://www.npmjs.com/sharp)|v0.29.1|10/06/21|dukesx |Apache-2.0|[CVE-2022-29256](https://github.com/advisories/GHSA-gp95-ppv5-3jc5) (Moderate)|
+|[sharp](https://www.npmjs.com/sharp)|v0.29.1|10/06/21|dukesx |Apache-2.0|[](https://github.com/advisories/GHSA-54xq-cgqr-rpm3) (High)<br/>[CVE-2022-29256](https://github.com/advisories/GHSA-gp95-ppv5-3jc5) (Moderate)|
 |[tailwindcss](https://www.npmjs.com/tailwindcss)|v2.2.16|10/03/21|dukesx |MIT|N/A|
 |[ts-jest](https://www.npmjs.com/ts-jest)|v27.0.5|10/11/21|dukesx |MIT|N/A|
 
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
